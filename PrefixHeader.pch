@@ -1,0 +1,36 @@
+//
+//  PrefixHeader.pch
+//  HumeApp_V1
+//
+//  Created by MileyLiu on 9/11/17.
+//  Copyright © 2017 MileyLiu. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */
+/*
+ 获取当前保存在NSUserDefaults的本地语言
+ 
+ #define currentLanguage  [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"appLanguage"]]
+ 
+ 根据获取语言文件所在路径
+ 文件名类型Type为lproj,即.lproj的文件夹.  zh-Hans.lproj和en.loproj
+ 存在NSUserDefaults的适合，中英文就分别设置zh-Hans和en，不可改变。
+ 
+ #define LanguagePath [[NSBundle mainBundle] pathForResource:currentLanguage ofType:@"lproj"]
+ 
+ 根据键值获取返回转换结果
+ Language为语言文件名Language.string
+ 
+ #define Localized(key) [[NSBundle bundleWithPath:LanguagePath] localizedStringForKey:(key) value:nil table:@"Language"]
+ */
+
+
+////等同于上面定义的三个宏综合
+//#define Localized(key)  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"AppLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"Localizable"]//<span style="font-family: Arial, Helvetica, sans-serif;">Language一定要和创建的strings文件名相同</span>
+

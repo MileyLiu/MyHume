@@ -1,0 +1,6 @@
+framework module EAFeatureGuideView {
+  umbrella header "EAFeatureGuideView-umbrella.h"
+
+  export *
+  module * { export * }
+}

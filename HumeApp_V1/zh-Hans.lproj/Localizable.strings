@@ -1,0 +1,137 @@
+/* 
+  Localizable.strings
+  HumeApp_V1
+
+  Created by MileyLiu on 18/10/17.
+  Copyright © 2017 MileyLiu. All rights reserved.
+*/
+
+ORDER_NO = "订单号";
+SUBURB = "地区";
+STATUS = "状态";
+SCHEDULE = "排期";
+
+WEEKDAY = "周一至周五";
+WEEKEND = "周六";
+
+//基本
+ALERT = "警告";
+DELETE = "删除";
+SUCCESS = "成功";
+OK = "好的";
+CLEAR = "清除";
+CANCEL = "取消";
+CONFIRM = "确认";
+DONE = "完成";
+SUBMIT = "提交";
+SUBURB = "地区";
+BACK = "返回";
+
+//error
+SUBURB_ERRO = "地区不正确！";
+SLIP_ERROR = "单号不正确的！";
+FILL_ERROR = "请补全信息!";
+RECORD_ERROR = "找不到订单!";
+NETWORK_ERROR = "访问超时，请检查网络!";
+//提示
+DELETE_HISTORY = "是否删除历史记录?";
+DELETE_CHAR = "是否清空购物车?";
+
+SUBMIT_SUCESS = "提交成功";
+SOCIAL = "选择社交平台";
+NO_HISTORY = "您还没有查询历史记录";
+NO_ITEM =  "您的购物车是空的";
+
+PRIORITY = "如果电话占线,点击这里发送信息";
+STORE = "选择您要查看的分店";
+CART = "点击加入购物车";
+
+DATE = "需要时间";
+TIME = "预计耗时: ";
+MAP ="实时位置";
+DETAIL = "详情";
+
+DISTANCE = "距离";
+SAVE_DETAIL ="是否保存个人信息？";
+
+NO_REALTIME = "抱歉，当前订单无法提供实时位置";
+
+//sidebar
+HOME = "主页";
+SHARE = "分享";
+SETTING = "设置";
+FEEDBACK = "反馈";
+
+LANGUGAE_SWITCH = "切换语言";
+LANG = "简体中文";
+LANGUAGE = "请选择语言";
+
+NOTIFICTAION = "通知";
+
+CACHE = "清除缓存";
+CLEAR_CACHE = "是否清除缓存?";
+
+//Tracking
+TRACKING = "追踪";
+DELIVERY_TRACKING = "订单追踪";
+TRACKING_DES = "请输入订单号和地区来查询";
+PICKING = "拣配单号";
+HISTORY = "历史";
+TRACK = "追踪";
+RESULT = "追踪结果";
+DELIVERY_STATUS = "送货状态";
+TRACKING_HISTORY = "查询历史";
+
+//Location
+BRANCH_LOCATION = "分店位置";
+LOCATION = "位置";
+DISTANCE = "距离";
+EXPEXTED = "预计消耗";
+UPDATED = "更新";
+
+//Special
+SPECIAL = "特价";
+CURRENT_SPECIALS = "特价优惠";
+TOTAL = "总价";
+
+ADDITIONA_DETAIL = "补全信息";
+DATE_REQUIRED = "时间";
+JOB_TYPE = "提货方式";
+BRANCH = "分店";
+
+HUME_ACC = "Hume 账号（可选）";
+YOUR_NAME = "您的名字";
+YOUR_CONTACT = "您的电话号码";
+
+//Support
+SUPPORT = "支持";
+SUGGESTION = "建议";
+COMPLAINT = "投诉";
+CATEGORY = "类别";
+
+APP = "App功能";
+PRODUCT = "产品";
+OTHER = "其他";
+
+
+DESCRIBE = "请描述具体问题";
+DESCRIBE_PH = "在此处填写";
+CONTACT = "联系方式";
+CONTACT_PH = "选填 方便我们与您联系（电话/邮箱）";
+
+DELIVERY = "送货";
+GENERAL = "普通";
+
+
+
+
+
+
+
+
+
+
+
+
+
+

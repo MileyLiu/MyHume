@@ -1,0 +1,272 @@
+
+/* Class = "UITextField"; placeholder = "date required"; ObjectID = "166-Lo-Dfr"; */
+"166-Lo-Dfr.placeholder" = "需要时间";
+
+/* Class = "UILabel"; text = "Dispatched"; ObjectID = "1Wz-tk-dDT"; */
+"1Wz-tk-dDT.text" = "Dispatched";
+
+/* Class = "UINavigationItem"; title = "Tracking Result"; ObjectID = "28W-43-e69"; */
+"28W-43-e69.title" = "查询结果";
+
+/* Class = "UITabBarItem"; title = "Tracking"; ObjectID = "2Ty-mf-bKR"; */
+"2Ty-mf-bKR.title" = "追踪";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3Ko-qM-fC4"; */
+"3Ko-qM-fC4.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Delivery Tracking"; ObjectID = "6Wv-J8-7wt"; */
+"6Wv-J8-7wt.title" = "订单追踪";
+
+/* Class = "UILabel"; text = "delivery"; ObjectID = "8EE-hr-EWT"; */
+"8EE-hr-EWT.text" = "送货";
+
+/* Class = "UILabel"; text = "Tracking History"; ObjectID = "8Ts-2u-wUN"; */
+"8Ts-2u-wUN.text" = "查询历史";
+
+/* Class = "UILabel"; text = "Suburb:"; ObjectID = "8pY-Kk-0bG"; */
+"8pY-Kk-0bG.text" = "地区:";
+
+/* Class = "UILabel"; text = "Loading weekend time......"; ObjectID = "9wr-5z-sJX"; */
+"9wr-5z-sJX.text" = "加载工作日营业时间.....";
+
+/* Class = "UITabBarItem"; title = "Location"; ObjectID = "Ag6-Ni-Mfc"; */
+"Ag6-Ni-Mfc.title" = "位置";
+
+/* Class = "UINavigationItem"; title = "Tracking history"; ObjectID = "Bs2-cZ-nvc"; */
+"Bs2-cZ-nvc.title" = "追踪历史";
+
+/* Class = "UILabel"; text = "Please enter your picking slip number and suburb to track"; ObjectID = "CXl-RC-gQ6"; */
+"CXl-RC-gQ6.text" = "请输入订单号和地区来查询";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ccg-bC-gg0"; */
+"Ccg-bC-gg0.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Company News"; ObjectID = "Cyu-wt-9rX"; */
+"Cyu-wt-9rX.title" = "最新消息";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DIf-Qy-yu9"; */
+"DIf-Qy-yu9.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Support"; ObjectID = "DnN-xC-cgD"; */
+"DnN-xC-cgD.title" = "支持";
+
+/* Class = "UILabel"; text = "schedule"; ObjectID = "Dtj-SG-sM2"; */
+"Dtj-SG-sM2.text" = "排期";
+
+/* Class = "UILabel"; text = "Canterbury"; ObjectID = "EtT-tj-oHy"; */
+"EtT-tj-oHy.text" = "Canterbury";
+
+/* Class = "UITextField"; placeholder = "Your name"; ObjectID = "FNk-eF-gBE"; */
+"FNk-eF-gBE.placeholder" = "您的名字";
+
+/* Class = "UINavigationItem"; title = "Current Specials"; ObjectID = "HTo-iv-5bs"; */
+"HTo-iv-5bs.title" = "特价优惠";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Ioz-AJ-TEu"; */
+"Ioz-AJ-TEu.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "4 OCt, 2017, 8:53:05 pm"; ObjectID = "Iqm-3u-SIv"; */
+"Iqm-3u-SIv.text" = "2017 年 10 月 4日,  8:53:05 pm";
+
+/* Class = "UILabel"; text = "SGR/147307"; ObjectID = "JmH-3d-cmG"; */
+"JmH-3d-cmG.text" = "SGR/147307";
+
+/* Class = "UILabel"; text = "Total Price:"; ObjectID = "NVD-FN-7UN"; */
+"NVD-FN-7UN.text" = "总价:";
+
+/* Class = "UILabel"; text = "product title"; ObjectID = "Nf8-Hr-LkN"; */
+"Nf8-Hr-LkN.text" = "产品名";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Nsf-Pp-qAf"; */
+"Nsf-Pp-qAf.text" = "0";
+
+/* Class = "UILabel"; text = "13 48 63"; ObjectID = "Qaz-47-OT8"; */
+"Qaz-47-OT8.text" = "13 48 63";
+
+/* Class = "UILabel"; text = "Copyright ©2017 Hume Building Products "; ObjectID = "Quy-4C-Ryt"; */
+"Quy-4C-Ryt.text" = "Copyright ©2017 Hume Building Products ";
+
+/* Class = "UILabel"; text = "Your request is related to"; ObjectID = "SCn-oX-oxp"; */
+"SCn-oX-oxp.text" = "您的咨询是关于如下:";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "SLO-CY-QTi"; */
+"SLO-CY-QTi.normalTitle" = "提交";
+
+/* Class = "UITextField"; placeholder = "Delivery"; ObjectID = "TNT-lw-131"; */
+"TNT-lw-131.placeholder" = "送货";
+
+/* Class = "UILabel"; text = "prepare"; ObjectID = "TaL-8J-HJp"; */
+"TaL-8J-HJp.text" = "prepare";
+
+/* Class = "UILabel"; text = "99/99/2020 ss:ss:ss"; ObjectID = "UA5-s8-TAg"; */
+"UA5-s8-TAg.text" = "99/99/2020 ss:ss:ss";
+
+/* Class = "UILabel"; text = "Once you submit the enquiry, our next available customer service representative will contact you via the number  provided."; ObjectID = "VDc-S5-c8Z"; */
+"VDc-S5-c8Z.text" = "一旦您提交申请，我们的客服将会尽快回复。";
+
+/* Class = "UILabel"; text = "Job type"; ObjectID = "VsL-V3-GuY"; */
+"VsL-V3-GuY.text" = "提货方式";
+
+/* Class = "UITextField"; placeholder = "Select an option below"; ObjectID = "W7x-wG-KTl"; */
+"W7x-wG-KTl.placeholder" = "选择如下方式";
+
+/* Class = "UILabel"; text = "status"; ObjectID = "WUf-6c-lk4"; */
+"WUf-6c-lk4.text" = "status";
+
+/* Class = "UITextField"; placeholder = "Choose you store"; ObjectID = "XMH-PN-8T9"; */
+"XMH-PN-8T9.placeholder" = "选择您要查看的分店名";
+
+/* Class = "UITextField"; placeholder = "Your contact phone number"; ObjectID = "Z4k-CP-Oy3"; */
+"Z4k-CP-Oy3.placeholder" = "您的电话号码";
+
+/* Class = "UILabel"; text = "Delivery Status"; ObjectID = "ZB0-J7-LjC"; */
+"ZB0-J7-LjC.text" = "送货状态";
+
+/* Class = "UILabel"; text = "To request priority support, please provide your contact details"; ObjectID = "b6p-ds-4Q1"; */
+"b6p-ds-4Q1.text" = "请填写您的联系方式，以申请优先服务";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cAI-6Z-Lbd"; */
+"cAI-6Z-Lbd.normalTitle" = "Button";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "cyJ-pu-R8X"; */
+"cyJ-pu-R8X.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "South Granville"; ObjectID = "d27-I4-lWz"; */
+"d27-I4-lWz.placeholder" = "South Granville";
+
+/* Class = "UITextField"; placeholder = "Your contact number"; ObjectID = "dVS-DD-LYp"; */
+"dVS-DD-LYp.placeholder" = "您的电话号码";
+
+/* Class = "UILabel"; text = "Picking Slip:"; ObjectID = "eGU-X9-6yp"; */
+"eGU-X9-6yp.text" = "拣配单号:";
+
+/* Class = "UILabel"; text = "0.00"; ObjectID = "euw-XC-JR7"; */
+"euw-XC-JR7.text" = "0.00";
+
+/* Class = "UILabel"; text = "Loading weekday time......"; ObjectID = "hXS-wx-H7J"; */
+"hXS-wx-H7J.text" = "加载周末营业时间....";
+
+/* Class = "UILabel"; text = "schedule"; ObjectID = "ham-jU-4CO"; */
+"ham-jU-4CO.text" = "schedule";
+
+/* Class = "UILabel"; text = "featuresfeaturesfeaturefeaturefeaturefea"; ObjectID = "i8a-KL-1yc"; */
+"i8a-KL-1yc.text" = "特价";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "iIq-aJ-Utw"; */
+"iIq-aJ-Utw.text" = "Title";
+
+/* Class = "UILabel"; text = "Delivered"; ObjectID = "ioA-nv-Tup"; */
+"ioA-nv-Tup.text" = "Delivered";
+
+/* Class = "UILabel"; text = "Date Required"; ObjectID = "iss-ZQ-ZBX"; */
+"iss-ZQ-ZBX.text" = "时间";
+
+/* Class = "UILabel"; text = "Loading address......"; ObjectID = "jyH-QS-ROm"; */
+"jyH-QS-ROm.text" = "加载地址......";
+
+/* Class = "UIButton"; normalTitle = "HISTORY"; ObjectID = "k0A-V5-jaC"; */
+"k0A-V5-jaC.normalTitle" = "历史";
+
+/* Class = "UINavigationItem"; title = "Addtional Detail"; ObjectID = "ko7-b0-oPT"; */
+"ko7-b0-oPT.title" = "补全信息";
+
+/* Class = "UILabel"; text = "Branch"; ObjectID = "kvL-vS-Yjk"; */
+"kvL-vS-Yjk.text" = "分店";
+
+/* Class = "UINavigationItem"; title = "Priority Support"; ObjectID = "kyq-TE-r9I"; */
+"kyq-TE-r9I.title" = "优先服务";
+
+/* Class = "UILabel"; text = "Schedule"; ObjectID = "nA6-fL-yWO"; */
+"nA6-fL-yWO.text" = "Schedule";
+
+/* Class = "UILabel"; text = "ryde"; ObjectID = "nEx-rE-1pw"; */
+"nEx-rE-1pw.text" = "ryde";
+
+/* Class = "UILabel"; text = "Powered by Hume Logistics System V 2.0"; ObjectID = "nYc-tl-XJk"; */
+"nYc-tl-XJk.text" = "Powered by Hume Logistics System V 2.0";
+
+/* Class = "UILabel"; text = "Prepared"; ObjectID = "nel-dy-5Rs"; */
+"nel-dy-5Rs.text" = "Prepared";
+
+/* Class = "UILabel"; text = "sgr/147552"; ObjectID = "nmv-n2-IVt"; */
+"nmv-n2-IVt.text" = "sgr/147552";
+
+/* Class = "UINavigationItem"; title = "Branch Location"; ObjectID = "pkJ-Z6-k2Z"; */
+"pkJ-Z6-k2Z.title" = "分店位置";
+
+/* Class = "UITabBarItem"; title = "Special"; ObjectID = "qJu-c3-HXu"; */
+"qJu-c3-HXu.title" = "特价";
+
+/* Class = "UIButton"; normalTitle = "TRACK"; ObjectID = "tD4-US-Jh1"; */
+"tD4-US-Jh1.normalTitle" = "追踪";
+
+/* Class = "UILabel"; text = "Comfirmed"; ObjectID = "tZJ-SI-r9I"; */
+"tZJ-SI-r9I.text" = "Comfirmed";
+
+/* Class = "UILabel"; text = "comfirm"; ObjectID = "vDr-AE-HAd"; */
+"vDr-AE-HAd.text" = "确定";
+
+/* Class = "UITextField"; placeholder = "Hume account name (optional)"; ObjectID = "vXC-mi-Fyn"; */
+"vXC-mi-Fyn.placeholder" = "Hume 账号(可选)";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "wxf-sb-ZYe"; */
+"wxf-sb-ZYe.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Hume Account Name(Optional)"; ObjectID = "xT0-9a-WQA"; */
+"xT0-9a-WQA.placeholder" = "Hume 账号(可选)";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xU9-YH-1Az"; */
+"xU9-YH-1Az.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Your name"; ObjectID = "yNR-ES-EGF"; */
+"yNR-ES-EGF.placeholder" = "您的名字";
+
+/* Class = "UILabel"; text = "dispatch"; ObjectID = "zcG-mG-1Nb"; */
+"zcG-mG-1Nb.text" = "dispatch";
+
+/* Class = "UINavigationItem"; title = "Result"; ObjectID = "0gr-Ag-ibI"; */
+"0gr-Ag-ibI.title" = "追踪结果";
+
+/* Class = "UILabel"; text = "Delivery Status"; ObjectID = "QMj-M3-keV"; */
+"QMj-M3-keV.text" = "送货状态";
+/* Class = "UILabel"; text = "Tracking History"; ObjectID = "ERa-tn-chW"; */
+"ERa-tn-chW.text" = "查询历史";
+
+/* Class = "UILabel"; text = "Distance"; ObjectID = "Owd-kP-5Pp; */
+"Owd-kP-5Pp.text" = "距离";
+
+/* Class = "UILabel"; text = "Updated"; ObjectID = "XXl-SN-cRE; */
+"XXl-SN-cRE.text" = "更新";
+
+/* Class = "UILabel"; text = "Expected"; ObjectID = "eOr-fl-hAW; */
+"eOr-fl-hAW.text" = "预计";
+
+/* Class = "UIButton"; normalTitle = "Home"; ObjectID = "GcW-OP-gbU"; */
+"GcW-OP-gbU.normalTitle" = "主页";
+
+
+/* Class = "UIButton"; normalTitle = "Share"; ObjectID = "35F-cc-P3V"; */
+"35F-cc-P3V.normalTitle" = "分享";
+
+/* Class = "UINavigationItem"; title = "Share"; ObjectID = "yVa-iE-yWT"; */
+"Cyu-wt-9rX.title" = "分享";
+
+/* Class = "UIButton"; normalTitle = "Setting"; ObjectID = "RPN-dA-N23"; */
+"RPN-dA-N23.normalTitle" = "设置";
+
+/* Class = "UINavigationItem"; title = "Setting"; ObjectID = "Zx7-ww-2rF"; */
+"Zx7-ww-2rF.title" = "设置";
+
+
+/* Class = "UILabel"; text = "Expected"; ObjectID = "7lK-cw-eK6; */
+"eOr-fl-hAW.text" = "预计";
+
+
+/* Class = "UIButton"; normalTitle = "Feedback"; ObjectID = "IKW-UR-Ydd"; */
+"IKW-UR-Ydd.normalTitle" = "反馈";
+
+/* Class = "UINavigationItem"; title = "Feedback"; ObjectID = "Qr8-tZ-gUW"; */
+"Qr8-tZ-gUW.title" = "反馈";
+
+
+

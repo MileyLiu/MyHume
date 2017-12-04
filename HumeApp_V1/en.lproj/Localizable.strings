@@ -1,0 +1,142 @@
+/* 
+  Localizable.strings
+  HumeApp_V1
+
+  Created by MileyLiu on 18/10/17.
+  Copyright © 2017 MileyLiu. All rights reserved.
+*/
+
+ORDER_NO = "Order Number";
+SUBURB = "Suburb";
+STATUS = "Status";
+SCHEDULE = "Schedule";
+
+WEEKDAY = "Mon.-Fri.";
+WEEKEND = "Sat.";
+
+//basic
+ALERT = "Alert";
+DELETE = "Delete";
+SUCCESS = "Success";
+OK = "OK";
+CLEAR = "Clear";
+CANCEL = "Cancel";
+CONFIRM = "Confirm";
+DONE = "Done";
+SUBMIT = "Submit";
+SUBURB = "Suburb";
+BACK = "Back";
+
+//error
+SUBURB_ERRO = "Your suburb is not correct, please try again.";
+SLIP_ERROR = "Your slip is not correct, please try again.";
+FILL_ERROR = "Please complete all fields.";
+RECORD_ERROR = "There appears to be a input error. Please try again.";
+NETWORK_ERROR = "Request Time out, please Check your Network";
+//alert
+DELETE_HISTORY = "Do you want to delete your tracking history?";
+DELETE_CHAR = "Do you want to clear your shopping cart?";
+
+SUBMIT_SUCESS = "Submit succuessful";
+SOCIAL = "Select social media";
+NO_HISTORY = "You don't have any tracking history";
+NO_ITEM =  "You don't have any item in shopping cart";
+
+PRIORITY = "Message us";
+STORE = "Choose branch";
+CART = "Add item to shopping cart";
+
+DATE = "Date required";
+TIME = "Estimated: ";
+MAP ="Real Time Map";
+DETAIL = "Detail";
+
+DISTANCE = "Distance:";
+SAVE_DETAIL = "Do you want to save your contact details?";
+
+NO_REALTIME = "Sorry, real-time tracking currently unavailable for this order";
+
+//sidebar
+HOME = "Home";
+SHARE = "Share";
+SETTING = "Setting";
+FEEDBACK = "Feedback";
+
+LANGUGAE_SWITCH = "Switch Language";
+LANG = "English";
+LANGUAGE = "Choose your prefer language";
+
+NOTIFICTAION = "Notification";
+
+CACHE = "Clear Cache";
+CLEAR_CACHE = "Do you want to clear cache?";
+
+//Tracking
+TRACKING = "Tracking";
+DELIVERY_TRACKING = "Delivery Tracking";
+TRACKING_DES = "Please enter your pickinig slip number and suburb to track";
+PICKING = "Picking Slip";
+HISTORY = "History";
+TRACK = "Track";
+RESULT = "Result";
+DELIVERY_STATUS = "Delivery Status";
+TRACKING_HISTORY = "Tracking History";
+
+
+EXPEXTED = "Expected";
+UPDATED = "Updated";
+
+//location
+BRANCH_LOCATION = "Branch Location";
+LOCATION = "Location";
+
+//Special
+SPECIAL = "Specials";
+CURRENT_SPECIALS = "Current Specials";
+TOTAL = "Total";
+
+ADDITIONA_DETAIL = "Addtional Detail";
+DATE_REQUIRED = "Date required";
+JOB_TYPE = "Job Type";
+BRANCH = "Branch";
+
+HUME_ACC = "Hume account name（Optional）";
+YOUR_NAME = "Your name";
+YOUR_CONTACT = "Your contact number";
+
+//Support
+SUPPORT = "Support";
+SUGGESTION = "Suggestion";
+COMPLAINT = "Complaint";
+CATEGORY = "Category";
+
+APP = "App functions";
+PRODUCT = "Product";
+OTHER = "Other";
+
+DESCRIBE = "Please describe the specific problem";
+DESCRIBE_PH = "Fill in here";
+CONTACT = "Contact information";
+CONTACT_PH = "Optional,Email or Phone Number";
+
+DELIVERY = "Delivery";
+GENERAL = "General";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

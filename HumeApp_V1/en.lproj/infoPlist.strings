@@ -1,0 +1,9 @@
+/* 
+  infoPlist.strings
+  HumeApp_V1
+
+  Created by MileyLiu on 18/10/17.
+  Copyright © 2017 MileyLiu. All rights reserved.
+*/
+CFBundleDisplayName = "My Hume";
+
