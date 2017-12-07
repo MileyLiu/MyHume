@@ -25,7 +25,6 @@ class ShoppingCar :NSObject {
         self.imageUrl = imageUrl
         self.priceValue = priceValue
         self.spec = spec
-        
         self.alreadyAddShoppingCart = true
         
     }

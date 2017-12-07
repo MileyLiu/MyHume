@@ -106,50 +106,65 @@ class OrderViewController: UIViewController,UITextFieldDelegate{
     func pickFromJob(_ sender: Any) {
         
         
-        switch String(describing: preferredLang) {
-        case "en-US", "en-CN":
- 
-            ActionSheetStringPicker.show(withTitle: "Job Type", rows: jobType, initialSelection: 1, doneBlock: {
-                
-                picker, value, index in
-                
-                self.pickedjobType = index as! String
-                
-                self.jobTypeText.text =  self.pickedjobType
-                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
-                return
-       
-            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+        
+        ActionSheetStringPicker.show(withTitle: LanguageHelper.getString(key: "JOB_TYPE"), rows: jobType, initialSelection: 1, doneBlock: {
             
+            picker, value, index in
             
-        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
-          
-            ActionSheetStringPicker.show(withTitle: "提货方式", rows: jobTypeCN, initialSelection: 1, doneBlock: {
-                
-                picker, value, index in
-                
-                self.pickedjobType = index as! String
-                
-                self.jobTypeText.text =  self.pickedjobType
-                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
-                return
-                
-            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+            self.pickedjobType = index as! String
             
-        default:
+            self.jobTypeText.text =  self.pickedjobType
+            print("jobTypeText:\(String(describing: self.jobTypeText.text))")
+            return
             
-            ActionSheetStringPicker.show(withTitle: "Job Type", rows: jobType, initialSelection: 1, doneBlock: {
-                
-                picker, value, index in
-                
-                self.pickedjobType = index as! String
-                
-                self.jobTypeText.text =  self.pickedjobType
-                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
-                return
-                
-            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
-        }
+        }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+        
+        
+        
+//        switch String(describing: preferredLang) {
+//        case "en-US", "en-CN":
+//
+//            ActionSheetStringPicker.show(withTitle: "Job Type", rows: jobType, initialSelection: 1, doneBlock: {
+//
+//                picker, value, index in
+//
+//                self.pickedjobType = index as! String
+//
+//                self.jobTypeText.text =  self.pickedjobType
+//                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
+//                return
+//
+//            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+//
+//
+//        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
+//
+//            ActionSheetStringPicker.show(withTitle: "提货方式", rows: jobTypeCN, initialSelection: 1, doneBlock: {
+//
+//                picker, value, index in
+//
+//                self.pickedjobType = index as! String
+//
+//                self.jobTypeText.text =  self.pickedjobType
+//                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
+//                return
+//
+//            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+//
+//        default:
+//
+//            ActionSheetStringPicker.show(withTitle: "Job Type", rows: jobType, initialSelection: 1, doneBlock: {
+//
+//                picker, value, index in
+//
+//                self.pickedjobType = index as! String
+//
+//                self.jobTypeText.text =  self.pickedjobType
+//                print("jobTypeText:\(String(describing: self.jobTypeText.text))")
+//                return
+//
+//            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+//        }
     }
     
     func pickFromDate(_ sender: Any) {

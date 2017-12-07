@@ -24,7 +24,6 @@ let address = ["149+Mitchell+Road,+Alexandria",
                "9+Blaxland+Street,+Silverwater,+NSW",
                "32+Pine+Road,+Yennora,+NSW",
                "86+Ferndell+Street,+South,+Granville,+NSW",
-               
                "1C+Bell+Street,+Preston,+VIC,+3072",
                "540+Somerville+Road,+Sunshine+West,+VIC,+3020"
 ]
@@ -40,8 +39,6 @@ let suburbPattern = "[A-Za-z]{3,}"
 let suburbMatcher = MyRegex(suburbPattern)
 
 
-
-
 //基本
 let alertString =  LanguageHelper.getString(key: "ALERT")
 let deleteString = LanguageHelper.getString(key: "DELETE")
@@ -52,8 +49,6 @@ let clearString =  LanguageHelper.getString(key: "CLEAR")
 let confirmString =  LanguageHelper.getString(key: "CONFIRM")
 let doneString = LanguageHelper.getString(key: "DONE")
 let submitString =  LanguageHelper.getString(key: "SUBMIT")
-
-
 
 //错误
 let subrubErrorString = LanguageHelper.getString(key: "SUBURB_ERRO")
@@ -81,13 +76,14 @@ var branches = ["Alexandria Branch","Lakemba Branch","Pymble Branch","Silverwate
 
 
 
-var jobType = ["Delivery","Pick up"]
-var jobTypeCN = ["送货","自取"]
+var jobType = [LanguageHelper.getString(key: "DELIVERY"),LanguageHelper.getString(key: "PICKUP")]
+//var jobTypeCN = ["送货","自取"]
 var requestType = ["Place an order","Existing Order","General Order","Account enquiry"]
 let hostApi = "http://api.humeplaster.com.au:8080/"
 
 let user = "admin"
 let password = "@humeit"
+
 let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
 let base64Credentials = credentialData.base64EncodedString(options: [])
 let headers = ["Authorization": "Basic \(base64Credentials)"]

@@ -120,6 +120,7 @@ CONTACT = "联系方式";
 CONTACT_PH = "选填 方便我们与您联系（电话/邮箱）";
 
 DELIVERY = "送货";
+PICKUP = "自取";
 GENERAL = "普通";
 
 

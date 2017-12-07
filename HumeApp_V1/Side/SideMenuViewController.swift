@@ -46,7 +46,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     @IBAction func shareClicked(_ sender: Any) {
         //TODO  CHANGE TO THE REAL LINK
        
-        var url = URL(string:"http://www.humeplaster.com.au/")
+        let url = URL(string:"http://www.humeplaster.com.au/")
         
          let actionSheetController: UIAlertController = UIAlertController(title: LanguageHelper.getString(key: "SOCIAL"), message: "", preferredStyle: .actionSheet)
        
@@ -179,7 +179,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         
         actionSheetController.addAction(gogglePlusActionButton)
         
-        self.present(actionSheetController, animated: true, completion: nil)
+        
+        
+        //for ipad
+        actionSheetController.popoverPresentationController?.sourceView = self.view
+        
+        
+        
+       self.present(actionSheetController, animated: true, completion: nil)
         
         
         

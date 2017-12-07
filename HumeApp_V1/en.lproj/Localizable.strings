@@ -120,6 +120,7 @@ CONTACT = "Contact information";
 CONTACT_PH = "Optional,Email or Phone Number";
 
 DELIVERY = "Delivery";
+PICKUP = "Pick up";
 GENERAL = "General";
 
 
