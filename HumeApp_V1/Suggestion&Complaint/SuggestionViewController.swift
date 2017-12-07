@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestionViewController: UIViewController {
+class SuggestionViewController: UIViewController,UITextViewDelegate{
 
     @IBOutlet weak var describeLabel: UILabel!
     
@@ -34,13 +34,41 @@ class SuggestionViewController: UIViewController {
         
         
         self.describeLabel.text = LanguageHelper.getString(key: "DESCRIBE")
+        
+        self.describeTextView.delegate = self
         self.describeTextView.text = LanguageHelper.getString(key: "DESCRIBE_PH")
+        self.describeTextView.isScrollEnabled = true
+        self.describeTextView.textColor = UIColor.lightGray
+        
         self.contactLabel.text = LanguageHelper.getString(key: "CONTACT")
         self.contaxtTextField.placeholder = LanguageHelper.getString(key: "CONTACT_PH")
         
         // Do any additional setup after loading the view.
     }
 
+    
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == LanguageHelper.getString(key: "DESCRIBE_PH"){
+            textView.text = ""
+            textView.textColor  = UIColor.black
+            
+        }
+        textView.becomeFirstResponder()
+    }
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = LanguageHelper.getString(key: "DESCRIBE_PH")
+            textView.textColor  = UIColor.lightGray
+            
+        }
+        textView.resignFirstResponder()
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -286,6 +286,8 @@ class LocationViewController: UIViewController, GMSMapViewDelegate, UIPickerView
         
         controller = self.storyboard?.instantiateViewController(withIdentifier: "PriorityViewController") as! PriorityViewController
         
+        
+        
         present(controller, animated: true, completion: nil)
     }
     

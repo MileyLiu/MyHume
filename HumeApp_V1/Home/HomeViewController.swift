@@ -389,6 +389,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             let controller = SFSafariViewController.init(url: web!)
             controller.delegate = self
+            controller.modalTransitionStyle = .coverVertical
+            controller.modalPresentationStyle = .formSheet
             self.present(controller, animated: true, completion: nil)
         default:
             print("features")
