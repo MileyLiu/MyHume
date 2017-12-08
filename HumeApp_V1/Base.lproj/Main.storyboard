@@ -1669,36 +1669,41 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65r-QB-4Ma">
-                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZX1-jE-Q7Z">
-                                <rect key="frame" x="0.0" y="68" width="375" height="572"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="272" id="C8V-Qt-CC4">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="272"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C8V-Qt-CC4" id="qda-gf-eu5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="271.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHf-KP-TGt" userLabel="inputView">
+                                <rect key="frame" x="0.0" y="604" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghC-PS-SEi">
+                                        <rect key="frame" x="321" y="12" width="40" height="34"/>
+                                        <state key="normal" title="send">
+                                            <color key="titleColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-DT-nPr">
+                                        <rect key="frame" x="10" y="18" width="296" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="0s2-4o-og8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="w0Q-DT-nPr" firstAttribute="leading" secondItem="UHf-KP-TGt" secondAttribute="leading" constant="10" id="AiV-jW-oMC"/>
+                                    <constraint firstItem="ghC-PS-SEi" firstAttribute="top" secondItem="UHf-KP-TGt" secondAttribute="top" constant="12" id="Cr3-IQ-2yt"/>
+                                    <constraint firstAttribute="bottom" secondItem="w0Q-DT-nPr" secondAttribute="bottom" constant="7" id="Fhw-Tp-3eI"/>
+                                    <constraint firstAttribute="height" constant="60" id="K4Z-gL-tKq"/>
+                                    <constraint firstAttribute="trailing" secondItem="ghC-PS-SEi" secondAttribute="trailing" constant="14" id="LwG-TV-MZ8"/>
+                                    <constraint firstAttribute="trailing" secondItem="w0Q-DT-nPr" secondAttribute="trailing" constant="69" id="Q8z-yW-Fbb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n0g-DK-3A7" firstAttribute="bottom" secondItem="ZX1-jE-Q7Z" secondAttribute="bottom" constant="27" id="XPc-ha-zKN"/>
-                            <constraint firstItem="65r-QB-4Ma" firstAttribute="width" secondItem="JiQ-p6-WEQ" secondAttribute="width" id="bHe-fN-og6"/>
-                            <constraint firstItem="65r-QB-4Ma" firstAttribute="centerX" secondItem="JiQ-p6-WEQ" secondAttribute="centerX" id="ckZ-L8-bfF"/>
-                            <constraint firstItem="ZX1-jE-Q7Z" firstAttribute="leading" secondItem="n0g-DK-3A7" secondAttribute="leading" id="dpR-4f-APS"/>
-                            <constraint firstItem="n0g-DK-3A7" firstAttribute="trailing" secondItem="ZX1-jE-Q7Z" secondAttribute="trailing" id="e5P-xe-SUa"/>
-                            <constraint firstItem="n0g-DK-3A7" firstAttribute="bottom" secondItem="65r-QB-4Ma" secondAttribute="bottom" id="f96-Qp-hRg"/>
-                            <constraint firstItem="ZX1-jE-Q7Z" firstAttribute="top" secondItem="n0g-DK-3A7" secondAttribute="top" id="qWG-co-cZd"/>
+                            <constraint firstItem="UHf-KP-TGt" firstAttribute="centerX" secondItem="n0g-DK-3A7" secondAttribute="centerX" id="9ej-Fn-Hdp"/>
+                            <constraint firstItem="UHf-KP-TGt" firstAttribute="width" secondItem="JiQ-p6-WEQ" secondAttribute="width" id="NEV-G9-Hw2"/>
+                            <constraint firstItem="n0g-DK-3A7" firstAttribute="bottom" secondItem="UHf-KP-TGt" secondAttribute="bottom" constant="3" id="jZk-mf-fvr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n0g-DK-3A7"/>
                     </view>
@@ -1887,7 +1892,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHH-gR-WI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154.4000000000001" y="1558.4707646176912"/>
+            <point key="canvasLocation" x="1777" y="1849"/>
         </scene>
         <!--Shopping Car View Controller-->
         <scene sceneID="ipH-dm-rWW">
@@ -2656,43 +2661,43 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Fq-Oc-aep">
-                                <rect key="frame" x="0.0" y="30" width="0.0" height="500.5"/>
+                                <rect key="frame" x="19" y="30" width="337.5" height="500.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To request priority support, please provide your contact details" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-oo-b46">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hume account name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-6a-25P">
-                                        <rect key="frame" x="0.0" y="74.5" width="0.0" height="53"/>
+                                        <rect key="frame" x="0.0" y="74.5" width="337.5" height="53"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-tU-tcB" userLabel="Your Name">
-                                        <rect key="frame" x="0.0" y="149.5" width="0.0" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="337.5" height="52.5"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your contact phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-f6-saC" userLabel="Your Contact Number">
-                                        <rect key="frame" x="0.0" y="224" width="0.0" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="224" width="337.5" height="52.5"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request is related to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-ug-kN0">
-                                        <rect key="frame" x="0.0" y="298.5" width="0.0" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="298.5" width="337.5" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an option below" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cao-Df-Yxs">
-                                        <rect key="frame" x="0.0" y="373" width="0.0" height="53"/>
+                                        <rect key="frame" x="0.0" y="373" width="337.5" height="53"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2701,7 +2706,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you submit the enquiry, our next available customer service representative will contact you via the number  provided." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-HO-qb6">
-                                        <rect key="frame" x="0.0" y="448" width="0.0" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="448" width="337.5" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

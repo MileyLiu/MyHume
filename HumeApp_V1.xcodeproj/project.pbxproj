@@ -43,6 +43,10 @@
 		164546081F8598AF00D7CE1F /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164546071F8598AF00D7CE1F /* History.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
+		1655B2FE1FD9EF1E000A8656 /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */; };
+		1655B3001FD9EF8B000A8656 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */; };
+		1655B3021FD9F127000A8656 /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B3011FD9F127000A8656 /* MessageTableView.swift */; };
+		1655B3041FD9F19C000A8656 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B3031FD9F19C000A8656 /* MessageTableViewCell.swift */; };
 		165CF5451F82E952008EB43B /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165CF5441F82E952008EB43B /* tools.swift */; };
 		167602681F9084F0009DECA4 /* PriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167602671F9084F0009DECA4 /* PriorityViewController.swift */; };
 		1676026A1F908620009DECA4 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167602691F908620009DECA4 /* OrderViewController.swift */; };
@@ -139,6 +143,10 @@
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		165264301F9DBB910010BDBD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
+		1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataSource.swift; sourceTree = "<group>"; };
+		1655B3011FD9F127000A8656 /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
+		1655B3031FD9F19C000A8656 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		165CF5441F82E952008EB43B /* tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
 		167602671F9084F0009DECA4 /* PriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityViewController.swift; sourceTree = "<group>"; };
 		167602691F908620009DECA4 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 		1616C4661F8B5131006A46FA /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */,
 				1609C9C41F8AEE0800DE54EB /* SQLiteConnect.swift */,
 				1609C9C81F8AEE4700DE54EB /* SQLiteManager.swift */,
 			);
@@ -326,6 +335,7 @@
 				16A124641F943DC2007C951F /* Product.swift */,
 				16ECB0031F8C2B2F00D033EB /* ShoppingCar.swift */,
 				168F43B01FA2E673006AD409 /* RealTime.swift */,
+				1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -375,9 +385,11 @@
 		16A194671FB52B91008558B8 /* Suggestion&Complaint */ = {
 			isa = PBXGroup;
 			children = (
+				1655B3011FD9F127000A8656 /* MessageTableView.swift */,
 				1696B5E91FB51804006DEB4C /* SnCViewController.swift */,
 				16A194681FB52BDA008558B8 /* SuggestionViewController.swift */,
 				16A1946A1FB52BEC008558B8 /* ComplaintViewController.swift */,
+				1655B3031FD9F19C000A8656 /* MessageTableViewCell.swift */,
 			);
 			path = "Suggestion&Complaint";
 			sourceTree = "<group>";
@@ -816,6 +828,7 @@
 				168F43B11FA2E673006AD409 /* RealTime.swift in Sources */,
 				1609C9C51F8AEE0800DE54EB /* SQLiteConnect.swift in Sources */,
 				1699CAAD1FC50149009C88C5 /* SplashView.swift in Sources */,
+				1655B3041FD9F19C000A8656 /* MessageTableViewCell.swift in Sources */,
 				16BB8AE21FBAB4350093A332 /* HomeViewController.swift in Sources */,
 				16DFA9201FA7E35300750757 /* SideMenuViewController.swift in Sources */,
 				1676026A1F908620009DECA4 /* OrderViewController.swift in Sources */,
@@ -834,6 +847,7 @@
 				168F43B81FA6AE14006AD409 /* FeedbackViewController.swift in Sources */,
 				16BB8AE41FBAB7740093A332 /* MLPhotoGallery.swift in Sources */,
 				164546061F85846600D7CE1F /* CopyableLabel.swift in Sources */,
+				1655B3021FD9F127000A8656 /* MessageTableView.swift in Sources */,
 				16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */,
 				167602681F9084F0009DECA4 /* PriorityViewController.swift in Sources */,
 				16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */,
@@ -842,7 +856,9 @@
 				1635474A1F8740860060B47C /* Special.swift in Sources */,
 				1609C9C91F8AEE4700DE54EB /* SQLiteManager.swift in Sources */,
 				168F43BB1FA6AE70006AD409 /* SettingViewController.swift in Sources */,
+				1655B3001FD9EF8B000A8656 /* ChatDataSource.swift in Sources */,
 				1631A5BE1F7DC16600112DD2 /* LocationViewController.swift in Sources */,
+				1655B2FE1FD9EF1E000A8656 /* MessageItem.swift in Sources */,
 				164545FD1F845BDE00D7CE1F /* TrackingResultViewController.swift in Sources */,
 				16A194691FB52BDA008558B8 /* SuggestionViewController.swift in Sources */,
 				16BB8AEC1FBBBDE00093A332 /* SpecialTableViewCell.swift in Sources */,
