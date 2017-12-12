@@ -49,7 +49,13 @@ class SQLiteManager: NSObject {
         
         //执行SQL语句-创建表 依然,项目中一般不会只有一个表
         
-        if creatTableExecSQL(SQL_ARR: [createHistoryTable,createChartTable]){
+        
+        let createMessageTable = "CREATE TABLE IF NOT EXISTS 't_Message'('content' TEXT NOT NULL,'type' TEXT NOT NULL,'category' TEXT, 'time' TEXT);"
+        
+        print("create createMessageTable")
+        
+        
+        if creatTableExecSQL(SQL_ARR: [createHistoryTable,createChartTable,createMessageTable]){
             
             
             return true

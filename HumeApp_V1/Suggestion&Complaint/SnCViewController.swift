@@ -92,15 +92,22 @@ class SnCViewController: UIViewController ,UITableViewDelegate,UITableViewDataSo
             
             
             
-        }else{
+        }else {
             
+            
+          
+//
              var nextTitle = LanguageHelper.getString(key:complaints[indexPath.row])
-            
-            self.performSegue(withIdentifier: "complaint", sender:nextTitle)
-            
 
-            
+            self.performSegue(withIdentifier: "complaint1", sender:nextTitle)
+         
         }
+//        else{
+//
+//            var nextTitle = LanguageHelper.getString(key:complaints[indexPath.row])
+//
+//            self.performSegue(withIdentifier: "complaint2", sender:nextTitle)
+//        }
         
         
     }
@@ -121,11 +128,19 @@ class SnCViewController: UIViewController ,UITableViewDelegate,UITableViewDataSo
             let nextController = segue.destination as! SuggestionViewController
             nextController.titleString = sender as? String
         }
-        if segue.identifier == "complaint"{
-            
+        if segue.identifier == "complaint1"{
+            //todo
+          
             let nextController = segue.destination as! ComplaintViewController
-            nextController.title = sender as? String
+            nextController.titleString = sender as? String
         }
+        
+//        if segue.identifier == "complaint2"{
+//            //todo
+//            //            let nextController = segue.destination as! ComplaintViewController
+//            let nextController = segue.destination as! ConversationViewController
+//            nextController.titleString = sender as? String
+//        }
         
         
     }

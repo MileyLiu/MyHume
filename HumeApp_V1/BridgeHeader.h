@@ -28,6 +28,8 @@
 
 #import <DACircularProgress/DACircularProgressView.h>
 
+#import <JSQMessagesViewController/JSQMessagesViewController.h>
+
 //#import <SCLAlertView.h>
 //#import "EAFeatureItem.h"
 

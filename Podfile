@@ -23,11 +23,20 @@ target 'HumeApp_V1' do
 #    pod 'XHLaunchAd'
      pod 'TwitterKit'
      pod 'WechatOpenSDK'
-  pod 'GoogleSignIn'
+     pod 'GoogleSignIn'
     
     pod 'SnapKit'
     pod 'DACircularProgress'
-   
+    
+    
+    pod 'JSQMessagesViewController'
+
+#    # For latest release in cocoapods
+#    pod 'JSQMessagesViewController'
+#    
+#    # Latest on develop
+#    pod 'JSQMessagesViewController', :git => 'https://github.com/jessesquires/JSQMessagesViewController.git', :branch => 'develop'
+
     
     target 'HumeApp_V1Tests' do
         inherit! :search_paths

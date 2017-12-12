@@ -16,6 +16,7 @@ import UserNotifications
 import GoogleSignIn
 
 import FBSDKShareKit
+import JSQMessagesViewController
 
 
 @UIApplicationMain
@@ -28,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         LanguageHelper.shareInstance.initUserLanguage()
-
         IQKeyboardManager.sharedManager().enable = true
        
         GMSServices.provideAPIKey(APIKey)

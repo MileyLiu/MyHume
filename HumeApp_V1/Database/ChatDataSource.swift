@@ -11,8 +11,8 @@ import Foundation
 protocol ChatDataSource
 {
     /*返回对话记录中的全部行数*/
-    func rowsForChatTable( tableView:MessageTableView) -> Int
+    func rowsForChatTable( _ tableView:TableView) -> Int
     /*返回某一行的内容*/
-    func chatTableView(tableView:MessageTableView, dataForRow:Int)-> MessageItem
+    func chatTableView( _ tableView:TableView, dataForRow:Int)-> MessageItem
 }
 
