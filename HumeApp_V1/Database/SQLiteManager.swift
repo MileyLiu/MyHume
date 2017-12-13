@@ -23,7 +23,7 @@ class SQLiteManager: NSObject {
         //数据库文件路径
         let dicumentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
         
-        print(dicumentPath)
+        print("path:\(dicumentPath)")
         let DBPath = (dicumentPath! as NSString).appendingPathComponent("appDB.sqlite")
         let cDBPath = DBPath.cString(using: String.Encoding.utf8)
         //打开数据库
@@ -52,7 +52,7 @@ class SQLiteManager: NSObject {
         //执行SQL语句-创建表 依然,项目中一般不会只有一个表
         
         
-        let createMessageTable = "CREATE TABLE IF NOT EXISTS 't_Message'('content' TEXT NOT NULL,'type' TEXT NOT NULL,'category' TEXT, 'time' TEXT);"
+        let createMessageTable = "CREATE TABLE IF NOT EXISTS 't_Message' ('content' TEXT,'type' TEXT NOT NULL,'category' TEXT, 'time' TEXT NOT NULL);"
         
         print("create createMessageTable")
         

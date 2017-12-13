@@ -36,10 +36,13 @@ class MessageModel: NSObject {
     
     func insertIfToDB() ->Bool{
         
-    
+        
+      
       
         
-        let insertSQL = "INSERT INTO 't_Message' (content,type,category,time) VALUES ('\(content)','mine','\(category)','\(time)');"
+//        let insertSQL = "INSERT INTO 't_Message' (content,type,category,time) VALUES ('\(content)','\(type)','\(category)','\(time)');"
+        
+        let insertSQL = "INSERT INTO 't_Message' (content,type,category,time) VALUES ('\(content)','\(type)','\(category)','\(time)');"
         
         print("insertSQLMessage\(insertSQL)")
         
