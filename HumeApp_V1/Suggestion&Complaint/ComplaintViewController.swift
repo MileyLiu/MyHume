@@ -224,24 +224,34 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
             //Todo  transfer date
             let messageModel = self.dataSource[i] as! MessageModel
             
+            print("dataSturcture\(i):,\(messageModel.type)")
+            
             
             if messageModel.type == .mine {
-               
+
                 let messageItem_me = MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .mine)
-                
-                messageItems.add(messageItem_me)
-             
-            }else if messageModel.type == .someone{
-               
-                let messageItem_you = MessageItem.init(body: messageModel.content as NSString, user: you, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .mine)
-                
-                messageItems.add(messageItem_you)
-                
+
+              messageItems.add(messageItem_me)
             }
+            else if messageModel.type == .someone{
+
+                let messageItem_you = MessageItem.init(body: messageModel.content as NSString, user: you, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .someone)
+
+                messageItems.add(messageItem_you)
+
+            }
+
+//            messageItems.add(messageItem_me,messageItem_you)
+            
+            
+//            let mseeageItem =  MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: messageModel.type)
+//
+//            messageItems.add(mseeageItem)
+
             
             print("messageItems1:\(messageItems.count)")
-            
-//            messageItems.add(messageItem)
+//
+//            messageItems.add(messageItem_me)
             
         }
         
@@ -251,6 +261,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         Chats.addObjects(from: [zero])
         Chats.addObjects(from: messageItems as! [Any])
+     
         
         //set the chatDataSource
         self.tableView.chatDataSource = self

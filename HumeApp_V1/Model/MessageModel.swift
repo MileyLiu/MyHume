@@ -80,11 +80,29 @@ class MessageModel: NSObject {
                 
                 
                 let content = messagedic["content"] as! String
-                let type = messagedic["type"] as! String
+                let typeString = messagedic["type"] as! String
+                
+                print("typeeeee1:\(typeString)")
+                
+                
+                let type :ChatType
+                
+                if typeString == "mine"{
+                    
+                    type = ChatType.mine
+                }else{
+                    type = ChatType.someone
+                    
+                }
+                
+                 print("typeeeee2:\(type)")
+                
+                
+                
                 let time = messagedic["time"] as! String
                 
                 
-                let oneMessage = MessageModel.init(content:content, type: ChatType.mine, category: category, time: time)
+                let oneMessage = MessageModel.init(content:content, type: type, category: category, time: time)
                 
                 dataList.add(oneMessage)
                 
