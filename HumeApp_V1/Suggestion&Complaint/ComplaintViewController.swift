@@ -25,6 +25,8 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     
    
     var Chats:NSMutableArray!
+    var dataSource:NSMutableArray = NSMutableArray()
+    var messageItems: NSMutableArray = NSMutableArray()
     var tableView:TableView!
     var me:UserInfo!
     var you:UserInfo!
@@ -57,6 +59,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
             action: nil)
         
         
+        
+        dataSource = MessageModel.MessageFromDB(category: titleString!)
+        
+        
+        print("dataSource:\(dataSource.count)")
 //        dataSource = MessageModel.MessageFromDB(category: "Delivery")
 //        print("dataSource:\(dataSource.count)")
        
@@ -108,8 +115,12 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         let thatChat =  MessageItem(body:"We have received your message, will check soon" as NSString, user:you, date:Date(), mtype:ChatType.someone)
         
+        
+        
         Chats.add(thisChat)
         Chats.add(thatChat)
+        
+    
         self.tableView.chatDataSource = self
         self.tableView.reloadData()
         
@@ -123,26 +134,59 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     func setupChatTable() {
         
 
-        print("setupChatTable1.0")
         self.tableView = TableView(frame:CGRect(x: 0, y: 20, width: self.view.frame.size.width, height: self.view.frame.size.height - 76), style: .plain)
-         print("setupChatTable1.1")
-//        self.tableView = MessageTableView(frame:CGRect(x:0,y:64,width:viewWidth,height:viewHight-76), style: .plain)
-        
+       
+    
         //创建一个重用的单元格
          self.tableView!.register(TableViewCell.self, forCellReuseIdentifier: "ChatCell")
 //        self.tableView!.register(TableView.self, forCellReuseIdentifier: "ChatCell")
-         print("setupChatTable1.2")
+        
         me = UserInfo(name:"customer" ,logo:("myself.png"))
         you  = UserInfo(name:"customerService", logo:("hume.jpg"))
         
-        print("setupChatTable1.3")
+        
         let zero =  MessageItem(body:"Please talk with us", user:you,  date:Date(timeIntervalSinceNow:-90096400), mtype:.someone)
-         print("setupChatTable1.4")
+        
         let zero1 =  MessageItem(body:"I want to buy an apple", user:me,  date:Date(timeIntervalSinceNow:-90086400), mtype:.mine)
         
-        let first =  MessageItem(body:"this is a photo", user:me,  date:Date(timeIntervalSinceNow:-90000600), mtype:.mine)
+        let first =  MessageItem(body:"I have bought an apple", user:me,  date:Date(timeIntervalSinceNow:-90000600), mtype:.mine)
         
-        let second =  MessageItem(image:UIImage(named:"RedApple.jpg")!,user:me, date:Date(timeIntervalSinceNow:-90000290), mtype:.mine)
+        
+//        for data in dataSource{
+//
+//            print("contents:\(data.content)")
+//
+//            let msg = MessageItem.init(body: data.content as NSString, user: me, date: Date(timeIntervalSinceNow:-90000600) , mtype: .mine)
+//
+//            messageItems.append(msg)
+//
+////            Chats.addObjects(msg)
+//
+////            Chats.add(msg)
+//        }
+        
+        
+//        messageItems: NSMutableArray = NSMutableArray()
+        
+        for  i in 0..<dataSource.count{
+            
+            
+            let messageModel = self.dataSource[i] as! MessageModel
+            
+            let messageItem = MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .mine)
+           
+            print("data:\(messageModel.content)")
+            
+            messageItems.add(messageItem)
+            
+        }
+        
+        
+        print("messageItems\(messageItems.count)")
+        
+        
+        
+//        let second =  MessageItem(image:UIImage(named:"RedApple.jpg")!,user:me, date:Date(timeIntervalSinceNow:-90000290), mtype:.mine)
         
         let third =  MessageItem(body:"Very good",user:you, date:Date(timeIntervalSinceNow:-90000060), mtype:.someone)
         
@@ -150,14 +194,16 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
 //        
 //        let fifth =  MessageItem(body:"三年了，我终究没能看到这个风景",user:you, date:Date(timeIntervalSinceNow:0), mtype:.someone)
         
-        print("setupChatTable1.5")
+        
         Chats = NSMutableArray()
-        Chats.addObjects(from: [first,second, third, zero, zero1])
-         print("setupChatTable1.6")
+      
+        Chats.addObjects(from: [first, third, zero, zero1])
+        Chats.addObjects(from: messageItems as! [Any])
+        
         //set the chatDataSource
         self.tableView.chatDataSource = self
         
-         print("setupChatTable1.7")
+         
         
         //call the reloadData, this is a    ctually calling your override method
         self.tableView.reloadData()

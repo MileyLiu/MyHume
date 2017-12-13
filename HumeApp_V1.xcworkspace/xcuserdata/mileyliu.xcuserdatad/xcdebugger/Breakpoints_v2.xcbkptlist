@@ -151,13 +151,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HumeApp_V1/Suggestion&amp;Complaint/ComplaintViewController.swift"
-            timestampString = "534814472.869933"
+            timestampString = "534835307.417319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "ComplaintViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HumeApp_V1/Suggestion&amp;Complaint/ComplaintViewController.swift"
+            timestampString = "534835307.418069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "setupChatTable()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

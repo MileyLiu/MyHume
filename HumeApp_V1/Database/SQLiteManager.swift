@@ -22,6 +22,8 @@ class SQLiteManager: NSObject {
     func openDB() -> Bool {
         //数据库文件路径
         let dicumentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
+        
+        print(dicumentPath)
         let DBPath = (dicumentPath! as NSString).appendingPathComponent("appDB.sqlite")
         let cDBPath = DBPath.cString(using: String.Encoding.utf8)
         //打开数据库

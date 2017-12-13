@@ -20,11 +20,13 @@ class MessageItem {
     
     //设置我的文本消息边距
     class func getTextInsetsMine() -> UIEdgeInsets {
+//        return UIEdgeInsets(top:5, left:10, bottom:11, right:17)
         return UIEdgeInsets(top:5, left:10, bottom:11, right:17)
     }
     
     //设置他人的文本消息边距
     class func getTextInsetsSomeone() -> UIEdgeInsets {
+//        return UIEdgeInsets(top:5, left:15, bottom:11, right:10)
         return UIEdgeInsets(top:5, left:15, bottom:11, right:10)
     }
     
@@ -40,7 +42,7 @@ class MessageItem {
     
     //构造文本消息体
     convenience init(body:NSString, user:UserInfo, date:Date, mtype:ChatType) {
-        let font =  UIFont.boldSystemFont(ofSize: 12)
+        let font =  UIFont.boldSystemFont(ofSize: 20)
         
         let width =  225, height = 10000.0
         

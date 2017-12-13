@@ -10,6 +10,11 @@ class TableViewCell:UITableViewCell {
     //消息数据结构
     var msgItem:MessageItem!
     
+    var avatarWidth = 50
+    var avatarPadding = 2
+    
+    var messagePadding = 21
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -54,12 +59,12 @@ class TableViewCell:UITableViewCell {
             self.avatarImage.layer.borderWidth = 1.0
             
             //别人头像，在左边，我的头像在右边
-            let avatarX =  (type == ChatType.someone) ? 2 : self.frame.size.width - 52
+            let avatarX =  (type == ChatType.someone) ? CGFloat(avatarPadding): self.frame.size.width - CGFloat(avatarWidth+avatarPadding)
             
             //头像居于消息底部
-            let avatarY =  height
+            let avatarY =  height/2
             //set the frame correctly
-            self.avatarImage.frame = CGRect(x: avatarX, y: avatarY, width: 50, height: 50)
+            self.avatarImage.frame = CGRect(x: avatarX, y: avatarY, width: CGFloat(avatarWidth), height:CGFloat(avatarWidth))
             self.addSubview(self.avatarImage)
             
             let delta =  self.frame.size.height - (self.msgItem.insets.top
@@ -86,10 +91,15 @@ class TableViewCell:UITableViewCell {
         {
             self.bubbleImage.image = UIImage(named:("wechatback1cover.png"))!
                 .stretchableImage(withLeftCapWidth: 21,topCapHeight:14)
+
+            
+//            self.bubbleImage.image = UIImage(named:("wechatback1cover.png"))
+//            self.bubbleImage.image?.resizableImage(withCapInsets: UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 0))
+            
             
         }
         else {
-            self.bubbleImage.image = UIImage(named:"wechatback2.png")!
+            self.bubbleImage.image = UIImage(named:"mybubble_red.png")!
                 .stretchableImage(withLeftCapWidth: 15, topCapHeight:14)
         }
         self.bubbleImage.frame = CGRect(x: x, y: y,
