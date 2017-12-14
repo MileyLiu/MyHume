@@ -130,6 +130,18 @@ func replaceBlank(origin: String){
 
     
 }
+func calculateTimeInterval(previoudTime:Date) -> Double{
+    
+    
+   let interval = Date().timeIntervalSince(previoudTime)
+    
+    let duration = Double(interval)
+
+    return duration
+    
+}
+
+
 func iphoneType() ->String {
     
     var systemInfo = utsname()

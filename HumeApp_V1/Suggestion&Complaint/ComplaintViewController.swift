@@ -168,6 +168,8 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         print("currentTime:\(currentTime)")
         
         
+        let aboCurrentTime = "\(Int(currentDateTime.timeIntervalSince1970))"
+        
         
         let replayDateTime = Date().addingTimeInterval(1.0)
         
@@ -178,9 +180,13 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         let replayTime = formatter.string(from: replayDateTime)
          print("replayTime:\(replayTime)")
         
+        let aboReplyDateTime = "\(Int(replayDateTime.timeIntervalSince1970))"
         
-        let myMsg = MessageModel.init(content: textingContent, type: ChatType.mine, category: titleString!, time: currentTime)
-        let replyMsg = MessageModel.init(content: "We have received your message, will check soon", type: ChatType.someone, category: titleString!, time: replayTime)
+        
+        
+        
+        let myMsg = MessageModel.init(content: textingContent, type: ChatType.mine, category: titleString!, time: aboCurrentTime)
+        let replyMsg = MessageModel.init(content: "We have received your message, will check soon", type: ChatType.someone, category: titleString!, time: aboReplyDateTime)
         
         if myMsg.insertIfToDB(){
             
@@ -188,16 +194,8 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
                 
                 print("addmesgae to db")
                 
-                
-                
-                
-                
             }
         }
-        
-        
-        
-        
         
     }
     
@@ -224,19 +222,33 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
             //Todo  transfer date
             let messageModel = self.dataSource[i] as! MessageModel
             
-            print("dataSturcture\(i):,\(messageModel.type)")
-            
+          
             
             if messageModel.type == .mine {
+                
+//                let messageItem_me = MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-9000060+i*100)) , mtype: .mine)
+//                //
+              
+                
+                let timeStamp = (messageModel.time as NSString).intValue
+                
+                print("timestep1:\(timeStamp)")
+                let timeInterval:TimeInterval = TimeInterval(timeStamp)
+                let msgDate1 = Date(timeIntervalSince1970: timeInterval)
 
-                let messageItem_me = MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .mine)
-
+                let messageItem_me = MessageItem.init(body: messageModel.content as NSString, user: me, date: msgDate1, mtype: .mine)
+                
               messageItems.add(messageItem_me)
             }
             else if messageModel.type == .someone{
-
-                let messageItem_you = MessageItem.init(body: messageModel.content as NSString, user: you, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: .someone)
-
+                 let timeStamp = (messageModel.time as NSString).intValue
+                
+                 let timeInterval:TimeInterval = TimeInterval(timeStamp)
+                
+                let msgDate2 = Date(timeIntervalSince1970: timeInterval)
+                
+                
+                let messageItem_you = MessageItem.init(body: messageModel.content as NSString, user: you, date: msgDate2 , mtype: .someone)
                 messageItems.add(messageItem_you)
 
             }

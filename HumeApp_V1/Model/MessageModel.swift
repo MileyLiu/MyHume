@@ -24,6 +24,7 @@ class MessageModel: NSObject {
     var time : String
     
     
+    
     init(content:String,type:ChatType,category:String,time:String) {
        
        
