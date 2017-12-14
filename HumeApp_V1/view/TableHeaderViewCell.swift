@@ -23,7 +23,7 @@ class TableHeaderViewCell:UITableViewCell
     {
         self.height  = 30.0
         let dateFormatter =  DateFormatter()
-        dateFormatter.dateFormat = "yyyy年MM月dd日"
+        dateFormatter.dateFormat = "dd MMM yyyy"
         let text =  dateFormatter.string(from: value)
         
         if (self.label != nil)
@@ -36,7 +36,6 @@ class TableHeaderViewCell:UITableViewCell
         
         self.label.text = text
         self.label.font = UIFont.boldSystemFont(ofSize: 12)
-        
         self.label.textAlignment = NSTextAlignment.center
         self.label.shadowOffset = CGSize(width: 0, height: 1)
         self.label.shadowColor = UIColor.white

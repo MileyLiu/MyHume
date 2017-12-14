@@ -53,7 +53,7 @@ class TableViewCell:UITableViewCell {
             let imageName = thisUser.avatar != "" ? thisUser.avatar : "noAvatar.png"
             self.avatarImage = UIImageView(image:UIImage(named:imageName))
             
-            self.avatarImage.layer.cornerRadius = 9.0
+            self.avatarImage.layer.cornerRadius = CGFloat(avatarWidth/2)
             self.avatarImage.layer.masksToBounds = true
             self.avatarImage.layer.borderColor = UIColor(white:0.0 ,alpha:0.2).cgColor
             self.avatarImage.layer.borderWidth = 1.0
@@ -62,7 +62,8 @@ class TableViewCell:UITableViewCell {
             let avatarX =  (type == ChatType.someone) ? CGFloat(avatarPadding): self.frame.size.width - CGFloat(avatarWidth+avatarPadding)
             
             //头像居于消息底部
-            let avatarY =  height/2
+//            let avatarY =  height/2 - 10
+            let avatarY = CGFloat(2)
             //set the frame correctly
             self.avatarImage.frame = CGRect(x: avatarX, y: avatarY, width: CGFloat(avatarWidth), height:CGFloat(avatarWidth))
             self.addSubview(self.avatarImage)
@@ -89,8 +90,8 @@ class TableViewCell:UITableViewCell {
         //如果是别人的消息，在左边，如果是我输入的消息，在右边
         if (type == ChatType.someone)
         {
-            self.bubbleImage.image = UIImage(named:("wechatback1cover.png"))!
-                .stretchableImage(withLeftCapWidth: 21,topCapHeight:14)
+            self.bubbleImage.image = UIImage(named:("youBubble.png"))!
+                .stretchableImage(withLeftCapWidth: 15,topCapHeight:14)
 
             
 //            self.bubbleImage.image = UIImage(named:("wechatback1cover.png"))
@@ -99,8 +100,8 @@ class TableViewCell:UITableViewCell {
             
         }
         else {
-            self.bubbleImage.image = UIImage(named:"mybubble_red.png")!
-                .stretchableImage(withLeftCapWidth: 15, topCapHeight:14)
+            self.bubbleImage.image = UIImage(named:"meBubble.png")!
+                .stretchableImage(withLeftCapWidth: 15, topCapHeight:21)
         }
         self.bubbleImage.frame = CGRect(x: x, y: y,
             width: width + self.msgItem.insets.left + self.msgItem.insets.right,

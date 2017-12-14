@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelegate{
+class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelegate,UITextViewDelegate{
     
     var titleString: String?
     
@@ -31,16 +31,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     var me:UserInfo!
     var you:UserInfo!
     var txtMsg:UITextField!
+    var txtMsgTextView: UITextView!
     
     var viewWidth : CGFloat!
     var viewHight : CGFloat!
-    
-    
-    
-    
-    let selfurl:String = "http://tc.sinaimg.cn/maxwidth.800/tc.service.weibo.com/static_jinrongbaguanv_com/5886a925e3bd5fc2a3adf8f9a36324c8.png"
-    let otherUrl: String = "http://p3.wmpic.me/article/2015/03/16/1426483394_eJakzHWr.jpeg"
-    
+
     
     //    @IBOutlet weak var typeTextView: UITextView!
     
@@ -80,12 +75,16 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         sendView.backgroundColor=UIColor.lightGray
         sendView.alpha=0.9
         
-        txtMsg = UITextField(frame:CGRect(x: 7,y: 10,width: screenWidth - 95,height: 36))
+        txtMsg = UITextField(frame:CGRect(x: 7,y: 10,width: screenWidth - 95,height: 44))
         txtMsg.backgroundColor = UIColor.white
         txtMsg.textColor=UIColor.black
-        txtMsg.font=UIFont.boldSystemFont(ofSize: 12)
+        txtMsg.font=UIFont.boldSystemFont(ofSize: 16)
         txtMsg.layer.cornerRadius = 10.0
         txtMsg.returnKeyType = UIReturnKeyType.send
+        txtMsg.leftView = UIView.init(frame: CGRect(x:0,y:0,width:10,height:0))
+        txtMsg.leftViewMode = .always
+        txtMsg.tintColor = mainColor
+
         
         //Set the delegate so you can respond to user input
         txtMsg.delegate=self
@@ -105,6 +104,10 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         sendMessage()
         return true
     }
+    
+    
+    
+    
     @objc func sendMessage()
     {
        
@@ -215,7 +218,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         you  = UserInfo(name:"customerService", logo:("hume.jpg"))
         
         
-        let zero =  MessageItem(body:"Please talk with us", user:you,  date:Date(timeIntervalSinceNow:-90096400), mtype:.someone)
+        let zero =  MessageItem(body:"Please talk with us", user:you,  date:Date(timeIntervalSinceNow:-900964), mtype:.someone)
         
         for  i in 0..<dataSource.count{
             
@@ -225,10 +228,6 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
           
             
             if messageModel.type == .mine {
-                
-//                let messageItem_me = MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-9000060+i*100)) , mtype: .mine)
-//                //
-              
                 
                 let timeStamp = (messageModel.time as NSString).intValue
                 
@@ -253,21 +252,10 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
 
             }
 
-//            messageItems.add(messageItem_me,messageItem_you)
-            
-            
-//            let mseeageItem =  MessageItem.init(body: messageModel.content as NSString, user: me, date: Date(timeIntervalSinceNow:TimeInterval(-90000600+i*100)) , mtype: messageModel.type)
-//
-//            messageItems.add(mseeageItem)
 
-            
-            print("messageItems1:\(messageItems.count)")
-//
-//            messageItems.add(messageItem_me)
-            
         }
         
-        print("messageItems2:\(messageItems.count)")
+      
         
         Chats = NSMutableArray()
         
@@ -285,6 +273,22 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         self.view.addSubview(self.tableView)
         
         //跳到table底部
+        
+        print("Chats:\(Chats.count)")
+        
+        
+    
+        
+        
+        let indexPath  = IndexPath(row: Chats.count-1, section: 0)
+        
+        print("index:\(indexPath)")
+        
+        
+        
+        
+        
+        
         //        let indexPath = IndexPath(row: Chats.count-1, section: 0)
         //        if(Chats.count-1>0){
         //            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
@@ -295,55 +299,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     
     
     
-    
-    //    @IBAction func sendMessage(_ sender: Any) {
-    //
-    //        let currentDateTime = Date()
-    //
-    //        // initialize the date formatter and set the style
-    //        let formatter = DateFormatter()
-    //        formatter.timeStyle = .medium
-    //        formatter.dateStyle = .long
-    //
-    //        // get the date time String from the date object
-    //        let currentTime = formatter.string(from: currentDateTime)
-    //
-    //
-    //        let sender = self.typeTextView.text
-    //
-    //        let msgItem = MessageItem(body: self.typeTextView.text as NSString, image: selfurl, date: Date(timeIntervalSinceNow:-500), mtype: ChatType.mine)
-    //
-    //        Chats.add(msgItem)
-    //        print("Chats\(Chats.count)")
-    //
-    //
-    //
-    //
-    //
-    ////        if self.typeTextView.text != nil{
-    //        let messageModel = MessageModel.init(content: self.typeTextView.text, type: ChatType.mine, category: "Delivery", time: currentTime)
-    ////
-    ////            print("currentTime:\(currentTime)")
-    //            if messageModel.insertIfToDB(){
-    //                print("update")
-    //
-    //                addNewItem(messageModel:messageModel)
-    //
-    //        }
-    //
-    //    }
-    //
-    //    func addNewItem(messageModel:MessageModel){
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //    }
-    //
-    //
+   
     
     
     override func didReceiveMemoryWarning() {
