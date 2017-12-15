@@ -73,6 +73,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         let screenWidth = UIScreen.main.bounds.width
         let sendView = UIView(frame:CGRect(x: 0,y: self.view.frame.size.height - 56,width: screenWidth,height: 56))
         
+        
+      
+        
+        
+        
         sendView.backgroundColor=UIColor.lightGray
         sendView.alpha=0.9
         
@@ -104,6 +109,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         
         txtMsg.delegate=self
+        
+        
+        //点击其他部分收起键盘
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
 
     }
     func textFieldShouldReturn(_ textField:UITextField) -> Bool
@@ -162,6 +172,14 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
 //        let offset = frame.origin.y + 56 - ( height - 216.0-40.0)//键盘高度216
         
+        let keyBoardHeight = 200.0
+        
+        
+        
+        
+        let sendViewHeight = 56.0
+        
+        
         let offset = 200.0+56.0
         
         
@@ -202,6 +220,27 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
          UIView.commitAnimations()
         
     }
+    
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        NSLog("touchesBegan");
+//        let height = self.view.frame.size.height
+//        let width = self.view.frame.size.width
+//        let animationDuration = TimeInterval(0.30)
+//        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
+//        UIView.setAnimationDuration(animationDuration)
+//
+//        let rect = CGRect.init(x: 0, y: 0, width: width, height: height)
+//        self.view.frame = rect
+//
+//        UIView.commitAnimations()
+//    }
+    
+    
     
     
     
