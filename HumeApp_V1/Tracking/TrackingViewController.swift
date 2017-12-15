@@ -59,6 +59,9 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
         self.navigationItem.leftBarButtonItem = self.menuButton
 //        menuButton?.title = "left"
         
+        self.SlipeTextField.configKeyboard()
+        self.suburbTextField.configKeyboard()
+        
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
             self.menuButton?.action = "revealToggle:"
@@ -116,6 +119,8 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
         
         if SlipeTextField?.text?.isEmpty ?? true {
             let emptyAlert = getSimpleAlert(titleString:alertString,messgaeLocizeString:"FILL_ERROR")
+            
+            
             self.present(emptyAlert, animated: true, completion: nil)
             return
         }

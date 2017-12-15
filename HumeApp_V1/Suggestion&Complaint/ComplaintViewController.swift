@@ -61,6 +61,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         print("dataSource:\(dataSource.count)")
         //        dataSource = MessageModel.MessageFromDB(category: "Delivery")
         //        print("dataSource:\(dataSource.count)")
+       
         
         setupChatTable()
         setupSendPanel()
@@ -85,7 +86,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         txtMsg.leftViewMode = .always
         txtMsg.tintColor = mainColor
 
-        
+        txtMsg.configKeyboard()
         //Set the delegate so you can respond to user input
         txtMsg.delegate=self
         sendView.addSubview(txtMsg)
@@ -154,6 +155,41 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
 //
         
         
+    }
+    
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) ->Bool {
+        
+        print("textFieldDidBeginEditing")
+        
+        let frame = textField.frame
+        let height = self.view.frame.size.height
+        let width = self.view.frame.size.width
+        
+        // 当前点击textfield的坐标的Y值 + 当前点击textFiled的高度 - （屏幕高度- 键盘高度 - 键盘上tabbar高度）
+        
+        // 在这一部 就是了一个 当前textfile的的最大Y值 和 键盘的最全高度的差值，用来计算整个view的偏移量
+        
+        let offset = frame.origin.y + 56 - ( height - 216.0-35.0)//键盘高度216
+        
+        
+        print("offset:\(offset)")
+        
+        let animationDuration = TimeInterval(0.30)
+        
+        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
+        UIView.setAnimationDuration(animationDuration)
+        
+        if offset>0 {
+            
+            let rect = CGRect.init(x: 0, y: offset, width: width, height: height)
+            self.view.frame = rect
+       
+        }
+        
+    
+        UIView.commitAnimations()
+        return true
     }
     
     func saveMessageIntoDB(textingContent:String){
@@ -275,9 +311,6 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         //跳到table底部
         
         print("Chats:\(Chats.count)")
-        
-        
-    
         
         
         let indexPath  = IndexPath(row: Chats.count-1, section: 0)

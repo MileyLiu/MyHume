@@ -64,8 +64,6 @@ class OrderViewController: UIViewController,UITextFieldDelegate{
         self.dateTextField.delegate = self
        
         
-       
-        
        itemsInfo = ShoppingCar.ShoppingListFromDB()
         
         for array in itemsInfo {

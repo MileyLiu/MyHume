@@ -33,6 +33,14 @@ class TableView:UITableView,UITableViewDelegate, UITableViewDataSource
         self.separatorStyle = UITableViewCellSeparatorStyle.none
         self.delegate = self
         self.dataSource = self
+        
+        //滑向最后一部分
+//
+//        let secno = self.bubbleSection.count - 1
+//        let indexPath =  IndexPath(row:(self.bubbleSection[secno] as AnyObject).count,section:secno)
+//
+//        self.scrollToRow(at: indexPath,                at:UITableViewScrollPosition.bottom,animated:true)
+        
     }
     
     override func reloadData()

@@ -42,6 +42,7 @@ class SuggestionViewController: UIViewController,UITextViewDelegate{
         
         self.contactLabel.text = LanguageHelper.getString(key: "CONTACT")
         self.contaxtTextField.placeholder = LanguageHelper.getString(key: "CONTACT_PH")
+        self.contaxtTextField.configKeyboard()
         
         // Do any additional setup after loading the view.
     }
