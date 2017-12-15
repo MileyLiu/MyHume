@@ -82,13 +82,14 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         txtMsg.font=UIFont.boldSystemFont(ofSize: 16)
         txtMsg.layer.cornerRadius = 10.0
         txtMsg.returnKeyType = UIReturnKeyType.send
+      
         txtMsg.leftView = UIView.init(frame: CGRect(x:0,y:0,width:10,height:0))
         txtMsg.leftViewMode = .always
         txtMsg.tintColor = mainColor
 
-        txtMsg.configKeyboard()
+//        txtMsg.configKeyboard()
         //Set the delegate so you can respond to user input
-        txtMsg.delegate=self
+       
         sendView.addSubview(txtMsg)
         self.view.addSubview(sendView)
         
@@ -99,6 +100,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         sendButton.layer.cornerRadius=6.0
         sendButton.setTitle("Send", for:UIControlState())
         sendView.addSubview(sendButton)
+        
+        
+        
+        txtMsg.delegate=self
+
     }
     func textFieldShouldReturn(_ textField:UITextField) -> Bool
     {
@@ -138,27 +144,11 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         sender?.text = ""
         
         
-//        print("texting:\(txtMsg.text)")
-        
-       
-        
-        
-//        if !(txtMsg.text?.isEmpty)!{
-//
-//            saveMessageIntoDB(content: (txtMsg.text?)!)
-//        }
-//        else {
-//
-//            print("enter some thing")
-//        }
-//
-//
-        
         
     }
     
     
-    public func textFieldDidBeginEditing(_ textField: UITextField) ->Bool {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         print("textFieldDidBeginEditing")
         
@@ -170,7 +160,9 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         // 在这一部 就是了一个 当前textfile的的最大Y值 和 键盘的最全高度的差值，用来计算整个view的偏移量
         
-        let offset = frame.origin.y + 56 - ( height - 216.0-35.0)//键盘高度216
+//        let offset = frame.origin.y + 56 - ( height - 216.0-40.0)//键盘高度216
+        
+        let offset = 200.0+56.0
         
         
         print("offset:\(offset)")
@@ -180,17 +172,40 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         UIView.beginAnimations("ResizeForKeyBoard", context: nil)
         UIView.setAnimationDuration(animationDuration)
         
-        if offset>0 {
-            
-            let rect = CGRect.init(x: 0, y: offset, width: width, height: height)
+//        if offset<0 {
+        
+            let rect = CGRect.init(x: 0, y: CGFloat(-offset), width: width, height: height)
             self.view.frame = rect
        
-        }
+           
+//        }
         
     
         UIView.commitAnimations()
-        return true
+        
     }
+    
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
+        
+        let height = self.view.frame.size.height
+        let width = self.view.frame.size.width
+         let animationDuration = TimeInterval(0.30)
+        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
+        UIView.setAnimationDuration(animationDuration)
+    
+        let rect = CGRect.init(x: 0, y: 0, width: width, height: height)
+        self.view.frame = rect
+        
+         UIView.commitAnimations()
+        
+    }
+    
+    
+    
+    
     
     func saveMessageIntoDB(textingContent:String){
         

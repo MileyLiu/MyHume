@@ -44,7 +44,6 @@ extension UITextField{
     @objc func doneClick() {
 //        self.requestTypeTextField.text = requestType[pickerIndex]
         
-        
         self.resignFirstResponder()
     }
     @objc func cancelClick() {

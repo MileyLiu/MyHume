@@ -76,6 +76,13 @@ func toolbarSetting() ->UIToolbar{
 
 
 
+func keyboardShown(notification: NSNotification) {
+    let info = notification.userInfo!
+    let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    print("keyboardFrame: \(keyboardFrame)")
+}
+
+
 //func checkSlip(inputString:String){
 //    
 //  
