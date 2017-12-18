@@ -12,7 +12,9 @@ class NewHomeViewController: UIViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-64))
+    var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
+    
+    var images = ["morning","afternoon","evening"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +29,21 @@ class NewHomeViewController: UIViewController {
         titleImageView.image = UIImage(named:"titleLogo")
         titleImageView.contentMode = .scaleAspectFit
         
-        self.photoGallery.bindWithLocalPhoto(photoArray: ["morning","afternoon","evening"], interval: 15.0)
+        self.navigationItem.titleView = titleImageView
+        
+       
+        
+        self.photoGallery.bindWithLocalPhoto(photoArray: images, interval: 15.0)
         
         self.view.addSubview(photoGallery)
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
     @IBAction func callus(_ sender: Any) {
         makePhoneCall()
     }

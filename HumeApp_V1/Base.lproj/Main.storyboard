@@ -270,7 +270,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyO-n1-RII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3866" y="-1681"/>
+            <point key="canvasLocation" x="1476" y="1473"/>
         </scene>
         <!--Delivery Tracking-->
         <scene sceneID="tne-QT-ifu">
@@ -406,18 +406,15 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     </view>
                     <navigationItem key="navigationItem" title="Delivery Tracking" id="6Wv-J8-7wt">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="UCK-qH-6KB">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="iga-q4-hHZ">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="callUs:" destination="BYZ-38-t0r" id="cyL-rR-pm5"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="0uP-LK-2oo">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="SlipeTextField" destination="lce-Bw-F4c" id="1N2-uz-yh5"/>
-                        <outlet property="callButton" destination="iga-q4-hHZ" id="mFd-Eh-y9j"/>
+                        <outlet property="callButton" destination="0uP-LK-2oo" id="8Qq-BT-rFU"/>
                         <outlet property="historyButton" destination="k0A-V5-jaC" id="yLm-uo-NQL"/>
                         <outlet property="menuButton" destination="UCK-qH-6KB" id="um1-Re-j2h"/>
                         <outlet property="navItem" destination="6Wv-J8-7wt" id="0ME-DT-cae"/>
@@ -816,7 +813,8 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     </view>
                     <navigationItem key="navigationItem" title="Tracking history" id="Bs2-cZ-nvc">
                         <rightBarButtonItems>
-                            <barButtonItem image="ic_phone_white" id="aJM-NX-YQm">
+                            <barButtonItem title="Item" image="ic_phone_white" id="aJM-NX-YQm">
+                                <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="call:" destination="97M-uN-Vyh" id="iiL-tX-PaR"/>
                                 </connections>
@@ -1114,7 +1112,15 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <viewLayoutGuide key="safeArea" id="H4W-Sb-P3P"/>
                     </view>
                     <navigationItem key="navigationItem" title="Setting" id="Zx7-ww-2rF">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="jWB-ax-E0a"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="jWB-ax-E0a">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="Pvu-nB-50D">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="callus:" destination="3em-W3-FXl" id="Y9o-Dg-D8z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cacheLabel" destination="c6l-n3-9Bj" id="KNW-eh-xPq"/>
@@ -1168,9 +1174,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1342,9 +1348,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <viewLayoutGuide key="safeArea" id="cue-e3-Vaw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Branch Location" id="pkJ-Z6-k2Z">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="65b-uy-4hW"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="65b-uy-4hW">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="wvO-Lg-hk3">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="callUs:" destination="4Gh-Z4-dgT" id="o4y-Di-lhr"/>
                             </connections>
@@ -1372,9 +1380,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bzQ-Lm-QfC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1564,7 +1572,15 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <viewLayoutGuide key="safeArea" id="435-BN-t9G"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feedback" id="kyq-TE-r9I">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="F9G-Yh-LFO"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="F9G-Yh-LFO">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="s7t-1e-Opa">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="phoneCall:" destination="gg1-tb-eLe" id="4Po-Ks-4rm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="F9G-Yh-LFO" id="rW0-bd-o0E"/>
@@ -1848,9 +1864,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <viewLayoutGuide key="safeArea" id="Cih-yl-MKA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Current Specials" id="HTo-iv-5bs">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="ZXM-sB-yP5"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="ZXM-sB-yP5">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="51D-ma-rEq">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="callUs:" destination="IYz-9n-kY2" id="uDF-ms-wLt"/>
                             </connections>
@@ -2251,9 +2269,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AUS-G8-xKI">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2315,9 +2333,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J4a-v1-4YJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2604,9 +2622,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5pk-wO-3wN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2739,11 +2757,15 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="h7W-WY-1OW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="bwf-Ad-PLT">
-                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="1Qa-BB-7yy"/>
+                        <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="1Qa-BB-7yy">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="EHz-B6-RXV">
+                            <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="callus:" destination="06c-rF-mJn" id="8O0-pD-pj5"/>
                             </connections>
@@ -2766,9 +2788,10 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CWc-e3-RwS">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -2815,7 +2838,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="79Z-9L-79x"/>
-        <segue reference="BW5-Qm-Mgq"/>
+        <segue reference="Gu3-1F-BsW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

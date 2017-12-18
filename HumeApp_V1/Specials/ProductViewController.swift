@@ -186,6 +186,8 @@ class ProductViewController: UIViewController ,UICollectionViewDelegate,UICollec
         cell.productImage.tag = indexPath.row
         cell.productImage.isUserInteractionEnabled = true
         
+        cell.layer.cornerRadius = 10
+        
         return cell
         
     }

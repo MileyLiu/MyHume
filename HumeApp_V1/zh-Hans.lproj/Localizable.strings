@@ -130,6 +130,7 @@ INTIAL_TALK = "请给我们发送信息";
 
 //product
 ADD_SHOPPINGCART = "加入购物车";
+SHOPPING_CART = "购物车";
 
 
 

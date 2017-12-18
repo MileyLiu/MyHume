@@ -21,6 +21,8 @@ class ShoppingCarViewController: UIViewController,UITableViewDelegate,UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        self.title = LanguageHelper.getString(key: "SHOPPING_CART")
         self.totalLabel.text = LanguageHelper.getString(key: "TOTAL")
         
         self.shopListTableView.delegate = self

@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         LanguageHelper.shareInstance.initUserLanguage()
+        
+        UINavigationBar.appearance().tintColor = mainColor
        
 //        IQKeyboardManager.sharedManager().enable = true
        

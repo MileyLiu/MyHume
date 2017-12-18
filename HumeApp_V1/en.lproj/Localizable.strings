@@ -131,6 +131,8 @@ INTIAL_TALK = "Please send us message";
 //product
 
 ADD_SHOPPINGCART = "Add to shopping cart";
+SHOPPING_CART = "Shopping Cart";
+
 
 
 

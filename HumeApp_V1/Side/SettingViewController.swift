@@ -199,6 +199,10 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
    
+    @IBAction func callus(_ sender: Any) {
+        
+        makePhoneCall()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
