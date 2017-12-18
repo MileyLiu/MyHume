@@ -19,7 +19,9 @@ class SnCViewController: UIViewController ,UITableViewDelegate,UITableViewDataSo
             self.menuButton?.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        self.navigationItem.title = "\(LanguageHelper.getString(key: "SUGGESTION")) & \(LanguageHelper.getString(key: "COMPLAINT"))"
+//        self.navigationItem.title = "\(LanguageHelper.getString(key: "SUGGESTION")) & \(LanguageHelper.getString(key: "COMPLAINT"))"
+        
+        self.navigationItem.title = LanguageHelper.getString(key: "FEEDBACK")
         
         self.suggestionTable.delegate = self
         self.suggestionTable.dataSource = self
