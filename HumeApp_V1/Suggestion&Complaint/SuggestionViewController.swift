@@ -39,6 +39,7 @@ class SuggestionViewController: UIViewController,UITextViewDelegate{
         self.describeTextView.text = LanguageHelper.getString(key: "DESCRIBE_PH")
         self.describeTextView.isScrollEnabled = true
         self.describeTextView.textColor = UIColor.lightGray
+        self.describeTextView.configKeyboard()
         
         self.contactLabel.text = LanguageHelper.getString(key: "CONTACT")
         self.contaxtTextField.placeholder = LanguageHelper.getString(key: "CONTACT_PH")

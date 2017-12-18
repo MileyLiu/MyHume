@@ -13,6 +13,7 @@ import UIKit
 class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelegate,UITextViewDelegate{
     
     var titleString: String?
+//    var keyBoardHeight: Double?
     
     func rowsForChatTable(_ tableView: TableView) -> Int {
         return self.Chats.count
@@ -65,6 +66,8 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         setupChatTable()
         setupSendPanel()
+        //KEYBORAD
+       
         
     }
     
@@ -73,18 +76,13 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         let screenWidth = UIScreen.main.bounds.width
         let sendView = UIView(frame:CGRect(x: 0,y: self.view.frame.size.height - 56,width: screenWidth,height: 56))
         
-        
-      
-        
-        
-        
         sendView.backgroundColor=UIColor.lightGray
         sendView.alpha=0.9
         
-        txtMsg = UITextField(frame:CGRect(x: 7,y: 10,width: screenWidth - 95,height: 44))
+        txtMsg = UITextField(frame:CGRect(x: 7,y: 10,width: screenWidth - 95,height: 36))
         txtMsg.backgroundColor = UIColor.white
         txtMsg.textColor=UIColor.black
-        txtMsg.font=UIFont.boldSystemFont(ofSize: 16)
+        txtMsg.font=UIFont.boldSystemFont(ofSize: messageFontSize)
         txtMsg.layer.cornerRadius = 10.0
         txtMsg.returnKeyType = UIReturnKeyType.send
       
@@ -92,7 +90,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         txtMsg.leftViewMode = .always
         txtMsg.tintColor = mainColor
 
-//        txtMsg.configKeyboard()
+        txtMsg.configKeyboard()
         //Set the delegate so you can respond to user input
        
         sendView.addSubview(txtMsg)
@@ -116,15 +114,37 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         self.view.addGestureRecognizer(tap)
 
     }
+    
+    func configKeyboardAction(KbHeight:Double){
+//         txtMsg.configKeyboard()
+        
+        
+//        let frame = textField.frame
+        let height = self.view.frame.size.height
+        let width = self.view.frame.size.width
+        
+        print("kbHeight:\(KbHeight)")
+        let offset = KbHeight
+        print("offset:\(offset)")
+        let animationDuration = TimeInterval(0.30)
+        
+        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
+        UIView.setAnimationDuration(animationDuration)
+        let rect = CGRect.init(x: 0, y: CGFloat(-offset), width: width, height: height)
+        self.view.frame = rect
+      
+        UIView.commitAnimations()
+     
+    }
+    
+    
     func textFieldShouldReturn(_ textField:UITextField) -> Bool
     {
         sendMessage()
         return true
     }
     
-    
-    
-    
+ 
     @objc func sendMessage()
     {
        
@@ -160,46 +180,17 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         
+
+        NotificationCenter.default.addObserver(
+            self,
+
+            selector: #selector(keyboardWillShow),
+            name: NSNotification.Name.UIKeyboardWillShow,
+            object: nil
+        )
+        
         print("textFieldDidBeginEditing")
-        
-        let frame = textField.frame
-        let height = self.view.frame.size.height
-        let width = self.view.frame.size.width
-        
-        // 当前点击textfield的坐标的Y值 + 当前点击textFiled的高度 - （屏幕高度- 键盘高度 - 键盘上tabbar高度）
-        
-        // 在这一部 就是了一个 当前textfile的的最大Y值 和 键盘的最全高度的差值，用来计算整个view的偏移量
-        
-//        let offset = frame.origin.y + 56 - ( height - 216.0-40.0)//键盘高度216
-        
-        let keyBoardHeight = 200.0
-        
-        
-        
-        
-        let sendViewHeight = 56.0
-        
-        
-        let offset = 200.0+56.0
-        
-        
-        print("offset:\(offset)")
-        
-        let animationDuration = TimeInterval(0.30)
-        
-        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
-        UIView.setAnimationDuration(animationDuration)
-        
-//        if offset<0 {
-        
-            let rect = CGRect.init(x: 0, y: CGFloat(-offset), width: width, height: height)
-            self.view.frame = rect
-       
-           
-//        }
-        
-    
-        UIView.commitAnimations()
+
         
     }
     
@@ -226,26 +217,8 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        NSLog("touchesBegan");
-//        let height = self.view.frame.size.height
-//        let width = self.view.frame.size.width
-//        let animationDuration = TimeInterval(0.30)
-//        UIView.beginAnimations("ResizeForKeyBoard", context: nil)
-//        UIView.setAnimationDuration(animationDuration)
-//
-//        let rect = CGRect.init(x: 0, y: 0, width: width, height: height)
-//        self.view.frame = rect
-//
-//        UIView.commitAnimations()
-//    }
-    
-    
-    
-    
-    
-    
-    
+
+   
     func saveMessageIntoDB(textingContent:String){
         
         
@@ -315,8 +288,6 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
             //Todo  transfer date
             let messageModel = self.dataSource[i] as! MessageModel
             
-          
-            
             if messageModel.type == .mine {
                 
                 let timeStamp = (messageModel.time as NSString).intValue
@@ -360,19 +331,30 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         //call the reloadData, this is a    ctually calling your override method
         self.tableView.reloadData()
         
-        self.view.addSubview(self.tableView)
+         self.view.addSubview(self.tableView)
+        
+        self.scrollToBottom()
+//
+//        self.view.addSubview(self.tableView)
         
         //跳到table底部
         
-        print("Chats:\(Chats.count)")
+//
+//        let sections =  self.tableView.bubbleSection.count - 1
+//
+//       let indexPath =  IndexPath(row:(self.tableView.bubbleSection[sections] as AnyObject).count,section:sections)
+//
+////        self.tableView.scrollToRow(at: indexPath,                at:UITableViewScrollPosition.bottom,animated:true)
+////
+//
+//        self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+//
+//
+
         
+//        self.tableView.reloadData()
         
-        let indexPath  = IndexPath(row: Chats.count-1, section: 0)
-        
-        print("index:\(indexPath)")
-        
-        
-        
+   
         
         
         
@@ -384,10 +366,60 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(false)
+        self.tableView.setContentOffset(CGPoint(x:0,y:CGFloat.greatestFiniteMagnitude), animated: false)
+    }
+
+
+    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(false)
+        if self.tableView.contentSize.height > self.tableView.frame.size.height
+        {
+
+            let offset = CGPoint(x:0, y: self.tableView.contentSize.height - self.tableView.frame.size.height)
+
+            self.tableView.setContentOffset(offset, animated: false)
+        }
+    }
+    
+    
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyBoardHeight = Double(keyboardRectangle.height)
+            print("keyboardHeight:\(keyBoardHeight)")
+            
+            configKeyboardAction(KbHeight: keyBoardHeight)
+            
+            
+        }
+    }
+    
+    
+    func scrollToBottom() {
+        
+        
+        var yOffset = CGFloat(0)
+        let distance = self.tableView.contentSize.height-self.tableView.bounds.size.height
+        
+    
+        
+       //设置要滚动的位置 0最顶部 CGFLOAT_MAX最底部
+        if (distance>0) {
+            yOffset = distance
+        }
+        
+        
+        print("yOffest:\(yOffset)")
+        self.tableView.setContentOffset(CGPoint(x:0,y:yOffset), animated: false)
+       
+        
+    }
     
     
    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

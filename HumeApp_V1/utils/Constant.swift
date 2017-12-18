@@ -105,7 +105,8 @@ let FONT_CONTENT_SIZE = Float(16.0)
 let FONT_DETAILS_SIZE = Float(14.0)
 
 let deviceModel = UIDevice.current.model
- 
+
+let messageFontSize = CGFloat(14)
 
 
 

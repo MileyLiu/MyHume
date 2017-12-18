@@ -15,6 +15,8 @@ class TableViewCell:UITableViewCell {
     
     var messagePadding = 21
     
+    
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

@@ -1,25 +1,22 @@
 //
-//  KeybaordTextField.swift
+//  KeyboardTextView.swift
 //  HumeApp_V1
 //
-//  Created by MileyLiu on 15/12/17.
+//  Created by MileyLiu on 18/12/17.
 //  Copyright © 2017 MileyLiu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
-extension UITextField{
-    
-    
-
+extension UITextView{
     
     func configKeyboard() {
         
-//        self.delegate = self
-    
+        //        self.delegate = self
+        
         self.tintColor = mainColor
-      
+        
         
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
@@ -35,14 +32,14 @@ extension UITextField{
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         
         toolBar.isUserInteractionEnabled = true
-    
+        
         
         self.inputAccessoryView = toolBar
-
-    
+        
+        
     }
     @objc func doneClick() {
-//        self.requestTypeTextField.text = requestType[pickerIndex]
+        //        self.requestTypeTextField.text = requestType[pickerIndex]
         
         self.resignFirstResponder()
     }
@@ -52,7 +49,7 @@ extension UITextField{
     }
     
     
-   
+    
     
     
 }

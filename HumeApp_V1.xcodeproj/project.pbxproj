@@ -49,6 +49,7 @@
 		164C56D71FE33D060037210E /* MLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56D61FE33D060037210E /* MLViewController.swift */; };
 		164C56D91FE341C40037210E /* KeybaordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56D81FE341C40037210E /* KeybaordTextField.swift */; };
 		164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */; };
+		164C56DD1FE714050037210E /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56DC1FE714050037210E /* KeyboardTextView.swift */; };
 		1655B2FE1FD9EF1E000A8656 /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */; };
 		1655B3001FD9EF8B000A8656 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */; };
 		165A63D11FDA60650017DB6D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A63D01FDA60650017DB6D /* MessageModel.swift */; };
@@ -157,6 +158,7 @@
 		164C56D61FE33D060037210E /* MLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLViewController.swift; sourceTree = "<group>"; };
 		164C56D81FE341C40037210E /* KeybaordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybaordTextField.swift; sourceTree = "<group>"; };
 		164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeArea.swift"; sourceTree = "<group>"; };
+		164C56DC1FE714050037210E /* KeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextView.swift; sourceTree = "<group>"; };
 		165264301F9DBB910010BDBD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
 		1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataSource.swift; sourceTree = "<group>"; };
@@ -266,6 +268,9 @@
 				16119A7F1FE08A6F00EF19FE /* TableHeaderViewCell.swift */,
 				16119A801FE08A7000EF19FE /* TableView.swift */,
 				16119A7E1FE08A6F00EF19FE /* TableViewCell.swift */,
+				164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */,
+				164C56D81FE341C40037210E /* KeybaordTextField.swift */,
+				164C56DC1FE714050037210E /* KeyboardTextView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -394,7 +399,6 @@
 				16BB8AE31FBAB7740093A332 /* MLPhotoGallery.swift */,
 				16495C761FB3BABB00E74A62 /* LanguageHelper.swift */,
 				16DFA9451FA7E58700750757 /* HomeButton.swift */,
-				164C56D81FE341C40037210E /* KeybaordTextField.swift */,
 				168F43B21FA6A153006AD409 /* SWRevealViewController.h */,
 				168F43B31FA6A154006AD409 /* SWRevealViewController.m */,
 				1631A5C51F7DD10600112DD2 /* Constant.swift */,
@@ -423,7 +427,6 @@
 				1696B5E91FB51804006DEB4C /* SnCViewController.swift */,
 				16A194681FB52BDA008558B8 /* SuggestionViewController.swift */,
 				16A1946A1FB52BEC008558B8 /* ComplaintViewController.swift */,
-				164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */,
 				16C62CF01FDA149C00BF76F6 /* ConversationViewController.swift */,
 			);
 			path = "Suggestion&Complaint";
@@ -888,6 +891,7 @@
 				16A1946B1FB52BEC008558B8 /* ComplaintViewController.swift in Sources */,
 				16BB8AE71FBBBD7C0093A332 /* IndustryNewsTableViewCell.swift in Sources */,
 				16ECB0081F8C3C2800D033EB /* ProductCollectionViewCell.swift in Sources */,
+				164C56DD1FE714050037210E /* KeyboardTextView.swift in Sources */,
 				168F43B81FA6AE14006AD409 /* FeedbackViewController.swift in Sources */,
 				16BB8AE41FBAB7740093A332 /* MLPhotoGallery.swift in Sources */,
 				164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */,

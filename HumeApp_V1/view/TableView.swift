@@ -34,14 +34,9 @@ class TableView:UITableView,UITableViewDelegate, UITableViewDataSource
         self.delegate = self
         self.dataSource = self
         
-        //滑向最后一部分
-//
-//        let secno = self.bubbleSection.count - 1
-//        let indexPath =  IndexPath(row:(self.bubbleSection[secno] as AnyObject).count,section:secno)
-//
-//        self.scrollToRow(at: indexPath,                at:UITableViewScrollPosition.bottom,animated:true)
-        
     }
+    
+    
     
     override func reloadData()
     {
@@ -92,9 +87,10 @@ class TableView:UITableView,UITableViewDelegate, UITableViewDataSource
         
         //滑向最后一部分
         let secno = self.bubbleSection.count - 1
+         print("section1.0:\(secno)")
         let indexPath =  IndexPath(row:(self.bubbleSection[secno] as AnyObject).count,section:secno)
-        
-        self.scrollToRow(at: indexPath,                at:UITableViewScrollPosition.bottom,animated:true)
+        print("section2.0:\(indexPath)")
+        self.scrollToRow(at: indexPath,                at:UITableViewScrollPosition.bottom,animated:false)
     }
     
     //按日期排序方法
