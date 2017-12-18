@@ -123,6 +123,15 @@ DELIVERY = "送货";
 PICKUP = "自取";
 GENERAL = "普通";
 
+//Message
+SEND = "发送";
+AUTO_REPLY = "谢谢您的信息,我们将尽快回复您.";
+INTIAL_TALK = "请给我们发送信息";
+
+//product
+ADD_SHOPPINGCART = "加入购物车";
+
+
 
 
 

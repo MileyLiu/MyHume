@@ -1585,7 +1585,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
             </objects>
             <point key="canvasLocation" x="1823" y="815"/>
         </scene>
-        <!--Suggestion View Controller-->
+        <!--Title-->
         <scene sceneID="b0o-Ly-b8h">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="evU-c0-4zM" customClass="SuggestionViewController" customModule="HumeApp_V1" customModuleProvider="target" sceneMemberID="viewController">
@@ -1649,6 +1649,13 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CVZ-lc-eTO"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="gVK-LY-Wsz">
+                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="Fkm-No-MGh">
+                            <connections>
+                                <action selector="callus:" destination="evU-c0-4zM" id="aHH-1X-6bw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contactLabel" destination="cRM-VO-OCq" id="yvk-sL-DQq"/>
                         <outlet property="contaxtTextField" destination="QgB-E6-TFw" id="XQD-Fa-pOx"/>
@@ -1661,7 +1668,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
             </objects>
             <point key="canvasLocation" x="2556" y="205"/>
         </scene>
-        <!--Complaint View Controller-->
+        <!--Title-->
         <scene sceneID="tnC-qd-xqV">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="H0v-pE-hqT" customClass="ComplaintViewController" customModule="HumeApp_V1" customModuleProvider="target" sceneMemberID="viewController">
@@ -1671,6 +1678,13 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="n0g-DK-3A7"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="sL8-WJ-vAr">
+                        <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="tIb-0j-h66">
+                            <connections>
+                                <action selector="callus:" destination="H0v-pE-hqT" id="37r-aX-FY5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k29-ba-Si0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

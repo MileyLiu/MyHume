@@ -62,6 +62,14 @@ class OrderViewController: UIViewController,UITextFieldDelegate{
         self.branchTextField.delegate = self
         self.jobTypeText.delegate = self
         self.dateTextField.delegate = self
+        
+        
+       
+        self.accountName.configKeyboard()
+        self.nameTextField.configKeyboard()
+        self.contactNumber.configKeyboard()
+        
+        
        
         
        itemsInfo = ShoppingCar.ShoppingListFromDB()

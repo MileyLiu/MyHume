@@ -18,6 +18,7 @@ class SuggestionViewController: UIViewController,UITextViewDelegate{
     @IBOutlet weak var contaxtTextField: UITextField!
     var titleString: String?
 
+ 
     @IBOutlet weak var submitButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,10 @@ class SuggestionViewController: UIViewController,UITextViewDelegate{
     }
     
     
+    @IBAction func callus(_ sender: Any) {
+        
+        makePhoneCall()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -31,7 +31,7 @@ class ProductDetailViewController: UIViewController {
         self.titleLabel.text = special.name
         self.spcialLargeImage.sd_setImage(with: URL(string:special.imageLargeUrl!), completed: nil)
         self.priceLabel.text = "A\(special.price!)"
-        self.addShoppingCart.set(anImage: UIImage(named:"ic_shopping_cart_white"), title: "Add to shopping Cart", titlePosition: .right, additionalSpacing: 5, state: .normal)
+        self.addShoppingCart.set(anImage: UIImage(named:"ic_shopping_cart_white"), title: LanguageHelper.getString(key: "ADD_SHOPPINGCART"), titlePosition: .right, additionalSpacing: 5, state: .normal)
    
         self.detailView.layer.cornerRadius = 10
         self.detailView.layer.shadowColor = UIColor.black.cgColor

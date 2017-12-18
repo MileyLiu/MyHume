@@ -76,7 +76,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         let screenWidth = UIScreen.main.bounds.width
         let sendView = UIView(frame:CGRect(x: 0,y: self.view.frame.size.height - 56,width: screenWidth,height: 56))
         
-        sendView.backgroundColor=UIColor.lightGray
+        sendView.backgroundColor = bgColor
         sendView.alpha=0.9
         
         txtMsg = UITextField(frame:CGRect(x: 7,y: 10,width: screenWidth - 95,height: 36))
@@ -101,7 +101,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         sendButton.addTarget(self, action:#selector(ComplaintViewController.sendMessage) ,
                              for:UIControlEvents.touchUpInside)
         sendButton.layer.cornerRadius=6.0
-        sendButton.setTitle("Send", for:UIControlState())
+        sendButton.setTitle(LanguageHelper.getString(key: "SEND"), for:UIControlState())
         sendView.addSubview(sendButton)
         
         
@@ -152,6 +152,10 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         if txtMsg.text != nil{
             saveMessageIntoDB(textingContent:txtMsg.text!)
         }
+        else{
+            
+            
+        }
         
         //composing=false
         let sender = txtMsg
@@ -159,7 +163,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         let thisChat =  MessageItem(body:sender!.text! as NSString, user:me, date:Date(), mtype:ChatType.mine)
         
-        let thatChat =  MessageItem(body:"We have received your message, will check soon" as NSString, user:you, date:Date(), mtype:ChatType.someone)
+        let thatChat =  MessageItem(body: LanguageHelper.getString(key: "AUTO_REPLY") as NSString, user:you, date:Date(), mtype:ChatType.someone)
         
         
         Chats.add(thisChat)
@@ -252,7 +256,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         
         
         let myMsg = MessageModel.init(content: textingContent, type: ChatType.mine, category: titleString!, time: aboCurrentTime)
-        let replyMsg = MessageModel.init(content: "We have received your message, will check soon", type: ChatType.someone, category: titleString!, time: aboReplyDateTime)
+        let replyMsg = MessageModel.init(content:  LanguageHelper.getString(key: "AUTO_REPLY"), type: ChatType.someone, category: titleString!, time: aboReplyDateTime)
         
         if myMsg.insertIfToDB(){
             
@@ -281,7 +285,7 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
         you  = UserInfo(name:"customerService", logo:("hume.jpg"))
         
         
-        let zero =  MessageItem(body:"Please talk with us", user:you,  date:Date(timeIntervalSinceNow:-900964), mtype:.someone)
+        let zero =  MessageItem(body: LanguageHelper.getString(key: "INTIAL_TALK") as NSString, user:you,  date:Date(timeIntervalSinceNow:-900964), mtype:.someone)
         
         for  i in 0..<dataSource.count{
             
@@ -421,6 +425,10 @@ class ComplaintViewController: UIViewController,ChatDataSource,UITextFieldDelega
     
    
     
+    @IBAction func callus(_ sender: Any) {
+        
+        makePhoneCall()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
