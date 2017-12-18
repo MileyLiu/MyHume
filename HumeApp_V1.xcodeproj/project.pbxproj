@@ -67,6 +67,7 @@
 		16A194691FB52BDA008558B8 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A194681FB52BDA008558B8 /* SuggestionViewController.swift */; };
 		16A1946B1FB52BEC008558B8 /* ComplaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A1946A1FB52BEC008558B8 /* ComplaintViewController.swift */; };
 		16A56C6F1FDF8D08004D886A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A56C6E1FDF8D08004D886A /* UserInfo.swift */; };
+		16AA902A1FE86BE400F6C4D8 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA90291FE86BE400F6C4D8 /* NewHomeViewController.swift */; };
 		16BB8AE21FBAB4350093A332 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8AE11FBAB4350093A332 /* HomeViewController.swift */; };
 		16BB8AE41FBAB7740093A332 /* MLPhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8AE31FBAB7740093A332 /* MLPhotoGallery.swift */; };
 		16BB8AE71FBBBD7C0093A332 /* IndustryNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BB8AE61FBBBD7C0093A332 /* IndustryNewsTableViewCell.swift */; };
@@ -178,6 +179,7 @@
 		16A194681FB52BDA008558B8 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		16A1946A1FB52BEC008558B8 /* ComplaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintViewController.swift; sourceTree = "<group>"; };
 		16A56C6E1FDF8D08004D886A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		16AA90291FE86BE400F6C4D8 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
 		16BB8AE11FBAB4350093A332 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		16BB8AE31FBAB7740093A332 /* MLPhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPhotoGallery.swift; sourceTree = "<group>"; };
 		16BB8AE61FBBBD7C0093A332 /* IndustryNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndustryNewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -311,7 +313,6 @@
 		161A1C401F7DB5A800362AFC /* HumeApp_V1 */ = {
 			isa = PBXGroup;
 			children = (
-				16119A7D1FE08A6100EF19FE /* view */,
 				1640C9E31FBA512B00B9AD3D /* HumeApp_V1.entitlements */,
 				16FFD5911FB9011300C03310 /* GoogleService-Info.plist */,
 				16C90CF21F85E4B2005D2D9D /* BridgeHeader.h */,
@@ -321,6 +322,8 @@
 				1631A5BD1F7DC16600112DD2 /* LocationViewController.swift */,
 				167602671F9084F0009DECA4 /* PriorityViewController.swift */,
 				1699CAAC1FC50149009C88C5 /* SplashView.swift */,
+				16AA902B1FE86C2300F6C4D8 /* NewHome */,
+				16119A7D1FE08A6100EF19FE /* view */,
 				16BB8AE51FBBBD440093A332 /* Home */,
 				168F43B91FA6AE27006AD409 /* Side */,
 				16C90CF71F86F60E005D2D9D /* News */,
@@ -430,6 +433,14 @@
 				16C62CF01FDA149C00BF76F6 /* ConversationViewController.swift */,
 			);
 			path = "Suggestion&Complaint";
+			sourceTree = "<group>";
+		};
+		16AA902B1FE86C2300F6C4D8 /* NewHome */ = {
+			isa = PBXGroup;
+			children = (
+				16AA90291FE86BE400F6C4D8 /* NewHomeViewController.swift */,
+			);
+			path = NewHome;
 			sourceTree = "<group>";
 		};
 		16BB8AE51FBBBD440093A332 /* Home */ = {
@@ -851,6 +862,7 @@
 				1696B5EA1FB51805006DEB4C /* SnCViewController.swift in Sources */,
 				16BB8AEF1FBD37400093A332 /* IndustryNews.swift in Sources */,
 				1631A5C01F7DC17D00112DD2 /* TrackingViewController.swift in Sources */,
+				16AA902A1FE86BE400F6C4D8 /* NewHomeViewController.swift in Sources */,
 				160771491F9FE38700B31E81 /* TrackingMapViewController.swift in Sources */,
 				161A1C441F7DB5A800362AFC /* ViewController.swift in Sources */,
 				16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */,

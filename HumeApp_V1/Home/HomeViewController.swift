@@ -18,16 +18,10 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
-    
     @IBOutlet weak var homeTableView: UITableView!
     var refreshControl: UIRefreshControl?
     
-    
-    
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height*0.3 * getMultipler()))
-    
-  
-    
     
     @IBOutlet weak var bannerView: UIView!
     var industryNews = [IndustryNews]()
