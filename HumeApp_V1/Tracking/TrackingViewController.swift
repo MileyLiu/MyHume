@@ -68,13 +68,7 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        //修复地图页访问超时
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
-       placesClient = GMSPlacesClient.shared()
+       
         
         self.SlipeTextField.delegate = self
         

@@ -244,6 +244,25 @@ func getMultipler()-> CGFloat{
     }
 }
 
+func getTimeBucket(){
+   
+    let currentCalendar = NSCalendar.current
+    
+    let year = CFCalendarUnit.year.rawValue
+    let day = CFCalendarUnit.day.rawValue
+     let month = CFCalendarUnit.month.rawValue
+     let hour =  CFCalendarUnit.hour.rawValue
+    
+    print("hour:\(year),\(month),\(day),\(hour)")
+    
+    
+    
+    
+}
+
+
+
+
 //func getRandomNumber(range: ClosedRange<Int> = 1...6) -> Int {
 //    let min = range.lowerBound
 //    let max = range.upperBound

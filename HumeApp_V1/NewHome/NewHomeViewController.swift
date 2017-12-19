@@ -12,6 +12,8 @@ import SVProgressHUD
 import SDWebImage
 import ObjectMapper
 import SafariServices
+import GoogleMaps
+import GooglePlaces
 
 class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SFSafariViewControllerDelegate {
 
@@ -30,6 +32,10 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
 //
     var images = ["morning","afternoon","evening"]
+   
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    var placesClient: GMSPlacesClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +64,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         firstView?.addSubview(bgImageView)
         
-        
+        getTimeBucket()
         
         let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
         
@@ -272,6 +278,26 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
+    
+    func getWeatherInfo(){
+        
+        
+        //修复地图页访问超时
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        placesClient = GMSPlacesClient.shared()
+       
+        
+        
+        
+        
+        
+    }
+    
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

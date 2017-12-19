@@ -240,8 +240,8 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
         
         pageControl?.numberOfPages = photoCount!;
         
-        pageControl?.pageIndicatorTintColor = UIColor.white
-        pageControl?.currentPageIndicatorTintColor = UIColor.darkGray
+        pageControl?.pageIndicatorTintColor = bgColor
+        pageControl?.currentPageIndicatorTintColor = mainColor
         
         
         topScroll?.contentSize = CGSize.init(width: CGFloat(photoCount!) * galleryWidth!, height: 0)
