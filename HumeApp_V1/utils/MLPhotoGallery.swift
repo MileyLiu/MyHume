@@ -62,7 +62,7 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
         self.photoArray = photoArray
         self.interval = interval
         
-        drawUI()
+        drawUI(viewCount: (self.photoArray?.count)!)
         
         for i in 0...photoArray.count-1{
             
@@ -79,13 +79,38 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
         
     }
     
+    
+    func bindWithViews(array:[UIView],interval:TimeInterval, defaultImage:String) {
+        
+         self.interval = interval
+        
+        drawUI(viewCount: array.count)
+      
+        for i in 0...array.count-1 {
+            
+           let view = UIView.init(frame: CGRect(x:CGFloat(i) * galleryWidth!,y:0, width:galleryWidth!,height:galleryHeight!))
+            
+            view.addSubview(array[i])
+            
+           self.topScroll?.addSubview(view)
+            view.tag = i
+            
+             print("view:\(i)")
+            
+            
+        }
+    
+    }
+    
+    
+    
     func bindWithServer(array:[String],interval: TimeInterval, defaultImage:String){
         
         let manager = SDWebImageManager.shared()
         self.photoArray = array
         self.interval = interval
         
-        drawUI()
+        drawUI(viewCount: (self.photoArray?.count)!)
         var tempArray = NSMutableArray()
         for i in 0...array.count-1{
             
@@ -187,12 +212,15 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
     }
     
     
-    func drawUI(){
+    func drawUI(viewCount: Int){
         
         
         showFullImage = false
-        photoCount = self.photoArray?.count
+//        photoCount = self.photoArray?.count
         
+        print("count:\(viewCount)")
+        
+        photoCount = viewCount
         
         topScroll = UIScrollView.init(frame: CGRect(x:0,y:0,width:galleryWidth!,height:galleryHeight!))
         
@@ -202,7 +230,7 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
 //        self.addSubview(pageBg)
         
         
-        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.7, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.1))
+        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.1))
 //        pageControl?.backgroundColor = UIColor.gray
         
         
