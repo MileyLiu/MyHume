@@ -37,6 +37,8 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var dataSource : NSMutableArray = NSMutableArray()
     
     
+    var blankView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+    
     var refreshControl: UIRefreshControl?
     
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
@@ -81,6 +83,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         
         self.view.addSubview(photoGallery)
+        
+        self.photoGallery.isHidden = false
+        self.blankView.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -149,6 +154,32 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         createDropdownFresh()
         
         thirdView.addSubview(self.newsTableView!)
+        
+    }
+    
+    func setUpBlankView(){
+        
+        
+        blankView.backgroundColor = UIColor.lightGray
+        let blankLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth-40, height: screenHeight*0.2))
+        
+        let button = UIButton.init(frame: CGRect.init(x:screenWidth*0.3 , y: screenHeight*0.5, width: screenWidth*0.3, height: screenHeight*0.1))
+    
+        
+        button.setTitle("Retry", for:.normal)
+        button.addTarget(self, action: #selector(viewDidLoad), for:UIControlEvents.touchUpInside)
+        button.backgroundColor = mainColor
+        button.layer.cornerRadius = 6
+        
+      
+
+        blankLabel.text = "No Network, please connect WIFI or open your 3G/4G data"
+        
+        blankLabel.lineBreakMode = .byClipping
+        blankLabel.numberOfLines = 0
+        
+        blankView.addSubview(blankLabel)
+        blankView.addSubview(button)
         
     }
     
@@ -297,33 +328,24 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         print("weatherReqest:\(weatheRequest)")
         
+        
+
+        
         Alamofire.request(weatheRequest)
             .validate()
             .responseJSON {response in
                 switch response.result {
                 case .success(let value):
                     
-                    print("weather value:\(value)")
-                    
-                    
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
-                    
-                  
-                 
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
-                  
                     let weatherDetail = weatherDetails[0].icon
-                  
-                  
-                    
+    
                     DispatchQueue.main.async {
                         
                         
                         let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
-                        
-                     
                         self.weatherLabel.text = "\(temperatureC)ºC"
-                        
                         self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
                         
                     }
@@ -336,6 +358,12 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
                     self.present(networkAlert, animated: true, completion: nil)
+                    
+                    self.setUpBlankView()
+                    self.view.addSubview(self.blankView)
+                    self.photoGallery.isHidden = true
+                    self.blankView.isHidden = false
+                    
                     return
                     
                 }
