@@ -110,6 +110,9 @@ let deviceModel = UIDevice.current.model
 
 let messageFontSize = CGFloat(14)
 
+let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
+
 
 
 

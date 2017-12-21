@@ -16,33 +16,33 @@ import GoogleMaps
 import GooglePlaces
 
 class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SFSafariViewControllerDelegate {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
+ 
+    //firstview init
+    var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+    let weatherLabel = UILabel.init(frame: CGRect.init(x:screenWidth*0.6 , y: 10, width: screenWidth*0.3, height: 80))
+    let weatherImageView = UIImageView.init(frame:CGRect.init(x: screenWidth*0.6, y: 100, width: 80, height: 80))
+     let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
+    let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth*0.7, height: screenHeight*0.2))
+    
    
-    
-    
-    var firstView: UIView?
-    
-    let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
-    
-    let weatherImageView = UIImageView.init(frame:CGRect.init(x: UIScreen.main.bounds.width*0.6, y: 100, width: 80, height: 80))
-    
-    
+    //scondview init
     var secondView: UIView?
+    
+    //thirdView init
     var thirdView :UIView?
-    
-    
     var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
     var refreshControl: UIRefreshControl?
-        var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
-//
-    var images = ["morning","afternoon","evening"]
    
+    var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+   
+    //location init
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var placesClient: GMSPlacesClient!
-     var likelyPlaces: [GMSPlace] = []
+    var likelyPlaces: [GMSPlace] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,78 +66,65 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-        
         placesClient = GMSPlacesClient.shared()
         
         
         
-   //first view setting
+        //first view setting
         
-        firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
-        
-        
-        let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
         
         bgImageView.image = UIImage(named:"\(getTimeBucket())")
         
-        firstView?.addSubview(bgImageView)
-        
-        
-        
-        
-//        let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
-//
+        firstView.addSubview(bgImageView)
+
         self.weatherLabel.text = "25ºC"
         self.weatherLabel.textColor = UIColor.white
         self.weatherLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
         
-        bgImageView.addSubview(self.weatherLabel)
-        
-        
-        let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: UIScreen.main.bounds.height*0.2, width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.2))
-        
-        
-        timeLabel.text = "Good \(getTimeBucket())"
-        timeLabel.textColor = UIColor.white
-        timeLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
-        timeLabel.textAlignment = .left
-        
-        timeLabel.lineBreakMode = .byClipping
-        timeLabel.numberOfLines = 0
-        bgImageView.addSubview(timeLabel)
-        
-    
+        self.timeLabel.text = "Good \(getTimeBucket())"
+        self.timeLabel.textColor = UIColor.white
+        self.timeLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
+        self.timeLabel.textAlignment = .left
+        self.timeLabel.lineBreakMode = .byClipping
+        self.timeLabel.numberOfLines = 0
         
         self.weatherImageView.image = UIImage(named:"01d")
+       
+        bgImageView.addSubview(self.weatherLabel)
+        bgImageView.addSubview(self.timeLabel)
+        bgImageView.addSubview(self.weatherImageView)
         
-        bgImageView.addSubview(weatherImageView)
         
         
-     
         //second view
         
-        secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
+        secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
         
         
-        let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-64))
+        let others = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         
+        let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-others))
         
+        print("width:\(digitalImage.frame.width),\(digitalImage.frame.height)")
+        
+    
         digitalImage.backgroundColor = UIColor.black
         
-        digitalImage.contentMode = .scaleAspectFit
+        digitalImage.contentMode = .scaleToFill
         
         digitalImage.image = UIImage(named:"goingdigital")
         
         secondView?.addSubview(digitalImage)
-  
+        
         
         
         //third view
         
         thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
-
-       newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
         
+        newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
+        
+       
         let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
         
         newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
@@ -146,7 +133,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         newsTableView?.delegate = self
         newsTableView?.dataSource = self
-       
+        
         newsTableView?.rowHeight = UITableViewAutomaticDimension
         newsTableView?.estimatedRowHeight = 300
         
@@ -155,9 +142,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         thirdView?.addSubview(self.newsTableView!)
         
-        self.photoGallery.bindWithViews(array: [firstView!,secondView!,thirdView!], interval: 0.0, defaultImage: "morning" )
+        self.photoGallery.bindWithViews(array: [firstView,secondView!,thirdView!], interval: 0.0, defaultImage: "Morning" )
         
-
+        
         self.view.addSubview(photoGallery)
         
         // Do any additional setup after loading the view.
@@ -180,49 +167,49 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "sliderNewsCell") as! SliderNewsTableViewCell
         
-//        let cell = UITableViewCell()
+        //        let cell = UITableViewCell()
         let oneNews = self.dataSource[indexPath.row] as! News
         
-      
+        
         cell.titleLabel.text = oneNews.heading
         cell.descriptionLabel.text = oneNews.content
         cell.dateLabel.text = oneNews.date
-//        cell.url = oneNews.linkUrl
-
+        //        cell.url = oneNews.linkUrl
+        
         
         SDWebImageManager.shared().loadImage(with: URL(string:oneNews.imageUrl!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
             
             } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
                 cell.newsImageView?.image = image
-
+                
                 
                 
         })
-//        cell.newsCellDelegate = self
+        //        cell.newsCellDelegate = self
         return cell
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
-
-
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      
+        
         
         let oneNews = self.dataSource[indexPath.row] as! News
         
         
-        var web = URL(string: oneNews.linkUrl!)
+        let web = URL(string: oneNews.linkUrl!)
         
         let controller = SFSafariViewController.init(url: web!)
         controller.delegate = self
@@ -244,17 +231,27 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
         
-        print("当前系统语言:\(preferredLang)")
+       
         
-        switch String(describing: preferredLang) {
-        case "en-US", "en-CN":
-            //en
-            url = hostApi + "myHume-rest/news/get?language=en"
-            
-        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
-            //cn
-            url = hostApi + "myHume-rest/news/get?language=cn"
-            
+        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+        
+        print("当前用户语言:\(userLang)")
+//        switch String(describing: userLang) {
+//        case "en-US", "en-CN":
+//            //en
+//            url = hostApi + "myHume-rest/news/get?language=en"
+//
+//        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
+//            //cn
+//            url = hostApi + "myHume-rest/news/get?language=cn"
+//
+//        default:
+//            url = hostApi + "myHume-rest/news/get?language=en"
+//        }
+        
+        switch userLang {
+        case "zh-Hans":
+             url = hostApi + "myHume-rest/news/get?language=cn"
         default:
             url = hostApi + "myHume-rest/news/get?language=en"
         }
@@ -299,14 +296,14 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func getWeatherInfo(){
         
-          SVProgressHUD.show()
+        SVProgressHUD.show()
         
-         print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
-      
+        print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
+        
         
         let latitue :Double = (currentLocation?.coordinate.latitude)!
         let longitude = (currentLocation?.coordinate.longitude)!
-
+        
         let weatheRequest = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitue)&lon=\(longitude)&appid=\(waetherAPIKEY)"
         
         print("weatherReqest:\(weatheRequest)")
@@ -321,9 +318,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
-
+                    
                     print("weatherResult0:\(weatherResult)")
-//
+                    //
                     print("weatherResult1:\(String(describing: weatherResult.temperatureK)),\(String(describing: weatherResult.coord)),\(weatherResult.id),\(weatherResult.base),\(weatherResult.wind),\(weatherResult.weather)")
                     
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
@@ -333,7 +330,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     
                     
-//                    http://openweathermap.org/img/w/10d.png
+                    //                    http://openweathermap.org/img/w/10d.png
                     
                     
                     
@@ -348,10 +345,10 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         self.weatherLabel.text = "\(temperatureC)ºC"
                         
                         self.weatherImageView.image = UIImage(named:weatherDetail!)
-                      
+                        
                     }
                     
-  
+                    
                 case .failure(let error):
                     print("Request Error:\(error)")
                     
@@ -362,7 +359,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     return
                     
                 }
-              
+                
                 SVProgressHUD.dismiss()
         }
         
@@ -372,24 +369,24 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 
@@ -398,7 +395,7 @@ extension NewHomeViewController: CLLocationManagerDelegate {
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location: CLLocation = locations.last!
-       
+        
         listLikelyPlaces()
     }
     
@@ -409,7 +406,7 @@ extension NewHomeViewController: CLLocationManagerDelegate {
             print("Location access was restricted.")
         case .denied:
             print("User denied access to location.")
-           
+            
         case .notDetermined:
             print("Location status not determined.")
             
@@ -418,7 +415,7 @@ extension NewHomeViewController: CLLocationManagerDelegate {
             currentLocation =  manager.location
             if currentLocation?.coordinate != nil{
                 
-        
+                
                 
                 print("Location status is OK.current location is:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
                 
@@ -431,7 +428,7 @@ extension NewHomeViewController: CLLocationManagerDelegate {
     // Handle location manager errors.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
-//
+        //
         print("Error: \(error)")
         
         let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
