@@ -18,26 +18,29 @@ import GooglePlaces
 class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SFSafariViewControllerDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
- 
+    
     //firstview init
     var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     let weatherLabel = UILabel.init(frame: CGRect.init(x:screenWidth*0.6 , y: 10, width: screenWidth*0.3, height: 80))
     let weatherImageView = UIImageView.init(frame:CGRect.init(x: screenWidth*0.6, y: 100, width: 80, height: 80))
-     let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
+    let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
     let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth*0.7, height: screenHeight*0.2))
     
-   
+    
     //scondview init
-    var secondView: UIView?
+    var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+
     
     //thirdView init
-    var thirdView :UIView?
+    var thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
+    
+    
     var refreshControl: UIRefreshControl?
-   
+    
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
-   
+    
     //location init
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -68,15 +71,27 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
         
+       
+        setUpFirstView()
+        setUpSecondView()
+        setupThirdiew()
         
         
-        //first view setting
+        self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0, defaultImage: "Morning" )
         
+        
+        self.view.addSubview(photoGallery)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    func setUpFirstView(){
         
         bgImageView.image = UIImage(named:"\(getTimeBucket())")
         
         firstView.addSubview(bgImageView)
-
+        
         self.weatherLabel.text = "25ºC"
         self.weatherLabel.textColor = UIColor.white
         self.weatherLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
@@ -89,42 +104,35 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.timeLabel.numberOfLines = 0
         
         self.weatherImageView.image = UIImage(named:"01d")
-       
+        
         bgImageView.addSubview(self.weatherLabel)
         bgImageView.addSubview(self.timeLabel)
         bgImageView.addSubview(self.weatherImageView)
         
         
         
-        //second view
-        
-        secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
-        
-        
-        let others = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
-        
-        let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-others))
-        
-        print("width:\(digitalImage.frame.width),\(digitalImage.frame.height)")
-        
+    }
     
+    func setUpSecondView(){
+        
+        
+        let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
+        let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
+        
         digitalImage.backgroundColor = UIColor.black
-        
         digitalImage.contentMode = .scaleToFill
-        
         digitalImage.image = UIImage(named:"goingdigital")
         
-        secondView?.addSubview(digitalImage)
+        secondView.addSubview(digitalImage)
         
-        
-        
-        //third view
+    }
+    func setupThirdiew(){
         
         thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
         
         newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
         
-       
+        
         let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
         
         newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
@@ -140,15 +148,11 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         loadData()
         createDropdownFresh()
         
-        thirdView?.addSubview(self.newsTableView!)
+        thirdView.addSubview(self.newsTableView!)
         
-        self.photoGallery.bindWithViews(array: [firstView,secondView!,thirdView!], interval: 0.0, defaultImage: "Morning" )
-        
-        
-        self.view.addSubview(photoGallery)
-        
-        // Do any additional setup after loading the view.
     }
+    
+    
     @objc func refresh(sender:AnyObject) {
         
         dataSource = NSMutableArray()
@@ -229,29 +233,14 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         SVProgressHUD.show()
         var url :String!=""
         
-        //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
-        
-       
-        
         let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
         
         print("当前用户语言:\(userLang)")
-//        switch String(describing: userLang) {
-//        case "en-US", "en-CN":
-//            //en
-//            url = hostApi + "myHume-rest/news/get?language=en"
-//
-//        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
-//            //cn
-//            url = hostApi + "myHume-rest/news/get?language=cn"
-//
-//        default:
-//            url = hostApi + "myHume-rest/news/get?language=en"
-//        }
+        
         
         switch userLang {
         case "zh-Hans":
-             url = hostApi + "myHume-rest/news/get?language=cn"
+            url = hostApi + "myHume-rest/news/get?language=cn"
         default:
             url = hostApi + "myHume-rest/news/get?language=en"
         }
@@ -319,32 +308,23 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
                     
-                    print("weatherResult0:\(weatherResult)")
-                    //
-                    print("weatherResult1:\(String(describing: weatherResult.temperatureK)),\(String(describing: weatherResult.coord)),\(weatherResult.id),\(weatherResult.base),\(weatherResult.wind),\(weatherResult.weather)")
-                    
+                  
+                 
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
-                    print("weatherResult2:\(weatherDetails.count)")
-                    
+                  
                     let weatherDetail = weatherDetails[0].icon
-                    
-                    
-                    
-                    //                    http://openweathermap.org/img/w/10d.png
-                    
-                    
-                    
-                    print("weatherResult3:\(String(describing: weatherDetail))")
+                  
+                  
                     
                     DispatchQueue.main.async {
                         
                         
                         let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
                         
-                        print("weatherC:\(temperatureC)")
+                     
                         self.weatherLabel.text = "\(temperatureC)ºC"
                         
-                        self.weatherImageView.image = UIImage(named:weatherDetail!)
+                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
                         
                     }
                     

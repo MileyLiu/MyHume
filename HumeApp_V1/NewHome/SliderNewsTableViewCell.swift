@@ -14,6 +14,7 @@ import UIKit
 
 class SliderNewsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var bgView: UIView!
     
     @IBOutlet weak var newsImageView: UIImageView!
     
@@ -27,6 +28,7 @@ class SliderNewsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bgView.layer.cornerRadius = 6
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -19,6 +19,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="570" height="499.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TV-EG-V54">
+                        <rect key="frame" x="10" y="5" width="550" height="490"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="esr-r2-zYG">
                         <rect key="frame" x="15" y="15" width="540" height="200"/>
                         <constraints>
@@ -50,18 +54,8 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-bG-vkN">
-                        <rect key="frame" x="0.0" y="494" width="570" height="6"/>
-                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="6" id="nGg-lt-WLf"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="R2z-qD-ckC" secondAttribute="trailing" constant="15" id="0xr-5R-KHa"/>
                     <constraint firstItem="esr-r2-zYG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="1nQ-8s-mUL"/>
@@ -78,13 +72,16 @@
                     <constraint firstItem="aEP-rI-wzW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zx1-Gq-OTg"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="yeE-bG-vkN" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="1Zd-t5-slx"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="yeE-bG-vkN" secondAttribute="bottom" id="sRN-Nf-gNA"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="yeE-bG-vkN" secondAttribute="trailing" id="y58-NN-gfi"/>
+                <constraint firstItem="9TV-EG-V54" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="10" id="7UQ-Qc-Xqb"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="9TV-EG-V54" secondAttribute="bottom" constant="5" id="7q5-vC-Lhj"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="9TV-EG-V54" secondAttribute="trailing" constant="10" id="eO8-5N-UCF"/>
+                <constraint firstItem="9TV-EG-V54" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="5" id="u9C-FC-Pql"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="bgView" destination="9TV-EG-V54" id="oSQ-ge-hlm"/>
                 <outlet property="dateLabel" destination="aEP-rI-wzW" id="Lqv-kM-o3G"/>
                 <outlet property="descriptionLabel" destination="R2z-qD-ckC" id="bGh-I3-Ewe"/>
                 <outlet property="newsImageView" destination="esr-r2-zYG" id="9sz-er-lsE"/>

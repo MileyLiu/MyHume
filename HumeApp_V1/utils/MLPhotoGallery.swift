@@ -230,8 +230,9 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
 //        self.addSubview(pageBg)
         
         
-        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.1))
-//        pageControl?.backgroundColor = UIColor.gray
+        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.05))
+
+        pageControl?.backgroundColor = UIColor.gray
         
         
         topScroll?.showsHorizontalScrollIndicator = false;
@@ -242,6 +243,8 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
         
         pageControl?.pageIndicatorTintColor = bgColor
         pageControl?.currentPageIndicatorTintColor = mainColor
+        
+//        pageControl?.backgroundColor = UIColor.init(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.5)
         
         
         topScroll?.contentSize = CGSize.init(width: CGFloat(photoCount!) * galleryWidth!, height: 0)
