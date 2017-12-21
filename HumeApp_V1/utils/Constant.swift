@@ -28,7 +28,9 @@ let address = ["149+Mitchell+Road,+Alexandria",
                "540+Somerville+Road,+Sunshine+West,+VIC,+3020"
 ]
 
-let placeIdArray = ["ChIJmdalXoCoEmsR5dBXNOt4WPE",]
+let placeIdArray = ["ChIJmdalXoCoEmsR5dBXNOt4WPE"]
+
+let waetherAPIKEY = "366edfe1d79d1e4b523002e4da3771d8"
 
 let storePlaces :[GMSPlace] = []
 

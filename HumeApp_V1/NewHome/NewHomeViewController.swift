@@ -18,10 +18,16 @@ import GooglePlaces
 class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SFSafariViewControllerDelegate {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-  
+   
     
     
     var firstView: UIView?
+    
+    let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
+    
+    let weatherImageView = UIImageView.init(frame:CGRect.init(x: UIScreen.main.bounds.width*0.6, y: 100, width: 80, height: 80))
+    
+    
     var secondView: UIView?
     var thirdView :UIView?
     
@@ -36,12 +42,13 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var placesClient: GMSPlacesClient!
+     var likelyPlaces: [GMSPlace] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
-            self.menuButton?.action = "revealToggle:"
+            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -52,11 +59,23 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         self.navigationItem.titleView = titleImageView
         
+        //get current loaction
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        
+        locationManager.delegate = self
+        
+        placesClient = GMSPlacesClient.shared()
+        
+        
+        
    //first view setting
         
-        
         firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
-    
+        
         
         let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
         
@@ -66,18 +85,19 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         getTimeBucket()
         
-        let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
         
-        weatherLabel.text = "25ºC"
-        weatherLabel.textColor = UIColor.white
-        weatherLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
+//        let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
+//
+        self.weatherLabel.text = "25ºC"
+        self.weatherLabel.textColor = UIColor.white
+        self.weatherLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
         
-        bgImageView.addSubview(weatherLabel)
+        bgImageView.addSubview(self.weatherLabel)
         
         
         let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: UIScreen.main.bounds.height*0.2, width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.2))
         
-       
+        
         timeLabel.text = "Good Evening"
         timeLabel.textColor = UIColor.white
         timeLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
@@ -87,15 +107,14 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         timeLabel.numberOfLines = 0
         bgImageView.addSubview(timeLabel)
         
+    
         
-        
-        let weatherImageView = UIImageView.init(frame:CGRect.init(x: UIScreen.main.bounds.width*0.6, y: 100, width: 80, height: 80))
-        
-        weatherImageView.image = UIImage(named:"cloudy")
+        self.weatherImageView.image = UIImage(named:"01d")
         
         bgImageView.addSubview(weatherImageView)
         
         
+     
         //second view
         
         secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
@@ -162,6 +181,16 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
+    
+//    func setWeatherView(temp_max:String,temp_min:String,status:String,timeBucket:String)-> UIView{
+//
+//
+//
+//
+//
+//
+//    }
+//
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
@@ -281,15 +310,72 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func getWeatherInfo(){
         
+          SVProgressHUD.show()
         
-        //修复地图页访问超时
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
-        placesClient = GMSPlacesClient.shared()
-       
+         print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
+      
+        
+        let latitue :Double = (currentLocation?.coordinate.latitude)!
+        let longitude = (currentLocation?.coordinate.longitude)!
+
+        let weatheRequest = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitue)&lon=\(longitude)&appid=\(waetherAPIKEY)"
+        
+        print("weatherReqest:\(weatheRequest)")
+        
+        Alamofire.request(weatheRequest)
+            .validate()
+            .responseJSON {response in
+                switch response.result {
+                case .success(let value):
+                    
+                    print("weather value:\(value)")
+                    
+                    
+                    let weatherResult = Mapper<Weather>().map(JSONObject:value)!
+
+                    print("weatherResult0:\(weatherResult)")
+//
+                    print("weatherResult1:\(String(describing: weatherResult.temperatureK)),\(String(describing: weatherResult.coord)),\(weatherResult.id),\(weatherResult.base),\(weatherResult.wind),\(weatherResult.weather)")
+                    
+                    let weatherDetails:[WeatherDetail] = weatherResult.weather!
+                    print("weatherResult2:\(weatherDetails.count)")
+                    
+                    let weatherDetail = weatherDetails[0].icon
+                    
+                    
+                    
+//                    http://openweathermap.org/img/w/10d.png
+                    
+                    
+                    
+                    print("weatherResult3:\(String(describing: weatherDetail))")
+                    
+                    DispatchQueue.main.async {
+                        
+                        
+                        let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
+                        
+                        print("weatherC:\(temperatureC)")
+                        self.weatherLabel.text = "\(temperatureC)ºC"
+                        
+                        self.weatherImageView.image = UIImage(named:weatherDetail!)
+                      
+                    }
+                    
+  
+                case .failure(let error):
+                    print("Request Error:\(error)")
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+                    self.present(networkAlert, animated: true, completion: nil)
+                    return
+                    
+                }
+              
+                SVProgressHUD.dismiss()
+        }
         
         
         
@@ -316,3 +402,75 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     */
 
 }
+
+
+extension NewHomeViewController: CLLocationManagerDelegate {
+    
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location: CLLocation = locations.last!
+       
+        listLikelyPlaces()
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+           
+        case .notDetermined:
+            print("Location status not determined.")
+            
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            currentLocation =  manager.location
+            if currentLocation?.coordinate != nil{
+                
+        
+                
+                print("Location status is OK.current location is:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
+                
+                getWeatherInfo()
+                
+            }
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+//
+        print("Error: \(error)")
+        
+        let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+        self.present(networkAlert, animated: true, completion: nil)
+        
+    }
+    // Populate the array with the list of likely places.
+    func listLikelyPlaces() {
+        // Clean up from previous sessions.
+        likelyPlaces.removeAll()
+        
+        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
+            if let error = error {
+                // TODO: Handle the error.
+                print("Current Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            // Get likely places and add to the list.
+            if let likelihoodList = placeLikelihoods {
+                for likelihood in likelihoodList.likelihoods {
+                    let place = likelihood.place
+                    self.likelyPlaces.append(place)
+                }
+            }
+        })
+    }
+    
+}
+
+

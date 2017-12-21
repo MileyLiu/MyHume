@@ -248,18 +248,35 @@ func getTimeBucket(){
    
     let currentCalendar = NSCalendar.current
     
-    let year = CFCalendarUnit.year.rawValue
-    let day = CFCalendarUnit.day.rawValue
-     let month = CFCalendarUnit.month.rawValue
-     let hour =  CFCalendarUnit.hour.rawValue
+    let year = CFCalendarUnit.year
+    let day = CFCalendarUnit.day
+     let month = CFCalendarUnit.month
+     let hour =  CFCalendarUnit.hour
     
     print("hour:\(year),\(month),\(day),\(hour)")
     
-    
-    
-    
 }
 
+
+
+func kelvinToCelsius(kelvin:Double) -> Int{
+    let celsuisDouble = kelvin-273.15
+    print("celsuisDouble:\(celsuisDouble)")
+    let celsuisInt = Int(celsuisDouble)
+     print("celsuisInt:\(celsuisInt)")
+    let diff = celsuisDouble - Double(celsuisInt)
+     print("diff:\(diff)")
+    
+    if diff > 0.5{
+        let converstion = celsuisInt + 1
+        return converstion
+    }
+    else{
+        return celsuisInt
+        
+    }
+    
+}
 
 
 

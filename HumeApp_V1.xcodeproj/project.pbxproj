@@ -29,6 +29,7 @@
 		162D84501FC7D4AA0036377A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DC76171F957E5300D17D6E /* FBSDKCoreKit.framework */; };
 		162D84511FC7D4AA0036377A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DC76181F957E5300D17D6E /* FBSDKLoginKit.framework */; };
 		162D84521FC7D4AA0036377A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DC76151F957E5200D17D6E /* FBSDKShareKit.framework */; };
+		162F7D711FEB1E6C00E60A46 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F7D701FEB1E6C00E60A46 /* Weather.swift */; };
 		16315BFE1F96CB6700444B5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16315C001F96CB6700444B5E /* Localizable.strings */; };
 		1631A5BC1F7DC14800112DD2 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A5BB1F7DC14800112DD2 /* NewsTableViewCell.swift */; };
 		1631A5BE1F7DC16600112DD2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A5BD1F7DC16600112DD2 /* LocationViewController.swift */; };
@@ -140,6 +141,7 @@
 		161A1C5D1F7DB5A800362AFC /* HumeApp_V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HumeApp_V1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		161A1C611F7DB5A800362AFC /* HumeApp_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumeApp_V1UITests.swift; sourceTree = "<group>"; };
 		161A1C631F7DB5A800362AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		162F7D701FEB1E6C00E60A46 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		16315BFF1F96CB6700444B5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16315C011F96CB6A00444B5E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1631A5BB1F7DC14800112DD2 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				161A1C451F7DB5A800362AFC /* Main.storyboard */,
 				16315C001F96CB6700444B5E /* Localizable.strings */,
 				161A1C481F7DB5A800362AFC /* Assets.xcassets */,
+				162F7D721FEB421000E60A46 /* New Group */,
 				161A1C4A1F7DB5A800362AFC /* LaunchScreen.storyboard */,
 				161A1C4D1F7DB5A800362AFC /* Info.plist */,
 				16DC78911F96C80F00D17D6E /* infoPlist.strings */,
@@ -366,6 +369,13 @@
 			path = HumeApp_V1UITests;
 			sourceTree = "<group>";
 		};
+		162F7D721FEB421000E60A46 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		164546021F8498A000D7CE1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +392,7 @@
 				16C62CF21FDA40EE00BF76F6 /* Conversation.swift */,
 				165A63D01FDA60650017DB6D /* MessageModel.swift */,
 				16A56C6E1FDF8D08004D886A /* UserInfo.swift */,
+				162F7D701FEB1E6C00E60A46 /* Weather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -899,6 +910,7 @@
 				16119A831FE08A7000EF19FE /* TableView.swift in Sources */,
 				16C90CF41F85EA6A005D2D9D /* SlipViewController.swift in Sources */,
 				1631A5C81F7DD17A00112DD2 /* StoreAddress.swift in Sources */,
+				162F7D711FEB1E6C00E60A46 /* Weather.swift in Sources */,
 				164545FF1F845BF300D7CE1F /* TrackingHistoryViewController.swift in Sources */,
 				164546011F845F2200D7CE1F /* HistoryTableViewCell.swift in Sources */,
 				1631A5C21F7DC18D00112DD2 /* NewsViewController.swift in Sources */,
