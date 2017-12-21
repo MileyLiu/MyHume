@@ -244,16 +244,21 @@ func getMultipler()-> CGFloat{
     }
 }
 
-func getTimeBucket(){
+func getTimeBucket()->String{
    
-    let currentCalendar = NSCalendar.current
+   let hour = Calendar.current.component(.hour, from: Date())
     
-    let year = CFCalendarUnit.year
-    let day = CFCalendarUnit.day
-     let month = CFCalendarUnit.month
-     let hour =  CFCalendarUnit.hour
+    print("getTimeBucket:\(hour)")
     
-    print("hour:\(year),\(month),\(day),\(hour)")
+    switch hour {
+    case 0...12:
+        return "Morning"
+    case 13...18:
+        return "Afternoon"
+    default:
+        return "Evening"
+    }
+    
     
 }
 

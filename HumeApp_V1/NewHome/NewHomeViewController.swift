@@ -65,7 +65,6 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
-        
         locationManager.delegate = self
         
         placesClient = GMSPlacesClient.shared()
@@ -79,11 +78,11 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
         
-        bgImageView.image = UIImage(named:"evening")
+        bgImageView.image = UIImage(named:"\(getTimeBucket())")
         
         firstView?.addSubview(bgImageView)
         
-        getTimeBucket()
+        
         
         
 //        let weatherLabel = UILabel.init(frame: CGRect.init(x:UIScreen.main.bounds.width*0.6 , y: 10, width: UIScreen.main.bounds.width*0.3, height: 80))
@@ -98,7 +97,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: UIScreen.main.bounds.height*0.2, width: UIScreen.main.bounds.width*0.7, height: UIScreen.main.bounds.height*0.2))
         
         
-        timeLabel.text = "Good Evening"
+        timeLabel.text = "Good \(getTimeBucket())"
         timeLabel.textColor = UIColor.white
         timeLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
         timeLabel.textAlignment = .left
@@ -181,17 +180,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
     
-    
-//    func setWeatherView(temp_max:String,temp_min:String,status:String,timeBucket:String)-> UIView{
-//
-//
-//
-//
-//
-//
-//    }
-//
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
