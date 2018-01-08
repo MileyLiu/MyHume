@@ -232,14 +232,17 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
         
         pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.05))
 
-        pageControl?.backgroundColor = UIColor.gray
+        let pageBg = UIColor.init(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.6)
+       
+        pageControl?.backgroundColor = pageBg
         
         
-        topScroll?.showsHorizontalScrollIndicator = false;
-        topScroll?.isPagingEnabled = true;
+        
+        topScroll?.showsHorizontalScrollIndicator = false
+        topScroll?.isPagingEnabled = true
         
         
-        pageControl?.numberOfPages = photoCount!;
+        pageControl?.numberOfPages = photoCount!
         
         pageControl?.pageIndicatorTintColor = bgColor
         pageControl?.currentPageIndicatorTintColor = mainColor

@@ -26,7 +26,6 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
     let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth*0.7, height: screenHeight*0.2))
     
-    
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
 
@@ -40,6 +39,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var blankView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
     var refreshControl: UIRefreshControl?
+   
     
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
@@ -49,12 +49,25 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     var placesClient: GMSPlacesClient!
     var likelyPlaces: [GMSPlace] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        placesClient = GMSPlacesClient.shared()
+        
+        setUpFirstView()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
             self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.title = "temp"
         }
         
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -78,6 +91,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         setUpSecondView()
         setupThirdiew()
         
+        //refresh firstView notification
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
+        
         
         self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0, defaultImage: "Morning" )
         
@@ -90,6 +106,22 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         // Do any additional setup after loading the view.
     }
     
+    @objc func refreshFirstView(){
+        
+        print("refreshFirstView........")
+         setUpFirstView()
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        placesClient = GMSPlacesClient.shared()
+        
+        
+       
+        
+    }
     
     func setUpFirstView(){
         
@@ -113,7 +145,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         bgImageView.addSubview(self.weatherLabel)
         bgImageView.addSubview(self.timeLabel)
         bgImageView.addSubview(self.weatherImageView)
-        
+        print("setUpFirstView")
         
         
     }
@@ -152,6 +184,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         loadData()
         createDropdownFresh()
+       
         
         thirdView.addSubview(self.newsTableView!)
         
@@ -193,6 +226,8 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.refreshControl?.endRefreshing()
         
     }
+    
+    
     func createDropdownFresh() -> Void {
         
         refreshControl = UIRefreshControl()
@@ -200,7 +235,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         refreshControl?.addTarget(self, action:#selector(refresh), for: UIControlEvents.valueChanged)
         self.newsTableView?.addSubview(refreshControl!)
         
+        
     }
+   
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -328,9 +365,6 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         print("weatherReqest:\(weatheRequest)")
         
-        
-
-        
         Alamofire.request(weatheRequest)
             .validate()
             .responseJSON {response in
@@ -338,6 +372,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 case .success(let value):
                     
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
+                    print("weatherResult:\(weatherResult.toJSONString())")
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
                     let weatherDetail = weatherDetails[0].icon
     
@@ -346,6 +381,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         
                         let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
                         self.weatherLabel.text = "\(temperatureC)ºC"
+                        print("\(weatherDetail)")
                         self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
                         
                     }

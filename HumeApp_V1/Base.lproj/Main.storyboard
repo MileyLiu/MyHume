@@ -410,11 +410,13 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="0uP-LK-2oo">
                             <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="callUs:" destination="BYZ-38-t0r" id="nme-s4-OtV"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="SlipeTextField" destination="lce-Bw-F4c" id="1N2-uz-yh5"/>
-                        <outlet property="callButton" destination="0uP-LK-2oo" id="8Qq-BT-rFU"/>
                         <outlet property="historyButton" destination="k0A-V5-jaC" id="yLm-uo-NQL"/>
                         <outlet property="menuButton" destination="UCK-qH-6KB" id="um1-Re-j2h"/>
                         <outlet property="navItem" destination="6Wv-J8-7wt" id="0ME-DT-cae"/>
@@ -2837,8 +2839,8 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="specialplaceholder" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="79Z-9L-79x"/>
-        <segue reference="Gu3-1F-BsW"/>
+        <segue reference="v99-ob-XsN"/>
+        <segue reference="BW5-Qm-Mgq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
