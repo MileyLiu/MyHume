@@ -44,21 +44,17 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        
         self.navigationItem.title = LanguageHelper.getString(key: "DELIVERY_TRACKING")
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "TRACKING")
-       
-
         self.trackingDes.text = LanguageHelper.getString(key: "TRACKING_DES")
         self.pickingLabel.text = LanguageHelper.getString(key: "PICKING")
         self.suburbLabel.text = LanguageHelper.getString(key: "SUBURB")
-        
         self.trackButton.setTitle(LanguageHelper.getString(key: "TRACK"), for: .normal)
         self.historyButton.setTitle(LanguageHelper.getString(key: "HISTORY"), for: .normal)
         
         self.navigationItem.leftBarButtonItem = self.menuButton
-//        menuButton?.title = "left"
-        
+    
         self.SlipeTextField.configKeyboard()
         self.suburbTextField.configKeyboard()
         
@@ -68,7 +64,6 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-       
         
         self.SlipeTextField.delegate = self
         
@@ -83,12 +78,10 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
         slipAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: nil))
         suburbAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: nil))
         recordAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: nil))
-        //        networkAlert.addAction(UIAlertAction(title: okString, style: UIAlertActionStyle.default, handler: nil))
-        
         //教程页
-//        showFeatureGuideView()
+        //        showFeatureGuideView()
         
-       
+        
     }
     
     func showFeatureGuideView(){
@@ -107,14 +100,11 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
             
             let emptyAlert = getSimpleAlert(titleString:alertString,messgaeLocizeString:"FILL_ERROR")
             self.present(emptyAlert, animated: true, completion: nil)
-            
             return
         }
         
         if SlipeTextField?.text?.isEmpty ?? true {
             let emptyAlert = getSimpleAlert(titleString:alertString,messgaeLocizeString:"FILL_ERROR")
-            
-            
             self.present(emptyAlert, animated: true, completion: nil)
             return
         }
@@ -145,9 +135,9 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
         SVProgressHUD.show()
         
         let whiteSpace = NSCharacterSet.whitespacesAndNewlines
-      
+        
         let suburbSent = suburb.trimmingCharacters(in: whiteSpace).replacingOccurrences(of: " ", with: "%20")
-        print("suburbSent0:\(suburbSent)")
+        
         let url : String = hostApi+"HLS-REST/tracking?pickingSlip="+slip+"&suburb="+suburbSent
         
         Alamofire.request(url)
@@ -171,9 +161,6 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
                         let currentTime = formatter.string(from: currentDateTime)
                         
                         print("tracking time:\(currentTime)")
-                        
-                    
-                        
                         let newHistory = History.init(slipNumber: self.SlipeTextField.text!, suburb: self.suburbTextField.text!, trackingTime: currentTime)
                         
                         if newHistory.insertSelfToDB(){
@@ -185,7 +172,7 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
                         let trackingModel = (value as! [String:Any]) ["trackingModel"] as! [String:Any]
                         
                         self.performSegue(withIdentifier: "trackingResult", sender: trackingModel)
-                          ifHistoryExist = true
+                        ifHistoryExist = true
                     }
                     else{
                         self.present(recordAlert, animated: true, completion: nil)
@@ -244,15 +231,14 @@ class TrackingViewController: UIViewController,UITextFieldDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-
+        
         if segue.identifier == "trackingResult" {
             
             let nextViewController = segue.destination as! TrackingResultViewController
             
             nextViewController.result = sender
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
     }
     
     

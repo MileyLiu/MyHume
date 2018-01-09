@@ -17,14 +17,10 @@ class TrackingMapViewController: UIViewController,GMSMapViewDelegate {
     
     
     @IBOutlet weak var timeView: UIView!
-    
-    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var expectedLabel: UILabel!
-    
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var disLabel: UILabel!
-    
     @IBOutlet weak var updatedLabel: UILabel!
     @IBOutlet weak var updLabel: UILabel!
     
@@ -47,8 +43,7 @@ class TrackingMapViewController: UIViewController,GMSMapViewDelegate {
     var productionLocation: CLLocationCoordinate2D?
     
     var placeid:String?
-    
-    
+
     // An array to hold the list of likely places.
     var likelyPlaces: [GMSPlace] = []
     
@@ -103,7 +98,6 @@ class TrackingMapViewController: UIViewController,GMSMapViewDelegate {
                 print("NO REAL TIME")
                 
             }
-            
         }
         
         
@@ -365,15 +359,8 @@ class TrackingMapViewController: UIViewController,GMSMapViewDelegate {
                     }
                         
                     else{
-                        print("Can not calculate the distance")
                     }
-                    
-                    //                    let duration = elementF["duration"] as! [String:Any]
-                    
-                    
-                    
-                    
-                    
+
                 case .failure(let error):
                     
                     print("Request Error:\(error)")

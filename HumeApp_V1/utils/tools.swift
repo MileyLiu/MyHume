@@ -130,13 +130,11 @@ func changeUTCtoDate(UTCString:Int) -> String{
     formatter.dateStyle = DateFormatter.Style.short
     formatter.dateFormat = "dd/MM"
     let str:String = formatter.string(from: data as Date)
+   
     return str
 }
 
-func replaceBlank(origin: String){
 
-    
-}
 func calculateTimeInterval(previoudTime:Date) -> Double{
     
     
@@ -266,12 +264,9 @@ func getTimeBucket()->String{
 
 func kelvinToCelsius(kelvin:Double) -> Int{
     let celsuisDouble = kelvin-273.15
-    print("celsuisDouble:\(celsuisDouble)")
     let celsuisInt = Int(celsuisDouble)
-     print("celsuisInt:\(celsuisInt)")
     let diff = celsuisDouble - Double(celsuisInt)
-     print("diff:\(diff)")
-    
+   
     if diff > 0.5{
         let converstion = celsuisInt + 1
         return converstion

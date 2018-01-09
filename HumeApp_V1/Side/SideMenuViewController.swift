@@ -20,28 +20,30 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
 
-    
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(LanguageHelper.getString(key: "FEEDBACK"))
-        self.feedbackButton.setTitle(LanguageHelper.getString(key: "FEEDBACK"), for: .normal)
-        self.settingButton.setTitle(LanguageHelper.getString(key: "SETTING"), for: .normal)
-        self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
-        self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
-      
+      self.setButtonTitleAsChosenLanguage()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
+        self.setButtonTitleAsChosenLanguage()
        
+    }
+    // MARK: - View setting
+    
+    func setButtonTitleAsChosenLanguage(){
         self.feedbackButton.setTitle(LanguageHelper.getString(key: "FEEDBACK"), for: .normal)
-        
         self.settingButton.setTitle(LanguageHelper.getString(key: "SETTING"), for: .normal)
         self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
-        
         self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
+        
     }
+    
+    // MARK: - Button
     
     @IBAction func shareClicked(_ sender: Any) {
         //TODO  CHANGE TO THE REAL LINK
@@ -59,15 +61,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         { _ in
             print("facebookActionButton")
             
-            //            //LOGIN
-            //            if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
-            //
-            //                vc.setInitialText(title)
-            //                vc.add(image)
-            //                vc.add(URL(string: url.absoluteString))
-            //                self.present(vc, animated: true)
-            //            }
-            //
             
             if (FBSDKAccessToken.current() != nil)
             {
@@ -77,21 +70,10 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             else
             {
                 
-                //                let facebookAlert = UIAlertController(title: "No Facebook Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
-                //                facebookAlert.addAction(UIAlertAction(title: okString, style:UIAlertActionStyle.default))
-                //                self.present(facebookAlert,animated: false, completion: nil)
-                
-                //                TODO LOGIN FACEBOOK
-                //                               let loginView : FBSDKLoginButton = FBSDKLoginButton()
-                //                                self.view.addSubview(loginView)
-                //                                loginView.center = self.view.center
-                //                                loginView.readPermissions = ["public_profile", "email", "user_friends"]
-                //                                loginView.delegate = self as! FBSDKLoginButtonDelegate
             }
             
             let content = FBSDKShareLinkContent.init()
             content.contentURL = url
-//            content.quote = title
             
             print("sharing content:\(content.contentURL)")
             
@@ -170,26 +152,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             else{
                 UIApplication.shared.openURL(newUrl!)
             }
-            
-            // Uncomment to automatically sign in the user.
-            //GIDSignIn.sharedInstance().signInSilently()
-            
-            
+           
         }
         
         actionSheetController.addAction(gogglePlusActionButton)
         
-        
-        
         //for ipad
         actionSheetController.popoverPresentationController?.sourceView = self.view
-        
-        
-        
        self.present(actionSheetController, animated: true, completion: nil)
-        
-        
-        
         
     }
     override func didReceiveMemoryWarning() {

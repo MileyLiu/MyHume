@@ -47,6 +47,9 @@
 		164546081F8598AF00D7CE1F /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164546071F8598AF00D7CE1F /* History.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
+		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
+		1649674120044BC000B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
+		1649674220044BD300B84D21 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DC76171F957E5300D17D6E /* FBSDKCoreKit.framework */; };
 		164C56D71FE33D060037210E /* MLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56D61FE33D060037210E /* MLViewController.swift */; };
 		164C56D91FE341C40037210E /* KeybaordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56D81FE341C40037210E /* KeybaordTextField.swift */; };
 		164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */; };
@@ -160,6 +163,7 @@
 		164546071F8598AF00D7CE1F /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		164C56D61FE33D060037210E /* MLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLViewController.swift; sourceTree = "<group>"; };
 		164C56D81FE341C40037210E /* KeybaordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybaordTextField.swift; sourceTree = "<group>"; };
 		164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeArea.swift"; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16496740200448B200B84D21 /* Twitter.framework in Frameworks */,
 				162D844F1FC7D4AA0036377A /* Bolts.framework in Frameworks */,
 				162D84501FC7D4AA0036377A /* FBSDKCoreKit.framework in Frameworks */,
 				162D84511FC7D4AA0036377A /* FBSDKLoginKit.framework in Frameworks */,
@@ -255,6 +260,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1649674120044BC000B84D21 /* Twitter.framework in Frameworks */,
+				1649674220044BD300B84D21 /* FBSDKCoreKit.framework in Frameworks */,
 				F3E060AB124AA200354BA186 /* Pods_HumeApp_V1Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,20 +330,20 @@
 				16FFD5911FB9011300C03310 /* GoogleService-Info.plist */,
 				16C90CF21F85E4B2005D2D9D /* BridgeHeader.h */,
 				161A1C411F7DB5A800362AFC /* AppDelegate.swift */,
+				164546021F8498A000D7CE1F /* Model */,
+				16119A7D1FE08A6100EF19FE /* view */,
 				161A1C431F7DB5A800362AFC /* ViewController.swift */,
 				161902FC1FC625EC00CDDA9B /* AdLaunchView.swift */,
 				1631A5BD1F7DC16600112DD2 /* LocationViewController.swift */,
 				167602671F9084F0009DECA4 /* PriorityViewController.swift */,
 				1699CAAC1FC50149009C88C5 /* SplashView.swift */,
 				16AA902B1FE86C2300F6C4D8 /* NewHome */,
-				16119A7D1FE08A6100EF19FE /* view */,
 				16BB8AE51FBBBD440093A332 /* Home */,
 				168F43B91FA6AE27006AD409 /* Side */,
 				16C90CF71F86F60E005D2D9D /* News */,
 				164546031F84AD5500D7CE1F /* Tracking */,
 				16C90CF81F86F62C005D2D9D /* Specials */,
 				16A194671FB52B91008558B8 /* Suggestion&Complaint */,
-				164546021F8498A000D7CE1F /* Model */,
 				1616C4661F8B5131006A46FA /* Database */,
 				164546041F8583FB00D7CE1F /* utils */,
 				161A1C451F7DB5A800362AFC /* Main.storyboard */,
@@ -379,6 +386,7 @@
 		164546021F8498A000D7CE1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				16496747200474EE00B84D21 /* Optimize */,
 				1631A5C71F7DD17A00112DD2 /* StoreAddress.swift */,
 				16BB8AEE1FBD373F0093A332 /* IndustryNews.swift */,
 				164546071F8598AF00D7CE1F /* History.swift */,
@@ -426,6 +434,13 @@
 				16495C781FB4012300E74A62 /* TabBarViewController.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		16496747200474EE00B84D21 /* Optimize */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Optimize;
 			sourceTree = "<group>";
 		};
 		168F43B91FA6AE27006AD409 /* Side */ = {
@@ -498,6 +513,7 @@
 		24A2ED7B8AAEF281A4705F9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1649673F200448B200B84D21 /* Twitter.framework */,
 				16DC751E1F956EBB00D17D6E /* Bolts.framework */,
 				16DC75201F956EBC00D17D6E /* FBSDKCoreKit.framework */,
 				16DC751F1F956EBB00D17D6E /* FBSDKLoginKit.framework */,
@@ -708,9 +724,42 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1Tests/Pods-HumeApp_V1Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/EAFeatureGuideView/EAFeatureGuideView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAFeatureGuideView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -756,9 +805,17 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1Tests/Pods-HumeApp_V1Tests-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1217,6 +1274,37 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XKF7ZYL3RU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/ActionSheetPicker-3.0\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/DACircularProgress\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/EAFeatureGuideView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMOAuth2\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/IQKeyboardManagerSwift\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQMessagesViewController\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/JSQSystemSoundPlayer\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/ObjectMapper\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SVProgressHUD\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SnapKit\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/nanopb\"",
+					"~/Documents/FacebookSDK",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseCore/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks\"",
+					"\"${PODS_ROOT}/FirebaseMessaging/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleMaps/Base/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleMaps/Maps/Frameworks\"",
+					"\"${PODS_ROOT}/GooglePlacePicker/Frameworks\"",
+					"\"${PODS_ROOT}/GooglePlaces/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"${PODS_ROOT}/TwitterCore/iOS\"",
+					"\"${PODS_ROOT}/TwitterKit/iOS\"",
+				);
 				INFOPLIST_FILE = HumeApp_V1Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "HumePlaster.HumeApp-V1Tests";

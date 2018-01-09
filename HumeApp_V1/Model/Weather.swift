@@ -12,25 +12,21 @@ class Weather:Mappable {
     
     var coord :Double?
     var temperatureK :Double?
-//    var temperatureC :Int?
     var base :String?
     var wind :Double?
     var id: Int?
     var weather:[WeatherDetail]?
-  
     required init?(map: Map) {
         
     }
     func mapping(map: Map){
         
         coord <- map["coord.lat"]
-//        temperature <- map["main.temp"]
         temperatureK <- map["main.temp"]
         base <- map["base"]
         wind <- map["wind.speed"]
         id <- map["id"]
         weather <- map["weather"]
-        
         
     }
     
