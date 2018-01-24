@@ -90,6 +90,10 @@ UPDATED = "Updated";
 BRANCH_LOCATION = "Branch Location";
 LOCATION = "Location";
 
+//NEWS
+NEWS = "News";
+COMPANY_NEWS = "Company News";
+
 //Special
 SPECIAL = "Specials";
 CURRENT_SPECIALS = "Current Specials";

@@ -21,6 +21,7 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var picImageView: UIImageView!
    
+    @IBOutlet weak var bgView: UIView!
     
     var url: String!
     weak var newsCellDelegate:NewsCellDelegate?
@@ -30,6 +31,8 @@ class NewsTableViewCell: UITableViewCell {
         // Initialization code
         
     titleLabel.layer.cornerRadius = 5
+        
+        bgView.layer.cornerRadius = 8
     
     }
     @IBAction func shareClicked(_ sender: Any) {

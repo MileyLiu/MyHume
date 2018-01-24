@@ -14,14 +14,16 @@ import SDWebImage
 //import FBSDKShareKit
 //import FBSDKLoginKit
 //import GoogleSignIn
-//import SafariServices
+import SafariServices
 
 
 class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,
-    UIActionSheetDelegate
+    UIActionSheetDelegate,
+    SFSafariViewControllerDelegate
 //    GIDSignInUIDelegate,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate
 {
    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
@@ -30,12 +32,26 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        if self.revealViewController() != nil {
+            self.menuButton?.target = self.revealViewController()
+            self.menuButton?.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
         
+        self.navigationItem.title = LanguageHelper.getString(key: "COMPANY_NEWS")
+        self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "NEWS")
+        
+        
+        
+        
         self.newsTableView.rowHeight  = UITableViewAutomaticDimension
         self.newsTableView.estimatedRowHeight = 300
-
+//        self.newsTableView.tableFooterView = UIView.init(frame: CGRect.zero)
+       self.newsTableView.separatorStyle = .none
 //        GIDSignIn.sharedInstance().uiDelegate = self
         loadData()
         createDropdownFresh()
@@ -65,10 +81,13 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         var url :String!=""
        
 //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
+        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
         
-        print("当前系统语言:\(preferredLang)")
+        print("当前用户语言:\(userLang)")
         
-        switch String(describing: preferredLang) {
+       
+        
+        switch String(describing: userLang) {
         case "en-US", "en-CN":
             //en
             url = hostApi + "myHume-rest/news/get?language=en"
@@ -136,6 +155,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let oneNews = self.dataSource[indexPath.row] as! News
@@ -143,11 +163,12 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
       
         let web = URL(string:webUrl!)
 
-//            let controller = SFSafariViewController.init(url: web!)
-//            controller.delegate = self
-//            self.present(controller, animated: true, completion: nil)
+            let controller = SFSafariViewController.init(url: web!)
+            controller.delegate = self
+            self.present(controller, animated: true, completion: nil)
  
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -171,8 +192,9 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         return cell
         
     }
-
     
+    
+ 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }

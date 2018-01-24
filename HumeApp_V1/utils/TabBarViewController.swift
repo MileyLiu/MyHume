@@ -16,7 +16,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
       let items = self.customTabbar.items!
      
-      var titles = [LanguageHelper.getString(key: "HOME"),LanguageHelper.getString(key: "TRACK"),LanguageHelper.getString(key: "LOCATION"),LanguageHelper.getString(key: "SPECIAL")]
+      var titles = [LanguageHelper.getString(key: "HOME"),LanguageHelper.getString(key: "TRACK"),LanguageHelper.getString(key: "NEWS"),LanguageHelper.getString(key: "LOCATION")]
 //        ,LanguageHelper.getString(key: "SPECIAL")]
         
         

@@ -89,6 +89,10 @@ DISTANCE = "距离";
 EXPEXTED = "预计消耗";
 UPDATED = "更新";
 
+//NEWS
+NEWS = "新闻";
+COMPANY_NEWS = "公司新闻";
+
 //Special
 SPECIAL = "特价";
 CURRENT_SPECIALS = "特价优惠";

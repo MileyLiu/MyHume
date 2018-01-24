@@ -15,7 +15,9 @@ import SafariServices
 import GoogleMaps
 import GooglePlaces
 
-class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SFSafariViewControllerDelegate {
+class NewHomeViewController: UIViewController,
+//UITableViewDelegate,UITableViewDataSource,
+SFSafariViewControllerDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -165,8 +167,19 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     func setupThirdiew(){
         
-        thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
+       
         
+        let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
+        
+        let otherImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
+        
+        otherImage.backgroundColor = UIColor.black
+        otherImage.contentMode = .scaleToFill
+        otherImage.image = UIImage(named:"goingdigital")
+        
+         /*NEWS
+          thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
+         
         newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
         
         
@@ -175,7 +188,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
         
         
-        
+    
         newsTableView?.delegate = self
         newsTableView?.dataSource = self
         
@@ -184,9 +197,9 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         loadData()
         createDropdownFresh()
-       
+ */
         
-        thirdView.addSubview(self.newsTableView!)
+        thirdView.addSubview(otherImage)
         
     }
     
@@ -221,7 +234,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         dataSource = NSMutableArray()
         
-        self.loadData()
+//        self.loadData()
         
         self.refreshControl?.endRefreshing()
         
@@ -238,7 +251,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
     }
    
-    
+    /*TABLE
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
@@ -350,7 +363,7 @@ class NewHomeViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
     }
     
-    
+    */
     func getWeatherInfo(){
         
         SVProgressHUD.show()
