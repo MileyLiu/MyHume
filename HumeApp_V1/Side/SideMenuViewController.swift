@@ -20,6 +20,8 @@ import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
 
 
+
+
 class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate,FUIAuthDelegate{
     
     
@@ -210,6 +212,10 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
 //        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
 //        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
         
+        
+      
+        
+        
         let providers: [FUIAuthProvider] = [
             FUIGoogleAuth(),
             FUIFacebookAuth(),
@@ -219,7 +225,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         authUI?.providers = providers
         
          print("loginAction 3")
-        
+       
         
 //        To get the sign-in method selector:
         
@@ -277,6 +283,10 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             
         }
     }
+    
+    
+    
+    
     
     /*
      // MARK: - Navigation
