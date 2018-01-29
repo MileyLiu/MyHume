@@ -844,6 +844,8 @@ const int FrontViewPositionNone = 0xff;
     if (_frontViewPosition <= FrontViewPositionLeft)
         toggledFrontViewPosition = FrontViewPositionRight;
     
+    NSLog(@"open side menu");
+    
     [self setFrontViewPosition:toggledFrontViewPosition animated:animated];
 }
 
@@ -944,7 +946,8 @@ const int FrontViewPositionNone = 0xff;
 #pragma mark - Provided acction methods
 
 - (IBAction)revealToggle:(id)sender
-{    
+{
+   
     [self revealToggleAnimated:YES];
 }
 

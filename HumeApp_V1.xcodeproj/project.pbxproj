@@ -95,7 +95,7 @@
 		16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECB0031F8C2B2F00D033EB /* ShoppingCar.swift */; };
 		16ECB0061F8C3BF800D033EB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECB0051F8C3BF800D033EB /* ProductViewController.swift */; };
 		16ECB0081F8C3C2800D033EB /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECB0071F8C3C2800D033EB /* ProductCollectionViewCell.swift */; };
-		16FFD5921FB9011300C03310 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16FFD5911FB9011300C03310 /* GoogleService-Info.plist */; };
+		16FF2E5C201ECA9200EF64EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16FF2E5B201ECA9100EF64EC /* GoogleService-Info.plist */; };
 		38D6E696F19982DA5BD7507C /* Pods_HumeApp_V1UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1210F8DF46289F46E1B640C6 /* Pods_HumeApp_V1UITests.framework */; };
 		394DD58A009777BB8F9E2C81 /* Pods_HumeApp_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F062CA013F9DA42CEEF574EA /* Pods_HumeApp_V1.framework */; };
 		F3E060AB124AA200354BA186 /* Pods_HumeApp_V1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 867F8D934C44E19D4F7F3848 /* Pods_HumeApp_V1Tests.framework */; };
@@ -230,7 +230,7 @@
 		16EE3BB61F903BC700B0D639 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		16EE3BB81F903BE100B0D639 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		16EE3BBA1F903BEE00B0D639 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
-		16FFD5911FB9011300C03310 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		16FF2E5B201ECA9100EF64EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CC17595D374F379ECAF9980 /* Pods-HumeApp_V1UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HumeApp_V1UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HumeApp_V1UITests/Pods-HumeApp_V1UITests.release.xcconfig"; sourceTree = "<group>"; };
 		30E8F5774CE621A1FE84EFA7 /* Pods-HumeApp_V1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HumeApp_V1Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HumeApp_V1Tests/Pods-HumeApp_V1Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E82AFEF11E4DDD2F25EE012 /* Pods-HumeApp_V1UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HumeApp_V1UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HumeApp_V1UITests/Pods-HumeApp_V1UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -327,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				1640C9E31FBA512B00B9AD3D /* HumeApp_V1.entitlements */,
-				16FFD5911FB9011300C03310 /* GoogleService-Info.plist */,
+				16FF2E5B201ECA9100EF64EC /* GoogleService-Info.plist */,
 				16C90CF21F85E4B2005D2D9D /* BridgeHeader.h */,
 				161A1C411F7DB5A800362AFC /* AppDelegate.swift */,
 				164546021F8498A000D7CE1F /* Model */,
@@ -354,6 +354,7 @@
 				161A1C4D1F7DB5A800362AFC /* Info.plist */,
 				16DC78911F96C80F00D17D6E /* infoPlist.strings */,
 				164C56D61FE33D060037210E /* MLViewController.swift */,
+				168B56A12019413C00435167 /* sidemenu */,
 			);
 			path = HumeApp_V1;
 			sourceTree = "<group>";
@@ -441,6 +442,13 @@
 			children = (
 			);
 			path = Optimize;
+			sourceTree = "<group>";
+		};
+		168B56A12019413C00435167 /* sidemenu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = sidemenu;
 			sourceTree = "<group>";
 		};
 		168F43B91FA6AE27006AD409 /* Side */ = {
@@ -673,12 +681,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				161A1C4C1F7DB5A800362AFC /* LaunchScreen.storyboard in Resources */,
+				16FF2E5C201ECA9200EF64EC /* GoogleService-Info.plist in Resources */,
 				16315BFE1F96CB6700444B5E /* Localizable.strings in Resources */,
 				161A1C491F7DB5A800362AFC /* Assets.xcassets in Resources */,
 				16ECB0021F8C253A00D033EB /* ShoppingCarTableViewCell.xib in Resources */,
 				161A1C471F7DB5A800362AFC /* Main.storyboard in Resources */,
 				16DC788F1F96C80F00D17D6E /* infoPlist.strings in Resources */,
-				16FFD5921FB9011300C03310 /* GoogleService-Info.plist in Resources */,
 				16AA902F1FE8A86B00F6C4D8 /* SliderNewsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,8 +735,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1Tests/Pods-HumeApp_V1Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/EAFeatureGuideView/EAFeatureGuideView.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -739,15 +750,20 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAFeatureGuideView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -758,7 +774,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,6 +824,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1Tests/Pods-HumeApp_V1Tests-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
@@ -831,8 +854,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1/Pods-HumeApp_V1-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/EAFeatureGuideView/EAFeatureGuideView.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -843,15 +869,20 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAFeatureGuideView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -862,7 +893,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,6 +943,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HumeApp_V1/Pods-HumeApp_V1-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",

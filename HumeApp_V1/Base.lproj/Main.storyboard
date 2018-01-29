@@ -270,7 +270,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyO-n1-RII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="2150"/>
+            <point key="canvasLocation" x="1215" y="2697"/>
         </scene>
         <!--Delivery Tracking-->
         <scene sceneID="tne-QT-ifu">
@@ -857,6 +857,21 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
             </objects>
             <point key="canvasLocation" x="-2354" y="-391"/>
         </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="PNE-3I-1hH">
+            <objects>
+                <viewController id="BFe-AS-Sph" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8vr-7E-IgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="GZO-wk-xck"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUa-ce-gRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4167" y="-357"/>
+        </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="ymW-hG-7Ye">
             <objects>
@@ -866,42 +881,45 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="GEk-CF-KaR">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="150"/>
+                                <rect key="frame" x="0.0" y="-0.5" width="270" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="0Zs-Ic-COM"/>
                                     <constraint firstAttribute="width" constant="270" id="vT4-5e-WqJ"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="alF-r7-Hdu">
-                                <rect key="frame" x="20" y="180" width="187.5" height="165"/>
+                                <rect key="frame" x="20" y="179.5" width="187.5" height="220"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fyi-rf-tte">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="165"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="220"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_home" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWM-dc-3pc">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="CUb-jg-aoo"/>
-                                                    <constraint firstAttribute="width" constant="30" id="s5s-f1-GJC"/>
+                                                    <constraint firstAttribute="height" constant="32" id="CUb-jg-aoo"/>
+                                                    <constraint firstAttribute="width" constant="32" id="s5s-f1-GJC"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_share" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tn7-8T-9g9">
-                                                <rect key="frame" x="0.0" y="45" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="47" width="32" height="32"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_settings" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6G-Yc-8vz">
-                                                <rect key="frame" x="0.0" y="90" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="94" width="32" height="32"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_feedback" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GEp-CW-uBW">
-                                                <rect key="frame" x="0.0" y="135" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="141" width="32" height="32"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-key_filled" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-Oh-aQZ">
+                                                <rect key="frame" x="0.0" y="188" width="32" height="32"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YWt-dH-Jl1">
-                                        <rect key="frame" x="60" y="0.0" width="127.5" height="165"/>
+                                        <rect key="frame" x="62" y="0.0" width="125.5" height="220"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcW-OP-gbU">
-                                                <rect key="frame" x="0.0" y="0.0" width="127.5" height="30"/>
-                                                <state key="normal" title="Feedback">
+                                                <rect key="frame" x="0.0" y="0.0" width="125.5" height="32"/>
+                                                <state key="normal" title="Home">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -909,7 +927,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35F-cc-P3V">
-                                                <rect key="frame" x="0.0" y="45" width="127.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="47" width="125.5" height="32"/>
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -918,7 +936,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPN-dA-N23">
-                                                <rect key="frame" x="0.0" y="90" width="127.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="94" width="125.5" height="32"/>
                                                 <state key="normal" title="Setting">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -927,7 +945,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-UR-Ydd">
-                                                <rect key="frame" x="0.0" y="135" width="127.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="141" width="125.5" height="32"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Feedback">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -936,10 +954,35 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                     <segue destination="KCV-eH-d8F" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="aID-UE-glY"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zC-iC-h9B">
+                                                <rect key="frame" x="0.0" y="188" width="125.5" height="32"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Log out">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logoutAction:" destination="2g8-Se-17r" eventType="touchUpInside" id="G0L-vo-sCf"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rtw-M7-msx">
+                                <rect key="frame" x="25" y="125" width="217" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Qd5-lQ-TIR"/>
+                                    <constraint firstAttribute="width" constant="217" id="ssr-lF-vCQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginAction:" destination="2g8-Se-17r" eventType="touchUpInside" id="lGZ-sP-8mt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -947,7 +990,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <constraint firstItem="LhD-0n-yFJ" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="top" constant="20" id="0gf-0s-hgd"/>
                             <constraint firstItem="GEk-CF-KaR" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" id="Gsa-2q-hpw"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" constant="20" id="O8L-ee-hmy"/>
-                            <constraint firstItem="alF-r7-Hdu" firstAttribute="height" secondItem="LP8-Eg-5ux" secondAttribute="height" multiplier="0.3" id="bKh-6d-dDH"/>
+                            <constraint firstItem="Rtw-M7-msx" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="bottom" constant="-24.5" id="b19-yB-Gtv"/>
+                            <constraint firstItem="alF-r7-Hdu" firstAttribute="height" secondItem="LP8-Eg-5ux" secondAttribute="height" multiplier="0.4" id="bKh-6d-dDH"/>
+                            <constraint firstItem="Rtw-M7-msx" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" constant="25" id="bkl-7X-wKN"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="width" secondItem="LP8-Eg-5ux" secondAttribute="width" multiplier="0.5" id="vKq-FR-hiU"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="bottom" constant="30" id="yMg-io-Bem"/>
                         </constraints>
@@ -956,13 +1001,15 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <connections>
                         <outlet property="feedbackButton" destination="IKW-UR-Ydd" id="tvW-EE-YhR"/>
                         <outlet property="homeButton" destination="GcW-OP-gbU" id="Gpn-68-PKQ"/>
+                        <outlet property="loginButton" destination="Rtw-M7-msx" id="zsX-iv-bRi"/>
+                        <outlet property="logoutButton" destination="1zC-iC-h9B" id="3oC-nL-erB"/>
                         <outlet property="settingButton" destination="RPN-dA-N23" id="ArU-o1-pOJ"/>
                         <outlet property="shareButton" destination="35F-cc-P3V" id="yeI-pk-b09"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nzh-Fb-oDq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2999" y="999"/>
+            <point key="canvasLocation" x="-2999.1999999999998" y="998.95052473763121"/>
         </scene>
         <!--Share-->
         <scene sceneID="caq-GP-aUL">
@@ -2670,43 +2717,43 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Fq-Oc-aep">
-                                <rect key="frame" x="19" y="30" width="337.5" height="500.5"/>
+                                <rect key="frame" x="0.0" y="30" width="0.0" height="500.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To request priority support, please provide your contact details" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-oo-b46">
-                                        <rect key="frame" x="0.0" y="0.0" width="337.5" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hume account name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-6a-25P">
-                                        <rect key="frame" x="0.0" y="74.5" width="337.5" height="53"/>
+                                        <rect key="frame" x="0.0" y="74.5" width="0.0" height="53"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-tU-tcB" userLabel="Your Name">
-                                        <rect key="frame" x="0.0" y="149.5" width="337.5" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="149.5" width="0.0" height="52.5"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your contact phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-f6-saC" userLabel="Your Contact Number">
-                                        <rect key="frame" x="0.0" y="224" width="337.5" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="224" width="0.0" height="52.5"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request is related to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-ug-kN0">
-                                        <rect key="frame" x="0.0" y="298.5" width="337.5" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="298.5" width="0.0" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an option below" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cao-Df-Yxs">
-                                        <rect key="frame" x="0.0" y="373" width="337.5" height="53"/>
+                                        <rect key="frame" x="0.0" y="373" width="0.0" height="53"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2715,7 +2762,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you submit the enquiry, our next available customer service representative will contact you via the number  provided." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-HO-qb6">
-                                        <rect key="frame" x="0.0" y="448" width="337.5" height="52.5"/>
+                                        <rect key="frame" x="0.0" y="448" width="0.0" height="52.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2766,6 +2813,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                     <navigationItem key="navigationItem" title="Home" id="bwf-Ad-PLT">
                         <barButtonItem key="leftBarButtonItem" image="ic_menu_white" id="1Qa-BB-7yy">
                             <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="clickedMenu:" destination="06c-rF-mJn" id="SQx-V7-ZAO"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_phone_white" id="EHz-B6-RXV">
                             <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2780,7 +2830,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="de4-ii-KfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="-1627.7361319340332"/>
+            <point key="canvasLocation" x="1287" y="-1634"/>
         </scene>
         <!--Home-->
         <scene sceneID="Ld5-cb-h1q">
@@ -2858,10 +2908,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="ic_store" width="24" height="24"/>
         <image name="ic_tracking_white" width="24" height="24"/>
         <image name="icons8-calendar_filled" width="75" height="75"/>
+        <image name="icons8-key_filled" width="32" height="32"/>
         <image name="specialplaceholder" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v99-ob-XsN"/>
+        <segue reference="79Z-9L-79x"/>
         <segue reference="BW5-Qm-Mgq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -11,13 +11,14 @@ import Alamofire
 import SVProgressHUD
 import SDWebImage
 import ObjectMapper
-import SafariServices
+//import SafariServices
 import GoogleMaps
 import GooglePlaces
 
-class NewHomeViewController: UIViewController,
-//UITableViewDelegate,UITableViewDataSource,
-SFSafariViewControllerDelegate {
+class NewHomeViewController: UIViewController
+//,UITableViewDelegate,UITableViewDataSource,
+//,SFSafariViewControllerDelegate
+{
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -67,11 +68,18 @@ SFSafariViewControllerDelegate {
         super.viewDidLoad()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
-            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
+//            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
+            
+            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(animated:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            self.title = "temp"
-        }
+            
         
+            
+            
+            
+//            self.title = "temp"
+        }
+        self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "HOME")
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
         
         titleImageView.image = UIImage(named:"titleLogo")
@@ -124,6 +132,9 @@ SFSafariViewControllerDelegate {
        
         
     }
+    @IBAction func clickedMenu(_ sender: Any) {
+        print("clicked menu")
+    }
     
     func setUpFirstView(){
         
@@ -131,7 +142,7 @@ SFSafariViewControllerDelegate {
         
         firstView.addSubview(bgImageView)
         
-        self.weatherLabel.text = "25ºC"
+        self.weatherLabel.text = "Loading..."
         self.weatherLabel.textColor = UIColor.white
         self.weatherLabel.font = UIFont.init(name: "Helvetica-Bold", size: 50)
         
@@ -147,6 +158,11 @@ SFSafariViewControllerDelegate {
         bgImageView.addSubview(self.weatherLabel)
         bgImageView.addSubview(self.timeLabel)
         bgImageView.addSubview(self.weatherImageView)
+        
+    
+//    firstView.addSubview(refreshControl!)
+        
+//        createDropdownFresh()
         print("setUpFirstView")
         
         
@@ -175,7 +191,7 @@ SFSafariViewControllerDelegate {
         
         otherImage.backgroundColor = UIColor.black
         otherImage.contentMode = .scaleToFill
-        otherImage.image = UIImage(named:"goingdigital")
+        otherImage.image = UIImage(named:"bg")
         
          /*NEWS
           thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
@@ -232,9 +248,11 @@ SFSafariViewControllerDelegate {
     
     @objc func refresh(sender:AnyObject) {
         
-        dataSource = NSMutableArray()
+//        dataSource = NSMutableArray()
         
 //        self.loadData()
+        
+        refreshFirstView()
         
         self.refreshControl?.endRefreshing()
         
@@ -245,8 +263,11 @@ SFSafariViewControllerDelegate {
         
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl?.addTarget(self, action:#selector(refresh), for: UIControlEvents.valueChanged)
-        self.newsTableView?.addSubview(refreshControl!)
+        refreshControl?.addTarget(self, action:#selector(self.refreshFirstView), for: UIControlEvents.valueChanged)
+        
+        //table
+//        self.newsTableView?.addSubview(refreshControl!)
+//        self.firstView.addSubview(refreshControl!)
         
         
     }

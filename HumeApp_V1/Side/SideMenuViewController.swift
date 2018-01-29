@@ -11,21 +11,50 @@ import SafariServices
 import FBSDKShareKit
 import FBSDKLoginKit
 import GoogleSignIn
+import Firebase
+
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
 
 
-class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate{
+class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate,FUIAuthDelegate{
     
+    
+    @IBOutlet weak var logoutButton: UIButton!
+    let defaults = UserDefaults.standard
+    let authUI = FUIAuth.defaultAuthUI()
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
 
+    @IBOutlet weak var loginButton: UIButton!
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
       self.setButtonTitleAsChosenLanguage()
+        
+        if((defaults.object(forKey: "token")) != nil){
+            
+            loginButton.setTitle("Welcome, \(defaults.object(forKey: "displayName") ?? "")", for: .normal)
+            
+            logoutButton.isEnabled = true
+        }
+        else{
+            loginButton.setTitle("Please Login", for: .normal)
+            loginButton.isEnabled = true
+            logoutButton.isEnabled = false
+            
+        }
+        
+          authUI?.delegate = self
+        
+        
     }
     
     
@@ -167,6 +196,87 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginAction(_ sender: Any) {
+//        FirebaseApp.configure()
+          print("loginAction 1")
+        
+        
+        
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+      
+        
+        print("loginAction 2")
+        
+//        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
+//        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
+        
+        let providers: [FUIAuthProvider] = [
+            FUIGoogleAuth(),
+            FUIFacebookAuth(),
+            FUITwitterAuth(),
+            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+            ]
+        authUI?.providers = providers
+        
+         print("loginAction 3")
+        
+        
+//        To get the sign-in method selector:
+        
+        let authViewController = authUI!.authViewController()
+        
+        self.present(authViewController, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        
+        
+        defaults.set(nil,forKey: "token")
+        
+        loginButton.setTitle("Please Login", for: .normal)
+        loginButton.isEnabled = true
+        logoutButton.isEnabled = false
+       
+        
+        do {
+            
+           try authUI?.signOut()
+        } catch {
+            return
+        }
+        
+        
+        
+    }
+    
+
+    
+    
+    
+    
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        if (error != nil){
+            
+            print("login error:\(error)")
+        }
+        else{
+            
+            let token = authUI.auth?.apnsToken?.base64EncodedString()
+            print("login AUTH\(String(describing: authUI.auth?.apnsToken?.base64EncodedString()))")
+            
+            defaults.set(token, forKey: "token")
+            defaults.set(user!.displayName, forKey: "displayName")
+            
+            self.loginButton.setTitle("Welcome,\(user!.displayName ?? "")", for: .normal)
+            self.loginButton.isEnabled = false
+            self.logoutButton.isEnabled = true
+            
+            
+        }
+    }
     
     /*
      // MARK: - Navigation

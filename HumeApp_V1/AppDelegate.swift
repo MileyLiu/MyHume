@@ -10,7 +10,16 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import IQKeyboardManagerSwift
+
 import Firebase
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseFacebookAuthUI
+import FirebaseTwitterAuthUI
+import FirebasePhoneAuthUI
+
+
+
 import UserNotifications
 
 import GoogleSignIn
@@ -70,10 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        */
         FirebaseApp.configure()
         
-        
-        
-        
-        
+       
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -100,9 +106,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
        
-        
-        
-        
         window?.makeKeyAndVisible()
         
         adLaunchView = AdLaunchView(frame: UIScreen.main.bounds)
@@ -112,6 +115,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         return true
     }
+    
+    
+    
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        
+        
+        Twitter.sharedInstance().application(app, open: url, options: options)
+        
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
+        
+//        return Twitter.sharedInstance().application(app, open: url, options: options)
+    }
+    
     
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
        
@@ -212,15 +234,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
 
     
-    // For sharing twitter
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-//      var handel = FBSDKApplicationDelegate.sharedInstance().a
-        
-        
-        return Twitter.sharedInstance().application(app, open: url, options: options)
-        //            GIDSignIn.sharedInstance().handle(url,sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-    }
+//    // For sharing twitter
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+//
+////      var handel = FBSDKApplicationDelegate.sharedInstance().a
+//
+//
+//        return Twitter.sharedInstance().application(app, open: url, options: options)
+//        //            GIDSignIn.sharedInstance().handle(url,sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+//    }
     
     // for sharing google plus
     func application(_ application: UIApplication,open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

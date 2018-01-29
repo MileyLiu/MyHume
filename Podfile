@@ -13,14 +13,31 @@ def shared_pods
     pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager'
     pod 'ActionSheetPicker-3.0'
     pod 'EAFeatureGuideView'
+    
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
+    
+#    pod 'Firebase/Auth'
+
+   pod 'FirebaseUI'
+    
+    
+    pod 'FirebaseUI/Auth'
+    pod 'FirebaseUI/Google'
+    pod 'FirebaseUI/Facebook'
+    pod 'FirebaseUI/Twitter'
+    pod 'FirebaseUI/Phone'
+    
+    
     pod 'TwitterKit'
     pod 'WechatOpenSDK'
     pod 'GoogleSignIn'
     pod 'SnapKit'
     pod 'DACircularProgress'
     pod 'JSQMessagesViewController'
+    pod 'SideMenu'
+    
+ 
     
 end
     
