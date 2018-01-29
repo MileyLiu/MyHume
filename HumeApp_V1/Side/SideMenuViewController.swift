@@ -32,29 +32,31 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
-
+    
     @IBOutlet weak var loginButton: UIButton!
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      self.setButtonTitleAsChosenLanguage()
+        self.setButtonTitleAsChosenLanguage()
         
         if((defaults.object(forKey: "token")) != nil){
             
-            loginButton.setTitle("Welcome, \(defaults.object(forKey: "displayName") ?? "")", for: .normal)
+           
+            
+            loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(defaults.object(forKey: "displayName") ?? "")", for: .normal)
             
             logoutButton.isEnabled = true
         }
         else{
-            loginButton.setTitle("Please Login", for: .normal)
+            loginButton.setTitle(LanguageHelper.getString(key: "LOGIN"), for: .normal)
             loginButton.isEnabled = true
             logoutButton.isEnabled = false
             
         }
         
-          authUI?.delegate = self
+        authUI?.delegate = self
         
         
     }
@@ -62,7 +64,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     
     override func viewWillAppear(_ animated: Bool) {
         self.setButtonTitleAsChosenLanguage()
-       
+        
     }
     // MARK: - View setting
     
@@ -71,23 +73,23 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         self.settingButton.setTitle(LanguageHelper.getString(key: "SETTING"), for: .normal)
         self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
         self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
-        
+        self.logoutButton.setTitle(LanguageHelper.getString(key: "LOGOUT"), for: .normal)
     }
     
     // MARK: - Button
     
     @IBAction func shareClicked(_ sender: Any) {
         //TODO  CHANGE TO THE REAL LINK
-       
+        
         let url = URL(string:"http://www.humeplaster.com.au/")
         
-         let actionSheetController: UIAlertController = UIAlertController(title: LanguageHelper.getString(key: "SOCIAL"), message: "", preferredStyle: .actionSheet)
-       
+        let actionSheetController: UIAlertController = UIAlertController(title: LanguageHelper.getString(key: "SOCIAL"), message: "", preferredStyle: .actionSheet)
+        
         let cancelActionButton = UIAlertAction(title: LanguageHelper.getString(key: "CANCEL"), style: .cancel) { _ in
             print("Cancel")
         }
         
-         actionSheetController.addAction(cancelActionButton)
+        actionSheetController.addAction(cancelActionButton)
         let facebookActionButton = UIAlertAction(title: "Facebook", style: .default)
         { _ in
             print("facebookActionButton")
@@ -139,8 +141,8 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             
             if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
                 
-//                vc.setInitialText(title)
-//                vc.add(image)
+                //                vc.setInitialText(title)
+                //                vc.add(image)
                 vc.add(url)
                 self.present(vc, animated: true)
             }
@@ -183,14 +185,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             else{
                 UIApplication.shared.openURL(newUrl!)
             }
-           
+            
         }
         
         actionSheetController.addAction(gogglePlusActionButton)
         
         //for ipad
         actionSheetController.popoverPresentationController?.sourceView = self.view
-       self.present(actionSheetController, animated: true, completion: nil)
+        self.present(actionSheetController, animated: true, completion: nil)
         
     }
     override func didReceiveMemoryWarning() {
@@ -199,21 +201,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     }
     
     @IBAction func loginAction(_ sender: Any) {
-//        FirebaseApp.configure()
-          print("loginAction 1")
-        
+        //        FirebaseApp.configure()
         
         
         // You need to adopt a FUIAuthDelegate protocol to receive callback
-      
         
-        print("loginAction 2")
-        
-//        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
-//        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
-        
-        
-      
+   
+        //        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
+        //        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
         
         
         let providers: [FUIAuthProvider] = [
@@ -224,10 +219,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             ]
         authUI?.providers = providers
         
-         print("loginAction 3")
-       
-        
-//        To get the sign-in method selector:
+        //        To get the sign-in method selector:
         
         let authViewController = authUI!.authViewController()
         
@@ -238,27 +230,48 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     
     @IBAction func logoutAction(_ sender: Any) {
         
-        
-        defaults.set(nil,forKey: "token")
-        
-        loginButton.setTitle("Please Login", for: .normal)
-        loginButton.isEnabled = true
-        logoutButton.isEnabled = false
        
         
-        do {
+        
+        let alert = UIAlertController(title:LanguageHelper.getString(key: "LOGOUT"), message: LanguageHelper.getString(key: "LOGOUT_MESSAGE"), preferredStyle: UIAlertControllerStyle.alert)
+        
+        
+        alert.addAction(UIAlertAction(title: LanguageHelper.getString(key: "OK"), style: UIAlertActionStyle.default, handler: { action in
             
-           try authUI?.signOut()
-        } catch {
-            return
-        }
+            self.defaults.set(nil,forKey: "token")
+            self.loginButton.setTitle(LanguageHelper.getString(key: "LOGIN"), for: .normal)
+            self.loginButton.isEnabled = true
+            self.logoutButton.isEnabled = false
+            
+            do {
+                try self.authUI?.signOut()
+                
+                
+            } catch {
+                return
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: cancelString, style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+       
+        
+            
         
         
         
+        
+        
+        
+        
+        
+        
+   
+    
     }
-    
-
-    
     
     
     
@@ -271,12 +284,13 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         else{
             
             let token = authUI.auth?.apnsToken?.base64EncodedString()
+            
             print("login AUTH\(String(describing: authUI.auth?.apnsToken?.base64EncodedString()))")
             
             defaults.set(token, forKey: "token")
             defaults.set(user!.displayName, forKey: "displayName")
             
-            self.loginButton.setTitle("Welcome,\(user!.displayName ?? "")", for: .normal)
+            self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME")),\(user!.displayName ?? "")", for: .normal)
             self.loginButton.isEnabled = false
             self.logoutButton.isEnabled = true
             

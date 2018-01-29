@@ -71,6 +71,11 @@ NOTIFICTAION = "通知";
 CACHE = "清除缓存";
 CLEAR_CACHE = "是否清除缓存?";
 
+WELCOME = "欢迎, ";
+LOGIN = "请登录";
+LOGOUT = "退出";
+LOGOUT_MESSAGE = "您确定要退出登录吗？";
+
 //Tracking
 TRACKING = "追踪";
 DELIVERY_TRACKING = "订单追踪";

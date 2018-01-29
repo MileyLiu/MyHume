@@ -71,6 +71,12 @@ NOTIFICTAION = "Notification";
 CACHE = "Clear Cache";
 CLEAR_CACHE = "Do you want to clear cache?";
 
+WELCOME = "Welcome, ";
+LOGIN = "Please log in";
+LOGOUT = "Log out";
+LOGOUT_MESSAGE = "Are you sure you want to log out";
+
+
 //Tracking
 TRACKING = "Tracking";
 DELIVERY_TRACKING = "Delivery Tracking";
@@ -136,6 +142,7 @@ INTIAL_TALK = "Please send us message";
 
 ADD_SHOPPINGCART = "Add to shopping cart";
 SHOPPING_CART = "Shopping Cart";
+
 
 
 
