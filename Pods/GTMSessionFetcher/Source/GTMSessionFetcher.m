@@ -2419,6 +2419,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     // of a deadlock or of recursive sync.
     GTMSessionCheckNotSynchronized(self);
 
+      
     postBlock();
   } else {
     dispatch_async(dispatch_get_main_queue(), postBlock);

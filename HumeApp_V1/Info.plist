@@ -38,26 +38,24 @@
 				<string>twitterkit-10fLqPlCvu1juCKzvuRlsgt6u</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc</string>
-			</array>
-		</dict>
-        
         
         <dict>
             <key>CFBundleTypeRole</key>
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.1075711893050-oh9t1b76a09ptc1f8rbva903h9vemedu</string>
+                <string>com.googleusercontent.apps.997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc</string>
             </array>
         </dict>
-        
-        
+
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1075711893050-oh9t1b76a09ptc1f8rbva903h9vemedu</string>
+			</array>
+		</dict>
 		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
@@ -92,6 +90,10 @@
 	<string>Your location is used to see where you are. </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is used to see where you are.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

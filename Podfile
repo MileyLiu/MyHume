@@ -17,11 +17,9 @@ def shared_pods
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     
-#    pod 'Firebase/Auth'
+   pod 'Firebase/Auth'
 
-   pod 'FirebaseUI'
-    
-    
+    pod 'FirebaseUI'
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
     pod 'FirebaseUI/Facebook'

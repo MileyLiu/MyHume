@@ -17,6 +17,7 @@ import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
+import GTMSessionFetcher
 
 
 
@@ -77,7 +78,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("gidsign")
         
 //        */
+        
+        
         FirebaseApp.configure()
+        
+         GTMSessionFetcher.setLoggingEnabled(true)
         
        
         if #available(iOS 10.0, *) {
@@ -187,6 +192,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler(UIBackgroundFetchResult.newData)
     }
     
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    
+        Auth.auth().setAPNSToken(deviceToken, type: .prod)
+        print("deviceToken:\(deviceToken.base64EncodedString())")
+    }
     
     func customLaunchImageView (){
         let launchImageView = UIImageView.init(frame: (self.window?.bounds)!)

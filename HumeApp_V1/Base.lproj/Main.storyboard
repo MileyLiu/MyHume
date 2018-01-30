@@ -983,17 +983,26 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     <action selector="loginAction:" destination="2g8-Se-17r" eventType="touchUpInside" id="lGZ-sP-8mt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ldn-He-0hR">
+                                <rect key="frame" x="93" y="20" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="441-YE-jJ1"/>
+                                    <constraint firstAttribute="width" constant="80" id="OuD-xt-ttp"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LhD-0n-yFJ" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="top" constant="20" id="0gf-0s-hgd"/>
+                            <constraint firstItem="GEk-CF-KaR" firstAttribute="top" secondItem="Ldn-He-0hR" secondAttribute="bottom" constant="-100.5" id="D3E-Dm-C7c"/>
                             <constraint firstItem="GEk-CF-KaR" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" id="Gsa-2q-hpw"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" constant="20" id="O8L-ee-hmy"/>
                             <constraint firstItem="Rtw-M7-msx" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="bottom" constant="-24.5" id="b19-yB-Gtv"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="height" secondItem="LP8-Eg-5ux" secondAttribute="height" multiplier="0.4" id="bKh-6d-dDH"/>
                             <constraint firstItem="Rtw-M7-msx" firstAttribute="leading" secondItem="LhD-0n-yFJ" secondAttribute="leading" constant="25" id="bkl-7X-wKN"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="width" secondItem="LP8-Eg-5ux" secondAttribute="width" multiplier="0.5" id="vKq-FR-hiU"/>
+                            <constraint firstItem="GEk-CF-KaR" firstAttribute="leading" secondItem="Ldn-He-0hR" secondAttribute="trailing" constant="-173" id="y6T-Gu-bnj"/>
                             <constraint firstItem="alF-r7-Hdu" firstAttribute="top" secondItem="GEk-CF-KaR" secondAttribute="bottom" constant="30" id="yMg-io-Bem"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LhD-0n-yFJ"/>
@@ -1003,6 +1012,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <outlet property="homeButton" destination="GcW-OP-gbU" id="Gpn-68-PKQ"/>
                         <outlet property="loginButton" destination="Rtw-M7-msx" id="zsX-iv-bRi"/>
                         <outlet property="logoutButton" destination="1zC-iC-h9B" id="3oC-nL-erB"/>
+                        <outlet property="photoImageView" destination="Ldn-He-0hR" id="Mj9-Ah-h5l"/>
                         <outlet property="settingButton" destination="RPN-dA-N23" id="ArU-o1-pOJ"/>
                         <outlet property="shareButton" destination="35F-cc-P3V" id="yeI-pk-b09"/>
                     </connections>
@@ -2877,6 +2887,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="300" height="300"/>
         <image name="banner" width="540" height="363"/>
         <image name="banner1" width="375" height="200"/>
         <image name="feature_large3" width="333" height="342"/>

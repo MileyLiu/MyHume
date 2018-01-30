@@ -15,7 +15,7 @@ import ObjectMapper
 import GoogleMaps
 import GooglePlaces
 
-class NewHomeViewController: UIViewController
+class NewHomeViewController: UIViewController,GMSMapViewDelegate
 //,UITableViewDelegate,UITableViewDataSource,
 //,SFSafariViewControllerDelegate
 {
@@ -73,7 +73,6 @@ class NewHomeViewController: UIViewController
             self.menuButton?.action = #selector(SWRevealViewController.revealToggle(animated:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
-        
             
             
             
@@ -88,12 +87,13 @@ class NewHomeViewController: UIViewController
         self.navigationItem.titleView = titleImageView
         
         //get current loaction
+        locationManager.delegate = self
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
-        locationManager.delegate = self
+      
         placesClient = GMSPlacesClient.shared()
         
        
@@ -119,7 +119,7 @@ class NewHomeViewController: UIViewController
     @objc func refreshFirstView(){
         
         print("refreshFirstView........")
-         setUpFirstView()
+        setUpFirstView()
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()

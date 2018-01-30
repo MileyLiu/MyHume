@@ -18,12 +18,12 @@ import FirebaseGoogleAuthUI
 import FirebaseFacebookAuthUI
 import FirebaseTwitterAuthUI
 import FirebasePhoneAuthUI
-
-
+import SDWebImage
 
 
 class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate,FUIAuthDelegate{
     
+    @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var logoutButton: UIButton!
     let defaults = UserDefaults.standard
@@ -42,8 +42,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         self.setButtonTitleAsChosenLanguage()
         
         if((defaults.object(forKey: "token")) != nil){
-            
-           
             
             loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(defaults.object(forKey: "displayName") ?? "")", for: .normal)
             
@@ -74,6 +72,10 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
         self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
         self.logoutButton.setTitle(LanguageHelper.getString(key: "LOGOUT"), for: .normal)
+        
+        self.photoImageView.layer.cornerRadius = 40
+        self.photoImageView.clipsToBounds = true
+        
     }
     
     // MARK: - Button
@@ -215,7 +217,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             FUIGoogleAuth(),
             FUIFacebookAuth(),
             FUITwitterAuth(),
-            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+//            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
             ]
         authUI?.providers = providers
         
@@ -230,8 +232,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     
     @IBAction func logoutAction(_ sender: Any) {
         
-       
-        
         
         let alert = UIAlertController(title:LanguageHelper.getString(key: "LOGOUT"), message: LanguageHelper.getString(key: "LOGOUT_MESSAGE"), preferredStyle: UIAlertControllerStyle.alert)
         
@@ -242,6 +242,11 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             self.loginButton.setTitle(LanguageHelper.getString(key: "LOGIN"), for: .normal)
             self.loginButton.isEnabled = true
             self.logoutButton.isEnabled = false
+            
+            self.photoImageView.image = UIImage.init(named: "Logo")
+            self.photoImageView.layer.cornerRadius = 40
+            self.photoImageView.clipsToBounds = true
+            
             
             do {
                 try self.authUI?.signOut()
@@ -257,24 +262,11 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         
         self.present(alert, animated: true, completion: nil)
         
-       
-        
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-   
     
     }
     
     
-    
+   
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if (error != nil){
@@ -285,12 +277,24 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             
             let token = authUI.auth?.apnsToken?.base64EncodedString()
             
+            let currentUser = Auth.auth().currentUser
+            
             print("login AUTH\(String(describing: authUI.auth?.apnsToken?.base64EncodedString()))")
+            
             
             defaults.set(token, forKey: "token")
             defaults.set(user!.displayName, forKey: "displayName")
             
-            self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME")),\(user!.displayName ?? "")", for: .normal)
+            
+            print("authphoto",Auth.auth().currentUser?.photoURL ?? "")
+//            print("authPhone",Auth.auth().currentUser?.phoneNumber)
+            
+            self.photoImageView.sd_setImage(with: currentUser?.photoURL, completed: nil)
+            
+            self.photoImageView.layer.cornerRadius = 40
+            self.photoImageView.clipsToBounds = true
+            
+            self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(user!.displayName ?? "")", for: .normal)
             self.loginButton.isEnabled = false
             self.logoutButton.isEnabled = true
             
