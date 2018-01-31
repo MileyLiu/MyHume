@@ -72,7 +72,7 @@ CACHE = "Clear Cache";
 CLEAR_CACHE = "Do you want to clear cache?";
 
 WELCOME = "Welcome, ";
-LOGIN = "Please log in";
+LOGIN = "Tap here to log in";
 LOGOUT = "Log out";
 LOGOUT_MESSAGE = "Are you sure you want to log out";
 

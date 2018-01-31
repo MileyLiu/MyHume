@@ -20,18 +20,18 @@ import SafariServices
 class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,
     UIActionSheetDelegate,
     SFSafariViewControllerDelegate
-//    GIDSignInUIDelegate,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate
+    //    GIDSignInUIDelegate,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate
 {
-   
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
     var refreshControl: UIRefreshControl?
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
@@ -41,18 +41,13 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
-        
         self.navigationItem.title = LanguageHelper.getString(key: "COMPANY_NEWS")
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "NEWS")
-        
-        
-        
-        
         self.newsTableView.rowHeight  = UITableViewAutomaticDimension
         self.newsTableView.estimatedRowHeight = 300
-//        self.newsTableView.tableFooterView = UIView.init(frame: CGRect.zero)
-       self.newsTableView.separatorStyle = .none
-//        GIDSignIn.sharedInstance().uiDelegate = self
+        //        self.newsTableView.tableFooterView = UIView.init(frame: CGRect.zero)
+        self.newsTableView.separatorStyle = .none
+        //        GIDSignIn.sharedInstance().uiDelegate = self
         loadData()
         createDropdownFresh()
         
@@ -79,26 +74,10 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     func loadData() {
         SVProgressHUD.show()
         var url :String!=""
+        
+        //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
        
-//        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
-        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
-        
-        print("当前用户语言:\(userLang)")
-        
-       
-        
-        switch String(describing: userLang) {
-        case "en-US", "en-CN":
-            //en
-            url = hostApi + "myHume-rest/news/get?language=en"
-            
-        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
-            //cn
-            url = hostApi + "myHume-rest/news/get?language=cn"
-            
-        default:
-            url = hostApi + "myHume-rest/news/get?language=en"
-        }
+        url = "http://myhume.humeplaster.com.au/api/news?type=list"
         
         
         Alamofire.request(url)
@@ -118,7 +97,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
                     for index in 0..<resultArray.count{
                         
                         let news = Mapper<News>().map(JSONObject: resultArray[index])
-                        print("news titles:\(String(describing: news?.heading))")
+                        print("news titles:\(String(describing: news?.title))")
                         self.dataSource.add(news)
                         
                     }
@@ -127,7 +106,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
                     
                     SVProgressHUD.dismiss()
                     
-                  let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+                    let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
                     self.present(networkAlert, animated: true, completion: nil)
                     return
                     
@@ -143,7 +122,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
     }
     
-
+    
     
     @IBAction func prioritySupport(_ sender: Any) {
         var controller: PriorityViewController
@@ -159,14 +138,14 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let oneNews = self.dataSource[indexPath.row] as! News
-        let webUrl =  oneNews.linkUrl
-      
+        let webUrl =  oneNews.link
+        
         let web = URL(string:webUrl!)
-
-            let controller = SFSafariViewController.init(url: web!)
-            controller.delegate = self
-            self.present(controller, animated: true, completion: nil)
- 
+        
+        let controller = SFSafariViewController.init(url: web!)
+        controller.delegate = self
+        self.present(controller, animated: true, completion: nil)
+        
     }
     
     
@@ -174,13 +153,36 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! NewsTableViewCell
         let oneNews = self.dataSource[indexPath.row] as! News
-        cell.titleLabel.text = oneNews.heading
-        cell.descriptionLabel.text = oneNews.content
-        cell.dateLabel.text = oneNews.date
-        cell.url = oneNews.linkUrl
         
-    
-        SDWebImageManager.shared().loadImage(with: URL(string:oneNews.imageUrl!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+        
+        print("当前用户语言:\(userLang)")
+        
+        var lang: String!=""
+        
+        switch String(describing: userLang) {
+        case "en-US", "en-CN":
+            //en
+             cell.titleLabel.text = oneNews.title
+             cell.descriptionLabel.text = oneNews.content
+        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
+            //cn
+            cell.titleLabel.text = oneNews.titleCn
+            cell.descriptionLabel.text = oneNews.contentCn
+            
+        default:
+            cell.titleLabel.text = oneNews.title
+            cell.descriptionLabel.text = oneNews.content
+        }
+        
+        
+       
+       
+        cell.dateLabel.text = oneNews.date
+        cell.url = oneNews.link
+        
+        
+        SDWebImageManager.shared().loadImage(with: URL(string:oneNews.thumbnailSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
             
             } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
                 
@@ -194,7 +196,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     }
     
     
- 
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -210,13 +212,13 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "newsDetail" {
-//            
-//            let nextViewController = segue.destination as! NewsDetailViewController
-//            
-//            nextViewController.testURL = sender as! String
-//        }
-       
+        //        if segue.identifier == "newsDetail" {
+        //
+        //            let nextViewController = segue.destination as! NewsDetailViewController
+        //
+        //            nextViewController.testURL = sender as! String
+        //        }
+        
     }
     
 }
@@ -231,141 +233,141 @@ extension NewsViewController: NewsCellDelegate{
             print("Cancel")
         }
         actionSheetController.addAction(cancelActionButton)
-       /*
-        let facebookActionButton = UIAlertAction(title: "Facebook", style: .default)
-        { _ in
-            print("facebookActionButton")
-            
-//            //LOGIN
-//            if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
-//
-//                vc.setInitialText(title)
-//                vc.add(image)
-//                vc.add(URL(string: url.absoluteString))
-//                self.present(vc, animated: true)
-//            }
-//
-            
-            if (FBSDKAccessToken.current() != nil)
-            {
-             
-                print("facebook LOGIN")
-            }
-            else
-            {
-                
-//                let facebookAlert = UIAlertController(title: "No Facebook Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
-//                facebookAlert.addAction(UIAlertAction(title: okString, style:UIAlertActionStyle.default))
-//                self.present(facebookAlert,animated: false, completion: nil)
-                
-//                TODO LOGIN FACEBOOK
-//                               let loginView : FBSDKLoginButton = FBSDKLoginButton()
-//                                self.view.addSubview(loginView)
-//                                loginView.center = self.view.center
-//                                loginView.readPermissions = ["public_profile", "email", "user_friends"]
-//                                loginView.delegate = self as! FBSDKLoginButtonDelegate
-            }
-            
-            let content = FBSDKShareLinkContent.init()
-            content.contentURL = url
-            content.quote = title
-
-            print("sharing content:\(content.contentURL)")
-
-            FBSDKShareDialog.show(from:self, with: content, delegate: nil)
-            
-        }
-        actionSheetController.addAction(facebookActionButton)
-        
-        let twitterActionButton = UIAlertAction(title: "Twitter", style: .default)
-        { _ in
-            print("twitterActionButton")
-            
-        
-            if (Twitter.sharedInstance().sessionStore.hasLoggedInUsers()) {
-                // App must have at least one logged-in user to compose a Tweet
-
-
-            } else {
-                // Log in, and then check again
-                Twitter.sharedInstance().logIn { session, error in
-                    if session != nil { // Log in succeeded
-                        let composer = TWTRComposerViewController.emptyComposer()
-                        print("Logging.....")
-                        self.present(composer, animated: true, completion: nil)
-                    } else {
-                        let twitterAlert = UIAlertController(title: "No Twitter Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
-                        twitterAlert.addAction(UIAlertAction(title: okString, style:UIAlertActionStyle.default))
-                        self.present(twitterAlert,animated: false, completion: nil)
-                    }
-                }
-            }
-            
-            if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
-                
-                vc.setInitialText(title)
-                vc.add(image)
-                vc.add(URL(string: url.absoluteString))
-                self.present(vc, animated: true)
-            }
-            else {
-                
-                print("not allow to tweet")
-            }
-            
-            
-        }
-        
-        
-        actionSheetController.addAction(twitterActionButton)
-        
-        let wechatActionButton = UIAlertAction(title: "Wechat", style: .default)
-        { _ in
-            print("wechatActionButton")
-            
-            _ = String(describing: url)
-            
-        }
-        
-        actionSheetController.addAction(wechatActionButton)
-        
-        let gogglePlusActionButton = UIAlertAction(title: "google+", style: .default)
-        { _ in
-            print("gogglePlusActionButton")
-          
-            var urlComponents = URLComponents.init(string:"https://plus.google.com/share" )
-            urlComponents?.queryItems = [URLQueryItem.init(name: "url", value: url.absoluteString)]
-            let newUrl = urlComponents?.url
-            
-            if SFSafariViewController.accessibilityActivate(){
-                
-                let controller = SFSafariViewController.init(url: newUrl!)
-                controller.delegate = self
-                self.present(controller, animated: true, completion: nil)
-                
-            }
-            else{
-                UIApplication.shared.openURL(newUrl!)
-               
-                
-            }
-            
-            // Uncomment to automatically sign in the user.
-            //GIDSignIn.sharedInstance().signInSilently()
-            
-            
-        }
-        
-        actionSheetController.addAction(gogglePlusActionButton)
-        
-        self.present(actionSheetController, animated: true, completion: nil)
-       
-        */
+        /*
+         let facebookActionButton = UIAlertAction(title: "Facebook", style: .default)
+         { _ in
+         print("facebookActionButton")
+         
+         //            //LOGIN
+         //            if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
+         //
+         //                vc.setInitialText(title)
+         //                vc.add(image)
+         //                vc.add(URL(string: url.absoluteString))
+         //                self.present(vc, animated: true)
+         //            }
+         //
+         
+         if (FBSDKAccessToken.current() != nil)
+         {
+         
+         print("facebook LOGIN")
+         }
+         else
+         {
+         
+         //                let facebookAlert = UIAlertController(title: "No Facebook Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
+         //                facebookAlert.addAction(UIAlertAction(title: okString, style:UIAlertActionStyle.default))
+         //                self.present(facebookAlert,animated: false, completion: nil)
+         
+         //                TODO LOGIN FACEBOOK
+         //                               let loginView : FBSDKLoginButton = FBSDKLoginButton()
+         //                                self.view.addSubview(loginView)
+         //                                loginView.center = self.view.center
+         //                                loginView.readPermissions = ["public_profile", "email", "user_friends"]
+         //                                loginView.delegate = self as! FBSDKLoginButtonDelegate
+         }
+         
+         let content = FBSDKShareLinkContent.init()
+         content.contentURL = url
+         content.quote = title
+         
+         print("sharing content:\(content.contentURL)")
+         
+         FBSDKShareDialog.show(from:self, with: content, delegate: nil)
+         
+         }
+         actionSheetController.addAction(facebookActionButton)
+         
+         let twitterActionButton = UIAlertAction(title: "Twitter", style: .default)
+         { _ in
+         print("twitterActionButton")
+         
+         
+         if (Twitter.sharedInstance().sessionStore.hasLoggedInUsers()) {
+         // App must have at least one logged-in user to compose a Tweet
+         
+         
+         } else {
+         // Log in, and then check again
+         Twitter.sharedInstance().logIn { session, error in
+         if session != nil { // Log in succeeded
+         let composer = TWTRComposerViewController.emptyComposer()
+         print("Logging.....")
+         self.present(composer, animated: true, completion: nil)
+         } else {
+         let twitterAlert = UIAlertController(title: "No Twitter Accounts Available", message: "You must log in before presenting a composer.", preferredStyle: .alert)
+         twitterAlert.addAction(UIAlertAction(title: okString, style:UIAlertActionStyle.default))
+         self.present(twitterAlert,animated: false, completion: nil)
+         }
+         }
+         }
+         
+         if let vc = SLComposeViewController(forServiceType: SLServiceTypeTwitter) {
+         
+         vc.setInitialText(title)
+         vc.add(image)
+         vc.add(URL(string: url.absoluteString))
+         self.present(vc, animated: true)
+         }
+         else {
+         
+         print("not allow to tweet")
+         }
+         
+         
+         }
+         
+         
+         actionSheetController.addAction(twitterActionButton)
+         
+         let wechatActionButton = UIAlertAction(title: "Wechat", style: .default)
+         { _ in
+         print("wechatActionButton")
+         
+         _ = String(describing: url)
+         
+         }
+         
+         actionSheetController.addAction(wechatActionButton)
+         
+         let gogglePlusActionButton = UIAlertAction(title: "google+", style: .default)
+         { _ in
+         print("gogglePlusActionButton")
+         
+         var urlComponents = URLComponents.init(string:"https://plus.google.com/share" )
+         urlComponents?.queryItems = [URLQueryItem.init(name: "url", value: url.absoluteString)]
+         let newUrl = urlComponents?.url
+         
+         if SFSafariViewController.accessibilityActivate(){
+         
+         let controller = SFSafariViewController.init(url: newUrl!)
+         controller.delegate = self
+         self.present(controller, animated: true, completion: nil)
+         
+         }
+         else{
+         UIApplication.shared.openURL(newUrl!)
+         
+         
+         }
+         
+         // Uncomment to automatically sign in the user.
+         //GIDSignIn.sharedInstance().signInSilently()
+         
+         
+         }
+         
+         actionSheetController.addAction(gogglePlusActionButton)
+         
+         self.present(actionSheetController, animated: true, completion: nil)
+         
+         */
     }
     
     
- 
- 
+    
+    
     
     
 }

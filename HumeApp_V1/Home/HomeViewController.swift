@@ -122,11 +122,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                         
                         let news = Mapper<News>().map(JSONObject: resultArray[index])
                         
-                        images.append((news?.imageUrl)!)
+                        images.append((news?.thumbnailSrc)!)
                         //                        self.urlSource.append((news?.linkUrl)!)
-                        urls.append((news?.linkUrl)!)
+                        urls.append((news?.link)!)
                         
-                        print("news url:\(String(describing: news?.linkUrl))")
+                        print("news url:\(String(describing: news?.link))")
                         
                         
                     }

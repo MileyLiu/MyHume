@@ -53,10 +53,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             logoutButton.isEnabled = false
             
         }
-        
         authUI?.delegate = self
-        
-        
     }
     
     
@@ -72,7 +69,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
         self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
         self.logoutButton.setTitle(LanguageHelper.getString(key: "LOGOUT"), for: .normal)
-        
+
         self.photoImageView.layer.cornerRadius = 40
         self.photoImageView.clipsToBounds = true
         
@@ -207,26 +204,33 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         
         
         // You need to adopt a FUIAuthDelegate protocol to receive callback
-        
-   
-        //        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
-        //        phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
+//
+//        print("login1")
+//
+//        print("login1.1\(FUIAuth.defaultAuthUI()?.providers.count)")
+//
+//        let phoneProvider = FUIAuth.defaultAuthUI()?.providers.first as! FUIPhoneAuth
+//         print("login2")
+//        phoneProvider.signIn(withPresenting: self, phoneNumber: nil)
+//         print("login3")
+//                phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
         
         
         let providers: [FUIAuthProvider] = [
+//            phoneProvider,
             FUIGoogleAuth(),
             FUIFacebookAuth(),
             FUITwitterAuth(),
 //            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
             ]
         authUI?.providers = providers
-        
-        //        To get the sign-in method selector:
-        
+//
+//        //        To get the sign-in method selector:
+//
         let authViewController = authUI!.authViewController()
-        
+
         self.present(authViewController, animated: true, completion: nil)
-        
+//
         
     }
     
@@ -286,7 +290,9 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             defaults.set(user!.displayName, forKey: "displayName")
             
             
-            print("authphoto",Auth.auth().currentUser?.photoURL ?? "")
+            print("authphoto",currentUser?.photoURL ?? "")
+            
+            print ("UID:",currentUser?.uid ?? "")
 //            print("authPhone",Auth.auth().currentUser?.phoneNumber)
             
             self.photoImageView.sd_setImage(with: currentUser?.photoURL, completed: nil)
