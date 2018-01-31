@@ -46,6 +46,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
+    
+     var news :[News] = []
+    
     //location init
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
@@ -96,10 +99,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
       
         placesClient = GMSPlacesClient.shared()
         
-       
+         loadData()
         setUpFirstView()
         setUpSecondView()
-        setupThirdiew()
+//        setupThirdiew()
         
         //refresh firstView notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
@@ -183,15 +186,46 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     }
     func setupThirdiew(){
         
+        
+//        self.loadData()
        
         
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         
         let otherImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
         
+        
+        
+         var titleLabel = UILabel.init(frame:CGRect.init(x: 10, y: 100, width: screenWidth, height: screenHeight-othersHeight))
+        
+        titleLabel.textColor = UIColor.white
+        
+        titleLabel.text = self.news[0].title
+        
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        
+        titleLabel.textAlignment = .center
+        
+    
+        
+        print("newsCount:\(titleLabel.text)")
+        
         otherImage.backgroundColor = UIColor.black
         otherImage.contentMode = .scaleToFill
-        otherImage.image = UIImage(named:"bg")
+//        otherImage.image = UIImage(named:"bg")
+        
+        SDWebImageManager.shared().loadImage(with: URL(string:self.news[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+            
+            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+                
+                otherImage.image = image
+                otherImage.alpha = 0.8
+                
+                
+                
+        })
+        
+        
         
          /*NEWS
           thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
@@ -216,7 +250,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
  */
         
         thirdView.addSubview(otherImage)
-        
+        thirdView.addSubview(titleLabel)
     }
     
     func setUpBlankView(){
@@ -385,6 +419,78 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     }
     
     */
+    
+    func loadData() {
+        SVProgressHUD.show()
+        let url = "http://myhume.humeplaster.com.au/api/news?type=full"
+        
+//        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+//
+//        print("当前用户语言:\(userLang)")
+//
+//
+//        switch userLang {
+//        case "zh-Hans":
+//            url = hostApi + "myHume-rest/news/get?language=cn"
+//        default:
+//            url = hostApi + "myHume-rest/news/get?language=en"
+//        }
+        
+        
+        Alamofire.request(url)
+            .validate()
+            .responseJSON {response in
+                switch response.result {
+                case .success(let value):
+                    
+                    let resultArray = value as! NSArray
+                    
+                    if resultArray.count == 0 {
+                        
+                        SVProgressHUD.dismiss()
+                        
+                        return
+                    }
+                    
+                   
+                   
+                    
+                    for index in 0..<resultArray.count{
+                        
+                        let new = Mapper<News>().map(JSONObject: resultArray[index])
+                        print("news titles:\(String(describing: new?.title))")
+//                        self.dataSource.add(news)
+                        
+                        self.news.append(new!)
+                        
+        
+                    }
+                    
+                    
+//                    self.news.sorted(by: { $0.id > $1.id })
+                    
+                    self.setupThirdiew()
+                    
+                    
+                    
+//                    news.sorted(by: {$0.id>$1.id})
+                    
+                    
+                case .failure(let error):
+                    print("Request Error:\(error)")
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+                    self.present(networkAlert, animated: true, completion: nil)
+                    return
+                    
+                }
+//                self.newsTableView!.reloadData()
+                SVProgressHUD.dismiss()
+        }
+    }
+    
     func getWeatherInfo(){
         
         SVProgressHUD.show()
@@ -440,15 +546,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                 
                 SVProgressHUD.dismiss()
         }
-        
-        
-        
-        
-        
+    
     }
-    
-    
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
