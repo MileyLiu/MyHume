@@ -16,8 +16,8 @@ import GoogleMaps
 import GooglePlaces
 
 class NewHomeViewController: UIViewController,GMSMapViewDelegate
-//,UITableViewDelegate,UITableViewDataSource,
-//,SFSafariViewControllerDelegate
+    //,UITableViewDelegate,UITableViewDataSource,
+    //,SFSafariViewControllerDelegate
 {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -31,7 +31,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
-
+    
     
     //thirdView init
     var thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
@@ -42,12 +42,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     var blankView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
     var refreshControl: UIRefreshControl?
-   
+    
     
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
     
-     var news :[News] = []
+    var news :[News] = []
     
     //location init
     var locationManager = CLLocationManager()
@@ -71,7 +71,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         super.viewDidLoad()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
-//            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
+            //            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
             
             self.menuButton?.action = #selector(SWRevealViewController.revealToggle(animated:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -79,7 +79,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
             
             
             
-//            self.title = "temp"
+            //            self.title = "temp"
         }
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "HOME")
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -96,13 +96,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
-      
+        
         placesClient = GMSPlacesClient.shared()
         
-         loadData()
+        loadData()
         setUpFirstView()
-        setUpSecondView()
-//        setupThirdiew()
+        //        setUpSecondView()
+        //        setupThirdiew()
         
         //refresh firstView notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
@@ -132,7 +132,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         placesClient = GMSPlacesClient.shared()
         
         
-       
+        
         
     }
     @IBAction func clickedMenu(_ sender: Any) {
@@ -162,33 +162,46 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         bgImageView.addSubview(self.timeLabel)
         bgImageView.addSubview(self.weatherImageView)
         
-    
-//    firstView.addSubview(refreshControl!)
         
-//        createDropdownFresh()
+        //    firstView.addSubview(refreshControl!)
+        
+        //        createDropdownFresh()
         print("setUpFirstView")
         
         
     }
     
-    func setUpSecondView(){
+    func setUpSecondView(newsArray:[News]){
         
         
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
         
         digitalImage.backgroundColor = UIColor.black
-        digitalImage.contentMode = .scaleToFill
-        digitalImage.image = UIImage(named:"goingdigital")
+        digitalImage.contentMode = .scaleAspectFill
+        //        digitalImage.image = UIImage(named:"goingdigital")
+        
+        
+        
+        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+            
+            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+                
+                digitalImage.image = image
+                digitalImage.alpha = 0.8
+                
+                
+                
+        })
         
         secondView.addSubview(digitalImage)
         
     }
-    func setupThirdiew(){
+    func setupThirdiew(newsArray:[News]){
         
         
-//        self.loadData()
-       
+        //        self.loadData()
+        
         
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         
@@ -196,30 +209,90 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         
         
-         var titleLabel = UILabel.init(frame:CGRect.init(x: 10, y: 100, width: screenWidth, height: screenHeight-othersHeight))
         
-        titleLabel.textColor = UIColor.white
+        let titleView = UIView.init(frame: CGRect.init(x: 10.0, y: screenHeight*0.5, width: screenWidth-20, height: screenHeight*0.3))
         
-        titleLabel.text = self.news[0].title
+        titleView.backgroundColor = UIColor.white
+        titleView.alpha = 0.5
         
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 30)
         
-        titleLabel.textAlignment = .center
         
-    
+        var titleLabel = UILabel.init(frame:CGRect.init(x: 5.0, y: 5.0, width: screenWidth-30, height: screenHeight*0.1))
+        titleLabel.textColor = mainColor
+        titleLabel.backgroundColor = UIColor.white
+        
+        
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        //        titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.numberOfLines = 0
+        
+        titleLabel.textAlignment = .left
+        //        titleLabel.sizeToFit()
+        
+        
+        
+        
+        //
+        //       var contentLabel = UILabel.init(frame:CGRect.init(x: 0, y: (screenHeight-othersHeight)*0.1), width: screenWidth-20, height: (screenHeight-othersHeight)*0.2))
+        
+        
+        var contentLabel = UILabel.init(frame:CGRect.init(x: 5.0, y: screenHeight*0.1, width: screenWidth-30, height: screenHeight*0.1))
+        
+        
+        
+        contentLabel.textColor = UIColor.black
+        contentLabel.backgroundColor = UIColor.white
+        
+        
+        contentLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        
+        contentLabel.textAlignment = .left
+        
+        
+        
+        //        contentLabel.lineBreakMode = .byWordWrapping
+        contentLabel.numberOfLines = 0
+        //         contentLabel.sizeToFit()
+        
+        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+        
+        print("当前用户语言:\(userLang)")
+        
+        var lang: String!=""
+        
+        switch String(describing: userLang) {
+        case "en-US", "en-CN":
+            //en
+            titleLabel.text = newsArray[1].title
+            contentLabel.text = newsArray[1].content
+        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
+            //cn
+            titleLabel.text = newsArray[1].titleCn
+            contentLabel.text = newsArray[1].contentCn
+            
+        default:
+            titleLabel.text = newsArray[1].title
+            contentLabel.text = newsArray[1].content
+        }
+        
+        
+        titleView.addSubview(titleLabel)
+        titleView.addSubview(contentLabel)
+        
+        
         
         print("newsCount:\(titleLabel.text)")
         
         otherImage.backgroundColor = UIColor.black
-        otherImage.contentMode = .scaleToFill
-//        otherImage.image = UIImage(named:"bg")
+        otherImage.contentMode = .scaleAspectFill
+        //        otherImage.image = UIImage(named:"bg")
         
-        SDWebImageManager.shared().loadImage(with: URL(string:self.news[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[1].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
             
             } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
                 
                 otherImage.image = image
-                otherImage.alpha = 0.8
+                otherImage.alpha = 1
                 
                 
                 
@@ -227,30 +300,30 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         
         
-         /*NEWS
-          thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
+        /*NEWS
+         thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
          
-        newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
-        
-        
-        let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
-        
-        newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
-        
-        
-    
-        newsTableView?.delegate = self
-        newsTableView?.dataSource = self
-        
-        newsTableView?.rowHeight = UITableViewAutomaticDimension
-        newsTableView?.estimatedRowHeight = 300
-        
-        loadData()
-        createDropdownFresh()
- */
+         newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
+         
+         
+         let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
+         
+         newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
+         
+         
+         
+         newsTableView?.delegate = self
+         newsTableView?.dataSource = self
+         
+         newsTableView?.rowHeight = UITableViewAutomaticDimension
+         newsTableView?.estimatedRowHeight = 300
+         
+         loadData()
+         createDropdownFresh()
+         */
         
         thirdView.addSubview(otherImage)
-        thirdView.addSubview(titleLabel)
+        thirdView.addSubview(titleView)
     }
     
     func setUpBlankView(){
@@ -260,15 +333,15 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         let blankLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth-40, height: screenHeight*0.2))
         
         let button = UIButton.init(frame: CGRect.init(x:screenWidth*0.3 , y: screenHeight*0.5, width: screenWidth*0.3, height: screenHeight*0.1))
-    
+        
         
         button.setTitle("Retry", for:.normal)
         button.addTarget(self, action: #selector(viewDidLoad), for:UIControlEvents.touchUpInside)
         button.backgroundColor = mainColor
         button.layer.cornerRadius = 6
         
-      
-
+        
+        
         blankLabel.text = "No Network, please connect WIFI or open your 3G/4G data"
         
         blankLabel.lineBreakMode = .byClipping
@@ -282,9 +355,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     @objc func refresh(sender:AnyObject) {
         
-//        dataSource = NSMutableArray()
+        //        dataSource = NSMutableArray()
         
-//        self.loadData()
+        //        self.loadData()
         
         refreshFirstView()
         
@@ -300,141 +373,141 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         refreshControl?.addTarget(self, action:#selector(self.refreshFirstView), for: UIControlEvents.valueChanged)
         
         //table
-//        self.newsTableView?.addSubview(refreshControl!)
-//        self.firstView.addSubview(refreshControl!)
+        //        self.newsTableView?.addSubview(refreshControl!)
+        //        self.firstView.addSubview(refreshControl!)
         
         
     }
-   
+    
     /*TABLE
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sliderNewsCell") as! SliderNewsTableViewCell
-        
-        //        let cell = UITableViewCell()
-        let oneNews = self.dataSource[indexPath.row] as! News
-        
-        
-        cell.titleLabel.text = oneNews.heading
-        cell.descriptionLabel.text = oneNews.content
-        cell.dateLabel.text = oneNews.date
-        //        cell.url = oneNews.linkUrl
-        
-        
-        SDWebImageManager.shared().loadImage(with: URL(string:oneNews.imageUrl!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-            
-            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-                cell.newsImageView?.image = image
-                
-                
-                
-        })
-        //        cell.newsCellDelegate = self
-        return cell
-    }
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        let oneNews = self.dataSource[indexPath.row] as! News
-        
-        
-        let web = URL(string: oneNews.linkUrl!)
-        
-        let controller = SFSafariViewController.init(url: web!)
-        controller.delegate = self
-        controller.modalTransitionStyle = .coverVertical
-        controller.modalPresentationStyle = .formSheet
-        self.present(controller, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    @IBAction func callus(_ sender: Any) {
-        makePhoneCall()
-    }
-    
-    func loadData() {
-        SVProgressHUD.show()
-        var url :String!=""
-        
-        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
-        
-        print("当前用户语言:\(userLang)")
-        
-        
-        switch userLang {
-        case "zh-Hans":
-            url = hostApi + "myHume-rest/news/get?language=cn"
-        default:
-            url = hostApi + "myHume-rest/news/get?language=en"
-        }
-        
-        
-        Alamofire.request(url)
-            .validate()
-            .responseJSON {response in
-                switch response.result {
-                case .success(let value):
-                    
-                    let resultArray = value as! NSArray
-                    
-                    if resultArray.count == 0 {
-                        
-                        SVProgressHUD.dismiss()
-                        
-                        return
-                    }
-                    for index in 0..<resultArray.count{
-                        
-                        let news = Mapper<News>().map(JSONObject: resultArray[index])
-                        print("news titles:\(String(describing: news?.heading))")
-                        self.dataSource.add(news)
-                        
-                    }
-                case .failure(let error):
-                    print("Request Error:\(error)")
-                    
-                    SVProgressHUD.dismiss()
-                    
-                    let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
-                    self.present(networkAlert, animated: true, completion: nil)
-                    return
-                    
-                }
-                self.newsTableView!.reloadData()
-                SVProgressHUD.dismiss()
-        }
-    }
-    
-    */
+     
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     return self.dataSource.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     
+     let cell = tableView.dequeueReusableCell(withIdentifier: "sliderNewsCell") as! SliderNewsTableViewCell
+     
+     //        let cell = UITableViewCell()
+     let oneNews = self.dataSource[indexPath.row] as! News
+     
+     
+     cell.titleLabel.text = oneNews.heading
+     cell.descriptionLabel.text = oneNews.content
+     cell.dateLabel.text = oneNews.date
+     //        cell.url = oneNews.linkUrl
+     
+     
+     SDWebImageManager.shared().loadImage(with: URL(string:oneNews.imageUrl!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+     
+     } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+     cell.newsImageView?.image = image
+     
+     
+     
+     })
+     //        cell.newsCellDelegate = self
+     return cell
+     }
+     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+     return UITableViewAutomaticDimension
+     }
+     
+     
+     
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+     
+     let oneNews = self.dataSource[indexPath.row] as! News
+     
+     
+     let web = URL(string: oneNews.linkUrl!)
+     
+     let controller = SFSafariViewController.init(url: web!)
+     controller.delegate = self
+     controller.modalTransitionStyle = .coverVertical
+     controller.modalPresentationStyle = .formSheet
+     self.present(controller, animated: true, completion: nil)
+     }
+     
+     
+     
+     
+     @IBAction func callus(_ sender: Any) {
+     makePhoneCall()
+     }
+     
+     func loadData() {
+     SVProgressHUD.show()
+     var url :String!=""
+     
+     let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+     
+     print("当前用户语言:\(userLang)")
+     
+     
+     switch userLang {
+     case "zh-Hans":
+     url = hostApi + "myHume-rest/news/get?language=cn"
+     default:
+     url = hostApi + "myHume-rest/news/get?language=en"
+     }
+     
+     
+     Alamofire.request(url)
+     .validate()
+     .responseJSON {response in
+     switch response.result {
+     case .success(let value):
+     
+     let resultArray = value as! NSArray
+     
+     if resultArray.count == 0 {
+     
+     SVProgressHUD.dismiss()
+     
+     return
+     }
+     for index in 0..<resultArray.count{
+     
+     let news = Mapper<News>().map(JSONObject: resultArray[index])
+     print("news titles:\(String(describing: news?.heading))")
+     self.dataSource.add(news)
+     
+     }
+     case .failure(let error):
+     print("Request Error:\(error)")
+     
+     SVProgressHUD.dismiss()
+     
+     let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+     self.present(networkAlert, animated: true, completion: nil)
+     return
+     
+     }
+     self.newsTableView!.reloadData()
+     SVProgressHUD.dismiss()
+     }
+     }
+     
+     */
     
     func loadData() {
         SVProgressHUD.show()
         let url = "http://myhume.humeplaster.com.au/api/news?type=full"
         
-//        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
-//
-//        print("当前用户语言:\(userLang)")
-//
-//
-//        switch userLang {
-//        case "zh-Hans":
-//            url = hostApi + "myHume-rest/news/get?language=cn"
-//        default:
-//            url = hostApi + "myHume-rest/news/get?language=en"
-//        }
+        //        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+        //
+        //        print("当前用户语言:\(userLang)")
+        //
+        //
+        //        switch userLang {
+        //        case "zh-Hans":
+        //            url = hostApi + "myHume-rest/news/get?language=cn"
+        //        default:
+        //            url = hostApi + "myHume-rest/news/get?language=en"
+        //        }
         
         
         Alamofire.request(url)
@@ -452,28 +525,41 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         return
                     }
                     
-                   
-                   
+                    
+                    
                     
                     for index in 0..<resultArray.count{
                         
                         let new = Mapper<News>().map(JSONObject: resultArray[index])
                         print("news titles:\(String(describing: new?.title))")
-//                        self.dataSource.add(news)
+                        //                        self.dataSource.add(news)
                         
                         self.news.append(new!)
                         
-        
+                        
                     }
                     
                     
-//                    self.news.sorted(by: { $0.id > $1.id })
-                    
-                    self.setupThirdiew()
+                    //                    let sortedArray = self.news.sorted(by: {$0.id! > $1.id!})
                     
                     
+                    //                    let dateFormatter = DateFormatter()
+                    //                    dateFormatter.dateFormat= "yyyy-mm-dd"
                     
-//                    news.sorted(by: {$0.id>$1.id})
+                    
+                    let sortedArray = self.news.sorted(by: {$0.id! > $1.id!})
+                    
+                    
+                    
+                    
+                    //                    self.news.sorted(by: { $0.id > $1.id })
+                    self.setUpSecondView(newsArray:sortedArray)
+                    
+                    self.setupThirdiew(newsArray:sortedArray)
+                    
+                    
+                    
+                    //                    news.sorted(by: {$0.id>$1.id})
                     
                     
                 case .failure(let error):
@@ -486,7 +572,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     return
                     
                 }
-//                self.newsTableView!.reloadData()
+                //                self.newsTableView!.reloadData()
                 SVProgressHUD.dismiss()
         }
     }
@@ -515,7 +601,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     print("weatherResult:\(weatherResult.toJSONString())")
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
                     let weatherDetail = weatherDetails[0].icon
-    
+                    
                     DispatchQueue.main.async {
                         
                         
@@ -546,9 +632,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                 
                 SVProgressHUD.dismiss()
         }
-    
+        
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

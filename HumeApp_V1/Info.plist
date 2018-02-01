@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2.1</string>
+	<string>1.2.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -38,16 +38,14 @@
 				<string>twitterkit-10fLqPlCvu1juCKzvuRlsgt6u</string>
 			</array>
 		</dict>
-        
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc</string>
-            </array>
-        </dict>
-
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc</string>
+			</array>
+		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
