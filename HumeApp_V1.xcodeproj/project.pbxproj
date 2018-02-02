@@ -54,6 +54,13 @@
 		164C56D91FE341C40037210E /* KeybaordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56D81FE341C40037210E /* KeybaordTextField.swift */; };
 		164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */; };
 		164C56DD1FE714050037210E /* KeyboardTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C56DC1FE714050037210E /* KeyboardTextView.swift */; };
+		165075F9202408F30052F7E3 /* SideMenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165075F8202408F30052F7E3 /* SideMenuListViewController.swift */; };
+		165075FB20241BF50052F7E3 /* ExpendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165075FA20241BF50052F7E3 /* ExpendingCell.swift */; };
+		165075FD202429680052F7E3 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165075FC202429680052F7E3 /* CollapsibleTableViewHeader.swift */; };
+		165075FF202429D90052F7E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165075FE202429D90052F7E3 /* Extensions.swift */; };
+		1650760220242A430052F7E3 /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1650760120242A430052F7E3 /* ExampleData.swift */; };
+		1650760420242A960052F7E3 /* CollapsibleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1650760320242A960052F7E3 /* CollapsibleTableViewCell.swift */; };
+		1650760620242B1D0052F7E3 /* CollapsibleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1650760520242B1D0052F7E3 /* CollapsibleTableViewController.swift */; };
 		1655B2FE1FD9EF1E000A8656 /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */; };
 		1655B3001FD9EF8B000A8656 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */; };
 		165A63D11FDA60650017DB6D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A63D01FDA60650017DB6D /* MessageModel.swift */; };
@@ -168,6 +175,13 @@
 		164C56D81FE341C40037210E /* KeybaordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybaordTextField.swift; sourceTree = "<group>"; };
 		164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeArea.swift"; sourceTree = "<group>"; };
 		164C56DC1FE714050037210E /* KeyboardTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTextView.swift; sourceTree = "<group>"; };
+		165075F8202408F30052F7E3 /* SideMenuListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuListViewController.swift; sourceTree = "<group>"; };
+		165075FA20241BF50052F7E3 /* ExpendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpendingCell.swift; sourceTree = "<group>"; };
+		165075FC202429680052F7E3 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		165075FE202429D90052F7E3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1650760120242A430052F7E3 /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
+		1650760320242A960052F7E3 /* CollapsibleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewCell.swift; sourceTree = "<group>"; };
+		1650760520242B1D0052F7E3 /* CollapsibleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewController.swift; sourceTree = "<group>"; };
 		165264301F9DBB910010BDBD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1655B2FD1FD9EF1E000A8656 /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
 		1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataSource.swift; sourceTree = "<group>"; };
@@ -444,6 +458,18 @@
 			path = Optimize;
 			sourceTree = "<group>";
 		};
+		1650760020242A130052F7E3 /* Collaps */ = {
+			isa = PBXGroup;
+			children = (
+				165075FC202429680052F7E3 /* CollapsibleTableViewHeader.swift */,
+				165075FE202429D90052F7E3 /* Extensions.swift */,
+				1650760120242A430052F7E3 /* ExampleData.swift */,
+				1650760320242A960052F7E3 /* CollapsibleTableViewCell.swift */,
+				1650760520242B1D0052F7E3 /* CollapsibleTableViewController.swift */,
+			);
+			path = Collaps;
+			sourceTree = "<group>";
+		};
 		168B56A12019413C00435167 /* sidemenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +484,9 @@
 				168F43B71FA6AE14006AD409 /* FeedbackViewController.swift */,
 				168F43B51FA6AADC006AD409 /* SharingViewController.swift */,
 				168F43BA1FA6AE70006AD409 /* SettingViewController.swift */,
+				165075F8202408F30052F7E3 /* SideMenuListViewController.swift */,
+				165075FA20241BF50052F7E3 /* ExpendingCell.swift */,
+				1650760020242A130052F7E3 /* Collaps */,
 			);
 			path = Side;
 			sourceTree = "<group>";
@@ -974,6 +1003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165075FB20241BF50052F7E3 /* ExpendingCell.swift in Sources */,
 				164546081F8598AF00D7CE1F /* History.swift in Sources */,
 				1696B5EA1FB51805006DEB4C /* SnCViewController.swift in Sources */,
 				16BB8AEF1FBD37400093A332 /* IndustryNews.swift in Sources */,
@@ -997,6 +1027,7 @@
 				1607714B1F9FE3A100B31E81 /* TrackingDetailViewController.swift in Sources */,
 				16BB8AF11FBE51340093A332 /* ProductDetailViewController.swift in Sources */,
 				1631A5C61F7DD10600112DD2 /* Constant.swift in Sources */,
+				165075FD202429680052F7E3 /* CollapsibleTableViewHeader.swift in Sources */,
 				168F43B11FA2E673006AD409 /* RealTime.swift in Sources */,
 				16C62CF31FDA40EE00BF76F6 /* Conversation.swift in Sources */,
 				1609C9C51F8AEE0800DE54EB /* SQLiteConnect.swift in Sources */,
@@ -1011,8 +1042,10 @@
 				162F7D711FEB1E6C00E60A46 /* Weather.swift in Sources */,
 				164545FF1F845BF300D7CE1F /* TrackingHistoryViewController.swift in Sources */,
 				164546011F845F2200D7CE1F /* HistoryTableViewCell.swift in Sources */,
+				165075F9202408F30052F7E3 /* SideMenuListViewController.swift in Sources */,
 				1631A5C21F7DC18D00112DD2 /* NewsViewController.swift in Sources */,
 				1631A5BC1F7DC14800112DD2 /* NewsTableViewCell.swift in Sources */,
+				1650760620242B1D0052F7E3 /* CollapsibleTableViewController.swift in Sources */,
 				165A63D11FDA60650017DB6D /* MessageModel.swift in Sources */,
 				16ECAFFE1F8C1ECC00D033EB /* ShoppingCarViewController.swift in Sources */,
 				1607714D1FA1590D00B31E81 /* TableViewHelper.swift in Sources */,
@@ -1022,6 +1055,7 @@
 				16ECB0081F8C3C2800D033EB /* ProductCollectionViewCell.swift in Sources */,
 				164C56DD1FE714050037210E /* KeyboardTextView.swift in Sources */,
 				168F43B81FA6AE14006AD409 /* FeedbackViewController.swift in Sources */,
+				165075FF202429D90052F7E3 /* Extensions.swift in Sources */,
 				16BB8AE41FBAB7740093A332 /* MLPhotoGallery.swift in Sources */,
 				164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */,
 				164546061F85846600D7CE1F /* CopyableLabel.swift in Sources */,
@@ -1032,6 +1066,7 @@
 				16119A821FE08A7000EF19FE /* TableHeaderViewCell.swift in Sources */,
 				16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */,
 				163547481F87048A0060B47C /* News.swift in Sources */,
+				1650760420242A960052F7E3 /* CollapsibleTableViewCell.swift in Sources */,
 				16C62CF51FDA41B100BF76F6 /* demoConversation.swift in Sources */,
 				16A124651F943DC2007C951F /* Product.swift in Sources */,
 				1635474A1F8740860060B47C /* Special.swift in Sources */,
@@ -1044,6 +1079,7 @@
 				164545FD1F845BDE00D7CE1F /* TrackingResultViewController.swift in Sources */,
 				16A194691FB52BDA008558B8 /* SuggestionViewController.swift in Sources */,
 				16BB8AEC1FBBBDE00093A332 /* SpecialTableViewCell.swift in Sources */,
+				1650760220242A430052F7E3 /* ExampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

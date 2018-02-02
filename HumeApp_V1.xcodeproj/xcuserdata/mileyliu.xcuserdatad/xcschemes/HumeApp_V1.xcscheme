@@ -115,7 +115,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Debug"
-      customArchiveName = "HumeApp_test1.2.1"
+      customArchiveName = "HumeApp_test1.2.2"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

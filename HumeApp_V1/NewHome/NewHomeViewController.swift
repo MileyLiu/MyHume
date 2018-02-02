@@ -135,9 +135,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         
     }
-    @IBAction func clickedMenu(_ sender: Any) {
-        print("clicked menu")
-    }
+
     
     func setUpFirstView(){
         
