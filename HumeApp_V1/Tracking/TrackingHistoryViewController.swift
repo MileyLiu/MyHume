@@ -160,7 +160,7 @@ class TrackingHistoryViewController: UIViewController,UITableViewDelegate,UITabl
         let suburbSent = suburb.trimmingCharacters(in: whiteSpace).replacingOccurrences(of: " ", with: "%20")
         print("suburbSent0:\(suburbSent)")
         
-        let url : String = hostApi+"HLS-REST/tracking?pickingSlip="+slip+"&suburb="+suburbSent
+        let url : String = hostApi+"/tracking?pickingSlip="+slip+"&suburb="+suburbSent
         
         Alamofire.request(url)
             .validate()

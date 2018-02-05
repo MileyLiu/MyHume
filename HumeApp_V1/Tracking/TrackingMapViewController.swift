@@ -108,8 +108,9 @@ class TrackingMapViewController: UIViewController,GMSMapViewDelegate {
         SVProgressHUD.show()
         
         let suburbSent = formatingSuburb(suburb:suburb)
+//         let url : String = hostApi+"HLS-REST/location/tracking?pickingSlip="+slip+"&suburb="+suburbSent
         
-        let url : String = hostApi+"HLS-REST/location/tracking?pickingSlip="+slip+"&suburb="+suburbSent
+        let url : String = hostApi+"/location/tracking?pickingSlip="+slip+"&suburb="+suburbSent
         
         print("getRealtimeResult0:\(url)")
         

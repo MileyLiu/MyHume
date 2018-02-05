@@ -68,6 +68,7 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
             
             let imageView = UIImageView.init(frame: CGRect(x:CGFloat(i) * galleryWidth!,y:0, width:galleryWidth!,height:galleryHeight!))
             imageView.contentMode = UIViewContentMode.scaleToFill
+//             imageView.contentMode = UIViewContentMode.scaleAspectFill
             imageView.image = UIImage(named:photoArray[i])
             self.topScroll?.addSubview(imageView)
             imageView.tag = i
@@ -80,7 +81,7 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
     }
     
     
-    func bindWithViews(array:[UIView],interval:TimeInterval, defaultImage:String) {
+    func bindWithViews(array:[UIView],interval:TimeInterval) {
         
          self.interval = interval
         
@@ -88,7 +89,9 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
       
         for i in 0...array.count-1 {
             
-           let view = UIView.init(frame: CGRect(x:CGFloat(i) * galleryWidth!,y:0, width:galleryWidth!,height:galleryHeight!))
+            let view = UIView.init(frame: CGRect(x:CGFloat(i) * screenWidth,y:0, width:screenWidth,height:galleryHeight!))
+            
+            print("GalleryViewX:\(CGFloat(i) * galleryWidth!)")
             
             view.addSubview(array[i])
             
@@ -119,8 +122,8 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
             
             tempArray.add(imageView)
             
-            imageView.contentMode = .scaleAspectFit
-//            imageView.contentMode = .scaleToFill
+//            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleToFill
 //            imageView.contentMode = .scaleAspectFill
 
             manager.imageDownloader?.downloadImage(with: URL(string:array[i]), options: SDWebImageDownloaderOptions(rawValue: 0), progress: nil, completed: { (image, data, error, boolean) in

@@ -81,7 +81,7 @@ var branches = ["Alexandria Branch","Lakemba Branch","Pymble Branch","Silverwate
 var jobType = [LanguageHelper.getString(key: "DELIVERY"),LanguageHelper.getString(key: "PICKUP")]
 //var jobTypeCN = ["送货","自取"]
 var requestType = ["Place an order","Existing Order","General Order","Account enquiry"]
-let hostApi = "http://api.humeplaster.com.au:8080/"
+let hostApi = "http://hls.humeplaster.com.au/api"
 
 let user = "admin"
 let password = "@humeit"

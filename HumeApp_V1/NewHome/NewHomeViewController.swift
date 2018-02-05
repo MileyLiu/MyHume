@@ -18,12 +18,16 @@ import GooglePlaces
 class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //,UITableViewDelegate,UITableViewDataSource,
     //,SFSafariViewControllerDelegate
+    
+  
 {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+
+    
     
     //firstview init
-    var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+    var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
     let weatherLabel = UILabel.init(frame: CGRect.init(x:screenWidth*0.6 , y: 10, width: screenWidth*0.3, height: 80))
     let weatherImageView = UIImageView.init(frame:CGRect.init(x: screenWidth*0.6, y: 100, width: 80, height: 80))
     let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
@@ -32,21 +36,14 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
-    
     //thirdView init
     var thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
     
-    
     var blankView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
-    
     var refreshControl: UIRefreshControl?
-    
-    
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
-    
-    
     var news :[News] = []
     
     //location init
@@ -69,15 +66,15 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
             //            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
             
             self.menuButton?.action = #selector(SWRevealViewController.revealToggle(animated:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            
-            
             
             //            self.title = "temp"
         }
@@ -106,9 +103,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         //refresh firstView notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
+       
+        
+        self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0)
         
         
-        self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0, defaultImage: "Morning" )
+        print("views:\(firstView.frame.width),\(secondView.frame.width),\(thirdView.frame.width)")
         
         
         self.view.addSubview(photoGallery)
@@ -135,11 +135,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         
     }
-
+    
     
     func setUpFirstView(){
         
         bgImageView.image = UIImage(named:"\(getTimeBucket())")
+        
+        bgImageView.contentMode = .scaleToFill
         
         firstView.addSubview(bgImageView)
         
@@ -155,6 +157,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         self.timeLabel.numberOfLines = 0
         
         self.weatherImageView.image = UIImage(named:"01d")
+        self.weatherImageView.contentMode = .scaleToFill
         
         bgImageView.addSubview(self.weatherLabel)
         bgImageView.addSubview(self.timeLabel)
@@ -164,33 +167,36 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         //    firstView.addSubview(refreshControl!)
         
         //        createDropdownFresh()
+        
+          print("firstView Width:\(firstView.frame.width)")
         print("setUpFirstView")
         
         
     }
     
     func setUpSecondView(newsArray:[News]){
-        
-        
+       
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
         
         digitalImage.backgroundColor = UIColor.black
-        digitalImage.contentMode = .scaleAspectFill
-        //        digitalImage.image = UIImage(named:"goingdigital")
+//        digitalImage.contentMode = .scaleAspectFill
+                  digitalImage.contentMode = .scaleToFill
+                digitalImage.image = UIImage(named:"goingdigital")
         
         
-        
-        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-            
-            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-                
-                digitalImage.image = image
-                digitalImage.alpha = 0.8
-                
-                
-                
-        })
+//
+//        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+//
+//            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+//
+//                digitalImage.image = image
+//                digitalImage.alpha = 1.0
+//
+//
+//
+//        })
+        print("secondView Width:\(secondView.frame.width)")
         
         secondView.addSubview(digitalImage)
         
@@ -282,7 +288,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         print("newsCount:\(titleLabel.text)")
         
         otherImage.backgroundColor = UIColor.black
-        otherImage.contentMode = .scaleAspectFill
+        otherImage.contentMode = .scaleToFill
         //        otherImage.image = UIImage(named:"bg")
         
         SDWebImageManager.shared().loadImage(with: URL(string:newsArray[1].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
@@ -297,19 +303,14 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         })
         
         
-        
         /*NEWS
          thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
          
          newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
          
-         
          let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
          
          newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
-         
-         
-         
          newsTableView?.delegate = self
          newsTableView?.dataSource = self
          
@@ -320,6 +321,8 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
          createDropdownFresh()
          */
         
+        
+          print("third image Width:\(thirdView.frame.width)")
         thirdView.addSubview(otherImage)
         thirdView.addSubview(titleView)
     }
@@ -337,11 +340,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         button.addTarget(self, action: #selector(viewDidLoad), for:UIControlEvents.touchUpInside)
         button.backgroundColor = mainColor
         button.layer.cornerRadius = 6
-        
-        
-        
         blankLabel.text = "No Network, please connect WIFI or open your 3G/4G data"
-        
         blankLabel.lineBreakMode = .byClipping
         blankLabel.numberOfLines = 0
         
@@ -523,18 +522,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         return
                     }
                     
-                    
-                    
-                    
                     for index in 0..<resultArray.count{
                         
                         let new = Mapper<News>().map(JSONObject: resultArray[index])
-                        print("news titles:\(String(describing: new?.title))")
-                        //                        self.dataSource.add(news)
+                        print("news date:\(String(describing: new?.date))")
                         
                         self.news.append(new!)
-                        
-                        
                     }
                     
                     
@@ -691,7 +684,7 @@ extension NewHomeViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         //
-        print("Error: \(error)")
+        print("locationError: \(error)")
         
         let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
         self.present(networkAlert, animated: true, completion: nil)
