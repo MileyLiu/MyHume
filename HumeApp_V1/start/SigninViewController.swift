@@ -1,39 +1,32 @@
 //
-//  TabBarViewController.swift
+//  SigninViewController.swift
 //  HumeApp_V1
 //
-//  Created by MileyLiu on 9/11/17.
-//  Copyright © 2017 MileyLiu. All rights reserved.
+//  Created by MileyLiu on 8/2/18.
+//  Copyright © 2018 MileyLiu. All rights reserved.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class SigninViewController: UIViewController {
 
-   
-    @IBOutlet weak var customTabbar: UITabBar!
+    @IBOutlet weak var emailTextfield: UITextField!
+    @IBOutlet weak var goButton: UIButton!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        self.goButton.layer.cornerRadius = 20
+        self.goButton.layer.masksToBounds = true
         
-        
-      let items = self.customTabbar.items!
-     
-      var titles = [LanguageHelper.getString(key: "HOME"),LanguageHelper.getString(key: "TRACK"),LanguageHelper.getString(key: "NEWS"),LanguageHelper.getString(key: "LOCATION")]
-//        ,LanguageHelper.getString(key: "SPECIAL")]
-        
-        
-        for i in 0..<items.count{
-            items[i].title = titles[i]
-            
-        }
-        
-       
+        self.emailTextfield.borderStyle = .roundedRect
+        self.passwordTextField.borderStyle = .roundedRect
+
         // Do any additional setup after loading the view.
     }
 
-    
-    
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

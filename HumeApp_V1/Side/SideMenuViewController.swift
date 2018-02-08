@@ -215,22 +215,30 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
 //         print("login3")
 //                phoneProvider.signIn(withPresenting: currentlyVisibleController, phoneNumber: nil)
         
+//
+//        let providers: [FUIAuthProvider] = [
+////            phoneProvider,
+//            FUIGoogleAuth(),
+//            FUIFacebookAuth(),
+//            FUITwitterAuth(),
+////            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+//            ]
+//        authUI?.providers = providers
+//
+//        let authViewController = authUI!.authViewController()
+//
+//        self.present(authViewController, animated: true, completion: nil)
+////
         
-        let providers: [FUIAuthProvider] = [
-//            phoneProvider,
-            FUIGoogleAuth(),
-            FUIFacebookAuth(),
-            FUITwitterAuth(),
-//            FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
-            ]
-        authUI?.providers = providers
-//
-//        //        To get the sign-in method selector:
-//
-        let authViewController = authUI!.authViewController()
-
-        self.present(authViewController, animated: true, completion: nil)
-//
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "initView") as! ViewController
+        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "signinView")
+        
+        
+        self.present(initViewController, animated: true, completion: nil)
+        
+        
         
     }
     

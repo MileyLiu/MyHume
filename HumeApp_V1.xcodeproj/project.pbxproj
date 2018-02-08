@@ -45,6 +45,9 @@
 		164546011F845F2200D7CE1F /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164546001F845F2200D7CE1F /* HistoryTableViewCell.swift */; };
 		164546061F85846600D7CE1F /* CopyableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164546051F85846600D7CE1F /* CopyableLabel.swift */; };
 		164546081F8598AF00D7CE1F /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164546071F8598AF00D7CE1F /* History.swift */; };
+		164891ED202BA22000456163 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891EC202BA22000456163 /* WeatherView.swift */; };
+		164891EF202BD07600456163 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891EE202BD07600456163 /* StartViewController.swift */; };
+		164891F1202BD34C00456163 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F0202BD34C00456163 /* SigninViewController.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
 		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
@@ -168,6 +171,9 @@
 		164546001F845F2200D7CE1F /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		164546051F85846600D7CE1F /* CopyableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyableLabel.swift; sourceTree = "<group>"; };
 		164546071F8598AF00D7CE1F /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		164891EC202BA22000456163 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		164891EE202BD07600456163 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		164891F0202BD34C00456163 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -300,6 +306,7 @@
 				164C56DA1FE396AB0037210E /* UIView+SafeArea.swift */,
 				164C56D81FE341C40037210E /* KeybaordTextField.swift */,
 				164C56DC1FE714050037210E /* KeyboardTextView.swift */,
+				164891EC202BA22000456163 /* WeatherView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -361,6 +368,7 @@
 				1616C4661F8B5131006A46FA /* Database */,
 				164546041F8583FB00D7CE1F /* utils */,
 				161A1C451F7DB5A800362AFC /* Main.storyboard */,
+				164891F2202BD36B00456163 /* start */,
 				16315C001F96CB6700444B5E /* Localizable.strings */,
 				161A1C481F7DB5A800362AFC /* Assets.xcassets */,
 				162F7D721FEB421000E60A46 /* New Group */,
@@ -449,6 +457,15 @@
 				16495C781FB4012300E74A62 /* TabBarViewController.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		164891F2202BD36B00456163 /* start */ = {
+			isa = PBXGroup;
+			children = (
+				164891F0202BD34C00456163 /* SigninViewController.swift */,
+				164891EE202BD07600456163 /* StartViewController.swift */,
+			);
+			path = start;
 			sourceTree = "<group>";
 		};
 		16496747200474EE00B84D21 /* Optimize */ = {
@@ -1060,12 +1077,14 @@
 				164C56DB1FE396AB0037210E /* UIView+SafeArea.swift in Sources */,
 				164546061F85846600D7CE1F /* CopyableLabel.swift in Sources */,
 				16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */,
+				164891ED202BA22000456163 /* WeatherView.swift in Sources */,
 				16AA902E1FE8A86B00F6C4D8 /* SliderNewsTableViewCell.swift in Sources */,
 				16119A811FE08A7000EF19FE /* TableViewCell.swift in Sources */,
 				167602681F9084F0009DECA4 /* PriorityViewController.swift in Sources */,
 				16119A821FE08A7000EF19FE /* TableHeaderViewCell.swift in Sources */,
 				16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */,
 				163547481F87048A0060B47C /* News.swift in Sources */,
+				164891EF202BD07600456163 /* StartViewController.swift in Sources */,
 				1650760420242A960052F7E3 /* CollapsibleTableViewCell.swift in Sources */,
 				16C62CF51FDA41B100BF76F6 /* demoConversation.swift in Sources */,
 				16A124651F943DC2007C951F /* Product.swift in Sources */,
@@ -1077,6 +1096,7 @@
 				164C56D91FE341C40037210E /* KeybaordTextField.swift in Sources */,
 				1655B2FE1FD9EF1E000A8656 /* MessageItem.swift in Sources */,
 				164545FD1F845BDE00D7CE1F /* TrackingResultViewController.swift in Sources */,
+				164891F1202BD34C00456163 /* SigninViewController.swift in Sources */,
 				16A194691FB52BDA008558B8 /* SuggestionViewController.swift in Sources */,
 				16BB8AEC1FBBBDE00093A332 /* SpecialTableViewCell.swift in Sources */,
 				1650760220242A430052F7E3 /* ExampleData.swift in Sources */,

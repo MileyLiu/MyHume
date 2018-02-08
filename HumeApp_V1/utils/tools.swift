@@ -279,6 +279,35 @@ func kelvinToCelsius(kelvin:Double) -> Int{
 }
 
 
+func isFirstRunApp()->Bool{
+    
+    var isFirstRun = false
+    let keyHasLaunchedBefore = "hasLaunchedBefore"
+    
+    let hasLaunchBefore = UserDefaults.standard.bool(forKey: keyHasLaunchedBefore)
+    
+    
+    if hasLaunchBefore{
+        
+        print("NOT FIRST")
+        
+        isFirstRun = false
+        
+        
+    }
+        
+    else{
+        
+        isFirstRun = true
+        print("FIRST")
+        UserDefaults.standard.set(true, forKey: keyHasLaunchedBefore)
+        
+        
+    }
+    return isFirstRun
+    
+}
+
 
 //func getRandomNumber(range: ClosedRange<Int> = 1...6) -> Int {
 //    let min = range.lowerBound

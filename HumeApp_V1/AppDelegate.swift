@@ -117,6 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         adLaunchView?.delegate = self
         window?.addSubview(adLaunchView!)
         
+      
         
         return true
     }
@@ -145,12 +146,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
        
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "initView") as! ViewController
+//        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "initView") as! ViewController
+         let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "initView") as! ViewController
         self.window?.rootViewController? = initViewController
         return true
     }
     
-    
+   
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
     // If you are receiving a notification message while your app is in the background,

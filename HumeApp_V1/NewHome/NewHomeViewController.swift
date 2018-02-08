@@ -19,11 +19,11 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //,UITableViewDelegate,UITableViewDataSource,
     //,SFSafariViewControllerDelegate
     
-  
+    
 {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-
+    
     
     
     //firstview init
@@ -68,7 +68,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         super.viewDidLoad()
         
         
-        print()
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
             //            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -85,6 +84,11 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         titleImageView.contentMode = .scaleAspectFit
         
         self.navigationItem.titleView = titleImageView
+        
+        if isFirstRunApp(){
+            
+            popupLogin()
+        }
         
         //get current loaction
         locationManager.delegate = self
@@ -103,7 +107,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         //refresh firstView notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
-       
+        
         
         self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0)
         
@@ -116,8 +120,30 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         self.photoGallery.isHidden = false
         self.blankView.isHidden = true
         
+        
+        
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
+    func popupLogin(){
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let startViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "startView")
+        
+        
+        self.present(startViewController, animated: true, completion: nil)
+        
+        
+        
+    }
+    
     
     @objc func refreshFirstView(){
         
@@ -168,34 +194,34 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         //        createDropdownFresh()
         
-          print("firstView Width:\(firstView.frame.width)")
+        print("firstView Width:\(firstView.frame.width)")
         print("setUpFirstView")
         
         
     }
     
     func setUpSecondView(newsArray:[News]){
-       
+        
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
         let digitalImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
         
         digitalImage.backgroundColor = UIColor.black
-//        digitalImage.contentMode = .scaleAspectFill
-                  digitalImage.contentMode = .scaleToFill
-                digitalImage.image = UIImage(named:"goingdigital")
+        //        digitalImage.contentMode = .scaleAspectFill
+        digitalImage.contentMode = .scaleToFill
+        digitalImage.image = UIImage(named:"goingdigital")
         
         
-//
-//        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-//
-//            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-//
-//                digitalImage.image = image
-//                digitalImage.alpha = 1.0
-//
-//
-//
-//        })
+        //
+        //        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+        //
+        //            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+        //
+        //                digitalImage.image = image
+        //                digitalImage.alpha = 1.0
+        //
+        //
+        //
+        //        })
         print("secondView Width:\(secondView.frame.width)")
         
         secondView.addSubview(digitalImage)
@@ -322,7 +348,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
          */
         
         
-          print("third image Width:\(thirdView.frame.width)")
+        print("third image Width:\(thirdView.frame.width)")
         thirdView.addSubview(otherImage)
         thirdView.addSubview(titleView)
     }
