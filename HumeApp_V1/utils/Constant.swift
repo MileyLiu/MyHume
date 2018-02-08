@@ -13,6 +13,7 @@ import GooglePlaces
 //let APIKey = "AIzaSyCMYbNcnhJZt8WOAUG4G0Uxjfc4qxYS2RI"
 let DISAPIKey = "AIzaSyBGZba7luJRSuyarsiyKnVO0yAHw4baZes"
 let APIKey = "AIzaSyC8SwxiRuHSdZdomYuOPE1Ac-mrkVmiGi8"
+let AccuWeatherAPIKey =  "EOZJidG896j2Qt9nzDVt3KXZANpMvKah"
 //#a51c3d
 let mainColor = UIColor.init(red: 165/255.0, green: 28/255.0, blue: 61/255.0, alpha: 1.0)
 let bgColor = UIColor.init(red: 233/255.0, green: 233/255.0, blue: 233/255.0, alpha: 1.0)
@@ -82,6 +83,8 @@ var jobType = [LanguageHelper.getString(key: "DELIVERY"),LanguageHelper.getStrin
 //var jobTypeCN = ["送货","自取"]
 var requestType = ["Place an order","Existing Order","General Order","Account enquiry"]
 let hostApi = "http://hls.humeplaster.com.au/api"
+
+let AcuuWeatherAPIHost = "http://dataservice.accuweather.com"
 
 let user = "admin"
 let password = "@humeit"

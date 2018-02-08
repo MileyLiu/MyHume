@@ -45,6 +45,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     var refreshControl: UIRefreshControl?
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     var news :[News] = []
+    var accuWeatherList :[AccuWeather] = []
     
     //location init
     var locationManager = CLLocationManager()
@@ -594,6 +595,94 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         }
     }
     
+    
+    
+    
+    
+    func getLocationID(lat:Double,lng:Double){
+        
+        
+        let locationRequest = "\(AcuuWeatherAPIHost)/locations/v1/cities/geoposition/search?apikey=\(AccuWeatherAPIKey)&q=\(lat),\(lng)"
+        
+        
+        print(locationRequest)
+        Alamofire.request(locationRequest)
+            .validate()
+            .responseJSON {response in
+                switch response.result{
+                    
+                case .success(let value):
+                   let location =  value as! [String:Any]
+                   let key = location["Key"] as! String
+                      print("locationValue:\(key)")
+                   
+                   self.getWeatherById(locationKey:key)
+                   
+                case .failure(let error):
+                      print("locationerror:\(error)")
+                    
+                }
+                
+        }
+
+    }
+    
+    
+    func getWeatherById(locationKey:String){
+        let weatherRequest = "\(AcuuWeatherAPIHost)/forecasts/v1/hourly/12hour/\(locationKey)?apikey=\(AccuWeatherAPIKey)"
+        
+        Alamofire.request(weatherRequest)
+            .validate()
+            .responseJSON {response in
+                switch response.result{
+                    
+                case .success(let value):
+                    
+                    
+                    let resultArray = value as! NSArray
+                    
+                    if resultArray.count == 0 {
+                        
+                        SVProgressHUD.dismiss()
+                        
+                        return
+                    }
+                    
+                    for index in 0..<resultArray.count{
+                        
+                        let accuWeather = Mapper<AccuWeather>().map(JSONObject: resultArray[index])
+                        print("acc weather:\(accuWeather?.DateTime),\(accuWeather?.IconPhrase),\(accuWeather?.TemperatureF)")
+                        
+                        self.accuWeatherList.append(accuWeather!)
+                    }
+                   
+                    DispatchQueue.main.async {
+                        
+                        
+                        let temperatureC = temperatureTransfer(tf: self.accuWeatherList[0].TemperatureF!)
+                        
+                        print("\(temperatureC)")
+                        self.weatherLabel.text = "\(temperatureC)ºC"
+                       
+//                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
+                        
+                    }
+                
+                    
+                  
+                case .failure(let error):
+                    print("locationerror:\(error)")
+                    
+                }
+                
+        }
+        
+        
+        
+        
+    }
+    
+    
     func getWeatherInfo(){
         
         SVProgressHUD.show()
@@ -601,52 +690,62 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
         
         
+//
+//
+//        print("getWeatherInfo\(lat),\(lng)")
+        
+        
         let latitue :Double = (currentLocation?.coordinate.latitude)!
         let longitude = (currentLocation?.coordinate.longitude)!
         
         let weatheRequest = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitue)&lon=\(longitude)&appid=\(waetherAPIKEY)"
         
-        print("weatherReqest:\(weatheRequest)")
+      
         
+      
         Alamofire.request(weatheRequest)
             .validate()
             .responseJSON {response in
                 switch response.result {
                 case .success(let value):
                     
+                  
+                    
+                    
+
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
                     print("weatherResult:\(weatherResult.toJSONString())")
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
                     let weatherDetail = weatherDetails[0].icon
-                    
+
                     DispatchQueue.main.async {
-                        
-                        
+
+
                         let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
                         self.weatherLabel.text = "\(temperatureC)ºC"
                         print("\(weatherDetail)")
                         self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
-                        
+
                     }
-                    
-                    
+
+
                 case .failure(let error):
                     print("Request Error:\(error)")
-                    
+
                     SVProgressHUD.dismiss()
-                    
+
                     let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
                     self.present(networkAlert, animated: true, completion: nil)
-                    
+
                     self.setUpBlankView()
                     self.view.addSubview(self.blankView)
                     self.photoGallery.isHidden = true
                     self.blankView.isHidden = false
-                    
+
                     return
-                    
+
                 }
-                
+
                 SVProgressHUD.dismiss()
         }
         
@@ -700,7 +799,12 @@ extension NewHomeViewController: CLLocationManagerDelegate {
                 
                 print("Location status is OK.current location is:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
                 
-                getWeatherInfo()
+               
+//                getWeatherInfo()
+               
+                getLocationID(lat: (currentLocation?.coordinate.latitude)!, lng: (currentLocation?.coordinate.longitude)!)
+                
+               
                 
             }
         }

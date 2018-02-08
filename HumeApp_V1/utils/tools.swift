@@ -249,17 +249,39 @@ func getTimeBucket()->String{
     print("getTimeBucket:\(hour)")
     
     switch hour {
-    case 0...12:
+    case 5...11:
         return "Morning"
-    case 13...18:
+    case 12...16:
         return "Afternoon"
-    default:
+    case 17...19:
         return "Evening"
+    default:
+        return "Night"
     }
     
     
 }
 
+
+func temperatureTransfer(tf:Int)->Int{
+    
+    let celsuisDouble = Double(tf - 32)/1.8
+    
+    let celsuisInt = Int(celsuisDouble)
+    let diff = celsuisDouble - Double(celsuisInt)
+    
+    if diff > 0.5{
+        let converstion = celsuisInt + 1
+        return converstion
+    }
+    else{
+        return celsuisInt
+        
+    }
+    
+    
+    
+}
 
 
 func kelvinToCelsius(kelvin:Double) -> Int{

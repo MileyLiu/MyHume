@@ -48,6 +48,8 @@
 		164891ED202BA22000456163 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891EC202BA22000456163 /* WeatherView.swift */; };
 		164891EF202BD07600456163 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891EE202BD07600456163 /* StartViewController.swift */; };
 		164891F1202BD34C00456163 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F0202BD34C00456163 /* SigninViewController.swift */; };
+		164891F4202C179000456163 /* FullScreenNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F3202C179000456163 /* FullScreenNewsView.swift */; };
+		164891F8202CF49400456163 /* AccuWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F7202CF49400456163 /* AccuWeather.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
 		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
@@ -174,6 +176,8 @@
 		164891EC202BA22000456163 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		164891EE202BD07600456163 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		164891F0202BD34C00456163 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		164891F3202C179000456163 /* FullScreenNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenNewsView.swift; sourceTree = "<group>"; };
+		164891F7202CF49400456163 /* AccuWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeather.swift; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -307,6 +311,7 @@
 				164C56D81FE341C40037210E /* KeybaordTextField.swift */,
 				164C56DC1FE714050037210E /* KeyboardTextView.swift */,
 				164891EC202BA22000456163 /* WeatherView.swift */,
+				164891F3202C179000456163 /* FullScreenNewsView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -424,6 +429,7 @@
 				165A63D01FDA60650017DB6D /* MessageModel.swift */,
 				16A56C6E1FDF8D08004D886A /* UserInfo.swift */,
 				162F7D701FEB1E6C00E60A46 /* Weather.swift */,
+				164891F7202CF49400456163 /* AccuWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1030,6 +1036,7 @@
 				161A1C441F7DB5A800362AFC /* ViewController.swift in Sources */,
 				16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */,
 				163547461F8700260060B47C /* NewsDetailViewController.swift in Sources */,
+				164891F8202CF49400456163 /* AccuWeather.swift in Sources */,
 				168F43B61FA6AADC006AD409 /* SharingViewController.swift in Sources */,
 				164C56D71FE33D060037210E /* MLViewController.swift in Sources */,
 				16ECB0061F8C3BF800D033EB /* ProductViewController.swift in Sources */,
@@ -1082,6 +1089,7 @@
 				16119A811FE08A7000EF19FE /* TableViewCell.swift in Sources */,
 				167602681F9084F0009DECA4 /* PriorityViewController.swift in Sources */,
 				16119A821FE08A7000EF19FE /* TableHeaderViewCell.swift in Sources */,
+				164891F4202C179000456163 /* FullScreenNewsView.swift in Sources */,
 				16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */,
 				163547481F87048A0060B47C /* News.swift in Sources */,
 				164891EF202BD07600456163 /* StartViewController.swift in Sources */,
