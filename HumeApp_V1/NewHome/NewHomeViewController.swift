@@ -36,6 +36,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
+    //fullscreenNews
+    
+    var fullScreenNews = FullScreenNewsView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
+    
     //thirdView init
     var thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     var newsTableView: UITableView!
@@ -110,7 +114,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
         
         
-        self.photoGallery.bindWithViews(array: [firstView,secondView,thirdView], interval: 0.0)
+        self.photoGallery.bindWithViews(array: [firstView,secondView,fullScreenNews], interval: 0.0)
         
         
         print("views:\(firstView.frame.width),\(secondView.frame.width),\(thirdView.frame.width)")
@@ -120,9 +124,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         self.photoGallery.isHidden = false
         self.blankView.isHidden = true
-        
-        
-        
         
         // Do any additional setup after loading the view.
     }
@@ -228,62 +229,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         secondView.addSubview(digitalImage)
         
     }
-    func setupThirdiew(newsArray:[News]){
+   
+    
+    func setUpFullScreenNews(newArrary:[News]){
         
-        
-        //        self.loadData()
-        
-        
-        let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
-        
-        let otherImage = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-othersHeight))
-        
-        
-        
-        
-        let titleView = UIView.init(frame: CGRect.init(x: 10.0, y: screenHeight*0.5, width: screenWidth-20, height: screenHeight*0.3))
-        
-        titleView.backgroundColor = UIColor.white
-        titleView.alpha = 0.5
-        
-        
-        
-        var titleLabel = UILabel.init(frame:CGRect.init(x: 5.0, y: 5.0, width: screenWidth-30, height: screenHeight*0.1))
-        titleLabel.textColor = mainColor
-        titleLabel.backgroundColor = UIColor.white
-        
-        
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        //        titleLabel.lineBreakMode = .byWordWrapping
-        titleLabel.numberOfLines = 0
-        
-        titleLabel.textAlignment = .left
-        //        titleLabel.sizeToFit()
-        
-        
-        
-        
-        //
-        //       var contentLabel = UILabel.init(frame:CGRect.init(x: 0, y: (screenHeight-othersHeight)*0.1), width: screenWidth-20, height: (screenHeight-othersHeight)*0.2))
-        
-        
-        var contentLabel = UILabel.init(frame:CGRect.init(x: 5.0, y: screenHeight*0.1, width: screenWidth-30, height: screenHeight*0.1))
-        
-        
-        
-        contentLabel.textColor = UIColor.black
-        contentLabel.backgroundColor = UIColor.white
-        
-        
-        contentLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        
-        contentLabel.textAlignment = .left
-        
-        
-        
-        //        contentLabel.lineBreakMode = .byWordWrapping
-        contentLabel.numberOfLines = 0
-        //         contentLabel.sizeToFit()
         
         let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
         
@@ -294,64 +243,20 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         switch String(describing: userLang) {
         case "en-US", "en-CN":
             //en
-            titleLabel.text = newsArray[1].title
-            contentLabel.text = newsArray[1].content
+            
+            fullScreenNews.bindWithData(image: newArrary[1].imgSrc!, title: newArrary[1].title!, content: newArrary[1].content!)
+          
         case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
             //cn
-            titleLabel.text = newsArray[1].titleCn
-            contentLabel.text = newsArray[1].contentCn
+            fullScreenNews.bindWithData(image: newArrary[1].imgSrc!, title: newArrary[1].titleCn!, content: newArrary[1].contentCn!)
             
         default:
-            titleLabel.text = newsArray[1].title
-            contentLabel.text = newsArray[1].content
+            fullScreenNews.bindWithData(image: newArrary[1].imgSrc!, title: newArrary[1].title!, content: newArrary[1].content!)
         }
         
-        
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(contentLabel)
+    
         
         
-        
-        print("newsCount:\(titleLabel.text)")
-        
-        otherImage.backgroundColor = UIColor.black
-        otherImage.contentMode = .scaleToFill
-        //        otherImage.image = UIImage(named:"bg")
-        
-        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[1].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-            
-            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-                
-                otherImage.image = image
-                otherImage.alpha = 1
-                
-                
-                
-        })
-        
-        
-        /*NEWS
-         thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-44))
-         
-         newsTableView = UITableView.init(frame:CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height-100))
-         
-         let nib = UINib(nibName: "SliderNewsTableViewCell", bundle: nil)
-         
-         newsTableView.register(nib, forCellReuseIdentifier: "sliderNewsCell")
-         newsTableView?.delegate = self
-         newsTableView?.dataSource = self
-         
-         newsTableView?.rowHeight = UITableViewAutomaticDimension
-         newsTableView?.estimatedRowHeight = 300
-         
-         loadData()
-         createDropdownFresh()
-         */
-        
-        
-        print("third image Width:\(thirdView.frame.width)")
-        thirdView.addSubview(otherImage)
-        thirdView.addSubview(titleView)
     }
     
     func setUpBlankView(){
@@ -572,8 +477,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     
                     //                    self.news.sorted(by: { $0.id > $1.id })
                     self.setUpSecondView(newsArray:sortedArray)
+                    self.setUpFullScreenNews(newArrary:sortedArray)
                     
-                    self.setupThirdiew(newsArray:sortedArray)
+//                    self.setupThirdiew(newsArray:sortedArray)
                     
                     
                     
@@ -651,7 +557,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     for index in 0..<resultArray.count{
                         
                         let accuWeather = Mapper<AccuWeather>().map(JSONObject: resultArray[index])
-                        print("acc weather:\(accuWeather?.DateTime),\(accuWeather?.IconPhrase),\(accuWeather?.TemperatureF)")
+                        print("acc weather:\(accuWeather?.DateTime),\(accuWeather?.IconPhrase),\(accuWeather?.TemperatureF),\(accuWeather?.WeatherIcon)")
                         
                         self.accuWeatherList.append(accuWeather!)
                     }
@@ -664,7 +570,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         print("\(temperatureC)")
                         self.weatherLabel.text = "\(temperatureC)ºC"
                        
-//                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
+//                        self.weatherImageView.image = UIImage(named:"\(accuWeather?.IconPhrase!)")
                         
                     }
                 

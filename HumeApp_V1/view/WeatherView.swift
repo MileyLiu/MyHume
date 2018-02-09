@@ -12,6 +12,8 @@ class WeatherView: UIView {
 
     var timeBucketIamge: String?
     
+    
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
