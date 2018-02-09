@@ -14,6 +14,8 @@ import ObjectMapper
 //import SafariServices
 import GoogleMaps
 import GooglePlaces
+import SwiftGifOrigin
+
 
 class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //,UITableViewDelegate,UITableViewDataSource,
@@ -33,8 +35,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
     let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth*0.7, height: screenHeight*0.2))
     
+    
+    var weatherView = WeatherView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
+    
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+    
+    
     
     //fullscreenNews
     
@@ -66,7 +73,8 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
         
-        setUpFirstView()
+//        setUpFirstView()
+        setupWeatherView()
         
     }
     override func viewDidLoad() {
@@ -106,7 +114,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         placesClient = GMSPlacesClient.shared()
         
         loadData()
-        setUpFirstView()
+        setupWeatherView()
         //        setUpSecondView()
         //        setupThirdiew()
         
@@ -114,7 +122,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
         
         
-        self.photoGallery.bindWithViews(array: [firstView,secondView,fullScreenNews], interval: 0.0)
+        self.photoGallery.bindWithViews(array: [weatherView,secondView,fullScreenNews], interval: 0.0)
         
         
         print("views:\(firstView.frame.width),\(secondView.frame.width),\(thirdView.frame.width)")
@@ -167,9 +175,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     func setUpFirstView(){
         
-        bgImageView.image = UIImage(named:"\(getTimeBucket())")
-        
+//        bgImageView.image = UIImage(named:"\(getTimeBucket())")
+       
         bgImageView.contentMode = .scaleToFill
+        bgImageView.image = UIImage.gif(name:"rainy")
         
         firstView.addSubview(bgImageView)
         
@@ -211,8 +220,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         //        digitalImage.contentMode = .scaleAspectFill
         digitalImage.contentMode = .scaleToFill
         digitalImage.image = UIImage(named:"goingdigital")
+       
         
-        
+       
         //
         //        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
         //
@@ -229,7 +239,15 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         secondView.addSubview(digitalImage)
         
     }
-   
+    func setupWeatherView(){
+        
+        let timeBucket = getTimeBucket()
+      
+        weatherView.bindWithData(bgImageName: "rainy", timeBucket: timeBucket, temperature: "19",weatherIamge: "03n")
+        
+        
+        
+    }
     
     func setUpFullScreenNews(newArrary:[News]){
         
@@ -568,7 +586,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         let temperatureC = temperatureTransfer(tf: self.accuWeatherList[0].TemperatureF!)
                         
                         print("\(temperatureC)")
-                        self.weatherLabel.text = "\(temperatureC)ºC"
+                        
+                        
+                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
+                        self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
+                        
+//                        self.weatherLabel.text = "\(temperatureC)ºC"
                        
 //                        self.weatherImageView.image = UIImage(named:"\(accuWeather?.IconPhrase!)")
                         
@@ -615,10 +638,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                 switch response.result {
                 case .success(let value):
                     
-                  
-                    
-                    
-
                     let weatherResult = Mapper<Weather>().map(JSONObject:value)!
                     print("weatherResult:\(weatherResult.toJSONString())")
                     let weatherDetails:[WeatherDetail] = weatherResult.weather!
@@ -628,9 +647,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
 
 
                         let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
-                        self.weatherLabel.text = "\(temperatureC)ºC"
-                        print("\(weatherDetail)")
-                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
+                      
+                        
+                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
+                        
+//                        self.weatherLabel.text = "\(temperatureC)ºC"
+//                        print("\(weatherDetail)")
+//                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
 
                     }
 

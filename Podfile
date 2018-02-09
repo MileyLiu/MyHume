@@ -10,6 +10,7 @@ def shared_pods
     pod 'SVProgressHUD'
     pod 'ObjectMapper'
     pod 'SDWebImage'
+    pod 'SwiftGifOrigin'
     pod 'IQKeyboardManagerSwift', :git => 'https://github.com/hackiftekhar/IQKeyboardManager'
     pod 'ActionSheetPicker-3.0'
     pod 'EAFeatureGuideView'

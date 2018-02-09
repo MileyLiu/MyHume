@@ -233,11 +233,11 @@ class MLPhotoGallery: UIView, UIScrollViewDelegate,SFSafariViewControllerDelegat
 //        self.addSubview(pageBg)
         
         
-        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.9, width:galleryWidth!*0.2, height:galleryHeight!*0.05))
+        pageControl = UIPageControl.init(frame: CGRect(x:galleryWidth!*0.4, y:galleryHeight!*0.95, width:galleryWidth!*0.2, height:galleryHeight!*0.05))
 
         let pageBg = UIColor.init(red: 55/255.0, green: 55/255.0, blue: 55/255.0, alpha: 0.6)
        
-        pageControl?.backgroundColor = pageBg
+        pageControl?.backgroundColor = UIColor.clear
         
         
         

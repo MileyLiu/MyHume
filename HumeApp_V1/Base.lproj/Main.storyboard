@@ -3043,43 +3043,43 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Fq-Oc-aep">
-                                <rect key="frame" x="20.666666666666657" y="30" width="372.66666666666674" height="552"/>
+                                <rect key="frame" x="0.0" y="30" width="0.0" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To request priority support, please provide your contact details" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-oo-b46">
-                                        <rect key="frame" x="0.0" y="0.0" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hume account name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-6a-25P">
-                                        <rect key="frame" x="0.0" y="82" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="82" width="0.0" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-tU-tcB" userLabel="Your Name">
-                                        <rect key="frame" x="0.0" y="164" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="164" width="0.0" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your contact phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-f6-saC" userLabel="Your Contact Number">
-                                        <rect key="frame" x="0.0" y="246" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="246" width="0.0" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request is related to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-ug-kN0">
-                                        <rect key="frame" x="0.0" y="328" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="328" width="0.0" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an option below" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cao-Df-Yxs">
-                                        <rect key="frame" x="0.0" y="410" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="410" width="0.0" height="60"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3088,7 +3088,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you submit the enquiry, our next available customer service representative will contact you via the number  provided." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-HO-qb6">
-                                        <rect key="frame" x="0.0" y="492" width="372.66666666666669" height="60"/>
+                                        <rect key="frame" x="0.0" y="492" width="0.0" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

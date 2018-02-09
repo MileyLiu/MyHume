@@ -11,17 +11,14 @@ import SDWebImage
 
 class FullScreenNewsView: UIView {
     
-    
     var backgroundImage: UIImageView?
     var wordsView : UIView?
     var titleLabel: UILabel?
     var contentLabel: UILabel?
     
-    
     var imageURL: String?
     var title: String?
     var content:String?
-    
     
     var viewHeight:CGFloat?
     var viewWidth:CGFloat?
@@ -60,15 +57,17 @@ class FullScreenNewsView: UIView {
         contentLabel?.text = content
        
         
+       
+        
         SDWebImageManager.shared().loadImage(with: URL(string:image) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-            
+
             } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-                
+
                 self.backgroundImage?.image = image
                 self.backgroundImage?.alpha = 1
-                
-                
-                
+
+
+
         })
     }
     
