@@ -52,13 +52,10 @@ class FullScreenNewsView: UIView {
     func bindWithData(image:String,title:String,content:String){
         
         drawUI()
-//        backgroundImage?.image = UIImage(named:image)
+
         titleLabel?.text = title
         contentLabel?.text = content
        
-        
-       
-        
         SDWebImageManager.shared().loadImage(with: URL(string:image) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
 
             } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in

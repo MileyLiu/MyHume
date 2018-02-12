@@ -54,6 +54,9 @@ class WeatherView: UIView {
         
         self.weatherImageView.image =  UIImage(named:"01d")
         
+        self.forecastTableView.backgroundColor = UIColor.clear
+        
+        
     }
 
     private func commonInit(){

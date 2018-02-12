@@ -59,6 +59,7 @@
 		16489206202D6C9900456163 /* sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489205202D6C9800456163 /* sunny.gif */; };
 		16489208202D6CB500456163 /* windy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489207202D6CB400456163 /* windy.gif */; };
 		1648920A202D6CD800456163 /* night.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489209202D6CD700456163 /* night.gif */; };
+		1648920C2031024900456163 /* WeatherTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648920B2031024900456163 /* WeatherTableView.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
 		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
@@ -196,6 +197,7 @@
 		16489205202D6C9800456163 /* sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunny.gif; sourceTree = "<group>"; };
 		16489207202D6CB400456163 /* windy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = windy.gif; sourceTree = "<group>"; };
 		16489209202D6CD700456163 /* night.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = night.gif; sourceTree = "<group>"; };
+		1648920B2031024900456163 /* WeatherTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableView.swift; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -330,6 +332,7 @@
 				164C56DC1FE714050037210E /* KeyboardTextView.swift */,
 				164891EC202BA22000456163 /* WeatherView.swift */,
 				164891FB202D44D900456163 /* WeatherView.xib */,
+				1648920B2031024900456163 /* WeatherTableView.swift */,
 				164891F3202C179000456163 /* FullScreenNewsView.swift */,
 				164891FD202D69C200456163 /* WeatherTableViewCell.swift */,
 				164891FE202D69C200456163 /* WeatherTableViewCell.xib */,
@@ -1133,6 +1136,7 @@
 				16ECB0041F8C2B2F00D033EB /* ShoppingCar.swift in Sources */,
 				163547481F87048A0060B47C /* News.swift in Sources */,
 				164891EF202BD07600456163 /* StartViewController.swift in Sources */,
+				1648920C2031024900456163 /* WeatherTableView.swift in Sources */,
 				1650760420242A960052F7E3 /* CollapsibleTableViewCell.swift in Sources */,
 				16C62CF51FDA41B100BF76F6 /* demoConversation.swift in Sources */,
 				16A124651F943DC2007C951F /* Product.swift in Sources */,

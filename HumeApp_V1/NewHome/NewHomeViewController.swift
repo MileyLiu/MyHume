@@ -18,16 +18,15 @@ import SwiftGifOrigin
 
 
 class NewHomeViewController: UIViewController,GMSMapViewDelegate
-    //,UITableViewDelegate,UITableViewDataSource,
+    ,UITableViewDelegate,UITableViewDataSource
     //,SFSafariViewControllerDelegate
     
     
 {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
-    
-    
+    var forecastWeatherArray :NSMutableArray = NSMutableArray()
+      var accuWeatherList :[AccuWeather] = []
     //firstview init
     var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
     let weatherLabel = UILabel.init(frame: CGRect.init(x:screenWidth*0.6 , y: 10, width: screenWidth*0.3, height: 80))
@@ -56,7 +55,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     var refreshControl: UIRefreshControl?
     var photoGallery = MLPhotoGallery.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     var news :[News] = []
-    var accuWeatherList :[AccuWeather] = []
+  
     
     //location init
     var locationManager = CLLocationManager()
@@ -193,7 +192,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         self.timeLabel.lineBreakMode = .byClipping
         self.timeLabel.numberOfLines = 0
         
-        self.weatherImageView.image = UIImage(named:"01d")
+        self.weatherImageView.image = UIImage(named:"ic_cloudy")
         self.weatherImageView.contentMode = .scaleToFill
         
         bgImageView.addSubview(self.weatherLabel)
@@ -242,8 +241,15 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     func setupWeatherView(){
         
         let timeBucket = getTimeBucket()
+        
       
-        weatherView.bindWithData(bgImageName: "rainy", timeBucket: timeBucket, temperature: "19",weatherIamge: "03n")
+      
+        weatherView.bindWithData(bgImageName: "rainy", timeBucket: timeBucket, temperature: "19",weatherIamge: "ic_cloudy")
+        
+        weatherView.forecastTableView.delegate = self
+        weatherView.forecastTableView.dataSource = self
+        
+        weatherView.forecastTableView.register(UINib.init(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "weatherForecastCell")
         
         
         
@@ -541,6 +547,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                       print("locationValue:\(key)")
                    
                    self.getWeatherById(locationKey:key)
+                    self.getCurrentWeatherById(locationKey: key)
                    
                 case .failure(let error):
                       print("locationerror:\(error)")
@@ -552,8 +559,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     }
     
     
-    func getWeatherById(locationKey:String){
-        let weatherRequest = "\(AcuuWeatherAPIHost)/forecasts/v1/hourly/12hour/\(locationKey)?apikey=\(AccuWeatherAPIKey)"
+    func getCurrentWeatherById(locationKey:String){
+        
+        let weatherRequest = "\(AcuuWeatherAPIHost)/currentconditions/v1/\(locationKey)?apikey=\(AccuWeatherAPIKey)"
         
         Alamofire.request(weatherRequest)
             .validate()
@@ -562,6 +570,63 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     
                 case .success(let value):
                     
+                    let resultArray = value as! NSArray
+                    
+                    if resultArray.count == 0 {
+                        
+                        SVProgressHUD.dismiss()
+                        
+                        return
+                    }
+                    
+                    
+                    
+                    
+                  
+                        
+                        let accuWeather = Mapper<AccuWeather>().map(JSONObject: resultArray[0])
+                        print("current weather:\(accuWeather?.Temperature),\(accuWeather?.WeatherText)")
+                    
+                  
+                    let initString = accuWeather?.WeatherText
+                    let weatherString = getWeatherString(initString: initString!)
+                   
+                    
+                    let temperatureC = temperatureTransfer(tf: Int(accuWeather!.Temperature!))
+                    self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
+                    
+                    self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
+                    
+                    self.weatherView.weatherImageView.image = UIImage(named:"ic_\(weatherString)")
+                    
+                    self.weatherView.bgImageView.image = UIImage.gif(name: weatherString)
+                    
+                    
+                        
+//                        self.accuWeatherList.append(accuWeather!)
+//                        self.dataSource.add(accuWeather!)
+                        
+                    
+                    
+                    print("value:\(value)")
+                    
+                case .failure(let error):
+                    print("locationerror:\(error)")
+                    
+                }
+        }
+        
+    }
+    
+    
+    func getWeatherById(locationKey:String){
+        let weatherRequest = "\(AcuuWeatherAPIHost)/forecasts/v1/hourly/12hour/\(locationKey)?apikey=\(AccuWeatherAPIKey)"
+        
+        Alamofire.request(weatherRequest)
+            .validate()
+            .responseJSON {response in
+                switch response.result{
+                case .success(let value):
                     
                     let resultArray = value as! NSArray
                     
@@ -578,23 +643,32 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         print("acc weather:\(accuWeather?.DateTime),\(accuWeather?.IconPhrase),\(accuWeather?.TemperatureF),\(accuWeather?.WeatherIcon)")
                         
                         self.accuWeatherList.append(accuWeather!)
+                        self.dataSource.add(accuWeather!)
+                        
                     }
                    
                     DispatchQueue.main.async {
                         
                         
-                        let temperatureC = temperatureTransfer(tf: self.accuWeatherList[0].TemperatureF!)
+//                        let temperatureC = temperatureTransfer(tf: self.accuWeatherList[0].TemperatureF!)
+//
+//
+//                        let initString = self.accuWeatherList[0].IconPhrase
+//                        let weatherString = getWeatherString(initString: initString!)
+//
+//                        print("\(weatherString)")
+//
+//
+//                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
+//                        self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
+//
+//                        self.weatherView.weatherImageView.image = UIImage(named:"ic_\(weatherString)")
+//
+//                        self.weatherView.bgImageView.image = UIImage.gif(name: weatherString)
+//
+                        self.weatherView.forecastTableView.reloadData()
                         
-                        print("\(temperatureC)")
-                        
-                        
-                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
-                        self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
-                        
-//                        self.weatherLabel.text = "\(temperatureC)ºC"
                        
-//                        self.weatherImageView.image = UIImage(named:"\(accuWeather?.IconPhrase!)")
-                        
                     }
                 
                     
@@ -618,18 +692,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
         
-        
-//
-//
-//        print("getWeatherInfo\(lat),\(lng)")
-        
-        
         let latitue :Double = (currentLocation?.coordinate.latitude)!
         let longitude = (currentLocation?.coordinate.longitude)!
         
         let weatheRequest = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitue)&lon=\(longitude)&appid=\(waetherAPIKEY)"
-        
-      
         
       
         Alamofire.request(weatheRequest)
@@ -677,6 +743,72 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
 
                 SVProgressHUD.dismiss()
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentHour = Calendar.current.component(.hour, from: Date())
+//
+//        let cellId = "weatherForecastCell"
+//
+//        var cell = tableView.dequeueReusableCell(withIdentifier: "weatherForecastCell") as! WeatherTableViewCell
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "weatherForecastCell", for: indexPath) as! WeatherTableViewCell
+        
+        if(self.accuWeatherList.count == 0)
+        {
+            cell.tempLable.text = "N/AºC"
+            
+            
+            cell.timeLabel.text = "N/Aam"
+           
+            cell.imageIcon.image = UIImage(named:"ic_cloudy")
+
+            
+        }
+        else{
+            
+            let temp = accuWeatherList[indexPath.row].TemperatureF!
+            let tempString = temperatureTransfer(tf: temp)
+            cell.tempLable.text = "\(tempString)ºC"
+            
+            let time = accuWeatherList[indexPath.row].DateTime
+            print("\(indexPath.row):\(time)")
+            
+           
+            cell.timeLabel.text = getHourString(add: indexPath.row+1)
+            
+            let imageName = getWeatherString(initString: accuWeatherList[indexPath.row].IconPhrase!)
+            
+            cell.imageIcon.image = UIImage(named:"ic_\(imageName)")
+            
+        }
+        
+
+//        if cell == nil {
+//
+//
+//            let nibs = Bundle.main.loadNibNamed("weatherForecastCell", owner: self, options: nil) as! NSArray
+//
+//            cell = nibs.object(at: 0) as! WeatherTableViewCell
+//        }
+//
+        
+        
+//        let accuWeather = self.accuWeatherList[indexPath.row]
+//        let aw = self.dataSource[indexPath.row] as! AccuWeather
+        
+        
+        
+//        var temp = accuWeather.TemperatureF
+    
+      
+        return cell
+
         
     }
     

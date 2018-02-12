@@ -285,6 +285,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Qes-is-qWh">
+                                <rect key="frame" x="0.0" y="7.6666666666666856" width="414" height="736"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your picking slip number and suburb to track" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXl-RC-gQ6">
                                 <rect key="frame" x="20.666666666666657" y="105" width="372.66666666666674" height="20.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -315,7 +318,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD4-US-Jh1">
-                                <rect key="frame" x="33.666666666666657" y="323.66666666666669" width="124" height="30"/>
+                                <rect key="frame" x="33.666666666666664" y="323.66666666666669" width="82.666666666666686" height="30"/>
                                 <color key="backgroundColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="2Cs-cU-boo"/>
@@ -338,7 +341,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0A-V5-jaC">
-                                <rect key="frame" x="252.33333333333334" y="323.66666666666669" width="124.33333333333334" height="30"/>
+                                <rect key="frame" x="294" y="323.66666666666669" width="82.666666666666686" height="30"/>
                                 <color key="backgroundColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dGy-4I-s9t"/>
@@ -351,13 +354,6 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     <action selector="trackingHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FoR-LV-Jzd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hume" translatesAutoresizingMaskIntoConstraints="NO" id="0du-bx-DGF">
-                                <rect key="frame" x="132" y="476" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="INn-eI-4H0"/>
-                                    <constraint firstAttribute="height" constant="150" id="wgE-UH-6nt"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright ©2018 Hume Building Products " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quy-4C-Ryt">
                                 <rect key="frame" x="70" y="634" width="275" height="21"/>
                                 <constraints>
@@ -380,7 +376,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tD4-US-Jh1" firstAttribute="top" secondItem="sZh-e3-UyV" secondAttribute="bottom" constant="27" id="2Pr-JE-bt0"/>
-                            <constraint firstItem="tD4-US-Jh1" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.3" id="7Bj-3s-cpV"/>
+                            <constraint firstItem="tD4-US-Jh1" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.2" id="7Bj-3s-cpV"/>
                             <constraint firstItem="nYc-tl-XJk" firstAttribute="top" secondItem="Quy-4C-Ryt" secondAttribute="bottom" constant="5" id="CNA-ej-Afc"/>
                             <constraint firstItem="tD4-US-Jh1" firstAttribute="leading" secondItem="OI5-gt-Wb1" secondAttribute="leading" constant="33.5" id="Gge-QU-Ey6"/>
                             <constraint firstItem="sZh-e3-UyV" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.9" id="H2u-Fs-eIv"/>
@@ -388,23 +384,25 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <constraint firstItem="8pY-Kk-0bG" firstAttribute="top" secondItem="lce-Bw-F4c" secondAttribute="bottom" constant="10" id="M3o-Yx-CHk"/>
                             <constraint firstItem="lce-Bw-F4c" firstAttribute="top" secondItem="eGU-X9-6yp" secondAttribute="bottom" constant="10" id="Mwb-c9-u6P"/>
                             <constraint firstItem="CXl-RC-gQ6" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="Ozm-UW-LDA"/>
+                            <constraint firstItem="Qes-is-qWh" firstAttribute="centerY" secondItem="OI5-gt-Wb1" secondAttribute="centerY" id="Pjz-vl-Uda"/>
                             <constraint firstItem="OI5-gt-Wb1" firstAttribute="bottom" secondItem="nYc-tl-XJk" secondAttribute="bottom" constant="10" id="QbX-09-8Z4"/>
                             <constraint firstItem="lce-Bw-F4c" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.9" id="RMl-w0-Nlr"/>
                             <constraint firstItem="lce-Bw-F4c" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="Sp8-It-EEf"/>
                             <constraint firstItem="eGU-X9-6yp" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.9" id="U19-8F-Sp2"/>
                             <constraint firstItem="CXl-RC-gQ6" firstAttribute="top" secondItem="OI5-gt-Wb1" secondAttribute="top" constant="41" id="VYj-Rg-VOh"/>
                             <constraint firstItem="nYc-tl-XJk" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="W1M-Eq-Oki"/>
-                            <constraint firstItem="Quy-4C-Ryt" firstAttribute="top" secondItem="0du-bx-DGF" secondAttribute="bottom" constant="8" id="YMf-RB-8Wg"/>
+                            <constraint firstItem="Qes-is-qWh" firstAttribute="centerX" secondItem="OI5-gt-Wb1" secondAttribute="centerX" id="XWF-QT-BPI"/>
+                            <constraint firstItem="Qes-is-qWh" firstAttribute="height" secondItem="RXj-rd-1BU" secondAttribute="height" id="ZHf-ID-qCK"/>
                             <constraint firstItem="CXl-RC-gQ6" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.9" id="cs0-EN-6XE"/>
                             <constraint firstItem="k0A-V5-jaC" firstAttribute="top" secondItem="sZh-e3-UyV" secondAttribute="bottom" constant="27" id="iyY-77-wMB"/>
                             <constraint firstItem="8pY-Kk-0bG" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.9" id="jCA-uI-RNy"/>
                             <constraint firstItem="eGU-X9-6yp" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="jY4-KN-sAf"/>
                             <constraint firstItem="OI5-gt-Wb1" firstAttribute="trailing" secondItem="k0A-V5-jaC" secondAttribute="trailing" constant="37.5" id="ktQ-Mj-17Y"/>
                             <constraint firstItem="8pY-Kk-0bG" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="mtI-yO-itJ"/>
-                            <constraint firstItem="k0A-V5-jaC" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.3" id="myj-W8-a1Z"/>
+                            <constraint firstItem="k0A-V5-jaC" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" multiplier="0.2" id="myj-W8-a1Z"/>
+                            <constraint firstItem="Qes-is-qWh" firstAttribute="width" secondItem="RXj-rd-1BU" secondAttribute="width" id="p2c-Sz-ADK"/>
                             <constraint firstItem="sZh-e3-UyV" firstAttribute="top" secondItem="8pY-Kk-0bG" secondAttribute="bottom" constant="10" id="pjN-sP-2Bi"/>
                             <constraint firstItem="Quy-4C-Ryt" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="wl7-ss-Ku9"/>
-                            <constraint firstItem="0du-bx-DGF" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="y91-bl-C6i"/>
                             <constraint firstItem="sZh-e3-UyV" firstAttribute="centerX" secondItem="RXj-rd-1BU" secondAttribute="centerX" id="ykp-oY-klq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OI5-gt-Wb1"/>
@@ -436,7 +434,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="-737.18140929535241"/>
+            <point key="canvasLocation" x="1475.3623188405797" y="-737.77173913043487"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1G4-oC-vsH">
@@ -937,22 +935,33 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Hume Logistics System V 2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08b-ef-NTw">
+                                <rect key="frame" x="81.666666666666671" y="677" width="250.66666666666663" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3Et-Nu-E5p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kno-zo-au7" firstAttribute="bottom" secondItem="akk-AW-5iN" secondAttribute="bottom" constant="51" id="7RY-jH-GFS"/>
                             <constraint firstItem="2FF-m8-LXQ" firstAttribute="leading" secondItem="Kno-zo-au7" secondAttribute="leading" constant="30" id="D36-FY-bki"/>
                             <constraint firstItem="N6i-LM-16I" firstAttribute="top" secondItem="Yc2-Fd-orS" secondAttribute="bottom" constant="-107" id="Hcu-sf-ags"/>
                             <constraint firstItem="UHi-8S-28q" firstAttribute="top" secondItem="2FF-m8-LXQ" secondAttribute="bottom" constant="3" id="KDt-Wd-yxb"/>
                             <constraint firstItem="N6i-LM-16I" firstAttribute="height" secondItem="64M-fc-ZQp" secondAttribute="height" id="MX1-bK-Zqx"/>
                             <constraint firstItem="akk-AW-5iN" firstAttribute="top" secondItem="UHi-8S-28q" secondAttribute="bottom" constant="40" id="OPO-3w-y0J"/>
                             <constraint firstItem="Kno-zo-au7" firstAttribute="trailing" secondItem="akk-AW-5iN" secondAttribute="trailing" constant="30" id="RAm-ZG-2UM"/>
+                            <constraint firstItem="08b-ef-NTw" firstAttribute="centerX" secondItem="64M-fc-ZQp" secondAttribute="centerX" id="Rua-w8-Kcx"/>
                             <constraint firstItem="NTC-8h-Utl" firstAttribute="leading" secondItem="Kno-zo-au7" secondAttribute="leading" constant="49" id="Sjz-b2-gmr"/>
                             <constraint firstItem="N6i-LM-16I" firstAttribute="width" secondItem="64M-fc-ZQp" secondAttribute="width" id="UNv-VH-4fv"/>
                             <constraint firstItem="Kno-zo-au7" firstAttribute="trailing" secondItem="2FF-m8-LXQ" secondAttribute="trailing" constant="31" id="Wed-CF-2PM"/>
                             <constraint firstItem="N6i-LM-16I" firstAttribute="leading" secondItem="Kno-zo-au7" secondAttribute="leading" id="XEi-oE-6Gq"/>
                             <constraint firstItem="Kno-zo-au7" firstAttribute="top" secondItem="N6i-LM-16I" secondAttribute="top" constant="20" id="XZl-vS-izh"/>
                             <constraint firstItem="NTC-8h-Utl" firstAttribute="top" secondItem="Yc2-Fd-orS" secondAttribute="bottom" constant="50" id="Zn0-4Z-B8c"/>
+                            <constraint firstItem="08b-ef-NTw" firstAttribute="top" secondItem="N6i-LM-16I" secondAttribute="bottom" constant="-59" id="eWR-zT-9A0"/>
+                            <constraint firstItem="08b-ef-NTw" firstAttribute="top" secondItem="akk-AW-5iN" secondAttribute="bottom" constant="-8" id="flM-jz-J19"/>
                             <constraint firstItem="Kno-zo-au7" firstAttribute="trailing" secondItem="NTC-8h-Utl" secondAttribute="trailing" constant="47" id="fwE-CS-C47"/>
                             <constraint firstItem="Kno-zo-au7" firstAttribute="trailing" secondItem="UHi-8S-28q" secondAttribute="trailing" constant="30" id="he0-bW-pRT"/>
                             <constraint firstItem="UHi-8S-28q" firstAttribute="leading" secondItem="Kno-zo-au7" secondAttribute="leading" constant="30" id="k2T-Nu-qLH"/>
@@ -3043,43 +3052,43 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="5Fq-Oc-aep">
-                                <rect key="frame" x="0.0" y="30" width="0.0" height="552"/>
+                                <rect key="frame" x="20.666666666666657" y="30" width="372.66666666666674" height="552"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To request priority support, please provide your contact details" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sec-oo-b46">
-                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="372.66666666666669" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hume account name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TaO-6a-25P">
-                                        <rect key="frame" x="0.0" y="82" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="82" width="372.66666666666669" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FnA-tU-tcB" userLabel="Your Name">
-                                        <rect key="frame" x="0.0" y="164" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="164" width="372.66666666666669" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your contact phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-f6-saC" userLabel="Your Contact Number">
-                                        <rect key="frame" x="0.0" y="246" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="246" width="372.66666666666669" height="60"/>
                                         <color key="tintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your request is related to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptY-ug-kN0">
-                                        <rect key="frame" x="0.0" y="328" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="328" width="372.66666666666669" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select an option below" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cao-Df-Yxs">
-                                        <rect key="frame" x="0.0" y="410" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="410" width="372.66666666666669" height="60"/>
                                         <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -3088,7 +3097,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you submit the enquiry, our next available customer service representative will contact you via the number  provided." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S4-HO-qb6">
-                                        <rect key="frame" x="0.0" y="492" width="0.0" height="60"/>
+                                        <rect key="frame" x="0.0" y="492" width="372.66666666666669" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3213,7 +3222,6 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="features1" width="333" height="537"/>
         <image name="features2" width="370" height="500"/>
         <image name="features3" width="333" height="500"/>
-        <image name="hume" width="150" height="150"/>
         <image name="ic_access_time" width="24" height="24"/>
         <image name="ic_add_box" width="24" height="24"/>
         <image name="ic_add_shopping_cart" width="24" height="24"/>
@@ -3235,6 +3243,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="ic_store" width="24" height="24"/>
         <image name="ic_tracking_white" width="24" height="24"/>
         <image name="icons8-calendar_filled" width="75" height="75"/>
+        <image name="map_bg" width="750" height="1108"/>
         <image name="specialplaceholder" width="100" height="100"/>
         <image name="titleLogo" width="117" height="44"/>
     </resources>

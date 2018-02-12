@@ -262,6 +262,41 @@ func getTimeBucket()->String{
     
 }
 
+func getHourString(add:Int)->String{
+    
+    let current = Calendar.current.component(.hour, from: Date())
+    let hour = current + add
+    switch hour{
+    case 0...11:
+        
+        return "\(hour) am"
+    case 12:
+        return "\(hour) pm"
+    case 25:
+        return "0 am"
+    default:
+        return "\(hour-12) pm"
+        
+    }
+   
+}
+
+func getWeatherString(initString:String)->String{
+    
+    switch initString {
+    case "Clear","Partly sunny","Mostly sunny","Sunny":
+        return "sunny"
+    case "Showers":
+        return "rainy"
+    case "Windy":
+        return "windy"
+    default:
+        return "cloudy"
+    }
+    
+}
+
+
 
 func temperatureTransfer(tf:Int)->Int{
     

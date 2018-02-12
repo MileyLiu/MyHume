@@ -15,6 +15,11 @@ class AccuWeather:Mappable {
     var DateTime :String?
     var EpochDateTime :Int?
     var IconPhrase: String?
+    
+    var Temperature:Double?
+    var IsDayTime:Bool?
+    var WeatherText:String?
+    
 //    var weather:[WeatherDetail]?
     required init?(map: Map) {
         
@@ -27,6 +32,9 @@ class AccuWeather:Mappable {
         IconPhrase <- map["IconPhrase"]
         EpochDateTime <- map["EpochDateTime"]
 //        weather <- map["weather"]
+        Temperature <- map["Temperature.Imperial.Value"]
+        IsDayTime <- map["IsDayTime"]
+        WeatherText <- map["WeatherText"]
         
     }
     
