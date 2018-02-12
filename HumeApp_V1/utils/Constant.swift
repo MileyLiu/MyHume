@@ -13,7 +13,8 @@ import GooglePlaces
 //let APIKey = "AIzaSyCMYbNcnhJZt8WOAUG4G0Uxjfc4qxYS2RI"
 let DISAPIKey = "AIzaSyBGZba7luJRSuyarsiyKnVO0yAHw4baZes"
 let APIKey = "AIzaSyC8SwxiRuHSdZdomYuOPE1Ac-mrkVmiGi8"
-let AccuWeatherAPIKey =  "EOZJidG896j2Qt9nzDVt3KXZANpMvKah"
+//let AccuWeatherAPIKey =  "EOZJidG896j2Qt9nzDVt3KXZANpMvKah"
+let AccuWeatherAPIKey =  "og8TVj7s7uoWG4LgJQR5pTPJvGHw0bTC"
 //#a51c3d
 let mainColor = UIColor.init(red: 165/255.0, green: 28/255.0, blue: 61/255.0, alpha: 1.0)
 let bgColor = UIColor.init(red: 233/255.0, green: 233/255.0, blue: 233/255.0, alpha: 1.0)

@@ -52,6 +52,10 @@ class TrackingResultViewController: UIViewController,GMSMapViewDelegate{
             }
             segment.setEnabled(ifAllowRealtime, forSegmentAt: 1)
         }
+        popupLogin()
+        
+        
+       
         print("RESULT:\(tracking.step),\(allowRealtime),\(ifAllowRealtime)")
     }
 
@@ -67,10 +71,28 @@ class TrackingResultViewController: UIViewController,GMSMapViewDelegate{
                 self.secondView.isHidden = true
         }
     }
+    func popupLogin(){
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let popLoginController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupLogin") as! popLoginViewController
+        
+        self.addChildViewController(popLoginController)
+        //        self.parent.addChildViewController(popLoginController)
+        popLoginController.view.frame = self.view.frame
+        self.view.addSubview(popLoginController.view)
+        popLoginController.didMove(toParentViewController: self)
+        
+        //        self.present(popLoginController, animated: true, completion: nil)
+        
+    }
     
     @IBAction func call(_ sender: Any) {
         makePhoneCall()
     }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

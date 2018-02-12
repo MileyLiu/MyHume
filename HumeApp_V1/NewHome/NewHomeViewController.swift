@@ -27,27 +27,17 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var forecastWeatherArray :NSMutableArray = NSMutableArray()
     var accuWeatherList :[AccuWeather] = []
-    //firstview init
-    var firstView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
-    let weatherLabel = UILabel.init(frame: CGRect.init(x:screenWidth*0.6 , y: 10, width: screenWidth*0.3, height: 80))
-    let weatherImageView = UIImageView.init(frame:CGRect.init(x: screenWidth*0.6, y: 100, width: 80, height: 80))
-    let bgImageView = UIImageView.init(frame:CGRect.init(x: 0, y: 0, width: screenWidth, height: UIScreen.main.bounds.height-44))
-    let timeLabel = UILabel.init(frame: CGRect.init(x:20 , y: screenHeight*0.2, width: screenWidth*0.7, height: screenHeight*0.2))
-    
-    
+   
+    //weatherView
     var weatherView = WeatherView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
     
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
     
-    
-    
     //fullscreenNews
     
     var fullScreenNews = FullScreenNewsView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
-    
-    //thirdView init
-    var thirdView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
+  
     var newsTableView: UITableView!
     var dataSource : NSMutableArray = NSMutableArray()
     
@@ -124,7 +114,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         self.photoGallery.bindWithViews(array: [weatherView,secondView,fullScreenNews], interval: 0.0)
         
         
-        print("views:\(firstView.frame.width),\(secondView.frame.width),\(thirdView.frame.width)")
+      
         
         
         self.view.addSubview(photoGallery)
@@ -135,10 +125,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    
-    
     func popupLogin(){
         
         
@@ -146,10 +132,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         let startViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "startView")
         
-        
         self.present(startViewController, animated: true, completion: nil)
-        
-        
         
     }
     
@@ -165,9 +148,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
-        
-        
-        
+     
         
     }
     
@@ -182,19 +163,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         digitalImage.contentMode = .scaleToFill
         digitalImage.image = UIImage(named:"goingdigital")
         
-        
-        
-        //
-        //        SDWebImageManager.shared().loadImage(with: URL(string:newsArray[0].imgSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
-        //
-        //            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
-        //
-        //                digitalImage.image = image
-        //                digitalImage.alpha = 1.0
-        //
-        //
-        //
-        //        })
         print("secondView Width:\(secondView.frame.width)")
         
         secondView.addSubview(digitalImage)
@@ -203,9 +171,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     func setupWeatherView(){
         
         let timeBucket = getTimeBucket()
-        
-        
-        
+    
         weatherView.bindWithData(bgImageName: "rainy", timeBucket: timeBucket, temperature: "N/A",weatherIamge: "ic_cloudy")
         
         weatherView.forecastTableView.delegate = self
@@ -239,9 +205,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         default:
             fullScreenNews.bindWithData(image: newArrary[1].imgSrc!, title: newArrary[1].title!, content: newArrary[1].content!)
         }
-        
-        
-        
+    
         
     }
     
@@ -280,6 +244,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
     }
     
+    @IBAction func callUs(_ sender: Any) {
+        makePhoneCall()
+    }
     
     func createDropdownFresh() -> Void {
         
@@ -411,20 +378,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     func loadData() {
         SVProgressHUD.show()
         let url = "http://myhume.humeplaster.com.au/api/news?type=full"
-        
-        //        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
-        //
-        //        print("当前用户语言:\(userLang)")
-        //
-        //
-        //        switch userLang {
-        //        case "zh-Hans":
-        //            url = hostApi + "myHume-rest/news/get?language=cn"
-        //        default:
-        //            url = hostApi + "myHume-rest/news/get?language=en"
-        //        }
-        
-        
+    
         Alamofire.request(url)
             .validate()
             .responseJSON {response in
@@ -457,21 +411,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     
                     
                     let sortedArray = self.news.sorted(by: {$0.id! > $1.id!})
-                    
-                    
-                    
-                    
-                    //                    self.news.sorted(by: { $0.id > $1.id })
+                   
                     self.setUpSecondView(newsArray:sortedArray)
                     self.setUpFullScreenNews(newArrary:sortedArray)
-                    
-                    //                    self.setupThirdiew(newsArray:sortedArray)
-                    
-                    
-                    
-                    //                    news.sorted(by: {$0.id>$1.id})
-                    
-                    
+                 
                 case .failure(let error):
                     print("Request Error:\(error)")
                     
@@ -486,16 +429,11 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                 SVProgressHUD.dismiss()
         }
     }
-    
-    
-    
-    
-    
+
     func getLocationID(lat:Double,lng:Double){
         
         
         let locationRequest = "\(AcuuWeatherAPIHost)/locations/v1/cities/geoposition/search?apikey=\(AccuWeatherAPIKey)&q=\(lat),\(lng)"
-        
         
         print(locationRequest)
         Alamofire.request(locationRequest)
@@ -559,15 +497,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     
                     self.weatherView.bgImageView.image = UIImage.gif(name: weatherString)
                     
-                    
-                    
-                    //                        self.accuWeatherList.append(accuWeather!)
-                    //                        self.dataSource.add(accuWeather!)
-                    
-                    
-                    
-                    print("value:\(value)")
-                    
                 case .failure(let error):
                     print("locationerror3:\(error)")
                     
@@ -604,105 +533,19 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                         self.dataSource.add(accuWeather!)
                         
                     }
-                    
                     DispatchQueue.main.async {
-                        
-                        
-                        //                        let temperatureC = temperatureTransfer(tf: self.accuWeatherList[0].TemperatureF!)
-                        //
-                        //
-                        //                        let initString = self.accuWeatherList[0].IconPhrase
-                        //                        let weatherString = getWeatherString(initString: initString!)
-                        //
-                        //                        print("\(weatherString)")
-                        //
-                        //
-                        //                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
-                        //                        self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
-                        //
-                        //                        self.weatherView.weatherImageView.image = UIImage(named:"ic_\(weatherString)")
-                        //
-                        //                        self.weatherView.bgImageView.image = UIImage.gif(name: weatherString)
-                        //
                         self.weatherView.forecastTableView.reloadData()
                         
-                        
                     }
-                    
-                    
                     
                 case .failure(let error):
                     print("locationerror4:\(error)")
                     
                 }
-                
         }
-        
-        
-        
-        
     }
     
     
-    func getWeatherInfo(){
-        
-        SVProgressHUD.show()
-        
-        print("Location status is OK.current location is222:\(currentLocation?.coordinate.latitude),\(currentLocation?.coordinate.longitude)")
-        
-        let latitue :Double = (currentLocation?.coordinate.latitude)!
-        let longitude = (currentLocation?.coordinate.longitude)!
-        
-        let weatheRequest = "http://api.openweathermap.org/data/2.5/weather?lat=\(latitue)&lon=\(longitude)&appid=\(waetherAPIKEY)"
-        
-        
-        Alamofire.request(weatheRequest)
-            .validate()
-            .responseJSON {response in
-                switch response.result {
-                case .success(let value):
-                    
-                    let weatherResult = Mapper<Weather>().map(JSONObject:value)!
-                    print("weatherResult:\(weatherResult.toJSONString())")
-                    let weatherDetails:[WeatherDetail] = weatherResult.weather!
-                    let weatherDetail = weatherDetails[0].icon
-                    
-                    DispatchQueue.main.async {
-                        
-                        
-                        let temperatureC = kelvinToCelsius(kelvin: weatherResult.temperatureK!)
-                        
-                        
-                        self.weatherView.temperatureLabel.text =  "\(temperatureC)ºC"
-                        
-                        //                        self.weatherLabel.text = "\(temperatureC)ºC"
-                        //                        print("\(weatherDetail)")
-                        //                        self.weatherImageView.image = UIImage(named:"\(weatherDetail!)")
-                        
-                    }
-                    
-                    
-                case .failure(let error):
-                    print("Request Error:\(error)")
-                    
-                    SVProgressHUD.dismiss()
-                    
-                    let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
-                    self.present(networkAlert, animated: true, completion: nil)
-                    
-                    self.setUpBlankView()
-                    self.view.addSubview(self.blankView)
-                    self.photoGallery.isHidden = true
-                    self.blankView.isHidden = false
-                    
-                    return
-                    
-                }
-                
-                SVProgressHUD.dismiss()
-        }
-        
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
@@ -710,10 +553,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentHour = Calendar.current.component(.hour, from: Date())
-        //
-        //        let cellId = "weatherForecastCell"
-        //
-        //        var cell = tableView.dequeueReusableCell(withIdentifier: "weatherForecastCell") as! WeatherTableViewCell
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "weatherForecastCell", for: indexPath) as! WeatherTableViewCell
         
@@ -735,13 +574,9 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
             cell.tempLable.text = "\(tempString)ºC"
             
             let time = accuWeatherList[indexPath.row].DateTime
-            print("\(indexPath.row):\(time)")
-            
-            
+         
             cell.timeLabel.text = getHourString(add: indexPath.row+1)
-            
-            //            let imageName = getWeatherString(initString: accuWeatherList[indexPath.row].IconPhrase!)
-            
+          
             let imageName = getWeatherStr(iconNo: accuWeatherList[indexPath.row].WeatherIcon!)
             
             cell.imageIcon.image = UIImage(named:"ic_\(imageName)")

@@ -46,11 +46,28 @@ class TrackingDetailViewController: UIViewController {
         self.deliveryStatusLabel.text = LanguageHelper.getString(key: "DELIVERY_STATUS")
         self.historyTrackingLabel.text = LanguageHelper.getString(key: "TRACKING_HISTORY")
         
+//        popupLogin()
+        
         // Do any additional setup after loading the view.
     }
     
     
-    
+    func popupLogin(){
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let popLoginController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupLogin")
+        
+        self.parent?.addChildViewController(popLoginController)
+//        self.parent.addChildViewController(popLoginController)
+        popLoginController.view.frame = self.view.frame
+        self.view.addSubview(popLoginController.view)
+        popLoginController.didMove(toParentViewController: self)
+        
+//        self.present(popLoginController, animated: true, completion: nil)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

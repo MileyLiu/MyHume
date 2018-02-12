@@ -33,13 +33,16 @@ class SigninViewController: UIViewController {
          self.twitterButton.set(anImage: UIImage(named:"twitter"), title: "Signin with Twitter", titlePosition: .right, additionalSpacing: 5, state: .normal)
         
         self.twitterButton.layer.cornerRadius = 20
+        
          self.googleButton.set(anImage: UIImage(named:"google_plus"), title: "Signin with Google+", titlePosition: .right, additionalSpacing: 5, state: .normal)
         self.googleButton.layer.cornerRadius = 20
-        self.googleButton.layer.borderColor = mainColor.cgColor
-        self.googleButton.layer.borderWidth = 2
+       
         
         self.phoneButton.layer.cornerRadius = 20
          self.phoneButton.set(anImage: UIImage(named:"ic_phone_white"), title: "Signin with Phone", titlePosition: .right, additionalSpacing: 5, state: .normal)
+        
+        self.emailTextfield.layer.cornerRadius = 20
+        self.passwordTextField.layer.cornerRadius = 20
         
         
         
