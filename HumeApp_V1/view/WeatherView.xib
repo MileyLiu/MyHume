@@ -50,8 +50,8 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkk-dg-3R6">
-                    <rect key="frame" x="47" y="239" width="281" height="300"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="47" y="239" width="281" height="267"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -73,7 +73,7 @@
                 <constraint firstItem="lp8-IW-Uta" firstAttribute="width" secondItem="rHX-nu-bSV" secondAttribute="width" id="ceX-NC-QiV"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="top" secondItem="0ap-m7-XR1" secondAttribute="bottom" constant="-1.5" id="evU-Vd-ypR"/>
                 <constraint firstItem="0ap-m7-XR1" firstAttribute="top" secondItem="MbV-KD-Ty2" secondAttribute="bottom" id="h5S-qT-kXO"/>
-                <constraint firstItem="bkk-dg-3R6" firstAttribute="height" secondItem="rgr-Hs-cAI" secondAttribute="height" multiplier="0.45" id="teV-3i-YoK"/>
+                <constraint firstItem="bkk-dg-3R6" firstAttribute="height" secondItem="rgr-Hs-cAI" secondAttribute="height" multiplier="0.4" id="teV-3i-YoK"/>
                 <constraint firstItem="lp8-IW-Uta" firstAttribute="height" secondItem="rHX-nu-bSV" secondAttribute="height" id="uHw-Hf-TKQ"/>
                 <constraint firstItem="MbV-KD-Ty2" firstAttribute="leading" secondItem="rHX-nu-bSV" secondAttribute="leading" constant="60" id="wh4-lj-CTf"/>
                 <constraint firstItem="MbV-KD-Ty2" firstAttribute="top" secondItem="rHX-nu-bSV" secondAttribute="top" constant="20" id="zPY-Lx-N32"/>

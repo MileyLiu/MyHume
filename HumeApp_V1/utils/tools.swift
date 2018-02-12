@@ -296,6 +296,23 @@ func getWeatherString(initString:String)->String{
     
 }
 
+func getWeatherStr(iconNo:Int) -> String{
+    switch iconNo {
+    case 1...3,33,34:
+        return "sunny"
+    case 4...11,35...38:
+        return "cloudy"
+    case 12...18,22...29,39...42:
+        return "rainy"
+    case 19...21,32,43,44:
+        return "windy"
+    default:
+        return "sunny"
+    }
+    
+    
+}
+
 
 
 func temperatureTransfer(tf:Int)->Int{
