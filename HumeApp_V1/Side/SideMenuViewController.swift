@@ -75,12 +75,27 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         
     }
     
+    @IBAction func showPopup(_ sender: Any) {
+        
+        let url = URL(string:"http://www.humeplaster.com.au/")
+        
+       let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popupController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupID") as! PopupSMViewController
+        
+        self.addChildViewController(popupController)
+        popupController.view.frame = self.view.frame
+        self.view.addSubview(popupController.view)
+        popupController.didMove(toParentViewController: self)
+     
+      
+    }
     // MARK: - Button
     
     @IBAction func shareClicked(_ sender: Any) {
         //TODO  CHANGE TO THE REAL LINK
         
         let url = URL(string:"http://www.humeplaster.com.au/")
+        
         
         let actionSheetController: UIAlertController = UIAlertController(title: LanguageHelper.getString(key: "SOCIAL"), message: "", preferredStyle: .actionSheet)
         

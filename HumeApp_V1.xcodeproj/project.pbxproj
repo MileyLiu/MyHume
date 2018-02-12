@@ -59,6 +59,7 @@
 		16489206202D6C9900456163 /* sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489205202D6C9800456163 /* sunny.gif */; };
 		16489208202D6CB500456163 /* windy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489207202D6CB400456163 /* windy.gif */; };
 		1648920A202D6CD800456163 /* night.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489209202D6CD700456163 /* night.gif */; };
+		1648920E20315A0A00456163 /* PopupSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648920D20315A0A00456163 /* PopupSMViewController.swift */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
 		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
@@ -196,6 +197,7 @@
 		16489205202D6C9800456163 /* sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunny.gif; sourceTree = "<group>"; };
 		16489207202D6CB400456163 /* windy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = windy.gif; sourceTree = "<group>"; };
 		16489209202D6CD700456163 /* night.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = night.gif; sourceTree = "<group>"; };
+		1648920D20315A0A00456163 /* PopupSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSMViewController.swift; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -400,6 +402,7 @@
 				1616C4661F8B5131006A46FA /* Database */,
 				164546041F8583FB00D7CE1F /* utils */,
 				161A1C451F7DB5A800362AFC /* Main.storyboard */,
+				1648920D20315A0A00456163 /* PopupSMViewController.swift */,
 				164891F2202BD36B00456163 /* start */,
 				16315C001F96CB6700444B5E /* Localizable.strings */,
 				161A1C481F7DB5A800362AFC /* Assets.xcassets */,
@@ -1086,6 +1089,7 @@
 				161902FD1FC625EC00CDDA9B /* AdLaunchView.swift in Sources */,
 				168F43B41FA6A154006AD409 /* SWRevealViewController.m in Sources */,
 				165CF5451F82E952008EB43B /* tools.swift in Sources */,
+				1648920E20315A0A00456163 /* PopupSMViewController.swift in Sources */,
 				1609C9C31F8AD7B700DE54EB /* LagerImageViewController.swift in Sources */,
 				16C90CF61F860114005D2D9D /* Tracking.swift in Sources */,
 				1607714B1F9FE3A100B31E81 /* TrackingDetailViewController.swift in Sources */,
