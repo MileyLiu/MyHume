@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-IW-Uta">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-IW-Uta">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbV-KD-Ty2">
@@ -60,27 +60,27 @@
                         <outlet property="delegate" destination="-1" id="aHT-Nh-AuF"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather data powerd by AccuWeather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abe-qy-toP">
-                    <rect key="frame" x="79" y="506" width="217" height="14.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kse-NF-gFw">
+                    <rect key="frame" x="76" y="508" width="92" height="30"/>
+                    <state key="normal" title="AccuWeather">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="lp8-IW-Uta" firstAttribute="leading" secondItem="rHX-nu-bSV" secondAttribute="trailing" constant="-375" id="5P3-1q-fDe"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="width" secondItem="rgr-Hs-cAI" secondAttribute="width" multiplier="0.75" id="9bN-iY-CGP"/>
-                <constraint firstItem="abe-qy-toP" firstAttribute="centerX" secondItem="rgr-Hs-cAI" secondAttribute="centerX" id="Be4-VW-JE3"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="centerX" secondItem="rgr-Hs-cAI" secondAttribute="centerX" id="CZG-BD-IFw"/>
                 <constraint firstItem="0ap-m7-XR1" firstAttribute="leading" secondItem="rHX-nu-bSV" secondAttribute="leading" constant="64" id="JCq-hy-3nD"/>
+                <constraint firstItem="lp8-IW-Uta" firstAttribute="leading" secondItem="kse-NF-gFw" secondAttribute="trailing" constant="-168" id="O1e-hY-u2D"/>
                 <constraint firstItem="MbV-KD-Ty2" firstAttribute="centerX" secondItem="rgr-Hs-cAI" secondAttribute="centerX" id="QBQ-gb-k11"/>
+                <constraint firstItem="kse-NF-gFw" firstAttribute="top" secondItem="bkk-dg-3R6" secondAttribute="bottom" constant="2" id="UwH-cF-VQI"/>
                 <constraint firstItem="rHX-nu-bSV" firstAttribute="trailing" secondItem="0ap-m7-XR1" secondAttribute="trailing" constant="64" id="X2g-lc-2jW"/>
                 <constraint firstItem="rHX-nu-bSV" firstAttribute="top" secondItem="lp8-IW-Uta" secondAttribute="bottom" constant="-647" id="ZDz-ap-Kyj"/>
                 <constraint firstItem="lp8-IW-Uta" firstAttribute="width" secondItem="rHX-nu-bSV" secondAttribute="width" id="ceX-NC-QiV"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="top" secondItem="0ap-m7-XR1" secondAttribute="bottom" constant="-1.5" id="evU-Vd-ypR"/>
                 <constraint firstItem="0ap-m7-XR1" firstAttribute="top" secondItem="MbV-KD-Ty2" secondAttribute="bottom" id="h5S-qT-kXO"/>
-                <constraint firstItem="abe-qy-toP" firstAttribute="top" secondItem="bkk-dg-3R6" secondAttribute="bottom" id="q9t-1o-0L4"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="height" secondItem="rgr-Hs-cAI" secondAttribute="height" multiplier="0.4" id="teV-3i-YoK"/>
                 <constraint firstItem="lp8-IW-Uta" firstAttribute="height" secondItem="rHX-nu-bSV" secondAttribute="height" id="uHw-Hf-TKQ"/>
                 <constraint firstItem="MbV-KD-Ty2" firstAttribute="leading" secondItem="rHX-nu-bSV" secondAttribute="leading" constant="60" id="wh4-lj-CTf"/>

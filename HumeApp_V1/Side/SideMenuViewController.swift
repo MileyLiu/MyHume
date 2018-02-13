@@ -82,10 +82,13 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let popupController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupID") as! PopupSMViewController
         
-        self.addChildViewController(popupController)
-        popupController.view.frame = self.view.frame
-        self.view.addSubview(popupController.view)
-        popupController.didMove(toParentViewController: self)
+        
+        self.present(popupController, animated: true, completion: nil)
+        
+//        self.addChildViewController(popupController)
+//        popupController.view.frame = self.view.frame
+//        self.view.addSubview(popupController.view)
+//        popupController.didMove(toParentViewController: self)
      
       
     }

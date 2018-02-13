@@ -32,7 +32,7 @@ class NewsTableViewCell: UITableViewCell {
         
     titleLabel.layer.cornerRadius = 5
         
-        bgView.layer.cornerRadius = 8
+        bgView.layer.cornerRadius = 5
     
     }
     @IBAction func shareClicked(_ sender: Any) {

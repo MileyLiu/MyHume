@@ -18,13 +18,14 @@ class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWT
     let url = URL(string:"http://www.humeplaster.com.au/")
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.popView.layer.cornerRadius = 10
         self.showAnimation()
         // Do any additional setup after loading the view.
     }
     @IBAction func close(_ sender: Any) {
-        self.removeAnimation()
+//        self.removeAnimation()
+        self.dismiss(animated: true, completion: nil)
     }
     
     

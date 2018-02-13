@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SigninViewController: UIViewController {
+class SigninViewController: UIViewController ,UITextFieldDelegate{
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var goButton: UIButton!
@@ -23,9 +23,18 @@ class SigninViewController: UIViewController {
         self.goButton.layer.cornerRadius = 20
         self.goButton.layer.masksToBounds = true
         
-        self.emailTextfield.borderStyle = .roundedRect
-        self.passwordTextField.borderStyle = .roundedRect
+         self.facebookButton.layer.cornerRadius = 20
+         self.twitterButton.layer.cornerRadius = 20
+         self.googleButton.layer.cornerRadius = 20
+         self.phoneButton.layer.cornerRadius = 20
         
+        self.facebookButton.layer.masksToBounds = true
+        self.twitterButton.layer.masksToBounds = true
+        self.googleButton.layer.masksToBounds = true
+        self.phoneButton.layer.masksToBounds = true
+//        self.emailTextfield.borderStyle = .roundedRect
+//        self.passwordTextField.borderStyle = .roundedRect
+       /*
         self.facebookButton.set(anImage: UIImage(named:"facebook"), title: "Signin with facebook", titlePosition: .right, additionalSpacing: 5, state: .normal)
         
         self.facebookButton.layer.cornerRadius = 20
@@ -40,14 +49,37 @@ class SigninViewController: UIViewController {
         
         self.phoneButton.layer.cornerRadius = 20
          self.phoneButton.set(anImage: UIImage(named:"ic_phone_white"), title: "Signin with Phone", titlePosition: .right, additionalSpacing: 5, state: .normal)
-        
+     */
+//        self.emailTextfield.delegate = self
         self.emailTextfield.layer.cornerRadius = 20
+        self.emailTextfield.layer.masksToBounds = true
         self.passwordTextField.layer.cornerRadius = 20
+        self.passwordTextField.layer.masksToBounds = true
         
-        
-        
+        self.emailTextfield.configKeyboard()
+        self.passwordTextField.configKeyboard()
+      
     }
 
+    
+    
+    @IBAction func googleLogin(_ sender: Any) {
+    }
+    @IBAction func emailLogin(_ sender: Any) {
+    }
+    
+    @IBAction func facebookLogin(_ sender: Any) {
+    }
+    
+    @IBAction func twitterLogin(_ sender: Any) {
+    }
+    @IBAction func phoneLogin(_ sender: Any) {
+    }
+    
+    
+    func loginSucess(){}
+    
+    
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

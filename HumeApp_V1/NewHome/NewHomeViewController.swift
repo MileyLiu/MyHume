@@ -172,7 +172,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         let timeBucket = getTimeBucket()
     
-        weatherView.bindWithData(bgImageName: "rainy", timeBucket: timeBucket, temperature: "N/A",weatherIamge: "ic_cloudy")
+        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "N/A",weatherIamge: "ic_cloudy")
         
         weatherView.forecastTableView.delegate = self
         weatherView.forecastTableView.dataSource = self
@@ -494,8 +494,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
                     self.weatherView.timeBucketLabel.text = "Good \(getTimeBucket())"
                     
                     self.weatherView.weatherImageView.image = UIImage(named:"ic_\(weatherString)")
-                    
+                    //todo test
                     self.weatherView.bgImageView.image = UIImage.gif(name: weatherString)
+                    self.weatherView.bgImageView.contentMode = .scaleAspectFill
+//                    self.weatherView.bgImageView.image = UIImage.gif(name:"night")
                     
                 case .failure(let error):
                     print("locationerror3:\(error)")

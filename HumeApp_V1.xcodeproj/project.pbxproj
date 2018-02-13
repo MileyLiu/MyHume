@@ -50,17 +50,16 @@
 		164891F1202BD34C00456163 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F0202BD34C00456163 /* SigninViewController.swift */; };
 		164891F4202C179000456163 /* FullScreenNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F3202C179000456163 /* FullScreenNewsView.swift */; };
 		164891F8202CF49400456163 /* AccuWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891F7202CF49400456163 /* AccuWeather.swift */; };
-		164891FA202D43AB00456163 /* rainning.gif in Resources */ = {isa = PBXBuildFile; fileRef = 164891F9202D43AA00456163 /* rainning.gif */; };
 		164891FC202D44D900456163 /* WeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164891FB202D44D900456163 /* WeatherView.xib */; };
 		164891FF202D69C200456163 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164891FD202D69C200456163 /* WeatherTableViewCell.swift */; };
 		16489200202D69C200456163 /* WeatherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164891FE202D69C200456163 /* WeatherTableViewCell.xib */; };
-		16489202202D6C5C00456163 /* cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489201202D6C5B00456163 /* cloudy.gif */; };
-		16489204202D6C6900456163 /* rainy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489203202D6C6800456163 /* rainy.gif */; };
-		16489206202D6C9900456163 /* sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489205202D6C9800456163 /* sunny.gif */; };
-		16489208202D6CB500456163 /* windy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489207202D6CB400456163 /* windy.gif */; };
-		1648920A202D6CD800456163 /* night.gif in Resources */ = {isa = PBXBuildFile; fileRef = 16489209202D6CD700456163 /* night.gif */; };
 		1648920E20315A0A00456163 /* PopupSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648920D20315A0A00456163 /* PopupSMViewController.swift */; };
 		164892102032491D00456163 /* popLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648920F2032491D00456163 /* popLoginViewController.swift */; };
+		164892202032824B00456163 /* rainy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1648921B2032823D00456163 /* rainy.gif */; };
+		164892212032824B00456163 /* windy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1648921C2032824000456163 /* windy.gif */; };
+		164892222032824B00456163 /* cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1648921D2032824300456163 /* cloudy.gif */; };
+		164892232032824B00456163 /* night.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1648921E2032824600456163 /* night.gif */; };
+		164892242032824B00456163 /* sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1648921F2032824800456163 /* sunny.gif */; };
 		16495C771FB3BABB00E74A62 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C761FB3BABB00E74A62 /* LanguageHelper.swift */; };
 		16495C791FB4012300E74A62 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16495C781FB4012300E74A62 /* TabBarViewController.swift */; };
 		16496740200448B200B84D21 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1649673F200448B200B84D21 /* Twitter.framework */; };
@@ -189,17 +188,16 @@
 		164891F0202BD34C00456163 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		164891F3202C179000456163 /* FullScreenNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenNewsView.swift; sourceTree = "<group>"; };
 		164891F7202CF49400456163 /* AccuWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccuWeather.swift; sourceTree = "<group>"; };
-		164891F9202D43AA00456163 /* rainning.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainning.gif; sourceTree = "<group>"; };
 		164891FB202D44D900456163 /* WeatherView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherView.xib; sourceTree = "<group>"; };
 		164891FD202D69C200456163 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		164891FE202D69C200456163 /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
-		16489201202D6C5B00456163 /* cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cloudy.gif; sourceTree = "<group>"; };
-		16489203202D6C6800456163 /* rainy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainy.gif; sourceTree = "<group>"; };
-		16489205202D6C9800456163 /* sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunny.gif; sourceTree = "<group>"; };
-		16489207202D6CB400456163 /* windy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = windy.gif; sourceTree = "<group>"; };
-		16489209202D6CD700456163 /* night.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = night.gif; sourceTree = "<group>"; };
 		1648920D20315A0A00456163 /* PopupSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSMViewController.swift; sourceTree = "<group>"; };
 		1648920F2032491D00456163 /* popLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popLoginViewController.swift; sourceTree = "<group>"; };
+		1648921B2032823D00456163 /* rainy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainy.gif; sourceTree = "<group>"; };
+		1648921C2032824000456163 /* windy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = windy.gif; sourceTree = "<group>"; };
+		1648921D2032824300456163 /* cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cloudy.gif; sourceTree = "<group>"; };
+		1648921E2032824600456163 /* night.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = night.gif; sourceTree = "<group>"; };
+		1648921F2032824800456163 /* sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunny.gif; sourceTree = "<group>"; };
 		16495C761FB3BABB00E74A62 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		16495C781FB4012300E74A62 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1649673F200448B200B84D21 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -378,12 +376,11 @@
 		161A1C401F7DB5A800362AFC /* HumeApp_V1 */ = {
 			isa = PBXGroup;
 			children = (
-				164891F9202D43AA00456163 /* rainning.gif */,
-				16489209202D6CD700456163 /* night.gif */,
-				16489201202D6C5B00456163 /* cloudy.gif */,
-				16489203202D6C6800456163 /* rainy.gif */,
-				16489207202D6CB400456163 /* windy.gif */,
-				16489205202D6C9800456163 /* sunny.gif */,
+				1648921D2032824300456163 /* cloudy.gif */,
+				1648921E2032824600456163 /* night.gif */,
+				1648921B2032823D00456163 /* rainy.gif */,
+				1648921F2032824800456163 /* sunny.gif */,
+				1648921C2032824000456163 /* windy.gif */,
 				1640C9E31FBA512B00B9AD3D /* HumeApp_V1.entitlements */,
 				16FF2E5B201ECA9100EF64EC /* GoogleService-Info.plist */,
 				16C90CF21F85E4B2005D2D9D /* BridgeHeader.h */,
@@ -768,21 +765,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16489204202D6C6900456163 /* rainy.gif in Resources */,
-				16489208202D6CB500456163 /* windy.gif in Resources */,
+				164892232032824B00456163 /* night.gif in Resources */,
 				161A1C4C1F7DB5A800362AFC /* LaunchScreen.storyboard in Resources */,
+				164892242032824B00456163 /* sunny.gif in Resources */,
 				16FF2E5C201ECA9200EF64EC /* GoogleService-Info.plist in Resources */,
-				16489206202D6C9900456163 /* sunny.gif in Resources */,
 				16315BFE1F96CB6700444B5E /* Localizable.strings in Resources */,
 				161A1C491F7DB5A800362AFC /* Assets.xcassets in Resources */,
 				16ECB0021F8C253A00D033EB /* ShoppingCarTableViewCell.xib in Resources */,
 				164891FC202D44D900456163 /* WeatherView.xib in Resources */,
+				164892202032824B00456163 /* rainy.gif in Resources */,
+				164892212032824B00456163 /* windy.gif in Resources */,
 				161A1C471F7DB5A800362AFC /* Main.storyboard in Resources */,
 				16DC788F1F96C80F00D17D6E /* infoPlist.strings in Resources */,
-				164891FA202D43AB00456163 /* rainning.gif in Resources */,
-				16489202202D6C5C00456163 /* cloudy.gif in Resources */,
+				164892222032824B00456163 /* cloudy.gif in Resources */,
 				16AA902F1FE8A86B00F6C4D8 /* SliderNewsTableViewCell.xib in Resources */,
-				1648920A202D6CD800456163 /* night.gif in Resources */,
 				16489200202D69C200456163 /* WeatherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

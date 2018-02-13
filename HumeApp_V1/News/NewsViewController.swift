@@ -41,11 +41,12 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         self.newsTableView.delegate = self
         self.newsTableView.dataSource = self
+        
         self.navigationItem.title = LanguageHelper.getString(key: "COMPANY_NEWS")
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "NEWS")
-        self.newsTableView.rowHeight  = UITableViewAutomaticDimension
-        self.newsTableView.estimatedRowHeight = 300
-        //        self.newsTableView.tableFooterView = UIView.init(frame: CGRect.zero)
+//        self.newsTableView.rowHeight  = UITableViewAutomaticDimension
+//        self.newsTableView.estimatedRowHeight = 300
+       
         self.newsTableView.separatorStyle = .none
         //        GIDSignIn.sharedInstance().uiDelegate = self
         loadData()
@@ -76,7 +77,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         var url :String!=""
         
         //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
-       
+        
         url = "http://myhume.humeplaster.com.au/api/news?type=list"
         
         
@@ -132,74 +133,100 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         present(controller, animated: true, completion: nil)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
+        
+        if section == 0 {
+            return 1
+        }else{
+            return self.dataSource.count
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let oneNews = self.dataSource[indexPath.row] as! News
-        let webUrl =  oneNews.link
+        if indexPath.section == 0 {
+            print("doggy")
+        }
+        else{
+            let oneNews = self.dataSource[indexPath.row] as! News
+            let webUrl =  oneNews.link
+            
+            let web = URL(string:webUrl!)
+            
+            let controller = SFSafariViewController.init(url: web!)
+            controller.delegate = self
+            self.present(controller, animated: true, completion: nil)
+            
+        }
         
-        let web = URL(string:webUrl!)
         
-        let controller = SFSafariViewController.init(url: web!)
-        controller.delegate = self
-        self.present(controller, animated: true, completion: nil)
-        
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! NewsTableViewCell
-        let oneNews = self.dataSource[indexPath.row] as! News
-        
-        let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
-        
-        print("当前用户语言:\(userLang)")
-        
-        var lang: String!=""
-        
-        switch String(describing: userLang) {
-        case "en-US", "en-CN":
-            //en
-             cell.titleLabel.text = oneNews.title
-             cell.descriptionLabel.text = oneNews.content
-        case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
-            //cn
-            cell.titleLabel.text = oneNews.titleCn
-            cell.descriptionLabel.text = oneNews.contentCn
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bannerCell")
             
-        default:
-            cell.titleLabel.text = oneNews.title
-            cell.descriptionLabel.text = oneNews.content
+            return cell!
         }
-        
-        
-       
-       
-        cell.dateLabel.text = oneNews.date
-        cell.url = oneNews.link
-        
-        
-        SDWebImageManager.shared().loadImage(with: URL(string:oneNews.thumbnailSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! NewsTableViewCell
+            let oneNews = self.dataSource[indexPath.row] as! News
             
-            } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+            let userLang = UserDefaults.standard.value(forKey: "UserLanguage") as! String
+            
+            print("当前用户语言:\(userLang)")
+            
+            var lang: String!=""
+            
+            switch String(describing: userLang) {
+            case "en-US", "en-CN":
+                //en
+                cell.titleLabel.text = oneNews.title
+                cell.descriptionLabel.text = oneNews.content
+            case "zh-Hans-US","zh-Hans-CN","zh-Hant-CN","zh-TW","zh-HK","zh-Hans":
+                //cn
+                cell.titleLabel.text = oneNews.titleCn
+                cell.descriptionLabel.text = oneNews.contentCn
                 
-                cell.picImageView.image = image
+            default:
+                cell.titleLabel.text = oneNews.title
+                cell.descriptionLabel.text = oneNews.content
+            }
+            
+            cell.dateLabel.text = oneNews.date
+            cell.url = oneNews.link
+            
+            
+            SDWebImageManager.shared().loadImage(with: URL(string:oneNews.thumbnailSrc!) as URL!, options: SDWebImageOptions.continueInBackground, progress: { (receivedSize :Int, ExpectedSize :Int, url : URL) in
                 
-                
-        })
-        cell.newsCellDelegate = self
-        return cell
-        
+                } as? SDWebImageDownloaderProgressBlock, completed: { (image : UIImage?, any : Data?,error : Error?, cacheType : SDImageCacheType, finished : Bool, url : URL?) in
+                    
+                    cell.picImageView.image = image
+                    
+                    
+            })
+            cell.newsCellDelegate = self
+            return cell
+        }
     }
     
     
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 0 {
+            return (UIScreen.main.bounds.height-128)/3
+//        }else{
+//
+//            return tableView.frame.height/3
+//        }
     }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
