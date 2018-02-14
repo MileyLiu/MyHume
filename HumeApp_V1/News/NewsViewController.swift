@@ -217,12 +217,12 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.section == 0 {
-            return (UIScreen.main.bounds.height-128)/3
-//        }else{
-//
-//            return tableView.frame.height/3
-//        }
+        if indexPath.section == 0 {
+            return 210
+        }else{
+
+            return (UIScreen.main.bounds.height-128-210)/2
+        }
     }
 //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableViewAutomaticDimension

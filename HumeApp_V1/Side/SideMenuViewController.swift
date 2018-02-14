@@ -90,8 +90,17 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
 //        self.view.addSubview(popupController.view)
 //        popupController.didMove(toParentViewController: self)
      
-      
     }
+    
+    
+    @IBAction func popSetting(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popupController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popSetting") as! SettingViewController
+        
+        
+        self.present(popupController, animated: true, completion: nil)
+    }
+    
     // MARK: - Button
     
     @IBAction func shareClicked(_ sender: Any) {

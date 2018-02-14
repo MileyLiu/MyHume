@@ -15,11 +15,13 @@ import GoogleSignIn
 class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate {
 
     @IBOutlet weak var popView: UIView!
+    @IBOutlet weak var cancalButton: UIButton!
     let url = URL(string:"http://www.humeplaster.com.au/")
     override func viewDidLoad() {
         super.viewDidLoad()
  self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         self.popView.layer.cornerRadius = 10
+        self.cancalButton.layer.cornerRadius = 10
         self.showAnimation()
         // Do any additional setup after loading the view.
     }
@@ -110,7 +112,7 @@ class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWT
     func showAnimation(){
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0;
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             self.view.alpha = 1.0
             self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         });

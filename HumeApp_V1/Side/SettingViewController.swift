@@ -11,7 +11,7 @@ import UIKit
 class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
 
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+//    @IBOutlet weak var menuButton: UIBarButtonItem!
     
 //    @IBOutlet weak var languageTextView: UITextField!
     @IBOutlet weak var languageLabel: UILabel!
@@ -26,19 +26,24 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var notificationLabel: UILabel!
     
     @IBOutlet weak var clearLabel: UILabel!
+    @IBOutlet weak var popView: UIView!
+    @IBOutlet weak var cancelButton: UIButton!
     // 取出cache文件夹目录 缓存文件都在这个目录下
     let cachePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = LanguageHelper.getString(key: "SETTING")
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.popView.layer.cornerRadius = 10
+        self.cancelButton.layer.cornerRadius = 10
+//        self.title = LanguageHelper.getString(key: "SETTING")
        
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
-       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+//        if self.revealViewController() != nil {
+//            menuButton.target = self.revealViewController()
+//            menuButton.action = "revealToggle:"
+//       self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//        }
         
         self.languageLabel.text = LanguageHelper.getString(key: "LANG")
         
@@ -68,6 +73,9 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @objc internal func clearTap(_ gesture: UITapGestureRecognizer) {
         
         if gesture.state == UIGestureRecognizerState.ended {

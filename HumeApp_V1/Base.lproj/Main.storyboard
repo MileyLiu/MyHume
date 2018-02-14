@@ -486,60 +486,93 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqq-ob-PmI">
+                                <rect key="frame" x="20" y="668" width="374" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="A6M-OZ-CmZ"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="6Yt-Q2-jf7"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qth-Xz-NFn">
-                                <rect key="frame" x="57" y="218" width="300" height="300"/>
+                                <rect key="frame" x="20" y="350" width="374" height="312"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GaT-Ui-de0">
-                                        <rect key="frame" x="45" y="45" width="210" height="210"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_share" translatesAutoresizingMaskIntoConstraints="NO" id="enf-eK-WT5">
+                                        <rect key="frame" x="30" y="20" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="GV0-u4-iiS"/>
+                                            <constraint firstAttribute="height" constant="30" id="V1s-ed-5NF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can share the app to your friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsM-7e-GI6">
+                                        <rect key="frame" x="29" y="81" width="317.33333333333331" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="HEP-21-EwV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Social Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahR-dn-2Ot">
+                                        <rect key="frame" x="68" y="25" width="265" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Nf1-28-UPd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfi-ky-aHb">
+                                        <rect key="frame" x="44" y="129" width="286" height="159"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MNG-rG-eL4">
-                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="210"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0O9-a3-Wci">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="71"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAO-1L-tje">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="90"/>
-                                                        <state key="normal" image="social media icons-1"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWE-Ly-UoD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="71"/>
+                                                        <state key="normal" title="Button" image="social media icons-1"/>
                                                         <connections>
-                                                            <action selector="shareToFB:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="JyK-lq-s88"/>
+                                                            <action selector="shareToFB:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="lGo-gC-2Jz"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0y-bc-zZr">
-                                                        <rect key="frame" x="0.0" y="120" width="63.333333333333336" height="90"/>
-                                                        <state key="normal" title="Button" image="social media icons-3"/>
-                                                        <connections>
-                                                            <action selector="shareToGoogle:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="v2W-kE-JoV"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="snV-4S-39E">
-                                                <rect key="frame" x="73.333333333333343" y="0.0" width="63.333333333333343" height="210"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6Z-38-3DN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="90"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUJ-dW-dB6">
+                                                        <rect key="frame" x="105.33333333333334" y="0.0" width="75.333333333333343" height="71"/>
                                                         <state key="normal" title="Button" image="social media icons-2"/>
                                                         <connections>
-                                                            <action selector="shareToTwitter:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="CgO-Mk-a6m"/>
+                                                            <action selector="shareToTwitter:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="mKf-de-ute"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNM-K4-YDE">
-                                                        <rect key="frame" x="0.0" y="120" width="63.333333333333336" height="90"/>
-                                                        <state key="normal" image="social media icons-4"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-Dt-Y80">
+                                                        <rect key="frame" x="210.66666666666669" y="0.0" width="75.333333333333314" height="71"/>
+                                                        <state key="normal" title="Button" image="social media icons-3"/>
                                                         <connections>
-                                                            <action selector="shareToWechat:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="EuD-7C-eMr"/>
+                                                            <action selector="shareToGoogle:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="xPL-f5-Tg3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-eh-Qo5">
-                                                <rect key="frame" x="146.66666666666666" y="0.0" width="63.333333333333343" height="210"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2P6-my-G86">
+                                                <rect key="frame" x="0.0" y="88" width="286" height="71"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzK-B1-3A9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63.333333333333336" height="90.666666666666671"/>
-                                                        <state key="normal" title="Button" image="social media icons-5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXw-3o-uF1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="75.333333333333329" height="71"/>
+                                                        <state key="normal" title="Button" image="social media icons-4"/>
+                                                        <connections>
+                                                            <action selector="shareToWechat:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="ec6-1q-4rg"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyB-bQ-K2u">
-                                                        <rect key="frame" x="0.0" y="119.66666666666669" width="63.333333333333336" height="90.333333333333314"/>
-                                                        <state key="normal" title="Button" image="social media icons-6"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPu-vH-rjb">
+                                                        <rect key="frame" x="105.33333333333334" y="0.0" width="75.333333333333343" height="71"/>
+                                                        <state key="normal" title="Button"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sq9-YG-bAr">
+                                                        <rect key="frame" x="210.66666666666669" y="0.0" width="75.333333333333314" height="71"/>
+                                                        <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -548,37 +581,34 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="6am-cX-Pxq"/>
-                                    <constraint firstAttribute="height" constant="300" id="KrR-m6-QTt"/>
-                                    <constraint firstItem="GaT-Ui-de0" firstAttribute="height" secondItem="qth-Xz-NFn" secondAttribute="height" multiplier="0.7" id="Tu1-ak-WaR"/>
-                                    <constraint firstItem="GaT-Ui-de0" firstAttribute="centerX" secondItem="qth-Xz-NFn" secondAttribute="centerX" id="Wwu-EF-yQS"/>
-                                    <constraint firstItem="GaT-Ui-de0" firstAttribute="width" secondItem="qth-Xz-NFn" secondAttribute="width" multiplier="0.7" id="gAi-HK-o69"/>
-                                    <constraint firstItem="GaT-Ui-de0" firstAttribute="centerY" secondItem="qth-Xz-NFn" secondAttribute="centerY" id="oQk-mp-bps"/>
+                                    <constraint firstItem="ahR-dn-2Ot" firstAttribute="leading" secondItem="enf-eK-WT5" secondAttribute="trailing" constant="8" id="6Ko-x8-F3i"/>
+                                    <constraint firstItem="sfi-ky-aHb" firstAttribute="top" secondItem="RsM-7e-GI6" secondAttribute="bottom" constant="24" id="7a8-Hf-YnV"/>
+                                    <constraint firstAttribute="height" constant="312" id="85E-FZ-ABr"/>
+                                    <constraint firstItem="RsM-7e-GI6" firstAttribute="top" secondItem="ahR-dn-2Ot" secondAttribute="bottom" constant="26" id="85k-3e-pIz"/>
+                                    <constraint firstItem="enf-eK-WT5" firstAttribute="top" secondItem="qth-Xz-NFn" secondAttribute="top" constant="20" id="BdA-V7-649"/>
+                                    <constraint firstItem="ahR-dn-2Ot" firstAttribute="top" secondItem="qth-Xz-NFn" secondAttribute="top" constant="25" id="EBo-85-OyM"/>
+                                    <constraint firstAttribute="trailing" secondItem="sfi-ky-aHb" secondAttribute="trailing" constant="44" id="F0F-k1-ROQ"/>
+                                    <constraint firstItem="sfi-ky-aHb" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="44" id="ImU-xd-DHv"/>
+                                    <constraint firstItem="enf-eK-WT5" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="30" id="Tkw-IV-o50"/>
+                                    <constraint firstItem="RsM-7e-GI6" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="29" id="Y9V-OC-Xzu"/>
+                                    <constraint firstAttribute="bottom" secondItem="sfi-ky-aHb" secondAttribute="bottom" constant="24" id="mrW-HD-c3b"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uce-fo-7n6">
-                                <rect key="frame" x="29" y="40" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="1aP-fc-2gC"/>
-                                    <constraint firstAttribute="height" constant="24" id="YBe-Hc-1ca"/>
-                                </constraints>
-                                <color key="tintColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="ic_arrow_back_white"/>
-                                <connections>
-                                    <action selector="close:" destination="3kJ-5D-dw0" eventType="touchUpInside" id="QPL-rN-v7x"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qth-Xz-NFn" firstAttribute="centerY" secondItem="gAt-Vl-dfR" secondAttribute="centerY" id="IL4-8Y-x9L"/>
-                            <constraint firstItem="Uce-fo-7n6" firstAttribute="leading" secondItem="Vks-tD-wn0" secondAttribute="leading" constant="29" id="Sgf-cN-Vcw"/>
-                            <constraint firstItem="qth-Xz-NFn" firstAttribute="centerX" secondItem="gAt-Vl-dfR" secondAttribute="centerX" id="Zrc-uf-0Tf"/>
-                            <constraint firstItem="Uce-fo-7n6" firstAttribute="top" secondItem="Vks-tD-wn0" secondAttribute="top" constant="20" id="e75-uX-86o"/>
+                            <constraint firstItem="Vks-tD-wn0" firstAttribute="trailing" secondItem="ahR-dn-2Ot" secondAttribute="trailing" constant="61" id="0zn-I0-uDG"/>
+                            <constraint firstItem="Vks-tD-wn0" firstAttribute="trailing" secondItem="fqq-ob-PmI" secondAttribute="trailing" constant="20" id="BWR-cs-6jd"/>
+                            <constraint firstItem="Vks-tD-wn0" firstAttribute="bottom" secondItem="fqq-ob-PmI" secondAttribute="bottom" constant="24" id="CZO-UK-Rov"/>
+                            <constraint firstItem="Vks-tD-wn0" firstAttribute="trailing" secondItem="qth-Xz-NFn" secondAttribute="trailing" constant="20" id="WLk-9R-vYp"/>
+                            <constraint firstItem="qth-Xz-NFn" firstAttribute="leading" secondItem="Vks-tD-wn0" secondAttribute="leading" constant="20" id="Zv4-nS-nw3"/>
+                            <constraint firstItem="fqq-ob-PmI" firstAttribute="leading" secondItem="Vks-tD-wn0" secondAttribute="leading" constant="20" id="kij-hn-YWN"/>
+                            <constraint firstItem="fqq-ob-PmI" firstAttribute="top" secondItem="qth-Xz-NFn" secondAttribute="bottom" constant="6" id="yHt-AS-dfz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vks-tD-wn0"/>
                     </view>
                     <connections>
+                        <outlet property="cancalButton" destination="fqq-ob-PmI" id="ffC-gg-d4x"/>
                         <outlet property="popView" destination="qth-Xz-NFn" id="Z2I-j7-iHM"/>
                     </connections>
                 </viewController>
@@ -589,7 +619,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <!--Result-->
         <scene sceneID="ruB-eJ-SNn">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="vhn-WP-orR" customClass="TrackingResultViewController" customModule="HumeApp_V1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="trackingResultSid" hidesBottomBarWhenPushed="YES" id="vhn-WP-orR" customClass="TrackingResultViewController" customModule="HumeApp_V1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7h6-8l-GHs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -649,7 +679,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U53-12-vkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3526" y="-1163"/>
+            <point key="canvasLocation" x="3524.6376811594205" y="-1163.3152173913045"/>
         </scene>
         <!--Tracking Result-->
         <scene sceneID="4fY-Zy-bbx">
@@ -1099,17 +1129,8 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVr-lt-k55">
                                 <rect key="frame" x="0.0" y="376.66666666666674" width="414" height="359.33333333333326"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright ©2018 Hume Building Products " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeK-Z3-xOz">
-                                        <rect key="frame" x="96.333333333333314" y="320.33333333333331" width="223" height="12"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="12" id="LeN-FO-eMG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Hume Logistics System V 2.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-lq-ZuQ">
-                                        <rect key="frame" x="98.666666666666686" y="335.33333333333331" width="217" height="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-lq-ZuQ">
+                                        <rect key="frame" x="158.66666666666666" y="335.33333333333331" width="97" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="Xky-Mn-PQb"/>
                                         </constraints>
@@ -1118,10 +1139,10 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sQ-aeI">
-                                        <rect key="frame" x="62" y="20" width="290" height="280.33333333333331"/>
+                                        <rect key="frame" x="62" y="20" width="290" height="303.33333333333331"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-YZ-UiO">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="57.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="63"/>
                                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="social media logins-1"/>
                                                 <connections>
@@ -1129,7 +1150,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSx-gb-Hrx">
-                                                <rect key="frame" x="0.0" y="74.333333333333314" width="290" height="57.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="80" width="290" height="63.333333333333343"/>
                                                 <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Sign in with twitter" image="social media logins-2"/>
                                                 <connections>
@@ -1137,7 +1158,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUE-4P-n7O">
-                                                <rect key="frame" x="0.0" y="148.66666666666669" width="290" height="57.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="160.33333333333331" width="290" height="63"/>
                                                 <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="social media logins-4">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1147,7 +1168,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se2-1e-I05">
-                                                <rect key="frame" x="0.0" y="222.99999999999994" width="290" height="57.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="240.33333333333331" width="290" height="63"/>
                                                 <color key="backgroundColor" red="0.30196078431372547" green="0.76078431372549016" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Sign in with phone" image="social media logins-3"/>
                                                 <connections>
@@ -1161,11 +1182,9 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4AY-lq-ZuQ" secondAttribute="bottom" constant="12" id="2bj-EU-043"/>
                                     <constraint firstItem="YPE-sQ-aeI" firstAttribute="width" secondItem="jVr-lt-k55" secondAttribute="width" multiplier="0.7" id="998-hv-Pef"/>
-                                    <constraint firstItem="oeK-Z3-xOz" firstAttribute="centerX" secondItem="jVr-lt-k55" secondAttribute="centerX" id="C5l-Ep-PgR"/>
                                     <constraint firstItem="YPE-sQ-aeI" firstAttribute="centerX" secondItem="jVr-lt-k55" secondAttribute="centerX" id="UIR-gG-ydC"/>
-                                    <constraint firstItem="4AY-lq-ZuQ" firstAttribute="top" secondItem="oeK-Z3-xOz" secondAttribute="bottom" constant="3" id="XSN-nb-gMC"/>
+                                    <constraint firstItem="4AY-lq-ZuQ" firstAttribute="top" secondItem="Se2-1e-I05" secondAttribute="bottom" constant="12" id="hqw-aj-oOa"/>
                                     <constraint firstItem="YPE-sQ-aeI" firstAttribute="top" secondItem="jVr-lt-k55" secondAttribute="top" constant="20" id="kfx-Ek-EdN"/>
-                                    <constraint firstItem="oeK-Z3-xOz" firstAttribute="top" secondItem="YPE-sQ-aeI" secondAttribute="bottom" constant="20" id="tMh-fB-4oj"/>
                                     <constraint firstItem="4AY-lq-ZuQ" firstAttribute="centerX" secondItem="jVr-lt-k55" secondAttribute="centerX" id="wdY-qE-QuS"/>
                                 </constraints>
                             </view>
@@ -1449,7 +1468,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="pqM-il-sWP" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dNg-fj-mIA"/>
+                                                    <action selector="popSetting:" destination="2g8-Se-17r" eventType="touchUpInside" id="fTt-JU-hUl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-UR-Ydd">
@@ -1564,19 +1583,19 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <color key="onTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </switch>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-5n-mxm">
-                                <rect key="frame" x="0.0" y="74" width="414" height="184"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="184"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWe-uP-OVq" userLabel="Language View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="61.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lK-cw-eK6">
-                                                <rect key="frame" x="25" y="20.666666666666671" width="131.66666666666666" height="20.333333333333329"/>
+                                                <rect key="frame" x="25" y="20.666666666666664" width="131.66666666666666" height="20.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1d-QO-5bC" userLabel="SeperationView">
-                                                <rect key="frame" x="5" y="60.333333333333343" width="414" height="1"/>
+                                                <rect key="frame" x="5" y="60.333333333333329" width="414" height="1"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="fYm-9U-lUr"/>
@@ -1604,23 +1623,23 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CwF-sL-xEb" userLabel="Notification View">
-                                        <rect key="frame" x="0.0" y="61.333333333333343" width="414" height="61.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="61.333333333333329" width="414" height="61.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i7-hZ-w3p">
-                                                <rect key="frame" x="25" y="20.666666666666657" width="88" height="20.333333333333329"/>
+                                                <rect key="frame" x="25" y="20.666666666666671" width="88" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3S-2s-PiD" userLabel="Seperation View">
-                                                <rect key="frame" x="5" y="60.333333333333314" width="414" height="1"/>
+                                                <rect key="frame" x="5" y="60.333333333333329" width="414" height="1"/>
                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="u6y-OU-4rD"/>
                                                 </constraints>
                                             </view>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hxH-AJ-aPY">
-                                                <rect key="frame" x="321" y="14.666666666666657" width="51" height="31"/>
+                                                <rect key="frame" x="321" y="14.666666666666671" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </switch>
                                         </subviews>
@@ -1689,17 +1708,6 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="cacheLabel" destination="c6l-n3-9Bj" id="KNW-eh-xPq"/>
-                        <outlet property="clearCacheView" destination="mNz-ho-xEn" id="1Bs-oy-sql"/>
-                        <outlet property="clearLabel" destination="AAl-ED-xGU" id="3pc-PL-jQP"/>
-                        <outlet property="languageLabel" destination="6Ze-F8-Ffk" id="Ik4-In-2mb"/>
-                        <outlet property="languageView" destination="lWe-uP-OVq" id="sfe-Fj-mJo"/>
-                        <outlet property="menuButton" destination="jWB-ax-E0a" id="rrV-36-t9E"/>
-                        <outlet property="notificationLabel" destination="7i7-hZ-w3p" id="tmy-Gj-wbI"/>
-                        <outlet property="notificationSwitch" destination="hxH-AJ-aPY" id="Ae8-Bt-YV6"/>
-                        <outlet property="switchLabel" destination="7lK-cw-eK6" id="wwD-Ki-a3P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNm-eL-yR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="nKB-WV-YRK"/>
@@ -1723,14 +1731,14 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can get nitification of your order if you login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85f-ZD-wTu">
-                                        <rect key="frame" x="20" y="82" width="330" height="40.666666666666657"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can get notifications if you login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85f-ZD-wTu">
+                                        <rect key="frame" x="40" y="82" width="294" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLH-sO-fiM">
-                                        <rect key="frame" x="37.333333333333343" y="231" width="299.33333333333326" height="44"/>
+                                        <rect key="frame" x="37.333333333333343" y="227" width="299.33333333333326" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="uv8-tR-yFq"/>
                                         </constraints>
@@ -1742,7 +1750,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWW-Qj-YIS">
-                                        <rect key="frame" x="37.333333333333343" y="150.66666666666669" width="299.33333333333326" height="44"/>
+                                        <rect key="frame" x="37.333333333333343" y="158" width="299.33333333333326" height="44"/>
                                         <color key="backgroundColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="DnH-Zm-pLR"/>
@@ -1756,7 +1764,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="85f-ZD-wTu" firstAttribute="top" secondItem="lRr-3R-Wbj" secondAttribute="bottom" constant="20" id="A1P-rs-B9T"/>
-                                    <constraint firstAttribute="trailing" secondItem="85f-ZD-wTu" secondAttribute="trailing" constant="24" id="CAK-Wb-50r"/>
+                                    <constraint firstAttribute="trailing" secondItem="85f-ZD-wTu" secondAttribute="trailing" constant="40" id="CAK-Wb-50r"/>
                                     <constraint firstItem="vWW-Qj-YIS" firstAttribute="top" secondItem="85f-ZD-wTu" secondAttribute="bottom" constant="28" id="FeW-Rw-ieU"/>
                                     <constraint firstItem="vWW-Qj-YIS" firstAttribute="width" secondItem="8GR-rQ-bIA" secondAttribute="width" multiplier="0.8" id="Ha7-LR-97m"/>
                                     <constraint firstItem="lRr-3R-Wbj" firstAttribute="top" secondItem="8GR-rQ-bIA" secondAttribute="top" constant="38" id="XK1-ui-Cl9"/>
@@ -1764,8 +1772,8 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     <constraint firstItem="lRr-3R-Wbj" firstAttribute="centerX" secondItem="8GR-rQ-bIA" secondAttribute="centerX" id="gM6-nA-rdE"/>
                                     <constraint firstItem="OLH-sO-fiM" firstAttribute="width" secondItem="8GR-rQ-bIA" secondAttribute="width" multiplier="0.8" id="haR-aB-cf1"/>
                                     <constraint firstItem="vWW-Qj-YIS" firstAttribute="centerX" secondItem="8GR-rQ-bIA" secondAttribute="centerX" id="n9h-Me-4bB"/>
-                                    <constraint firstItem="85f-ZD-wTu" firstAttribute="leading" secondItem="8GR-rQ-bIA" secondAttribute="leading" constant="20" id="pD2-nX-x2A"/>
-                                    <constraint firstItem="OLH-sO-fiM" firstAttribute="top" secondItem="vWW-Qj-YIS" secondAttribute="bottom" constant="36.333333333333314" id="xMy-tq-tok"/>
+                                    <constraint firstItem="85f-ZD-wTu" firstAttribute="leading" secondItem="8GR-rQ-bIA" secondAttribute="leading" constant="40" id="pD2-nX-x2A"/>
+                                    <constraint firstItem="OLH-sO-fiM" firstAttribute="top" secondItem="vWW-Qj-YIS" secondAttribute="bottom" constant="25" id="xMy-tq-tok"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -2193,11 +2201,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sc-ki-oHL">
-                                                    <rect key="frame" x="10" y="10" width="394" height="145.66666666666666"/>
+                                                    <rect key="frame" x="10" y="5" width="394" height="145.66666666666666"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="100x130" translatesAutoresizingMaskIntoConstraints="NO" id="DLh-1u-lka">
-                                                    <rect key="frame" x="15" y="15" width="130" height="135.66666666666666"/>
+                                                    <rect key="frame" x="15" y="15" width="130" height="130.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bca-hc-Fma">
                                                     <rect key="frame" x="178" y="15" width="221" height="30"/>
@@ -2242,12 +2250,12 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 <constraint firstItem="hVR-Mh-wkl" firstAttribute="top" secondItem="bca-hc-Fma" secondAttribute="bottom" constant="8" id="PWl-5i-TQT"/>
                                                 <constraint firstItem="qUb-31-Ajm" firstAttribute="leading" secondItem="DLh-1u-lka" secondAttribute="trailing" constant="5" id="PxH-4n-Fhu"/>
                                                 <constraint firstItem="DLh-1u-lka" firstAttribute="width" secondItem="5sc-ki-oHL" secondAttribute="width" multiplier="0.33" id="U7v-1L-458"/>
-                                                <constraint firstAttribute="bottom" secondItem="5sc-ki-oHL" secondAttribute="bottom" id="UQc-XC-FIa"/>
-                                                <constraint firstAttribute="bottom" secondItem="DLh-1u-lka" secondAttribute="bottom" constant="5" id="bF1-kL-ChR"/>
+                                                <constraint firstAttribute="bottom" secondItem="5sc-ki-oHL" secondAttribute="bottom" constant="5" id="UQc-XC-FIa"/>
+                                                <constraint firstAttribute="bottom" secondItem="DLh-1u-lka" secondAttribute="bottom" constant="10" id="bF1-kL-ChR"/>
                                                 <constraint firstAttribute="trailing" secondItem="hVR-Mh-wkl" secondAttribute="trailing" constant="15" id="fLu-CP-U8Y"/>
                                                 <constraint firstItem="bca-hc-Fma" firstAttribute="leading" secondItem="saS-cb-vOk" secondAttribute="trailing" constant="8" id="g3M-Ou-v8R"/>
                                                 <constraint firstItem="bca-hc-Fma" firstAttribute="top" secondItem="xBP-OB-5Sf" secondAttribute="top" constant="15" id="ha6-yu-VlJ"/>
-                                                <constraint firstItem="5sc-ki-oHL" firstAttribute="top" secondItem="xBP-OB-5Sf" secondAttribute="top" constant="10" id="jCp-Ma-HOY"/>
+                                                <constraint firstItem="5sc-ki-oHL" firstAttribute="top" secondItem="xBP-OB-5Sf" secondAttribute="top" constant="5" id="jCp-Ma-HOY"/>
                                                 <constraint firstItem="qUb-31-Ajm" firstAttribute="top" secondItem="hVR-Mh-wkl" secondAttribute="bottom" constant="8.3333333333333286" id="mwA-ig-3Rj"/>
                                                 <constraint firstItem="hVR-Mh-wkl" firstAttribute="leading" secondItem="DLh-1u-lka" secondAttribute="trailing" constant="5" id="pJj-M5-XAO"/>
                                                 <constraint firstItem="saS-cb-vOk" firstAttribute="leading" secondItem="DLh-1u-lka" secondAttribute="trailing" constant="5" id="xro-Nd-DJ4"/>
@@ -3243,6 +3251,17 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsg-0W-vp8">
+                                <rect key="frame" x="324" y="582" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="AgQ-Qi-7w7"/>
+                                    <constraint firstAttribute="height" constant="70" id="CM5-Xz-du3"/>
+                                </constraints>
+                                <state key="normal" image="exclamation"/>
+                                <connections>
+                                    <action selector="popupclicked:" destination="ViA-oG-2JB" eventType="touchUpInside" id="5U9-f2-Bwo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3250,6 +3269,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <constraint firstItem="QMj-M3-keV" firstAttribute="leading" secondItem="eSa-x0-6IU" secondAttribute="leading" constant="32" id="3Tc-Ip-EWL"/>
                             <constraint firstItem="ERa-tn-chW" firstAttribute="top" secondItem="cxy-UW-Hsu" secondAttribute="bottom" constant="32" id="46j-Qj-tfi"/>
                             <constraint firstItem="c0U-P9-Qdy" firstAttribute="top" secondItem="ERa-tn-chW" secondAttribute="bottom" constant="21" id="GKH-hu-rLg"/>
+                            <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="Fsg-0W-vp8" secondAttribute="trailing" constant="20" id="Hne-QG-Ku6"/>
                             <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="QMj-M3-keV" secondAttribute="trailing" constant="16" id="MmZ-G3-W6H"/>
                             <constraint firstItem="3JT-3W-NOX" firstAttribute="leading" secondItem="eSa-x0-6IU" secondAttribute="leading" constant="32" id="Pay-vU-nGV"/>
                             <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="f7b-OJ-hcX" secondAttribute="trailing" constant="25" id="RTU-lY-9Kc"/>
@@ -3258,6 +3278,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="cxy-UW-Hsu" secondAttribute="trailing" constant="25" id="aeJ-br-iy5"/>
                             <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="ERa-tn-chW" secondAttribute="trailing" constant="32" id="afB-jQ-zhy"/>
                             <constraint firstItem="zOw-lO-eSd" firstAttribute="leading" secondItem="eSa-x0-6IU" secondAttribute="leading" constant="32" id="duE-uX-qml"/>
+                            <constraint firstItem="eSa-x0-6IU" firstAttribute="bottom" secondItem="Fsg-0W-vp8" secondAttribute="bottom" constant="20" id="erq-ZH-NS3"/>
                             <constraint firstItem="eSa-x0-6IU" firstAttribute="trailing" secondItem="3JT-3W-NOX" secondAttribute="trailing" constant="25" id="foT-IA-Sgs"/>
                             <constraint firstItem="cxy-UW-Hsu" firstAttribute="top" secondItem="3JT-3W-NOX" secondAttribute="bottom" constant="25" id="hSe-VE-oi4"/>
                             <constraint firstItem="zOw-lO-eSd" firstAttribute="top" secondItem="QMj-M3-keV" secondAttribute="bottom" constant="25" id="iZf-oJ-qcj"/>
@@ -3368,6 +3389,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     <constraint firstItem="fVM-pD-Mb5" firstAttribute="leading" secondItem="XXl-SN-cRE" secondAttribute="trailing" constant="14" id="zhU-TN-p33"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-F0-NSE">
+                                <rect key="frame" x="320" y="464" width="74" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="exclamation"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3391,6 +3417,182 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
             </objects>
             <point key="canvasLocation" x="4702" y="-1287"/>
         </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="qka-Z2-Trh">
+            <objects>
+                <viewController storyboardIdentifier="popSetting" id="KQG-tX-euj" customClass="SettingViewController" customModule="HumeApp_V1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dqq-aa-gQn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3x0-wf-W8M">
+                                <rect key="frame" x="20" y="366" width="374" height="300"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6eG-9O-LFN">
+                                        <rect key="frame" x="24" y="125" width="326" height="151"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y21-eI-VBT" userLabel="Language View">
+                                                <rect key="frame" x="0.0" y="0.0" width="326" height="50.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMj-g1-cPT">
+                                                        <rect key="frame" x="25" y="15.333333333333313" width="131.66666666666666" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-2h-mpK">
+                                                        <rect key="frame" x="236.66666666666671" y="15.333333333333313" width="69.333333333333343" height="20.333333333333329"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="70" id="7lQ-Nx-AQ6"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="fLK-2h-mpK" secondAttribute="trailing" constant="20" id="0KL-xU-GQQ"/>
+                                                    <constraint firstItem="wMj-g1-cPT" firstAttribute="centerY" secondItem="Y21-eI-VBT" secondAttribute="centerY" id="asi-67-2iw"/>
+                                                    <constraint firstItem="fLK-2h-mpK" firstAttribute="centerY" secondItem="Y21-eI-VBT" secondAttribute="centerY" id="eZV-qP-ndG"/>
+                                                    <constraint firstItem="wMj-g1-cPT" firstAttribute="leading" secondItem="Y21-eI-VBT" secondAttribute="leading" constant="25" id="sbR-bI-zd3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ry8-vK-MOM" userLabel="Notification View">
+                                                <rect key="frame" x="0.0" y="50.333333333333371" width="326" height="50.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpZ-6N-px2">
+                                                        <rect key="frame" x="25" y="15.333333333333256" width="88" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ2-BF-pWE">
+                                                        <rect key="frame" x="233" y="10" width="51" height="31"/>
+                                                        <color key="onTintColor" red="0.72336632010000002" green="0.11782753009999999" blue="0.087881148389999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </switch>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="LpZ-6N-px2" firstAttribute="centerY" secondItem="Ry8-vK-MOM" secondAttribute="centerY" id="3Ol-ar-jHs"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ZJ2-BF-pWE" secondAttribute="trailing" constant="44" id="7RQ-LU-d8t"/>
+                                                    <constraint firstItem="LpZ-6N-px2" firstAttribute="leading" secondItem="Ry8-vK-MOM" secondAttribute="leading" constant="25" id="Qll-Vc-I0J"/>
+                                                    <constraint firstItem="ZJ2-BF-pWE" firstAttribute="centerY" secondItem="Ry8-vK-MOM" secondAttribute="centerY" id="xpq-f7-UbA"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-8b-uli" userLabel="Cache View">
+                                                <rect key="frame" x="0.0" y="100.66666666666663" width="326" height="50.333333333333343"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcG-SC-k91">
+                                                        <rect key="frame" x="25.000000000000007" y="15.333333333333369" width="93.666666666666686" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0M" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8F-uK-GLg">
+                                                        <rect key="frame" x="218" y="15.333333333333369" width="64" height="20.333333333333329"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="64" id="RRx-Cr-gK4"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="i8F-uK-GLg" secondAttribute="trailing" constant="44" id="2xS-fG-15G"/>
+                                                    <constraint firstItem="UcG-SC-k91" firstAttribute="leading" secondItem="hE1-8b-uli" secondAttribute="leading" constant="25" id="7Pm-q0-PYL"/>
+                                                    <constraint firstItem="UcG-SC-k91" firstAttribute="centerY" secondItem="hE1-8b-uli" secondAttribute="centerY" id="MEg-w2-QuK"/>
+                                                    <constraint firstItem="i8F-uK-GLg" firstAttribute="centerY" secondItem="hE1-8b-uli" secondAttribute="centerY" id="z5q-nD-8am"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can choose how you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvD-Sz-EwX">
+                                        <rect key="frame" x="29.999999999999986" y="71" width="210.66666666666663" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3kB-ka-WcS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Setting" translatesAutoresizingMaskIntoConstraints="NO" id="RNt-BT-pWy">
+                                        <rect key="frame" x="24" y="20" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="IJp-u6-0pz"/>
+                                            <constraint firstAttribute="height" constant="30" id="PTv-KN-fgs"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG6-bN-Uz2">
+                                        <rect key="frame" x="61.999999999999993" y="20" width="83.333333333333314" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Gw6-SB-n3x"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6eG-9O-LFN" firstAttribute="leading" secondItem="3x0-wf-W8M" secondAttribute="leading" constant="24" id="01k-gC-Qs9"/>
+                                    <constraint firstItem="CvD-Sz-EwX" firstAttribute="leading" secondItem="3x0-wf-W8M" secondAttribute="leading" constant="30" id="Cxu-L8-4w5"/>
+                                    <constraint firstAttribute="trailing" secondItem="6eG-9O-LFN" secondAttribute="trailing" constant="24" id="HTf-dT-9aO"/>
+                                    <constraint firstAttribute="bottom" secondItem="6eG-9O-LFN" secondAttribute="bottom" constant="24" id="JuN-oz-n14"/>
+                                    <constraint firstItem="6eG-9O-LFN" firstAttribute="top" secondItem="CvD-Sz-EwX" secondAttribute="bottom" constant="24" id="KzN-ug-gbG"/>
+                                    <constraint firstItem="RNt-BT-pWy" firstAttribute="top" secondItem="3x0-wf-W8M" secondAttribute="top" constant="20" id="L6g-jR-aOV"/>
+                                    <constraint firstItem="FG6-bN-Uz2" firstAttribute="leading" secondItem="RNt-BT-pWy" secondAttribute="trailing" constant="8" id="cUq-1w-F1A"/>
+                                    <constraint firstAttribute="height" constant="300" id="e8z-33-YWA"/>
+                                    <constraint firstItem="CvD-Sz-EwX" firstAttribute="top" secondItem="FG6-bN-Uz2" secondAttribute="bottom" constant="21" id="hZt-GG-gbh"/>
+                                    <constraint firstItem="FG6-bN-Uz2" firstAttribute="top" secondItem="3x0-wf-W8M" secondAttribute="top" constant="20" id="kWi-0n-dHM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZu-wl-9gh">
+                                <rect key="frame" x="20" y="672" width="374" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Eyu-68-xSQ"/>
+                                </constraints>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.68211358789999998" green="0.1183449998" blue="0.2172423601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="close:" destination="KQG-tX-euj" eventType="touchUpInside" id="dTG-ib-WRy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HG5-rg-kCq" firstAttribute="trailing" secondItem="3x0-wf-W8M" secondAttribute="trailing" constant="20" id="0LD-48-Jfv"/>
+                            <constraint firstItem="tZu-wl-9gh" firstAttribute="top" secondItem="3x0-wf-W8M" secondAttribute="bottom" constant="6" id="KJj-ey-rxy"/>
+                            <constraint firstItem="3x0-wf-W8M" firstAttribute="leading" secondItem="HG5-rg-kCq" secondAttribute="leading" constant="20" id="OYd-Wv-ThK"/>
+                            <constraint firstItem="tZu-wl-9gh" firstAttribute="leading" secondItem="HG5-rg-kCq" secondAttribute="leading" constant="20" id="T1W-8u-wqu"/>
+                            <constraint firstItem="RNt-BT-pWy" firstAttribute="leading" secondItem="HG5-rg-kCq" secondAttribute="leading" constant="44" id="dxg-GH-5GM"/>
+                            <constraint firstItem="HG5-rg-kCq" firstAttribute="trailing" secondItem="tZu-wl-9gh" secondAttribute="trailing" constant="20" id="oSl-Da-fOG"/>
+                            <constraint firstItem="HG5-rg-kCq" firstAttribute="bottom" secondItem="tZu-wl-9gh" secondAttribute="bottom" constant="20" id="tXY-kK-62J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HG5-rg-kCq"/>
+                    </view>
+                    <connections>
+                        <outlet property="cacheLabel" destination="i8F-uK-GLg" id="GM4-Nf-VyC"/>
+                        <outlet property="cancelButton" destination="tZu-wl-9gh" id="i9v-3b-nNd"/>
+                        <outlet property="clearCacheView" destination="hE1-8b-uli" id="8ia-lX-nX7"/>
+                        <outlet property="clearLabel" destination="UcG-SC-k91" id="DAl-Et-aV7"/>
+                        <outlet property="languageLabel" destination="fLK-2h-mpK" id="SPm-ap-XZw"/>
+                        <outlet property="languageView" destination="fLK-2h-mpK" id="ejQ-R4-zii"/>
+                        <outlet property="notificationLabel" destination="LpZ-6N-px2" id="VWL-C9-Gcc"/>
+                        <outlet property="notificationSwitch" destination="ZJ2-BF-pWE" id="usq-Se-XtV"/>
+                        <outlet property="popView" destination="3x0-wf-W8M" id="XYT-GE-AZj"/>
+                        <outlet property="switchLabel" destination="wMj-g1-cPT" id="AkD-Po-jXj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXZ-Fx-2Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3039" y="1388"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="J28-jj-xn5">
             <objects>
@@ -3405,9 +3607,6 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3em-W3-FXl" kind="relationship" relationship="rootViewController" id="ctY-eE-Prz"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBE-IJ-hpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3611,6 +3810,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="banner" width="540" height="363"/>
         <image name="banner1" width="375" height="200"/>
         <image name="bg_login" width="750" height="1316"/>
+        <image name="exclamation" width="50" height="50"/>
         <image name="feature_large3" width="333" height="342"/>
         <image name="features1" width="333" height="537"/>
         <image name="features2" width="370" height="500"/>
@@ -3637,6 +3837,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="ic_special_white" width="24" height="24"/>
         <image name="ic_store" width="24" height="24"/>
         <image name="ic_tracking_white" width="24" height="24"/>
+        <image name="icon_share" width="512" height="512"/>
         <image name="icons8-calendar_filled" width="75" height="75"/>
         <image name="map_bg" width="750" height="1108"/>
         <image name="menu_bg" width="1024" height="605"/>
@@ -3644,8 +3845,6 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
         <image name="social media icons-2" width="512" height="512"/>
         <image name="social media icons-3" width="512" height="512"/>
         <image name="social media icons-4" width="512" height="512"/>
-        <image name="social media icons-5" width="512" height="512"/>
-        <image name="social media icons-6" width="512" height="512"/>
         <image name="social media logins-1" width="512" height="77"/>
         <image name="social media logins-2" width="512" height="77"/>
         <image name="social media logins-3" width="512" height="77"/>
@@ -3655,7 +3854,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aKF-gB-zjk"/>
-        <segue reference="BW5-Qm-Mgq"/>
+        <segue reference="Gu3-1F-BsW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

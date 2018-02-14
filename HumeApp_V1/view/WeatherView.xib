@@ -61,7 +61,8 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kse-NF-gFw">
-                    <rect key="frame" x="76" y="508" width="92" height="30"/>
+                    <rect key="frame" x="30" y="508" width="70" height="26"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="AccuWeather">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -73,7 +74,7 @@
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="width" secondItem="rgr-Hs-cAI" secondAttribute="width" multiplier="0.75" id="9bN-iY-CGP"/>
                 <constraint firstItem="bkk-dg-3R6" firstAttribute="centerX" secondItem="rgr-Hs-cAI" secondAttribute="centerX" id="CZG-BD-IFw"/>
                 <constraint firstItem="0ap-m7-XR1" firstAttribute="leading" secondItem="rHX-nu-bSV" secondAttribute="leading" constant="64" id="JCq-hy-3nD"/>
-                <constraint firstItem="lp8-IW-Uta" firstAttribute="leading" secondItem="kse-NF-gFw" secondAttribute="trailing" constant="-168" id="O1e-hY-u2D"/>
+                <constraint firstItem="lp8-IW-Uta" firstAttribute="leading" secondItem="kse-NF-gFw" secondAttribute="trailing" constant="-100" id="O1e-hY-u2D"/>
                 <constraint firstItem="MbV-KD-Ty2" firstAttribute="centerX" secondItem="rgr-Hs-cAI" secondAttribute="centerX" id="QBQ-gb-k11"/>
                 <constraint firstItem="kse-NF-gFw" firstAttribute="top" secondItem="bkk-dg-3R6" secondAttribute="bottom" constant="2" id="UwH-cF-VQI"/>
                 <constraint firstItem="rHX-nu-bSV" firstAttribute="trailing" secondItem="0ap-m7-XR1" secondAttribute="trailing" constant="64" id="X2g-lc-2jW"/>

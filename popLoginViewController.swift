@@ -38,7 +38,8 @@ class popLoginViewController: UIViewController {
     }
     
     @IBAction func skipAction(_ sender: Any) {
-        self.removeAnimation()
+//        self.removeAnimation()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func showAnimation(){

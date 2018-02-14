@@ -52,20 +52,25 @@ class TrackingDetailViewController: UIViewController {
     }
     
     
+    @IBAction func popupclicked(_ sender: Any) {
+        popupLogin()
+    }
     func popupLogin(){
         
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let popLoginController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupLogin")
-        
-        self.parent?.addChildViewController(popLoginController)
-//        self.parent.addChildViewController(popLoginController)
+        let popLoginController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupLogin") as! popLoginViewController
+      
+    /*
+        self.addChildViewController(popLoginController)
         popLoginController.view.frame = self.view.frame
+          popLoginController
         self.view.addSubview(popLoginController.view)
         popLoginController.didMove(toParentViewController: self)
+ */
         
-//        self.present(popLoginController, animated: true, completion: nil)
+        self.present(popLoginController, animated: true, completion: nil)
         
     }
     override func didReceiveMemoryWarning() {
