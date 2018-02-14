@@ -23,6 +23,7 @@ class TrackingDetailViewController: UIViewController {
     @IBOutlet weak var dispatchedLabel: UILabel!
     @IBOutlet weak var deliveredLabel: UILabel!
     
+    @IBOutlet weak var popButton: UIButton!
     
     @IBOutlet weak var deliveryStatusLabel: UILabel!
     
@@ -47,11 +48,19 @@ class TrackingDetailViewController: UIViewController {
         self.historyTrackingLabel.text = LanguageHelper.getString(key: "TRACKING_HISTORY")
         
 //        popupLogin()
+        self.popButton.shake(direction: .horizontal, times: 100, interval: 0.05, offset: 3) {
+            print("shake")
+        }
+        
         
         // Do any additional setup after loading the view.
     }
     
-    
+    func shakeAnimation(){
+        
+        
+        
+    }
     @IBAction func popupclicked(_ sender: Any) {
         popupLogin()
     }
@@ -93,3 +102,5 @@ class TrackingDetailViewController: UIViewController {
      */
     
 }
+
+

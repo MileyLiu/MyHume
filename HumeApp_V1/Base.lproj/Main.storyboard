@@ -510,7 +510,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can share the app to your friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsM-7e-GI6">
-                                        <rect key="frame" x="29" y="81" width="317.33333333333331" height="24"/>
+                                        <rect key="frame" x="15" y="81" width="344" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="HEP-21-EwV"/>
                                         </constraints>
@@ -590,7 +590,8 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                     <constraint firstAttribute="trailing" secondItem="sfi-ky-aHb" secondAttribute="trailing" constant="44" id="F0F-k1-ROQ"/>
                                     <constraint firstItem="sfi-ky-aHb" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="44" id="ImU-xd-DHv"/>
                                     <constraint firstItem="enf-eK-WT5" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="30" id="Tkw-IV-o50"/>
-                                    <constraint firstItem="RsM-7e-GI6" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="29" id="Y9V-OC-Xzu"/>
+                                    <constraint firstItem="RsM-7e-GI6" firstAttribute="leading" secondItem="qth-Xz-NFn" secondAttribute="leading" constant="15" id="Y9V-OC-Xzu"/>
+                                    <constraint firstAttribute="trailing" secondItem="RsM-7e-GI6" secondAttribute="trailing" constant="15" id="j2v-MT-wJB"/>
                                     <constraint firstAttribute="bottom" secondItem="sfi-ky-aHb" secondAttribute="bottom" constant="24" id="mrW-HD-c3b"/>
                                 </constraints>
                             </view>
@@ -1115,7 +1116,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5q-WX-eYP" userLabel="transparent">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UtN-It-Pem">
@@ -1127,10 +1128,10 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVr-lt-k55">
-                                <rect key="frame" x="0.0" y="376.66666666666674" width="414" height="359.33333333333326"/>
+                                <rect key="frame" x="0.0" y="360.66666666666674" width="414" height="375.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-lq-ZuQ">
-                                        <rect key="frame" x="158.66666666666666" y="335.33333333333331" width="97" height="12"/>
+                                        <rect key="frame" x="158.66666666666666" y="351.33333333333331" width="97" height="12"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="Xky-Mn-PQb"/>
                                         </constraints>
@@ -1138,11 +1139,11 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sQ-aeI">
-                                        <rect key="frame" x="62" y="20" width="290" height="303.33333333333331"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sQ-aeI">
+                                        <rect key="frame" x="62" y="20" width="290" height="319.33333333333331"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-YZ-UiO">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="63"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="74"/>
                                                 <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="social media logins-1"/>
                                                 <connections>
@@ -1150,25 +1151,22 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSx-gb-Hrx">
-                                                <rect key="frame" x="0.0" y="80" width="290" height="63.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="82" width="290" height="73.666666666666686"/>
                                                 <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Sign in with twitter" image="social media logins-2"/>
+                                                <state key="normal" image="social media logins-2"/>
                                                 <connections>
                                                     <action selector="twitterLogin:" destination="I8j-7c-8KA" eventType="touchUpInside" id="8Vd-2P-k66"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUE-4P-n7O">
-                                                <rect key="frame" x="0.0" y="160.33333333333331" width="290" height="63"/>
-                                                <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="social media logins-4">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2h-4q-YzJ">
+                                                <rect key="frame" x="0.0" y="163.66666666666669" width="290" height="74"/>
+                                                <state key="normal" title="Button" image="social media logins-4"/>
                                                 <connections>
-                                                    <action selector="googleLogin:" destination="I8j-7c-8KA" eventType="touchUpInside" id="udt-eA-a3n"/>
+                                                    <action selector="googleSignin:" destination="I8j-7c-8KA" eventType="touchUpInside" id="TCf-dl-0nD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se2-1e-I05">
-                                                <rect key="frame" x="0.0" y="240.33333333333331" width="290" height="63"/>
+                                                <rect key="frame" x="0.0" y="245.66666666666666" width="290" height="73.666666666666657"/>
                                                 <color key="backgroundColor" red="0.30196078431372547" green="0.76078431372549016" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Sign in with phone" image="social media logins-3"/>
                                                 <connections>
@@ -1254,12 +1252,12 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                             <constraint firstItem="QUT-kW-k2o" firstAttribute="top" secondItem="2Bo-tD-cgP" secondAttribute="top" constant="11" id="VDg-JY-tXO"/>
                             <constraint firstItem="eCc-5T-L3O" firstAttribute="centerX" secondItem="4Ja-ee-XRk" secondAttribute="centerX" id="Xlo-8t-T7f"/>
                             <constraint firstItem="UtN-It-Pem" firstAttribute="centerX" secondItem="4Ja-ee-XRk" secondAttribute="centerX" id="ZdZ-eb-gd0"/>
-                            <constraint firstItem="2Bo-tD-cgP" firstAttribute="top" secondItem="K5q-WX-eYP" secondAttribute="top" constant="20" id="ar9-fZ-BNZ"/>
+                            <constraint firstItem="2Bo-tD-cgP" firstAttribute="top" secondItem="K5q-WX-eYP" secondAttribute="top" id="ar9-fZ-BNZ"/>
                             <constraint firstItem="2Bo-tD-cgP" firstAttribute="bottom" secondItem="jVr-lt-k55" secondAttribute="bottom" id="bmc-zv-MpO"/>
                             <constraint firstItem="ACy-HV-Txk" firstAttribute="centerX" secondItem="4Ja-ee-XRk" secondAttribute="centerX" id="cWv-V4-MUB"/>
                             <constraint firstItem="2Bo-tD-cgP" firstAttribute="trailing" secondItem="ACy-HV-Txk" secondAttribute="trailing" constant="50" id="chB-Jh-4mE"/>
                             <constraint firstItem="K5q-WX-eYP" firstAttribute="height" secondItem="b4T-Rs-vdm" secondAttribute="height" id="fRy-GP-uFR"/>
-                            <constraint firstItem="jVr-lt-k55" firstAttribute="top" secondItem="iMF-w5-iXs" secondAttribute="bottom" constant="46" id="fwx-rU-LK2"/>
+                            <constraint firstItem="jVr-lt-k55" firstAttribute="top" secondItem="iMF-w5-iXs" secondAttribute="bottom" constant="30" id="fwx-rU-LK2"/>
                             <constraint firstItem="K5q-WX-eYP" firstAttribute="width" secondItem="b4T-Rs-vdm" secondAttribute="width" id="jiv-i6-1yI"/>
                             <constraint firstItem="iMF-w5-iXs" firstAttribute="centerX" secondItem="4Ja-ee-XRk" secondAttribute="centerX" id="o4b-tW-onw"/>
                             <constraint firstItem="jVr-lt-k55" firstAttribute="leading" secondItem="2Bo-tD-cgP" secondAttribute="leading" id="oVv-GY-oZk"/>
@@ -1274,7 +1272,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <outlet property="emailTextfield" destination="25W-K2-ZOn" id="qze-gN-Nz0"/>
                         <outlet property="facebookButton" destination="J6c-YZ-UiO" id="opu-Lk-2rB"/>
                         <outlet property="goButton" destination="iMF-w5-iXs" id="d3L-1W-gFx"/>
-                        <outlet property="googleButton" destination="rUE-4P-n7O" id="d2y-ZT-LOn"/>
+                        <outlet property="googleButton" destination="a2h-4q-YzJ" id="oUu-ri-RHM"/>
                         <outlet property="passwordTextField" destination="ACy-HV-Txk" id="a8T-GG-zGm"/>
                         <outlet property="phoneButton" destination="Se2-1e-I05" id="TBz-q9-YOh"/>
                         <outlet property="twitterButton" destination="RSx-gb-Hrx" id="fBm-20-8Fj"/>
@@ -3303,6 +3301,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <outlet property="dispatchedLabel" destination="I37-Sk-V0g" id="yzV-Oh-OGq"/>
                         <outlet property="historyTrackingLabel" destination="ERa-tn-chW" id="bA5-Z5-jA3"/>
                         <outlet property="orderNoLabel" destination="zOw-lO-eSd" id="iZG-ex-Ev7"/>
+                        <outlet property="popButton" destination="Fsg-0W-vp8" id="Bdr-pL-St5"/>
                         <outlet property="preparedLabel" destination="Vb1-Vt-bD1" id="SPc-40-iin"/>
                         <outlet property="scheduleLabel" destination="cxy-UW-Hsu" id="jKa-i2-Jcx"/>
                         <outlet property="scheduledLabel" destination="IpD-gL-Bmo" id="uOR-PW-mPy"/>

@@ -7,8 +7,23 @@
 //
 
 import UIKit
-
-class SigninViewController: UIViewController ,UITextFieldDelegate{
+import Firebase
+import GoogleSignIn
+import FBSDKLoginKit
+import FirebaseAuth
+class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate{
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error{
+            
+            print(error.localizedDescription)
+            return
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("logout")
+    }
+    
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var goButton: UIButton!
@@ -18,6 +33,9 @@ class SigninViewController: UIViewController ,UITextFieldDelegate{
     @IBOutlet weak var phoneButton: UIButton!
     
     @IBOutlet weak var googleButton: UIButton!
+  
+  
+    var handle :AuthStateDidChangeListenerHandle?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.goButton.layer.cornerRadius = 20
@@ -25,7 +43,7 @@ class SigninViewController: UIViewController ,UITextFieldDelegate{
         
          self.facebookButton.layer.cornerRadius = 20
          self.twitterButton.layer.cornerRadius = 20
-         self.googleButton.layer.cornerRadius = 20
+        self.googleButton.layer.cornerRadius = 20
          self.phoneButton.layer.cornerRadius = 20
         
         self.facebookButton.layer.masksToBounds = true
@@ -58,22 +76,53 @@ class SigninViewController: UIViewController ,UITextFieldDelegate{
         
         self.emailTextfield.configKeyboard()
         self.passwordTextField.configKeyboard()
+        
+       //google
+        GIDSignIn.sharedInstance().uiDelegate = self
       
+        
+      
+    
+        
     }
 
-    
-    
-    @IBAction func googleLogin(_ sender: Any) {
+    override func viewWillAppear(_ animated: Bool) {
+        
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            print("auth")
+        }
+        
+        
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle!)
+    }
+    
+    
+    @IBAction func googleSignin(_ sender: Any) {
+         GIDSignIn.sharedInstance().signIn()
+    }
+   
     @IBAction func emailLogin(_ sender: Any) {
+        
+       
+        
     }
     
     @IBAction func facebookLogin(_ sender: Any) {
+        
+        //facebook
+        let loginButton = FBSDKLoginButton()
+        loginButton.delegate  = self
+        
+        
     }
     
     @IBAction func twitterLogin(_ sender: Any) {
     }
     @IBAction func phoneLogin(_ sender: Any) {
+       
     }
     
     
@@ -88,7 +137,7 @@ class SigninViewController: UIViewController ,UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-
+   
     /*
     // MARK: - Navigation
 

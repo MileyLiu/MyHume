@@ -78,7 +78,7 @@ class NewsViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         //        let preferredLang = Bundle.main.preferredLocalizations.first! as NSString
         
-        url = "http://myhume.humeplaster.com.au/api/news?type=list"
+        url = hostApiNews+"/news?type=list"
         
         
         Alamofire.request(url)

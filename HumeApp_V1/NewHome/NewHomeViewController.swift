@@ -63,7 +63,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         placesClient = GMSPlacesClient.shared()
         
         //        setUpFirstView()
-        setupWeatherView()
+//        setupWeatherView()
         
     }
     override func viewDidLoad() {
@@ -377,7 +377,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
     func loadData() {
         SVProgressHUD.show()
-        let url = "http://myhume.humeplaster.com.au/api/news?type=full"
+        let url = hostApiNews+"/news?type=full"
     
         Alamofire.request(url)
             .validate()

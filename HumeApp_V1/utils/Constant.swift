@@ -83,7 +83,8 @@ var branches = ["Alexandria Branch","Lakemba Branch","Pymble Branch","Silverwate
 var jobType = [LanguageHelper.getString(key: "DELIVERY"),LanguageHelper.getString(key: "PICKUP")]
 //var jobTypeCN = ["送货","自取"]
 var requestType = ["Place an order","Existing Order","General Order","Account enquiry"]
-let hostApi = "http://hls.humeplaster.com.au/api"
+let hostApi = "https://hls.humeplaster.com.au/api"
+let hostApiNews = "https://myhume.humeplaster.com.au/api"
 
 let AcuuWeatherAPIHost = "http://dataservice.accuweather.com"
 

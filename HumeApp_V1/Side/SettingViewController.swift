@@ -34,7 +34,7 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.popView.layer.cornerRadius = 10
         self.cancelButton.layer.cornerRadius = 10
 //        self.title = LanguageHelper.getString(key: "SETTING")

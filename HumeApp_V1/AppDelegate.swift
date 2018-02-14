@@ -22,8 +22,9 @@ import GTMSessionFetcher
 
 
 import UserNotifications
-
+//signin
 import GoogleSignIn
+
 
 import FBSDKShareKit
 import JSQMessagesViewController
@@ -52,7 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("开启数据库成功!")
         }
         
-
+        FirebaseApp.configure()
+        
 //        sharing
         //facebook sharing
         if FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions){
@@ -80,8 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //        */
         
         
-        FirebaseApp.configure()
-        
+      
          GTMSessionFetcher.setLoggingEnabled(true)
         
        
@@ -284,7 +285,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             NotificationCenter.default.post(
                 name: Notification.Name(rawValue: "ToggleAuthUINotification"), object: nil, userInfo: nil)
             // [END_EXCLUDE]
-        } else {
+            
+            return
+        }
+//            else {
+//            print("GOOGLE SIGN IN SUCESSFUL")
+//            
+            
             // Perform any operations on signed in user here.
 //            let userId = user.userID                  // For client-side use only!
 //            let idToken = user.authentication.idToken // Safe to send to the server
@@ -298,7 +305,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //                object: nil,
 //                userInfo: ["statusText": "Signed in user:\n\(fullName)"])
             // [END_EXCLUDE]
-        }
+//        }
+        
+        guard let authentication = user.authentication else {return}
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        print("google sign in sucessful\(authentication.idToken),\(authentication.accessToken)\(user.profile.name)")
+        
     }
     
     
