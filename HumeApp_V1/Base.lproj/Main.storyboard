@@ -1139,19 +1139,18 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sQ-aeI">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-sQ-aeI">
                                         <rect key="frame" x="62" y="20" width="290" height="319.33333333333331"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6c-YZ-UiO">
-                                                <rect key="frame" x="0.0" y="0.0" width="290" height="74"/>
-                                                <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="65"/>
                                                 <state key="normal" image="social media logins-1"/>
                                                 <connections>
                                                     <action selector="facebookLogin:" destination="I8j-7c-8KA" eventType="touchUpInside" id="NN3-rF-Dpg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSx-gb-Hrx">
-                                                <rect key="frame" x="0.0" y="82" width="290" height="73.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="85" width="290" height="64.666666666666686"/>
                                                 <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="social media logins-2"/>
                                                 <connections>
@@ -1159,14 +1158,14 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2h-4q-YzJ">
-                                                <rect key="frame" x="0.0" y="163.66666666666669" width="290" height="74"/>
+                                                <rect key="frame" x="0.0" y="169.66666666666669" width="290" height="65"/>
                                                 <state key="normal" title="Button" image="social media logins-4"/>
                                                 <connections>
                                                     <action selector="googleSignin:" destination="I8j-7c-8KA" eventType="touchUpInside" id="TCf-dl-0nD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se2-1e-I05">
-                                                <rect key="frame" x="0.0" y="245.66666666666666" width="290" height="73.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="254.66666666666666" width="290" height="64.666666666666657"/>
                                                 <color key="backgroundColor" red="0.30196078431372547" green="0.76078431372549016" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Sign in with phone" image="social media logins-3"/>
                                                 <connections>
@@ -1269,6 +1268,7 @@ Suits staple guns from GTPRO, Rapid 14/34/44 and Arrow TH50/55/HT50</string>
                         <viewLayoutGuide key="safeArea" id="2Bo-tD-cgP"/>
                     </view>
                     <connections>
+                        <outlet property="buttonsView" destination="jVr-lt-k55" id="AWA-Jb-XhY"/>
                         <outlet property="emailTextfield" destination="25W-K2-ZOn" id="qze-gN-Nz0"/>
                         <outlet property="facebookButton" destination="J6c-YZ-UiO" id="opu-Lk-2rB"/>
                         <outlet property="goButton" destination="iMF-w5-iXs" id="d3L-1W-gFx"/>

@@ -26,6 +26,7 @@ def shared_pods
     pod 'FirebaseUI/Facebook'
     pod 'FirebaseUI/Twitter'
     pod 'FirebaseUI/Phone'
+    pod 'FBSDKLoginKit'
     
     
     pod 'TwitterKit'

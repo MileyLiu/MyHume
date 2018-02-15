@@ -28,6 +28,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     @IBOutlet weak var logoutButton: UIButton!
     let defaults = UserDefaults.standard
     let authUI = FUIAuth.defaultAuthUI()
+    let firebaseAuth = Auth.auth()
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -59,7 +60,20 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     
     override func viewWillAppear(_ animated: Bool) {
         self.setButtonTitleAsChosenLanguage()
-        
+        print("viewWillAppear..")
+        if((defaults.object(forKey: "token")) != nil){
+            
+            loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(defaults.object(forKey: "displayName") ?? "")", for: .normal)
+            
+            logoutButton.isEnabled = true
+        }
+        else{
+            loginButton.setTitle(LanguageHelper.getString(key: "LOGIN"), for: .normal)
+            loginButton.isEnabled = true
+            logoutButton.isEnabled = false
+            
+        }
+        authUI?.delegate = self
     }
     // MARK: - View setting
     
@@ -288,12 +302,19 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             
             
             do {
-                try self.authUI?.signOut()
+                try self.firebaseAuth.signOut()
+
+//                    self.authUI?.signOut()
+                    
+                
+                print("Signing out.....")
                 
                 
-            } catch {
+            } catch let signoutError as NSError{
+                    print("error Sign out",signoutError)
+                }
                 return
-            }
+            
             
         }))
         
@@ -321,8 +342,8 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             print("login AUTH\(String(describing: authUI.auth?.apnsToken?.base64EncodedString()))")
             
             
-            defaults.set(token, forKey: "token")
-            defaults.set(user!.displayName, forKey: "displayName")
+//            defaults.set(token, forKey: "token")
+//            defaults.set(user!.displayName, forKey: "displayName")
             
             
             print("authphoto",currentUser?.photoURL ?? "")
