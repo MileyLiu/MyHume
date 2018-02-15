@@ -15,6 +15,12 @@ let DISAPIKey = "AIzaSyBGZba7luJRSuyarsiyKnVO0yAHw4baZes"
 let APIKey = "AIzaSyC8SwxiRuHSdZdomYuOPE1Ac-mrkVmiGi8"
 //let AccuWeatherAPIKey =  "EOZJidG896j2Qt9nzDVt3KXZANpMvKah"
 let AccuWeatherAPIKey =  "og8TVj7s7uoWG4LgJQR5pTPJvGHw0bTC"
+
+let TwitterCustomerKey = "10fLqPlCvu1juCKzvuRlsgt6u"
+let TwitterCustomerSecret = "oXRIS7pIxLLyxcrhHVOsmA0iMdxprBATrxswt8NVxZu3zW53kz"
+
+let GoogleClientId = "997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc.apps.googleusercontent.com"
+
 //#a51c3d
 let mainColor = UIColor.init(red: 165/255.0, green: 28/255.0, blue: 61/255.0, alpha: 1.0)
 let bgColor = UIColor.init(red: 233/255.0, green: 233/255.0, blue: 233/255.0, alpha: 1.0)
@@ -27,11 +33,8 @@ let address = ["149+Mitchell+Road,+Alexandria",
                "32+Pine+Road,+Yennora,+NSW",
                "86+Ferndell+Street,+South,+Granville,+NSW",
                "1C+Bell+Street,+Preston,+VIC,+3072",
-               "540+Somerville+Road,+Sunshine+West,+VIC,+3020"
-]
-
+               "540+Somerville+Road,+Sunshine+West,+VIC,+3020"]
 let placeIdArray = ["ChIJmdalXoCoEmsR5dBXNOt4WPE"]
-
 let waetherAPIKEY = "366edfe1d79d1e4b523002e4da3771d8"
 
 let storePlaces :[GMSPlace] = []
@@ -41,7 +44,6 @@ let slipMatcher = MyRegex(slipPattern)
 
 let suburbPattern = "[A-Za-z]{3,}"
 let suburbMatcher = MyRegex(suburbPattern)
-
 
 //基本
 let alertString =  LanguageHelper.getString(key: "ALERT")
@@ -71,14 +73,11 @@ let noItemString = LanguageHelper.getString(key: "NO_ITEM")
 let suburbAlert =  UIAlertController(title: alertString, message:  subrubErrorString, preferredStyle: UIAlertControllerStyle.alert)
 let slipAlert = UIAlertController(title: alertString, message:slipErrorString, preferredStyle: UIAlertControllerStyle.alert)
 
-  let recordAlert = UIAlertController(title: alertString, message: recordErrorString, preferredStyle: UIAlertControllerStyle.alert)
+let recordAlert = UIAlertController(title: alertString, message: recordErrorString, preferredStyle: UIAlertControllerStyle.alert)
 
 let sucessfulAlert = UIAlertController(title: sucessString, message: submitSucessString, preferredStyle: UIAlertControllerStyle.alert)
 
-
 var branches = ["Alexandria Branch","Lakemba Branch","Pymble Branch","Silverwater","Yennora Branch","South Granville Branch","Preston Branch","Sunshine West Branch"]
-
-
 
 var jobType = [LanguageHelper.getString(key: "DELIVERY"),LanguageHelper.getString(key: "PICKUP")]
 //var jobTypeCN = ["送货","自取"]
@@ -94,7 +93,6 @@ let password = "@humeit"
 let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
 let base64Credentials = credentialData.base64EncodedString(options: [])
 let headers = ["Authorization": "Basic \(base64Credentials)"]
-
 
 var ifShoppingCarExist : Bool = true
 var ifHistoryExist: Bool = true

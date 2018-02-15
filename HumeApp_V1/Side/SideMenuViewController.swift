@@ -97,6 +97,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         let popupController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popupID") as! PopupSMViewController
         
         
+        popupController.modalPresentationStyle = .overCurrentContext
         self.present(popupController, animated: true, completion: nil)
         
 //        self.addChildViewController(popupController)
@@ -111,7 +112,7 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let popupController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "popSetting") as! SettingViewController
         
-        
+         popupController.modalPresentationStyle = .overCurrentContext
         self.present(popupController, animated: true, completion: nil)
     }
     
@@ -340,11 +341,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             let currentUser = Auth.auth().currentUser
             
             print("login AUTH\(String(describing: authUI.auth?.apnsToken?.base64EncodedString()))")
-            
-            
-//            defaults.set(token, forKey: "token")
-//            defaults.set(user!.displayName, forKey: "displayName")
-            
             
             print("authphoto",currentUser?.photoURL ?? "")
             

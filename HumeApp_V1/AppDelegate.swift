@@ -23,13 +23,11 @@ import GoogleSignIn
 import FBSDKShareKit
 import FBSDKLoginKit
 import FirebaseAuth
-import JSQMessagesViewController
+//import JSQMessagesViewController
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate,GIDSignInDelegate{
-    
-    
     
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
@@ -41,26 +39,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         LanguageHelper.shareInstance.initUserLanguage()
         
         UINavigationBar.appearance().tintColor = mainColor
-        
-        //        IQKeyboardManager.sharedManager().enable = true
-        
+
         GMSServices.provideAPIKey(APIKey)
         GMSPlacesClient.provideAPIKey(APIKey)
         
-        
         if SQLiteManager.shareInstance().openDB() {
-            print("开启数据库成功!")
+            print("Open database!")
         }
-        
+        //Login
         FirebaseApp.configure()
-        
         
         if FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions){
             print("facebook init done")
             
         }
         //twiteer sharing
-        Twitter.sharedInstance().start(withConsumerKey:"10fLqPlCvu1juCKzvuRlsgt6u", consumerSecret:"oXRIS7pIxLLyxcrhHVOsmA0iMdxprBATrxswt8NVxZu3zW53kz")
+        Twitter.sharedInstance().start(withConsumerKey:TwitterCustomerKey, consumerSecret:TwitterCustomerSecret)
         
         //wechat sharing
         WXApi.registerApp("wx3f2ecefa538c7092")
@@ -68,11 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // google+ sharing
         var configureError: NSError?
         
-        //        CGContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
-        GIDSignIn.sharedInstance().clientID = "997130391655-mvr1enhaski5opuqpbr6o1iea3hi2ucc.apps.googleusercontent.com"
-        
+        GIDSignIn.sharedInstance().clientID = GoogleClientId
         GIDSignIn.sharedInstance().delegate = self
         
         GTMSessionFetcher.setLoggingEnabled(true)
@@ -103,19 +95,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("Token:\(token)")
         }
         
-        
         window?.makeKeyAndVisible()
         
         adLaunchView = AdLaunchView(frame: UIScreen.main.bounds)
         adLaunchView?.delegate = self
         window?.addSubview(adLaunchView!)
         
-        
-        
         return true
     }
-    
-    
     
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
@@ -160,22 +147,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        print("receving message")
+      
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        // Print full message.
+      
         print(userInfo)
-        
         completionHandler(UIBackgroundFetchResult.newData)
     }
     

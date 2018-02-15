@@ -109,35 +109,24 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
                 print("not signin")
                 
             }
-            
-            print("auth:\(auth.apnsToken?.base64EncodedString())")
-            print("user:\(user)")
         }
-        
         
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
-        print("FBSDKLoginButton1.0")
         if let error = error{
-            print("FBSDKLoginButton error\(error.localizedDescription)")
             return
         }
-        print("FBSDKLoginButton login.......no error")
-        print("FBSDKLoginButton LOGIN2:\(result),token:\(result.token)")
-        
+      
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         Auth.auth().signIn(with: credential, completion: { (user, error) in
             if let error = error {
                 
-                print(error.localizedDescription)
-                
                 return
             }
-            
-            print("FBSDKLoginButton login sucessful")
+          
             self.defaults.set(result.token, forKey: "token")
             self.defaults.set(user?.displayName, forKey: "displayName")
         })

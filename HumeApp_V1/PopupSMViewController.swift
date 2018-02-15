@@ -13,20 +13,20 @@ import FBSDKLoginKit
 import GoogleSignIn
 
 class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWTRComposerViewControllerDelegate {
-
+    
     @IBOutlet weak var popView: UIView!
     @IBOutlet weak var cancalButton: UIButton!
     let url = URL(string:"http://www.humeplaster.com.au/")
     override func viewDidLoad() {
         super.viewDidLoad()
- self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.popView.layer.cornerRadius = 10
         self.cancalButton.layer.cornerRadius = 10
         self.showAnimation()
         // Do any additional setup after loading the view.
     }
     @IBAction func close(_ sender: Any) {
-//        self.removeAnimation()
+        //        self.removeAnimation()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -35,8 +35,7 @@ class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWT
         
         if (FBSDKAccessToken.current() != nil)
         {
-            
-            print("facebook LOGIN")
+            print("facebook LOGIN,\(FBSDKAccessToken.current())")
         }
         else
         {
@@ -49,7 +48,6 @@ class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWT
         print("sharing content:\(content.contentURL)")
         
         FBSDKShareDialog.show(from:self, with: content, delegate: nil)
-        
         
     }
     
@@ -130,21 +128,21 @@ class PopupSMViewController: UIViewController,SFSafariViewControllerDelegate,TWT
             }
         });
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
