@@ -281,6 +281,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         defaults.set(authentication.accessToken, forKey: "token")
         defaults.set(user.profile.name, forKey: "displayName")
+       
         
         
     }

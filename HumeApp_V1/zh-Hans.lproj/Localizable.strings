@@ -76,6 +76,9 @@ LOGIN = "请点击此处登录";
 LOGOUT = "退出";
 LOGOUT_MESSAGE = "您确定要退出登录吗？";
 
+LOGIN_MSG = "登录成功";
+LOGIN_T = "登录";
+
 //Tracking
 TRACKING = "追踪";
 DELIVERY_TRACKING = "订单追踪";

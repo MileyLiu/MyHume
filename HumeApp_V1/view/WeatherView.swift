@@ -47,12 +47,12 @@ class WeatherView: UIView {
     
     func bindWithData(bgImageName:String,timeBucket:String, temperature:String,weatherIamge:String){
        
-        self.bgImageView.image = UIImage.gif(name: "rainy")
+        self.bgImageView.image = UIImage.gif(name: bgImageName)
         self.timeBucketLabel.text = "Good \(timeBucket)"
         self.temperatureLabel.text = temperature
         self.weatherImageView.contentMode = .scaleToFill
         
-        self.weatherImageView.image =  UIImage(named:"01d")
+        self.weatherImageView.image =  UIImage(named:weatherIamge)
         
         self.forecastTableView.backgroundColor = UIColor.clear
         

@@ -367,6 +367,8 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             self.logoutButton.isEnabled = true
             
             
+            
+            
         }
     }
     

@@ -88,9 +88,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         }
         
-       
-        
-        
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "HOME")
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
         
@@ -220,7 +217,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         let timeBucket = getTimeBucket()
     
-        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "N/A",weatherIamge: "ic_cloudy")
+        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "",weatherIamge: "")
         
         weatherView.forecastTableView.delegate = self
         weatherView.forecastTableView.dataSource = self
@@ -607,17 +604,24 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         var cell = tableView.dequeueReusableCell(withIdentifier: "weatherForecastCell", for: indexPath) as! WeatherTableViewCell
         
         if(self.accuWeatherList.count == 0)
+           
         {
-            cell.tempLable.text = "N/AºC"
             
+            SVProgressHUD.show()
             
-            cell.timeLabel.text = "N/Aam"
+        
             
-            cell.imageIcon.image = UIImage(named:"ic_cloudy")
-            
+//            cell.tempLable.text = "N/AºC"
+//
+//
+//            cell.timeLabel.text = "N/Aam"
+//
+//            cell.imageIcon.image = UIImage(named:"")
+//
             
         }
         else{
+                 SVProgressHUD.dismiss()
             
             let temp = accuWeatherList[indexPath.row].TemperatureF!
             let tempString = temperatureTransfer(tf: temp)
@@ -699,8 +703,8 @@ extension NewHomeViewController: CLLocationManagerDelegate{
         //
         print("locationError1: \(error)")
         
-        let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
-        self.present(networkAlert, animated: true, completion: nil)
+//        let networkAlert = getSimpleAlert(titleString: alertString, messgaeLocizeString: "NETWORK_ERROR")
+//        self.present(networkAlert, animated: true, completion: nil)
         
     }
     // Populate the array with the list of likely places.

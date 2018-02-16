@@ -76,10 +76,12 @@ LOGIN = "Tap here to log in";
 LOGOUT = "Log out";
 LOGOUT_MESSAGE = "Are you sure you want to log out";
 
+LOGIN_MSG = "Log in sucessfully";
+LOGIN_T = "Log in";
 
 //Tracking
 TRACKING = "Tracking";
-DELIVERY_TRACKING = "Delivery Tracking";
+DELIVERY_TRACKING = "Tracking";
 TRACKING_DES = "Please enter your pickinig slip number and suburb to track";
 PICKING = "Picking Slip";
 HISTORY = "History";
@@ -142,6 +144,10 @@ INTIAL_TALK = "Please send us message";
 
 ADD_SHOPPINGCART = "Add to shopping cart";
 SHOPPING_CART = "Shopping Cart";
+
+//Login
+
+
 
 
 

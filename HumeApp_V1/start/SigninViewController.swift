@@ -84,6 +84,15 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
                     self.defaults.set(user?.displayName, forKey: "displayName")
                     
                     print("User is sign in")
+                    
+                    let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
+                    
+                    
+                    self.present(sucessAlert, animated: true, completion: {
+//                        self.dismiss(animated: true, completion: nil)
+                    })
+                  
+                    
                 })
                 
                 
@@ -105,28 +114,34 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
             if Auth.auth().currentUser != nil {
                 print("existing user")
                 
+                
+                
             }else {
                 print("not signin")
                 
+                
             }
         }
+        
+        
+        
         
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
-        if let error = error{
+        if (error) != nil{
             return
         }
-      
+        
         let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         Auth.auth().signIn(with: credential, completion: { (user, error) in
-            if let error = error {
+            if error != nil {
                 
                 return
             }
-          
+            
             self.defaults.set(result.token, forKey: "token")
             self.defaults.set(user?.displayName, forKey: "displayName")
         })
@@ -144,29 +159,78 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
     
     
     @IBAction func googleSignin(_ sender: Any) {
+        
         GIDSignIn.sharedInstance().signIn()
+       
+        let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
+        
+        
+        self.present(sucessAlert, animated: true, completion: {
+            //                        self.dismiss(animated: true, completion: nil)
+        })
+        
     }
     
     @IBAction func emailLogin(_ sender: Any) {
         
         if (self.emailTextfield.text?.isEmpty)! {
-            print("fill email")
+           let alert  = getSimpleAlert(titleString: fillErrorString, messgaeLocizeString: fillErrorString)
+            self.present(alert, animated: true, completion: nil)
+            
         }
         else if (self.emailTextfield.text?.isEmpty)! {
+            let alert  = getSimpleAlert(titleString: "ERROR", messgaeLocizeString: fillErrorString)
+            self.present(alert, animated: true, completion: nil)
             print("fill password")
         }
         else{
-            Auth.auth().createUser(withEmail:self.emailTextfield.text!, password: self.passwordTextField.text!) { (user, error) in
-                
-                
+            Auth.auth().signIn(withEmail:self.emailTextfield.text!, password: self.passwordTextField.text!) { (user, error) in
                 if let error = error{
                     print("emailauth error\(error.localizedDescription)")
+                    
+                    let alert  = getSimpleAlert(titleString: "ERROR", messgaeLocizeString:error.localizedDescription )
+                   
+                    self.present(alert, animated: true, completion: nil)
+                    
+
+                    Auth.auth().createUser(withEmail: self.emailTextfield.text!, password: self.passwordTextField.text!, completion: { (user, error) in
+                        
+                        if let error = error{
+                            
+                             print("emailauth error2\(error.localizedDescription)")
+                          
+                            let alert  = getSimpleAlert(titleString: "ERROR", messgaeLocizeString:error.localizedDescription )
+                            
+                            self.present(alert, animated: true, completion: nil)
+                           
+                        }
+                        else{
+                            self.defaults.set(user?.refreshToken, forKey: "token")
+                            self.defaults.set(user?.displayName, forKey: "displayName")
+                                print("\(user?.displayName),\(user?.refreshToken)")
+                            
+                            let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
+                            self.present(sucessAlert, animated: true, completion: nil)
+                        }
+                       
+                    })
+                
                     return
                 }
-                print("\(user?.displayName),\(user?.refreshToken)")
                 
-                self.defaults.set(user?.refreshToken, forKey: "token")
-                self.defaults.set(user?.displayName, forKey: "displayName")
+                else{
+                    
+
+                    self.defaults.set(user?.refreshToken, forKey: "token")
+                    self.defaults.set(user?.displayName, forKey: "displayName")
+                      print("\(user?.displayName),\(user?.refreshToken)")
+                    
+                    let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
+                    self.present(sucessAlert, animated: true, completion: nil)
+                }
+//                print("\(user?.displayName),\(user?.refreshToken)")
+                
+            
                 
             }
         }
