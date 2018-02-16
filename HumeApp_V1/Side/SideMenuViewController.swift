@@ -74,6 +74,16 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             
         }
         authUI?.delegate = self
+        
+        
+        
+        self.revealViewController().frontViewController.view.isUserInteractionEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        self.revealViewController().frontViewController.view.isUserInteractionEnabled = true
+        
     }
     // MARK: - View setting
     

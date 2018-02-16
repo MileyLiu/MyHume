@@ -18,11 +18,13 @@ import SwiftGifOrigin
 
 
 class NewHomeViewController: UIViewController,GMSMapViewDelegate
-    ,UITableViewDelegate,UITableViewDataSource
+    ,UITableViewDelegate,UITableViewDataSource,SWRevealViewControllerDelegate
     //,SFSafariViewControllerDelegate
     
     
 {
+    
+    var sidebarMenuOpen :ObjCBool = false
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var forecastWeatherArray :NSMutableArray = NSMutableArray()
@@ -62,9 +64,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.delegate = self
         placesClient = GMSPlacesClient.shared()
         
-        //        setUpFirstView()
-//        setupWeatherView()
-        
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +72,25 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
-            //            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(_:))
-            
-            self.menuButton?.action = #selector(SWRevealViewController.revealToggle(animated:))
+      
+            self.menuButton?.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
-            //            self.title = "temp"
+            
+//
+            self.revealViewController().panGestureRecognizer()
+            self.revealViewController().tapGestureRecognizer()
+//
+//            self.revealViewController().
+            
+//             self.revealViewController().delegate = self
+            
+        
         }
+        
+       
+        
+        
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "HOME")
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
         
@@ -151,6 +163,42 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
      
         
     }
+
+    
+    
+//    func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
+//        if(position == FrontViewPosition.left) {
+//            self.view.isUserInteractionEnabled = true
+//            sidebarMenuOpen = false
+//            print("FrontViewPosition.left1\(sidebarMenuOpen))")
+//        } else {
+//            self.view.isUserInteractionEnabled = false
+//            print("FrontViewPosition.left2\(sidebarMenuOpen))")
+//            sidebarMenuOpen = true
+//        }
+//    }
+//
+//    func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
+//        if(position == FrontViewPosition.left) {
+//            self.view.isUserInteractionEnabled = true
+//            sidebarMenuOpen = false
+//               print("FrontViewPosition.left1\(sidebarMenuOpen))")
+//        } else {
+//            self.view.isUserInteractionEnabled = false
+//            sidebarMenuOpen = true
+//               print("FrontViewPosition.left1\(sidebarMenuOpen))")
+//        }
+//    }
+//
+//
+//
+//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        if(sidebarMenuOpen){
+//            return nil
+//        } else {
+//            return indexPath
+//        }
+//    }
     
     
     func setUpSecondView(newsArray:[News]){
@@ -612,7 +660,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
 }
 
 
-extension NewHomeViewController: CLLocationManagerDelegate {
+extension NewHomeViewController: CLLocationManagerDelegate{
     
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -676,6 +724,10 @@ extension NewHomeViewController: CLLocationManagerDelegate {
             }
         })
     }
+    
+
+    
+    
     
 }
 

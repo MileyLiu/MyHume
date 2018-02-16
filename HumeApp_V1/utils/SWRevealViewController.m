@@ -58,6 +58,8 @@ static CGFloat statusBarAdjustment( UIView* view )
 @property (nonatomic, readonly) UIView *rightView;
 @property (nonatomic, readonly) UIView *frontView;
 @property (nonatomic, assign) BOOL disableLayout;
+//1. implement BOOL sidebarMenuOpen
+@property (nonatomic, assign) BOOL sidebarMenuOpen;
 
 @end
 
@@ -734,6 +736,10 @@ const int FrontViewPositionNone = 0xff;
     
     // now set the desired initial position
     [self _setFrontViewPosition:initialPosition withDuration:0.0];
+    
+    
+//    set sidebarMenuOpen to NO.
+    
 }
 
 
