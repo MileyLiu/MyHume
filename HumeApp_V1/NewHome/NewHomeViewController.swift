@@ -24,6 +24,8 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     
 {
     
+    
+    
     var sidebarMenuOpen :ObjCBool = false
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -31,7 +33,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     var accuWeatherList :[AccuWeather] = []
    
     //weatherView
-    var weatherView = WeatherView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
+    @objc var weatherView = WeatherView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: screenHeight-44))
     
     //scondview init
     var secondView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: screenWidth, height: screenHeight-44))
@@ -69,6 +71,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+      
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: NSNotification.Name(rawValue:"changeLanguage"), object: nil)
+        
+        
+    
+        
         
         if self.revealViewController() != nil {
             self.menuButton?.target = self.revealViewController()
@@ -76,17 +85,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
             self.menuButton?.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
-            
-//
             self.revealViewController().panGestureRecognizer()
             self.revealViewController().tapGestureRecognizer()
-//
-//            self.revealViewController().
             
-//             self.revealViewController().delegate = self
-            
-        
         }
+        
+     
         
         self.navigationController?.tabBarItem.title = LanguageHelper.getString(key: "HOME")
         let titleImageView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -113,18 +117,13 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         loadData()
         setupWeatherView()
-        //        setUpSecondView()
-        //        setupThirdiew()
-        
-        //refresh firstView notification
-        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFirstView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
+       
+//        NotificationCenter.default.addObserver(self, selector: #selector(getter: self.weatherView), name: Notification.Name(rawValue: "refreshHome"), object: nil)
         
         
+//        NotificationCenter.default.addObserver(self, selector: , name: NSNotification.Name(rawValue:"updateLanguage"), object: nil)
+//
         self.photoGallery.bindWithViews(array: [weatherView,secondView,fullScreenNews], interval: 0.0)
-        
-        
-      
-        
         
         self.view.addSubview(photoGallery)
         
@@ -134,6 +133,11 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         // Do any additional setup after loading the view.
     }
     
+    
+    @objc func changeLanguage(){
+        
+        
+    }
     func popupLogin(){
         
         
@@ -161,43 +165,6 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
     }
 
-    
-    
-//    func revealController(revealController: SWRevealViewController!,  willMoveToPosition position: FrontViewPosition){
-//        if(position == FrontViewPosition.left) {
-//            self.view.isUserInteractionEnabled = true
-//            sidebarMenuOpen = false
-//            print("FrontViewPosition.left1\(sidebarMenuOpen))")
-//        } else {
-//            self.view.isUserInteractionEnabled = false
-//            print("FrontViewPosition.left2\(sidebarMenuOpen))")
-//            sidebarMenuOpen = true
-//        }
-//    }
-//
-//    func revealController(revealController: SWRevealViewController!,  didMoveToPosition position: FrontViewPosition){
-//        if(position == FrontViewPosition.left) {
-//            self.view.isUserInteractionEnabled = true
-//            sidebarMenuOpen = false
-//               print("FrontViewPosition.left1\(sidebarMenuOpen))")
-//        } else {
-//            self.view.isUserInteractionEnabled = false
-//            sidebarMenuOpen = true
-//               print("FrontViewPosition.left1\(sidebarMenuOpen))")
-//        }
-//    }
-//
-//
-//
-//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        if(sidebarMenuOpen){
-//            return nil
-//        } else {
-//            return indexPath
-//        }
-//    }
-    
-    
     func setUpSecondView(newsArray:[News]){
         
         let othersHeight = (self.navigationController?.navigationBar.frame.height)! + (self.tabBarController?.tabBar.frame.height)! + 20.0
@@ -217,10 +184,12 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         let timeBucket = getTimeBucket()
     
-        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "",weatherIamge: "")
+//        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "",weatherIamge: "")
         
         weatherView.forecastTableView.delegate = self
         weatherView.forecastTableView.dataSource = self
+        
+        weatherView.forecastTableView.backgroundColor = UIColor.clear
         
         weatherView.forecastTableView.register(UINib.init(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "weatherForecastCell")
         

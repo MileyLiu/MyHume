@@ -40,6 +40,8 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: NSNotification.Name(rawValue:"changeLanguage"), object: nil)
+        
         self.setButtonTitleAsChosenLanguage()
         
         if((defaults.object(forKey: "token")) != nil){
@@ -57,6 +59,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         authUI?.delegate = self
     }
     
+    
+    @objc func changeLanguage(){
+    
+    
+    print("changging language")
+        self.setButtonTitleAsChosenLanguage()
+    
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.setButtonTitleAsChosenLanguage()
@@ -75,8 +85,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         }
         authUI?.delegate = self
         
-        
-        
         self.revealViewController().frontViewController.view.isUserInteractionEnabled = false
     }
     
@@ -93,6 +101,14 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
         self.shareButton.setTitle(LanguageHelper.getString(key: "SHARE"), for: .normal)
         self.homeButton.setTitle(LanguageHelper.getString(key: "HOME"), for: .normal)
         self.logoutButton.setTitle(LanguageHelper.getString(key: "LOGOUT"), for: .normal)
+        
+//        self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"),\((defaults.object(forKey: "displayName"))"), for: .normal)f
+//
+        
+        self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(defaults.object(forKey: "displayName")!)", for: .normal)
+        
+ 
+    
 
         self.photoImageView.layer.cornerRadius = 40
         self.photoImageView.clipsToBounds = true
@@ -365,9 +381,6 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
             self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(user!.displayName ?? "")", for: .normal)
             self.loginButton.isEnabled = false
             self.logoutButton.isEnabled = true
-            
-            
-            
             
         }
     }

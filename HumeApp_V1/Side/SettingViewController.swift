@@ -34,6 +34,7 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         self.popView.layer.cornerRadius = 10
         self.cancelButton.layer.cornerRadius = 10
@@ -115,6 +116,9 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LanguageChanged"), object: nil)
                 
                 self.refresh()
+                
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: "changeLanguage"), object: nil, userInfo: nil)
              
             }
             
@@ -125,6 +129,9 @@ class SettingViewController: UIViewController,UIGestureRecognizerDelegate {
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "LanguageChanged"), object: nil)
                 self.refresh()
+                
+                NotificationCenter.default.post(
+                    name: Notification.Name(rawValue: "changeLanguage"), object: nil, userInfo: nil)
                 
             }
             

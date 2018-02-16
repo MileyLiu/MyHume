@@ -16,6 +16,8 @@ class TabBarViewController: UITabBarController {
         
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: NSNotification.Name(rawValue:"changeLanguage"), object: nil)
+        
         
       let items = self.customTabbar.items!
      
@@ -31,7 +33,39 @@ class TabBarViewController: UITabBarController {
        
         // Do any additional setup after loading the view.
     }
-
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let items = self.customTabbar.items!
+        
+        var titles = [LanguageHelper.getString(key: "HOME"),LanguageHelper.getString(key: "TRACK"),LanguageHelper.getString(key: "NEWS"),LanguageHelper.getString(key: "LOCATION")]
+        //        ,LanguageHelper.getString(key: "SPECIAL")]
+        
+        
+        for i in 0..<items.count{
+            items[i].title = titles[i]
+            
+        }
+    }
+    
+    
+    @objc func changeLanguage(){
+        
+        
+        print("changging language")
+        let items = self.customTabbar.items!
+        
+        var titles = [LanguageHelper.getString(key: "HOME"),LanguageHelper.getString(key: "TRACK"),LanguageHelper.getString(key: "NEWS"),LanguageHelper.getString(key: "LOCATION")]
+        //        ,LanguageHelper.getString(key: "SPECIAL")]
+        
+        
+        for i in 0..<items.count{
+            items[i].title = titles[i]
+            
+        }
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

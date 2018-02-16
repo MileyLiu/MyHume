@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         LanguageHelper.shareInstance.initUserLanguage()
         
+       
+        
         UINavigationBar.appearance().tintColor = mainColor
 
         GMSServices.provideAPIKey(APIKey)

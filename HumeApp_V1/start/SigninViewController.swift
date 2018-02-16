@@ -89,9 +89,9 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
                     
                     
                     self.present(sucessAlert, animated: true, completion: {
-//                        self.dismiss(animated: true, completion: nil)
+                        //                        self.dismiss(animated: true, completion: nil)
                     })
-                  
+                    
                     
                 })
                 
@@ -114,17 +114,11 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
             if Auth.auth().currentUser != nil {
                 print("existing user")
                 
-                
-                
             }else {
                 print("not signin")
-                
-                
+
             }
         }
-        
-        
-        
         
     }
     
@@ -161,7 +155,7 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
     @IBAction func googleSignin(_ sender: Any) {
         
         GIDSignIn.sharedInstance().signIn()
-       
+        
         let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
         
         
@@ -174,7 +168,7 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
     @IBAction func emailLogin(_ sender: Any) {
         
         if (self.emailTextfield.text?.isEmpty)! {
-           let alert  = getSimpleAlert(titleString: fillErrorString, messgaeLocizeString: fillErrorString)
+            let alert  = getSimpleAlert(titleString: fillErrorString, messgaeLocizeString: fillErrorString)
             self.present(alert, animated: true, completion: nil)
             
         }
@@ -189,49 +183,42 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
                     print("emailauth error\(error.localizedDescription)")
                     
                     let alert  = getSimpleAlert(titleString: "ERROR", messgaeLocizeString:error.localizedDescription )
-                   
+                    
                     self.present(alert, animated: true, completion: nil)
                     
-
+                    
                     Auth.auth().createUser(withEmail: self.emailTextfield.text!, password: self.passwordTextField.text!, completion: { (user, error) in
                         
                         if let error = error{
                             
-                             print("emailauth error2\(error.localizedDescription)")
-                          
+                            print("emailauth error2\(error.localizedDescription)")
+                            
                             let alert  = getSimpleAlert(titleString: "ERROR", messgaeLocizeString:error.localizedDescription )
                             
                             self.present(alert, animated: true, completion: nil)
-                           
+                            
                         }
                         else{
                             self.defaults.set(user?.refreshToken, forKey: "token")
                             self.defaults.set(user?.displayName, forKey: "displayName")
-                                print("\(user?.displayName),\(user?.refreshToken)")
+                            print("\(user?.displayName),\(user?.refreshToken)")
                             
-                            let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
-                            self.present(sucessAlert, animated: true, completion: nil)
+                            self.loginSucess()
                         }
-                       
+                        
                     })
-                
+                    
                     return
                 }
-                
+                    
                 else{
                     
-
+                    
                     self.defaults.set(user?.refreshToken, forKey: "token")
                     self.defaults.set(user?.displayName, forKey: "displayName")
-                      print("\(user?.displayName),\(user?.refreshToken)")
-                    
-                    let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
-                    self.present(sucessAlert, animated: true, completion: nil)
+                    print("\(user?.displayName),\(user?.refreshToken)")
+                    self.loginSucess()
                 }
-//                print("\(user?.displayName),\(user?.refreshToken)")
-                
-            
-                
             }
         }
         
@@ -250,7 +237,8 @@ class SigninViewController: UIViewController ,UITextFieldDelegate,GIDSignInUIDel
     
     func loginSucess(){
         
-        
+        let sucessAlert = getSimpleAlert(titleString:LanguageHelper.getString(key: "LOGIN_T"), messgaeLocizeString: LanguageHelper.getString(key: "LOGIN_MSG"))
+        self.present(sucessAlert, animated: true, completion: nil)
     }
     
     
