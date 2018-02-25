@@ -105,11 +105,17 @@ class SideMenuViewController: UIViewController,SFSafariViewControllerDelegate,TW
 //        self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"),\((defaults.object(forKey: "displayName"))"), for: .normal)f
 //
         
-        self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME"))\(defaults.object(forKey: "displayName")!)", for: .normal)
+        
+        if let name = defaults.object(forKey: "displayName"){
+            
+             self.loginButton.setTitle("\(LanguageHelper.getString(key: "WELCOME")),\(name)", for: .normal)
+        }else{
+             self.loginButton.setTitle(LanguageHelper.getString(key: "WELCOME"), for: .normal)
+        }
+        
+       
         
  
-    
-
         self.photoImageView.layer.cornerRadius = 40
         self.photoImageView.clipsToBounds = true
         

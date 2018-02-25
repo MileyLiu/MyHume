@@ -82,6 +82,7 @@
 		1655B3001FD9EF8B000A8656 /* ChatDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */; };
 		165A63D11FDA60650017DB6D /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A63D01FDA60650017DB6D /* MessageModel.swift */; };
 		165CF5451F82E952008EB43B /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165CF5441F82E952008EB43B /* tools.swift */; };
+		166C5CEF203A531E00B3DB11 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166C5CEE203A531E00B3DB11 /* CoreLocation.framework */; };
 		167602681F9084F0009DECA4 /* PriorityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167602671F9084F0009DECA4 /* PriorityViewController.swift */; };
 		1676026A1F908620009DECA4 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167602691F908620009DECA4 /* OrderViewController.swift */; };
 		168F43B11FA2E673006AD409 /* RealTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F43B01FA2E673006AD409 /* RealTime.swift */; };
@@ -221,6 +222,7 @@
 		1655B2FF1FD9EF8B000A8656 /* ChatDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataSource.swift; sourceTree = "<group>"; };
 		165A63D01FDA60650017DB6D /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		165CF5441F82E952008EB43B /* tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
+		166C5CEE203A531E00B3DB11 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		167602671F9084F0009DECA4 /* PriorityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityViewController.swift; sourceTree = "<group>"; };
 		167602691F908620009DECA4 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		168F43B01FA2E673006AD409 /* RealTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTime.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166C5CEF203A531E00B3DB11 /* CoreLocation.framework in Frameworks */,
 				16496740200448B200B84D21 /* Twitter.framework in Frameworks */,
 				162D844F1FC7D4AA0036377A /* Bolts.framework in Frameworks */,
 				162D84501FC7D4AA0036377A /* FBSDKCoreKit.framework in Frameworks */,
@@ -609,6 +612,7 @@
 		24A2ED7B8AAEF281A4705F9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				166C5CEE203A531E00B3DB11 /* CoreLocation.framework */,
 				1649673F200448B200B84D21 /* Twitter.framework */,
 				16DC751E1F956EBB00D17D6E /* Bolts.framework */,
 				16DC75201F956EBC00D17D6E /* FBSDKCoreKit.framework */,
@@ -723,7 +727,7 @@
 				TargetAttributes = {
 					161A1C3D1F7DB5A800362AFC = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1351,7 +1355,7 @@
 				CODE_SIGN_ENTITLEMENTS = HumeApp_V1/HumeApp_V1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: miley.l@humeplaster.com.au (T7QY99PAB8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5654CYM4NV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1374,8 +1378,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(PROJECT_DIR) $(SRCROOT)/Frameworks  ~/Documents/FacebookSDK";
 				PRODUCT_BUNDLE_IDENTIFIER = com.humeplaster.myhume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d7715f23-1b4c-4100-aa29-9815ae237fa6";
+				PROVISIONING_PROFILE_SPECIFIER = 2018DevPro;
 				SWIFT_OBJC_BRIDGING_HEADER = HumeApp_V1/BridgeHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1391,7 +1395,7 @@
 				CODE_SIGN_ENTITLEMENTS = HumeApp_V1/HumeApp_V1.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Hume Plasterboard Pty Ltd (5654CYM4NV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5654CYM4NV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1414,8 +1418,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(PROJECT_DIR) $(SRCROOT)/Frameworks  ~/Documents/FacebookSDK";
 				PRODUCT_BUNDLE_IDENTIFIER = com.humeplaster.myhume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d7715f23-1b4c-4100-aa29-9815ae237fa6";
+				PROVISIONING_PROFILE_SPECIFIER = 2018DevPro;
 				SWIFT_OBJC_BRIDGING_HEADER = HumeApp_V1/BridgeHeader.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

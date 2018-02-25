@@ -12,20 +12,21 @@ import SVProgressHUD
 import SDWebImage
 import ObjectMapper
 //import SafariServices
-import GoogleMaps
-import GooglePlaces
+//import GoogleMaps
+//import GooglePlaces
 import SwiftGifOrigin
+import CoreLocation
 
 
-class NewHomeViewController: UIViewController,GMSMapViewDelegate
+
+class NewHomeViewController: UIViewController
+//    ,GMSMapViewDelegate
     ,UITableViewDelegate,UITableViewDataSource,SWRevealViewControllerDelegate
     //,SFSafariViewControllerDelegate
     
     
 {
-    
-    
-    
+
     var sidebarMenuOpen :ObjCBool = false
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -54,9 +55,10 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
     //location init
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
-    var placesClient: GMSPlacesClient!
-    var likelyPlaces: [GMSPlace] = []
-    
+//    var placesClient: GMSPlacesClient!
+//    var likelyPlaces: [GMSPlace] = []
+//    var selectedPlace: GMSPlace?
+//
     override func viewWillAppear(_ animated: Bool) {
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -64,7 +66,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-        placesClient = GMSPlacesClient.shared()
+//        placesClient = GMSPlacesClient.shared()
         
     
     }
@@ -76,7 +78,19 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(changeLanguage), name: NSNotification.Name(rawValue:"changeLanguage"), object: nil)
         
         
-    
+        self.locationManager.startUpdatingLocation()
+        
+        if CLLocationManager.locationServicesEnabled(){
+            
+            print("locationServicesEnabled")
+//
+            
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+        
+//        placesClient = GMSPlacesClient.shared()
         
         
         if self.revealViewController() != nil {
@@ -106,14 +120,8 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         }
         
         //get current loaction
-        locationManager.delegate = self
-        locationManager = CLLocationManager()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 50
-        locationManager.startUpdatingLocation()
         
-        placesClient = GMSPlacesClient.shared()
+     
         
         loadData()
         setupWeatherView()
@@ -160,7 +168,7 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
-        placesClient = GMSPlacesClient.shared()
+//        placesClient = GMSPlacesClient.shared()
      
         
     }
@@ -184,7 +192,16 @@ class NewHomeViewController: UIViewController,GMSMapViewDelegate
         
         let timeBucket = getTimeBucket()
     
-//        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "",weatherIamge: "")
+        weatherView.bindWithData(bgImageName: "", timeBucket: timeBucket, temperature: "",weatherIamge: "")
+        
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+//        placesClient = GMSPlacesClient.shared()
+        
         
         weatherView.forecastTableView.delegate = self
         weatherView.forecastTableView.dataSource = self
@@ -637,9 +654,15 @@ extension NewHomeViewController: CLLocationManagerDelegate{
     
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
+//        let location: CLLocation = locations.last!
+      
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate
+        else{
+            return
+        }
         
-        listLikelyPlaces()
+        print("locations=\(locValue.latitude),\(locValue.longitude)")
+      
     }
     
     // Handle authorization for the location manager.
@@ -653,6 +676,9 @@ extension NewHomeViewController: CLLocationManagerDelegate{
         case .notDetermined:
             print("Location status not determined.")
             
+            self.locationManager.requestAlwaysAuthorization()
+            self.locationManager.requestWhenInUseAuthorization()
+            
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
             currentLocation =  manager.location
@@ -664,6 +690,8 @@ extension NewHomeViewController: CLLocationManagerDelegate{
                 
             }
         }
+        
+      
     }
     
     // Handle location manager errors.
@@ -676,31 +704,7 @@ extension NewHomeViewController: CLLocationManagerDelegate{
 //        self.present(networkAlert, animated: true, completion: nil)
         
     }
-    // Populate the array with the list of likely places.
-    func listLikelyPlaces() {
-        // Clean up from previous sessions.
-        likelyPlaces.removeAll()
-        
-        placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
-            if let error = error {
-                // TODO: Handle the error.
-                print("Current Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            // Get likely places and add to the list.
-            if let likelihoodList = placeLikelihoods {
-                for likelihood in likelihoodList.likelihoods {
-                    let place = likelihood.place
-                    self.likelyPlaces.append(place)
-                }
-            }
-        })
-    }
-    
-
-    
-    
+   
     
 }
 
